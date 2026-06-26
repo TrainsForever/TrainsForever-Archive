@@ -74,4 +74,4 @@ NS 1066 has become one of my most frequently documented Norfolk Southern Heritag
 
 ⸻
 
-- [🚂 NS 1066 – New York Central](ns-1066-new-york-central.md)
+⬅️ [Back to Norfolk Southern Heritage Collection](norfolk-southern-heritage.md)
