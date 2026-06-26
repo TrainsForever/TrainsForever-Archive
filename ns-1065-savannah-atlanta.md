@@ -20,6 +20,7 @@ Welcome to the Savannah & Atlanta Heritage Exhibit.
 
 ✅ Leading Catch Documented
 
+---
 
 📊 Museum Statistics
 
