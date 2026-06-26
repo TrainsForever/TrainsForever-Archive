@@ -20,6 +20,23 @@ Welcome to the Savannah & Atlanta Heritage Exhibit.
 
 ✅ Leading Catch Documented
 
+
+📊 Museum Statistics
+
+📸 Documented Catches: 6
+
+🚂 Leading Catches: 4
+
+🚃 Trailing Catches: 2
+
+🎥 Archived Videos: 6
+
+📷 Photographs Archived: Updating…
+
+📍 Locations Documented: Updating…
+
+🤝 Railfan Companions: 3
+
 ---
 
 ## 🎥 Best YouTube Video
