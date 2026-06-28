@@ -35,7 +35,17 @@ This exhibit preserves my personal history with NS 1067, documenting every catch
 
 🤝 **Railfan Companions:** Alex
 
+---
 
+## 📸 Featured Photograph
+
+🖼️ *Featured photo will appear here.*
+
+📷 Photographer: TrainsForever
+
+🏷️ Railfan Companion: @Alex W's Trains
+
+📝 This section highlights one of the best photographs documenting this locomotive. Each exhibit will feature a different image chosen from my personal archive.
 
 ## 📝 Curator's Notes
 
