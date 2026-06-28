@@ -37,7 +37,7 @@ This exhibit preserves my personal history with NS 1067, documenting every catch
 
 ## 🎥 Featured YouTube Video
 
-🎬 **Featured Video:** [Your Video Title](https://youtu.be/G78Q38mW65I)
+🎬 **Featured Video:** [](https://youtu.be/G78Q38mW65I)
 
 This video has been selected as the featured recording for the NS 1067 Reading Heritage exhibit.
 
