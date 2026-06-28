@@ -49,6 +49,12 @@ This exhibit preserves my personal history with NS 1067, documenting every catch
 
 🏷️ Railfan Companion: Alex
 
+## 📅 Latest Documented Catch
+
+**May 2023**
+
+The most recent documented catch of NS 1067 occurred in May 2023. 
+
 📝 This section highlights one of the best photographs documenting this locomotive. Each exhibit will feature a different image chosen from my personal archive.
 
 ## 📝 Curator's Notes
