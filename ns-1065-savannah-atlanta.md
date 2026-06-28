@@ -57,7 +57,9 @@ Photograph by TrainsForever.*
 
 ## 🤝 Railfan Companions
 
-Alex, Jacob, Connor 
+•💙Alex,
+•🤍Jacob,
+•💜Connor 
 
 ---
 
