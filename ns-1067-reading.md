@@ -39,7 +39,7 @@ This exhibit preserves my personal history with NS 1067, documenting every catch
 
 ## 📸 Featured Photograph
 
-🖼️ *Featured photo will appear here.*
+2B300FD7-DBFF-4118-A1AF-5ED023671BEB.png
 
 📷 Photographer: TrainsForever
 
