@@ -8,7 +8,7 @@ This exhibit preserves my personal history with NS 1068, documenting every catch
 
 ## 📸 Museum Record
 
-**Documented Catches:** 6
+**Documented Catches:** 7
 
 ## 🎯 Museum Status
 
