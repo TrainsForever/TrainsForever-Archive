@@ -43,11 +43,11 @@ This exhibit preserves my personal history with NS 1067, documenting every catch
 
 ![NS 1067 – Reading](8F4E2628-D912-495E-B4B6-51C4448B8E50.png)
 
-*Reading Heritage Unit (NS 1067) leading through Indiana.
+*Reading Heritage Unit (NS 1067) leading through Leeseburg Indiana NS Marion branch.
 
 📷 Photographer: TrainsForever
 
-🏷️ Railfan Companion: @Alex W's Trains
+🏷️ Railfan Companion: Alex
 
 📝 This section highlights one of the best photographs documenting this locomotive. Each exhibit will feature a different image chosen from my personal archive.
 
