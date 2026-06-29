@@ -59,7 +59,7 @@ This video has been selected as the featured recording for the NS 1067 Reading H
 
 **May 2023**
 
-The most recent documented catch of NS 1067 occurred in May 2023. 
+The most recent documented catch of NS 1067 occurred in May 2023. NS Chicago Line, Goshen Indiana
 
 📝 This section highlights one of the best photographs documenting this locomotive. Each exhibit will feature a different image chosen from my personal archive.
 
