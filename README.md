@@ -67,11 +67,12 @@ The TrainsForever Archive Museum is organized into exhibits, each documenting a 
 - Canadian Pacific Military Collection (coming soon)
 
 ### 🚆 Additional Exhibits (coming soon)
+- The 250 Units
 - Steam Collection
 - Amtrak Collection
 - Special Interest Locomotives
 - Rare Consists
-- Smaller Railroads
+- Smaller Railroads (below class 1)
 
 ### 📖 Museum Features 
 - Statistics Hall
