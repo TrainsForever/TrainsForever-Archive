@@ -58,7 +58,7 @@ The most recent documented catch of NS 1071 will be added as the exhibit continu
 
 🎥 Featured YouTube Video
 
-🎬 Watch on YouTube: NS 1071 – Central Railroad of New Jersey Featured Video: ![The Jersey Central](https://youtu.be/LBq0vBA3G-8?is=-USgFOMwlWF13vD3)
+🎬 **Watch on YouTube:** [The Jersey Central](https://youtu.be/LBq0vBA3G-8?is=...)
 
 This featured video documents one of my encounters with NS 1071 – Central Railroad of New Jersey and has been selected for preservation in the TrainsForever Archive Museum as a representative recording of this heritage unit. Leading it's train through Goshen Indiana, on the NS Marian Branch to Elkhart Yard. 
 
