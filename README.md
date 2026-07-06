@@ -58,7 +58,7 @@ The TrainsForever Archive Museum is organized into exhibits, each documenting a 
 
 ### 🚂 Heritage Collections
 - [🚂 Norfolk Southern Heritage Collection](norfolk-southern-heritage.md)
-- (in progress)
+- (NS in progress)
 - CSX Heritage Collection (Next up)
 - Union Pacific Heritage Collection (coming soon)
 - Canadian National Heritage Collection (coming soon)
