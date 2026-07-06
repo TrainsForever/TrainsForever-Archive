@@ -64,4 +64,6 @@ At the time of this exhibit's publication, I have documented **4 catches**, incl
 Every documented catch helps preserve the history of this heritage unit for future railfans to enjoy.
 
 
+---
 
+⬅️ [Back to Norfolk Southern Heritage Collection](norfolk-southern-heritage.md)
