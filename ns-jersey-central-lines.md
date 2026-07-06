@@ -28,15 +28,15 @@ Documented Catches: 6
 
 📸 Documented Catches: 6
 
-🚂 Leading Catches: Updating…
+🚂 Leading Catches: 3
 
-🚃 Trailing Catches: Updating…
+🚃 Trailing Catches: 2
 
-🎥 Archived Videos: Updating…
+🎥 Archived Videos: 5
 
 📷 Archived Photographs: Updating…
 
-📍 Documented Locations: Updating…
+📍 Documented Locations: Nappanee, Elkhart, Osceola, Goshen, (Indiana)
 
 🤝 Railfan Companions: 1
 
@@ -50,7 +50,8 @@ Documented Catches: 6
 
 📅 Latest Documented Catch
 
-Updating…
+November, 2024
+NS 1071 was spotted leading it's train on the NS marian Branch in late October or Nevomber 1st, 2024. I have not spotted 1071 since. 
 
 The most recent documented catch of NS 1071 will be added as the exhibit continues to grow.
 
