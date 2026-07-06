@@ -1,4 +1,12 @@
 # TrainsForever-Archive
+
+## 💙 Why I Built This Museum
+
+This museum exists because I wanted it to.
+
+I love documenting trains, preserving memories, and creating projects that I'm excited about. Since I was already building it for myself, I figured... why not open the doors and invite everyone else in too?
+
+This museum started as my personal collection, but I wanted to share it with anyone who enjoys railroading. Whether you're a longtime subscriber, a fellow railfan, or just stopping by, I hope you enjoy exploring the collection as much as I've enjoyed building it.
 The Official TransForever Archive Museum!
 
 Preserving a lifetime of railfan history.
