@@ -57,20 +57,20 @@ Museum Exhibits
 The TrainsForever Archive Museum is organized into exhibits, each documenting a different part of my railfan journey. Every exhibit continues to grow as new locomotives are photographed, videos are created, and stories are added.
 
 ### 🚂 Heritage Collections
-- [🚂 Norfolk Southern Heritage Collection](norfolk-southern-heritage.md)
-- CSX Heritage Collection
-- Union Pacific Heritage Collection
-- Canadian National Heritage Collection
-- Canadian Pacific Military Collection
+- [🚂 Norfolk Southern Heritage Collection](norfolk-southern-heritage.md) in progress
+- CSX Heritage Collection (Next up)
+- Union Pacific Heritage Collection (coming soon)
+- Canadian National Heritage Collection (coming soon)
+- Canadian Pacific Military Collection (coming soon)
 
-### 🚆 Additional Exhibits
+### 🚆 Additional Exhibits (coming soon)
 - Steam Collection
 - Amtrak Collection
 - Special Interest Locomotives
 - Rare Consists
 - Smaller Railroads
 
-### 📖 Museum Features
+### 📖 Museum Features 
 - Statistics Hall
 - Current Hunt
 - Stories & Memories
