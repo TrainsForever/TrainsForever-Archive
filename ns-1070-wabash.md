@@ -52,7 +52,7 @@ Documented Catches: 4
 
 March 2024
 
-The most recent documented catch of NS 1070 will be added as the exhibit continues to grow.
+The NS 1070 was last spotted in Goshen in March of 2024 with my favorite heritage unit 1072-Illinois Terminal leading. The most recent documented catch of NS 1070 will be added as the exhibit continues to grow.
 
 ⸻
 
