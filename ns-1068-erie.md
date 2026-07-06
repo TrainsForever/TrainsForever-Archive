@@ -64,11 +64,8 @@ Locomotive: NS 1068 (Erie Heritage Unit)
 Date: May 12, 2026
 Location: NS Chicago Line
 Notes:
-Observed hauling a disabled Amtrak Charger back toward Chicago.
+Observed hauling a wrecked Amtrak Charger back toward Chicago.
 Last documented catch as of May 12, 2026.
-
-Notes:
-Last documented catch of NS 1068 as of December 2025. Awaiting the next sighting.
 
 
 ## 📝 Curator's Notes
