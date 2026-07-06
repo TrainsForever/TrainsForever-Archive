@@ -34,7 +34,7 @@ Welcome to the Savannah & Atlanta Heritage Exhibit.
 
 📷 Photographs Archived: Updating…
 
-📍 Locations Documented: Updating…
+📍 Locations Documented: Nappanee IN. Goshen IN. Elkhart IN. 
 
 🤝 Railfan Companions: 3
 
@@ -44,7 +44,7 @@ Welcome to the Savannah & Atlanta Heritage Exhibit.
 
 🎬 Watch on YouTube: [🎬 NS 1065 – Savannah & Atlanta Featured Video](https://youtu.be/zICZFHd_c1M)
 
-This featured video documents one of my encounters with NS 1065 – Savannah & Atlanta and has been selected for preservation in the TrainsForever Archive Museum as a representative recording of this heritage unit.
+This featured video documents one of my sightings of NS 1065 – Savannah & Atlanta, and has been selected for preservation in the TrainsForever Archive Museum as a representative recording of this heritage unit.
 
 ## 📸 Featured Photograph
 
