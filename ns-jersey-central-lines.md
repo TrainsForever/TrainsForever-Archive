@@ -83,4 +83,4 @@ Every documented catch helps preserve the history of this heritage unit for futu
 
 ⸻
 
-[⬅️ Back to Norfolk Southern Heritage Collection](norfolk-southern-heritage-collection.md)
+[⬅️ Back to Norfolk Southern Heritage Collection](norfolk-southern-heritage.md)
