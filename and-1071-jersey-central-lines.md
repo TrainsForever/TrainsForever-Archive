@@ -66,7 +66,7 @@ This featured video documents one of my encounters with NS 1071 – Central Rail
 
 📸 Featured Photograph
 
-[](930A2D28-C903-4CA0-B5DD-68E04BC09EC0.png)
+![NS 1071 – Central Railroad of New Jersey](930A2D28-C903-4CA0-B5DD-68E04BC09EC0.png)
 
 Featured Photograph — NS 1071 – Central Railroad of New Jersey. This image has been selected for preservation in the TrainsForever Archive Museum as a representative photograph of the CNJ Heritage Unit. Photograph by TrainsForever.
 
