@@ -87,7 +87,10 @@ The TrainsForever Archive Museum is organized into exhibits, each documenting a 
 
 **The TrainsForever Archive Museum is a living collection. Every exhibit is continually expanded as new locomotives are photographed and documented.**
 
-## Community Exhibits! (new thought, coming soon)
+## Community Exhibits! 
+(new thought, possibly coming soon)
+
+
 
 🏛️ TrainsForever Archive Museum
 
