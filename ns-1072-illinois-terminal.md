@@ -22,6 +22,7 @@ This exhibit includes a few extra photographs, memories, and personal highlights
 Updating...
 
 📍 Last Documented Catch:
+
 Late August, 2025
 
 ## 🏛️ Museum Status
