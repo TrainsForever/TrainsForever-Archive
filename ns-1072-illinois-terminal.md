@@ -27,8 +27,11 @@ Late August, 2025
 ## 🏛️ Museum Status
 
 **Exhibit Status:** 🟢 Complete
+
 **Photographed:** ✅
+
 **Video Recorded:** ✅
+
 **Caught Leading:** ✅
 
 🤝 Railfan Companions:
