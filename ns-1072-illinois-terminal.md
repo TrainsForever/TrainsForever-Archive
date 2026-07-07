@@ -2,9 +2,9 @@
 
 NS 1072 – Illinois Terminal has always been my favorite Norfolk Southern Heritage Unit.
 
-Every Heritage Unit represents an important piece of railroad history, and each one has its own unique story. However, Illinois Terminal has always stood out to me. From its distinctive green paint scheme to the memories I've made documenting it, this locomotive has become the Heritage Unit I look forward to seeing the most.
+Every Heritage Unit represents an important piece of railroad history, and each one has its own unique story. The Illinois Terminal has always stood out to me. The fun memories documenting it, like racing it with my cars or chasing it with my bikes with Alex. This  locomotive has become the Heritage Unit I look forward to seeing the most.
 
-This exhibit includes a few additional photographs, memories, and personal highlights to reflect the special place NS 1072 holds in my railfanning journey. While every exhibit in the TrainsForever Archive Museum is equally important, this one represents my personal favorite.
+This exhibit includes a few extra photographs, memories, and personal highlights to the railfanning journey. While every exhibit in the TrainsForever Archive Museum is equally important, this one is my personal favorite.
 
 📸 Documented Catches:
 12
