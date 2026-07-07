@@ -6,6 +6,29 @@ Every Heritage Unit represents an important piece of railroad history, and each 
 
 This exhibit includes a few additional photographs, memories, and personal highlights to reflect the special place NS 1072 holds in my railfanning journey. While every exhibit in the TrainsForever Archive Museum is equally important, this one represents my personal favorite.
 
+📸 Documented Catches:
+12
+
+🚂 Leading Catches:
+6
+
+🚋 Trailing Catches:
+2
+
+🎥 Documented Videos:
+8
+
+📷 Documented Photographs:
+Updating...
+
+📍 Last Documented Catch:
+Late August, 2025
+
+🤝 Railfan Companions:
+💙 Alex
+💜 Connor
+❤️ Grey
+
 ## ⭐ Personal Highlights
 
 🚂 Favorite Norfolk Southern Heritage Unit
