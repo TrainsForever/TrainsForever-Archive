@@ -6,7 +6,7 @@ This museum exists because I wanted it to.
 
 I love documenting trains, preserving memories, and creating projects that I'm excited about. Since I was already building it for myself, I figured why not build it into a public museum for everyone. I care about my projects and spend tons of time on them. Thank you for visiting! This museum will always be updating and changing.
 
-## The Beggining
+## The Beginning
 This museum started as my personal collection, i just used the notes app. It got boring so i decoded to grow it in a fun clever way. But I wanted to share it with anyone who enjoys railroading. Whether you're a longtime subscriber, a fellow railfan, or just stopping by, I hope you enjoy exploring the collection as much as I've enjoyed building it.
 The Official TrainsForever Archive Museum!
 
