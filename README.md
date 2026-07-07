@@ -1,4 +1,4 @@
-## Welcome to the TrainsForever Museum!
+Welcome to the TrainsForever Museum!
 
 ## 💙 Why I Built This Museum
 
