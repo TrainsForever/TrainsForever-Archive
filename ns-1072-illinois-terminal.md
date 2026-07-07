@@ -24,6 +24,13 @@ Updating...
 📍 Last Documented Catch:
 Late August, 2025
 
+## 🏛️ Museum Status
+
+**Exhibit Status:** 🟢 Complete
+**Photographed:** ✅
+**Video Recorded:** ✅
+**Caught Leading:** ✅
+
 🤝 Railfan Companions:
 
 💙 Alex
@@ -43,11 +50,3 @@ Late August, 2025
 💙 Why It Matters:
 
 Illinois Terminal has inspired some of my favorite photographs, videos, and memories throughout my years of railfanning. Every time I see NS 1072, it reminds me why I enjoy documenting these incredible locomotives and preserving their history.
-
-
-## 🏛️ Museum Status
-
-**Exhibit Status:** 🟢 Complete
-**Photographed:** ✅
-**Video Recorded:** ✅
-**Caught Leading:** ✅
