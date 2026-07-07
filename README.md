@@ -18,6 +18,15 @@ Since the 2010s, I’ve documented heritage locomotives, commemorative locomotiv
 
 This museum is a living archive that continues to grow with every new catch.
 
+## 📊 Understanding Museum Statistics
+
+The TrainsForever Archive Museum separates **Documented Catches** from **Documented Videos**.
+
+- **Documented Catches** represent every encounter I have personally documented through either photography or videography.
+- **Documented Videos** represent only the encounters that were published as videos on my YouTube channel.
+
+Because of this, the number of documented catches may be higher than the number of documented videos. Some encounters were preserved through photographs only.
+
 
 ## Museum Standards
 
