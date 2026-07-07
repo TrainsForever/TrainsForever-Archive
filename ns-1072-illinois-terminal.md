@@ -33,7 +33,7 @@ Late August, 2025
 
 🚂 Favorite Norfolk Southern Heritage Unit
 
-📸 Favorite Photograph: updating..
+📸 Favorite Photograph: ![](IMG_3A89E3BA-1A2E-466F-9C0B-D2B62D80569A.jpeg)
 
 🎥 Favorite Video: updating..
 
