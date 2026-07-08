@@ -51,9 +51,10 @@ Late August, 2025
 
 📍 Favorite Catch Location: Goshen Indiana
 
-💙 Why It Matters:
+## Story of our bike chases
 
-Illinois Terminal has inspired some of my favorite photographs, videos, and memories throughout my years of railfanning. Every time I see NS 1072, it reminds me why I enjoy documenting these incredible locomotives and preserving their history.
+Getting a selfie from the bikes with alex chasing 1072 one handed was a crazy experience. its not the only heritage weve chased on the bikes! we chased 8102 (Pennsylvania) from Elkhart to Chesterton. and 1072 (Illinois Terminal) from Elkhart to Milford. We chased a new CPKC from Elkhart to Mishawaka on the bikes as well. 
+
 
 
 ◀️ [Back to Norfolk Southern Collection](norfolk-southern-heritage.md)
