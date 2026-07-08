@@ -49,7 +49,7 @@ Late August, 2025
 
 🎥 Favorite Video: [Illinois Terminal chase](https://youtu.be/ATHFicFQbu0?is=)
 
-📍 Favorite Catch Location: updating..
+📍 Favorite Catch Location: Goshen Indiana
 
 💙 Why It Matters:
 
