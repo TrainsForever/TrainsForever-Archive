@@ -47,7 +47,7 @@ Late August, 2025
 
 📸 Favorite Photograph: ![](IMG_3A89E3BA-1A2E-466F-9C0B-D2B62D80569A.jpeg)
 
-🎥 Favorite Video: updating..
+🎥 Favorite Video: [Illinois Terminal chase](https://youtu.be/ATHFicFQbu0?is=)
 
 📍 Favorite Catch Location: updating..
 
