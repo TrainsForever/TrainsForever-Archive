@@ -56,4 +56,4 @@ Late August, 2025
 Illinois Terminal has inspired some of my favorite photographs, videos, and memories throughout my years of railfanning. Every time I see NS 1072, it reminds me why I enjoy documenting these incredible locomotives and preserving their history.
 
 
-◀️ ![Back to Norfolk Southern Collection](norfolk-southern-heritage.md)
+◀️ [Back to Norfolk Southern Collection](norfolk-southern-heritage.md)
