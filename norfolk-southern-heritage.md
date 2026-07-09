@@ -18,7 +18,7 @@ Locomotives are organized by road number. Click any locomotive below to enter it
 * [🚂 NS 1070 – Wabash](ns-1070-wabash.md)
 * [🚂 NS 1071 – Jersey Central Lines](ns-jersey-central-lines.md)
 * [🚂 NS 1072 – Illinois Terminal](ns-1072-illinois-terminal.md)
-* 🚂 NS 1073 – Penn Central
+* [🚂 NS 1073 – Penn Central](ns-1073-penn-central.md)
 * 🚂 NS 1074 – Lackawanna
 * 🚂 NS 1080 – Delaware & Hudson
 * 🚂 NS 4851 – Tennessee, Alabama & Georgia (TAG)
