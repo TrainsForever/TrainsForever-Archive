@@ -73,6 +73,16 @@ October 2024, NS Marion Branch, Goshen Indiana.
 
 NS 1065 is the Savannah & Atlanta heritage locomotive. This exhibit documents every encounter, photograph, and video captured by TrainsForever as part of the Archive Museum.
 
+## 🚂 Locomotive Information
+
+**Heritage Unit:** NS 1065
+**Original Railroad:** Savannah & Atlanta Railroad
+**Years in Operation:** 1908–1962
+**Locomotive Model:** EMD SD70ACe
+**Builder:** Electro-Motive Diesel (EMD)
+**Horsepower:** 4,300 HP
+**Heritage Paint Unveiled:** 2012
+**Current Status:** Active
 ---
 
 ⬅️ [Back to Norfolk Southern Heritage Collection](norfolk-southern-heritage.md)
