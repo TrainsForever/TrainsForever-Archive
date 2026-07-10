@@ -37,7 +37,6 @@ Locomotives are organized by road number. Click any locomotive below to enter it
 
 <section style="text-align:center; margin:60px 0;">
 
-<h2>🏛️ Return</h2>
 
 <a href="../" style="
 background:#d4af37;
@@ -48,11 +47,8 @@ text-decoration:none;
 font-weight:bold;
 font-size:18px;
 display:inline-block;
-margin-top:20px;
 ">
-
 🏛️ Return to Museum Lobby
-
 </a>
 
 </section>
