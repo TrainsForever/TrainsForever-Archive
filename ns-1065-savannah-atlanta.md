@@ -65,9 +65,10 @@ Photograph by TrainsForever.*
 💜 Connor
 ---
 
-## 📅 Latest Documented Catch
-
-October 2024, NS Marion Branch, Goshen Indiana. 
+October 2024
+NS Marion Branch
+Goshen, Indiana
+Leading
 
 ---
 
