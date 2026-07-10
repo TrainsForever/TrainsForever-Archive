@@ -33,5 +33,28 @@ Locomotives are organized by road number. Click any locomotive below to enter it
 * 🚂 NS 8114 – Norfolk Southern Railway (Original)
 
 ⸻
+<hr>
+
+<section style="text-align:center; margin:60px 0;">
+
+<h2>🏛️ Return</h2>
+
+<a href="../" style="
+background:#d4af37;
+color:black;
+padding:15px 30px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+font-size:18px;
+display:inline-block;
+margin-top:20px;
+">
+
+🏛️ Return to Museum Lobby
+
+</a>
+
+</section>
 
 🚧 Additional locomotive exhibits are continually expanded as new catches, videos, photographs, and stories are documented.
