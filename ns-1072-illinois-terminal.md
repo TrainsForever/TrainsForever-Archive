@@ -2,7 +2,7 @@
 
 NS 1072 – Illinois Terminal has always been my favorite Norfolk Southern Heritage Unit.
 
-Every Heritage Unit represents an important piece of railroad history, and each one has its own unique story. The Illinois Terminal has always stood out to me. The fun memories documenting it, like racing it with my cars or chasing it with my bikes with Alex. This  locomotive has become the Heritage Unit I look forward to seeing the most.
+Every Heritage Unit is an important piece of railroad history, and each one has its own unique story. The Illinois Terminal has always stood out to me. The fun memories documenting it, like racing it with my cars or chasing it with my bikes with Alex. This  locomotive has become the Heritage Unit I look forward to seeing the most.
 
 This exhibit includes a few extra photographs, memories, and personal highlights to the railfanning journey. While every exhibit in the TrainsForever Archive Museum is equally important, this one is my personal favorite.
 
@@ -53,7 +53,7 @@ Late August, 2025
 
 ## Story of our bike chases
 
-Getting a selfie from the bikes with alex chasing 1072 one handed was a crazy experience. its not the only heritage weve chased on the bikes! we chased 8102 (Pennsylvania) from Elkhart to Chesterton. and 1072 (Illinois Terminal) from Elkhart to Milford. We chased a new CPKC from Elkhart to Mishawaka on the bikes as well. 
+Getting a selfie from the bikes with alex chasing 1072 one handed was a crazy experience. it's not the only heritage we've chased on the bikes! We chased 8102 (Pennsylvania) from Elkhart to Chesterton. 1072 (Illinois Terminal) from Elkhart to Milford. We chased a new CPKC from Elkhart to Mishawaka on the bikes as well. Many more! 
 
 ## 🚂 Locomotive Information
 
