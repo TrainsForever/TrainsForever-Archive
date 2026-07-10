@@ -7,7 +7,6 @@ Every Heritage Unit is an important piece of railroad history, and each one has 
 This exhibit includes a few extra photographs, memories, and personal highlights to the railfanning journey. While every exhibit in the TrainsForever Archive Museum is equally important, this one is my personal favorite.
 
 ## Museum Record:
-12 documented catches 
 
 📸 Documented Catches:
 12
