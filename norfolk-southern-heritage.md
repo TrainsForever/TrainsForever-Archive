@@ -55,7 +55,7 @@ font-size:18px;
 display:inline-block;
 ">
 
-🏛️ Return to Museum Lobby
+[🏛️ Return to Museum Lobby](README.md)
 
 </a>
 
