@@ -89,6 +89,7 @@ NS 1066 has become one of my most frequently documented Norfolk Southern Heritag
 **Heritage Paint Unveiled:** 2012
 
 **Current Status:** Active
+
 ⸻
 
 ⬅️ [Back to Norfolk Southern Heritage Collection](norfolk-southern-heritage.md)
