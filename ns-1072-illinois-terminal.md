@@ -55,6 +55,22 @@ Late August, 2025
 
 Getting a selfie from the bikes with alex chasing 1072 one handed was a crazy experience. its not the only heritage weve chased on the bikes! we chased 8102 (Pennsylvania) from Elkhart to Chesterton. and 1072 (Illinois Terminal) from Elkhart to Milford. We chased a new CPKC from Elkhart to Mishawaka on the bikes as well. 
 
+## 🚂 Locomotive Information
 
+**Heritage Unit:** NS 1072
+
+**Original Railroad:** Illinois Terminal Railroad
+
+**Years in Operation:** 1896–1982
+
+**Locomotive Model:** EMD SD70ACe
+
+**Builder:** Electro-Motive Diesel (EMD)
+
+**Horsepower:** 4,300 HP
+
+**Heritage Paint Unveiled:** 2012
+
+**Current Status:** Active
 
 ◀️ [Back to Norfolk Southern Collection](norfolk-southern-heritage.md)
