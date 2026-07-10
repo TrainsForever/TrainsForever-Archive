@@ -6,7 +6,7 @@ Norfolk Southern Heritage Unit NS 1070 honors the legacy of the historic Wabash 
 
 This exhibit preserves my personal history with NS 1070, documenting every catch, photograph, video, and milestone as part of the TrainsForever Archive Museum. As additional encounters are documented, this exhibit will continue to grow and reflect my ongoing journey with the Wabash Heritage Unit.
 
-📸 Museum Record
+## 📸 Museum Record
 
 Documented Catches: 4
 
