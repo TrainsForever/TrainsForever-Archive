@@ -63,7 +63,23 @@ At the time of this exhibit's publication, I have documented **4 catches**, incl
 
 Every documented catch helps preserve the history of this heritage unit for future railfans to enjoy.
 
+## 🚂 Locomotive Information
 
+**Heritage Unit:** NS 1069
+
+**Original Railroad:** Virginian Railway
+
+**Years in Operation:** 1907–1959
+
+**Locomotive Model:** EMD SD70ACe
+
+**Builder:** Electro-Motive Diesel (EMD)
+
+**Horsepower:** 4,300 HP
+
+**Heritage Paint Unveiled:** 2012
+
+**Current Status:** Active
 ---
 
 ⬅️ [Back to Norfolk Southern Heritage Collection](norfolk-southern-heritage.md)
