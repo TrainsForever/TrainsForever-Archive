@@ -38,4 +38,8 @@ Within this exhibit you'll find railroad history, locomotive information, museum
 💙 Alex
 
 
+## 📝 Curator's Notes
 
+NS 1073 – Penn Central represents one of the shortest-lived railroads honored in Norfolk Southern's Heritage Program. Despite Penn Central operating for only eight years, its influence on American railroad history was significant, ultimately leading to the creation of Conrail.
+
+This exhibit preserves my documented encounters with NS 1073 through photographs, videos, and personal records. As additional encounters are documented, this exhibit will continue to grow as part of the TrainsForever Archive Museum.
