@@ -76,12 +76,19 @@ NS 1065 is the Savannah & Atlanta heritage locomotive. This exhibit documents ev
 ## 🚂 Locomotive Information
 
 **Heritage Unit:** NS 1065
+
 **Original Railroad:** Savannah & Atlanta Railroad
+
 **Years in Operation:** 1908–1962
+
 **Locomotive Model:** EMD SD70ACe
+
 **Builder:** Electro-Motive Diesel (EMD)
+
 **Horsepower:** 4,300 HP
+
 **Heritage Paint Unveiled:** 2012
+
 **Current Status:** Active
 ---
 
