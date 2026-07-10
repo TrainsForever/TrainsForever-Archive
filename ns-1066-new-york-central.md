@@ -72,6 +72,23 @@ December, 2025. NS Chicago Line. Elkhart yard East entrance. (North Freight)
 
 NS 1066 has become one of my most frequently documented Norfolk Southern Heritage Unit! most of my documented encounters have been leading catches, making this locomotive one of the most rewarding heritage units in my collection. As I continue documenting NS 1066, this exhibit will grow with additional photographs, videos, locations, and memories.
 
+## 🚂 Locomotive Information
+
+**Heritage Unit:** NS 1066
+
+**Original Railroad:** New York Central Railroad
+
+**Years in Operation:** 1853–1968
+
+**Locomotive Model:** EMD SD70ACe
+
+**Builder:** Electro-Motive Diesel (EMD)
+
+**Horsepower:** 4,300 HP
+
+**Heritage Paint Unveiled:** 2012
+
+**Current Status:** Active
 ⸻
 
 ⬅️ [Back to Norfolk Southern Heritage Collection](norfolk-southern-heritage.md)
