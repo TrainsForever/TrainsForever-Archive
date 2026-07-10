@@ -65,6 +65,25 @@ The most recent documented catch of NS 1067 occurred in May 2023. NS Chicago Lin
 
 ## 📝 Curator's Notes
 
-NS 1067 is currently my most documented Norfolk Southern Heritage Unit, with 13 documented catches. As additional photographs, videos, and memorable encounters are archived, this exhibit will continue to grow as part of the TrainsForever Archive Museum.
+NS 1067 is currently my most documented Norfolk Southern Heritage Unit, with 13 documented catches. As additional photographs, videos, and memorable encounters are archived, this exhibit will continue to grow as part of the TrainsForever Archive Museum. 
+
+## 🚂 Locomotive Information
+
+**Heritage Unit:** NS 1067
+
+**Original Railroad:** Reading Railroad
+
+**Years in Operation:** 1833–1976
+
+**Locomotive Model:** EMD SD70ACe
+
+**Builder:** Electro-Motive Diesel (EMD)
+
+**Horsepower:** 4,300 HP
+
+**Heritage Paint Unveiled:** 2012
+
+**Current Status:** Active
+
 
 ⬅️ [Back to Norfolk Southern Heritage Collection](norfolk-southern-heritage.md)
