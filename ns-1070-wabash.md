@@ -82,6 +82,23 @@ Although I have not yet documented NS 1070 leading a train, this exhibit preserv
 
 Every documented catch helps preserve the history of this heritage unit for future railfans to enjoy.
 
+## 🚂 Locomotive Information
+
+**Heritage Unit:** NS 1070
+
+**Original Railroad:** Wabash Railroad
+
+**Years in Operation:** 1877–1964
+
+**Locomotive Model:** EMD SD70ACe
+
+**Builder:** Electro-Motive Diesel (EMD)
+
+**Horsepower:** 4,300 HP
+
+**Heritage Paint Unveiled:** 2012
+
+**Current Status:** Active
 ⸻
 
 [⬅️ Back to Norfolk Southern Heritage Collection](norfolk-southern-heritage.md)
