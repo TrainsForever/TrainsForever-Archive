@@ -72,4 +72,22 @@ Last documented catch as of May 12, 2026.
 
 NS 1068 is one of the most recognizable locomotives in the Norfolk Southern Heritage Fleet. As additional photographs, videos, and documented catches are added, this exhibit will continue to grow as part of the TrainsForever Archive Museum.
 
+## 🚂 Locomotive Information
+
+**Heritage Unit:** NS 1068
+
+**Original Railroad:** Erie Railroad
+
+**Years in Operation:** 1832–1960
+
+**Locomotive Model:** EMD SD70ACe
+
+**Builder:** Electro-Motive Diesel (EMD)
+
+**Horsepower:** 4,300 HP
+
+**Heritage Paint Unveiled:** 2012
+
+**Current Status:** Active
+
 ⬅️ [Back to Norfolk Southern Heritage Collection](norfolk-southern-heritage.md)
