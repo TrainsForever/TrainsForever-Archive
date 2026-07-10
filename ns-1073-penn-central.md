@@ -38,16 +38,4 @@ Within this exhibit you'll find railroad history, locomotive information, museum
 💙 Alex
 
 
-## ⚡ Quick Facts
 
-Unit Number: NS 1073
-
-Heritage Railroad: Penn Central
-
-Heritage Paint Applied: 2012
-
-Model: EMD SD70ACe
-
-Horsepower: 4,300 HP
-
-Current Status: Active
