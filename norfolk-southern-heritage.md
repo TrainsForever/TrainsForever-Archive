@@ -35,8 +35,14 @@ Locomotives are organized by road number. Click any locomotive below to enter it
 ⸻
 <hr>
 
-<section style="text-align:center; margin:60px 0;">
+<hr>
 
+<p style="text-align:center;">
+🚧 Additional locomotive exhibits are continually expanded as new catches,
+videos, photographs, and stories are documented.
+</p>
+
+<section style="text-align:center; margin:60px 0;">
 
 <a href="../" style="
 background:#d4af37;
@@ -48,9 +54,9 @@ font-weight:bold;
 font-size:18px;
 display:inline-block;
 ">
+
 🏛️ Return to Museum Lobby
+
 </a>
 
 </section>
-
-🚧 Additional locomotive exhibits are continually expanded as new catches, videos, photographs, and stories are documented.
