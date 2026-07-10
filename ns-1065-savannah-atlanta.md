@@ -34,7 +34,10 @@ Welcome to the Savannah & Atlanta Heritage Exhibit.
 
 📷 Photographs Archived: Updating…
 
-📍 Locations Documented: Nappanee IN. Goshen IN. Elkhart IN. 
+📍 Locations Documented:
+• Nappanee, Indiana
+• Goshen, Indiana
+• Elkhart, Indiana
 
 🤝 Railfan Companions: 3
 
@@ -57,10 +60,9 @@ Photograph by TrainsForever.*
 
 ## 🤝 Railfan Companions
 
--💙Alex,
--🤍Jacob,
--💜Connor 
-
+💙 Alex
+🤍 Jacob
+💜 Connor
 ---
 
 ## 📅 Latest Documented Catch
