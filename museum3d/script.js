@@ -165,17 +165,9 @@ function animate() {
 }
 // ---------------- Mobile Touch ----------------
 
-let touchStartX = 0;
-let touchStartY = 0;
-
-document.addEventListener("touchstart", (event) => {
-
-    touchStartX = event.touches[0].clientX;
-    touchStartY = event.touches[0].clientY;
-
-});
-
 document.addEventListener("touchmove", (event) => {
+
+    event.preventDefault();
 
     const touch = event.touches[0];
 
@@ -187,6 +179,9 @@ document.addEventListener("touchmove", (event) => {
 
     touchStartX = touch.clientX;
     touchStartY = touch.clientY;
+
+}, { passive: false });
+
 
 });
 animate();
@@ -201,8 +196,5 @@ window.addEventListener("resize", () => {
   camera.updateProjectionMatrix();
 
   renderer.setSize(window.innerWidth, window.innerHeight);
-
-});
-
 
 });
