@@ -1,9 +1,4 @@
-function animate(){
-scene.add(frontRight);
-
-// =============================
-  import * as THREE from "three";
-
+import * as THREE from "three";
 
 // ---------------- Scene ----------------
 const scene = new THREE.Scene();
@@ -37,7 +32,7 @@ scene.add(sun);
 
 // ---------------- Floor ----------------
 const floor = new THREE.Mesh(
-  new THREE.PlaneGeometry(20,20),
+  new THREE.PlaneGeometry(20, 20),
   new THREE.MeshStandardMaterial({
     color: 0xeeeeee
   })
@@ -53,20 +48,20 @@ const wallMaterial = new THREE.MeshStandardMaterial({
 
 // ---------------- Back Wall ----------------
 const backWall = new THREE.Mesh(
-  new THREE.BoxGeometry(20,6,0.3),
+  new THREE.BoxGeometry(20, 6, 0.3),
   wallMaterial
 );
 
-backWall.position.set(0,3,-10);
+backWall.position.set(0, 3, -10);
 scene.add(backWall);
 
 // ---------------- Left Wall ----------------
 const leftWall = new THREE.Mesh(
-  new THREE.BoxGeometry(0.3,6,20),
+  new THREE.BoxGeometry(0.3, 6, 20),
   wallMaterial
 );
 
-leftWall.position.set(-10,3,0);
+leftWall.position.set(-10, 3, 0);
 scene.add(leftWall);
 
 // ---------------- Right Wall ----------------
@@ -80,48 +75,82 @@ scene.add(rightWall);
 
 // Left section
 const frontLeft = new THREE.Mesh(
-  new THREE.BoxGeometry(4.5,6,0.3),
+  new THREE.BoxGeometry(4.5, 6, 0.3),
   wallMaterial
 );
 
-frontLeft.position.set(-7.75,3,10);
+frontLeft.position.set(-7.75, 3, 10);
 scene.add(frontLeft);
 
 // Middle section
 const frontMiddle = new THREE.Mesh(
-  new THREE.BoxGeometry(5,2,0.3),
+  new THREE.BoxGeometry(5, 2, 0.3),
   wallMaterial
 );
 
-frontMiddle.position.set(0,5,10);
+frontMiddle.position.set(0, 5, 10);
 scene.add(frontMiddle);
 
 // Right section
 const frontRight = new THREE.Mesh(
-  new THREE.BoxGeometry(4.5,6,0.3),
+  new THREE.BoxGeometry(4.5, 6, 0.3),
   wallMaterial
 );
 
-frontRight.position.set(7.75,3,10);
+frontRight.position.set(7.75, 3, 10);
 scene.add(frontRight);
 
 // =============================
+// Movement
+// =============================
 
-function animate(){
+const keys = {};
 
-    requestAnimationFrame(animate);
+const walkSpeed = 0.08;
+const sprintSpeed = 0.16;
 
-    renderer.render(scene,camera);
+document.addEventListener("keydown", (event) => {
+  keys[event.code] = true;
+});
+
+document.addEventListener("keyup", (event) => {
+  keys[event.code] = false;
+});
+
+function updateMovement() {
+  const speed = keys["ShiftLeft"] ? sprintSpeed : walkSpeed;
+
+  if (keys["KeyW"]) camera.translateZ(-speed);
+  if (keys["KeyS"]) camera.translateZ(speed);
+  if (keys["KeyA"]) camera.translateX(-speed);
+  if (keys["KeyD"]) camera.translateX(speed);
+}
+
+// =============================
+// Animation
+// =============================
+
+function animate() {
+
+  requestAnimationFrame(animate);
+
+  updateMovement();
+
+  renderer.render(scene, camera);
 
 }
 
 animate();
 
-window.addEventListener("resize",()=>{
+// =============================
+// Resize
+// =============================
 
-    camera.aspect = window.innerWidth/window.innerHeight;
-    camera.updateProjectionMatrix();
+window.addEventListener("resize", () => {
 
-    renderer.setSize(window.innerWidth,window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+
+  renderer.setSize(window.innerWidth, window.innerHeight);
 
 });
