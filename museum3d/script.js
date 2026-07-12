@@ -204,26 +204,5 @@ window.addEventListener("resize", () => {
 
 });
 
-// ---------------- Mouse Look ----------------
-
-let yaw = 0;
-let pitch = 0;
-
-document.body.addEventListener("click", () => {
-    document.body.requestPointerLock();
-});
-
-document.addEventListener("mousemove", (event) => {
-
-    if (document.pointerLockElement !== document.body) return;
-
-    yaw -= event.movementX * 0.002;
-    pitch -= event.movementY * 0.002;
-
-    pitch = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, pitch));
-
-    camera.rotation.order = "YXZ";
-    camera.rotation.y = yaw;
-    camera.rotation.x = pitch;
 
 });
