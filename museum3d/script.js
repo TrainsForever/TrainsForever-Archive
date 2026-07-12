@@ -1,4 +1,9 @@
-import * as THREE from "three";
+function animate(){
+scene.add(frontRight);
+
+// =============================
+  import * as THREE from "three";
+
 
 // ---------------- Scene ----------------
 const scene = new THREE.Scene();
