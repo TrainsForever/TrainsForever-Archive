@@ -63,3 +63,129 @@ scene.add(floor);
 const wallMaterial = new THREE.MeshStandardMaterial({
     color:0xffffff
 });
+// ================================
+// Back Wall
+// ================================
+
+const backWall = new THREE.Mesh(
+    new THREE.BoxGeometry(20,6,0.3),
+    wallMaterial
+);
+
+backWall.position.set(0,3,-10);
+scene.add(backWall);
+
+// ================================
+// Left Wall
+// ================================
+
+const leftWall = new THREE.Mesh(
+    new THREE.BoxGeometry(0.3,6,20),
+    wallMaterial
+);
+
+leftWall.position.set(-10,3,0);
+scene.add(leftWall);
+
+// ================================
+// Right Wall
+// ================================
+
+const rightWall = leftWall.clone();
+rightWall.position.x = 10;
+scene.add(rightWall);
+
+// ================================
+// Front Wall (3 Door Openings)
+// ================================
+
+const frontLeft = new THREE.Mesh(
+    new THREE.BoxGeometry(4.5,6,0.3),
+    wallMaterial
+);
+
+frontLeft.position.set(-7.75,3,10);
+scene.add(frontLeft);
+
+const frontMiddle = new THREE.Mesh(
+    new THREE.BoxGeometry(5,2,0.3),
+    wallMaterial
+);
+
+frontMiddle.position.set(0,5,10);
+scene.add(frontMiddle);
+
+const frontRight = new THREE.Mesh(
+    new THREE.BoxGeometry(4.5,6,0.3),
+    wallMaterial
+);
+
+frontRight.position.set(7.75,3,10);
+scene.add(frontRight);
+
+// ================================
+// Museum Bounds
+// ================================
+
+const museumSize = 9;
+// ================================
+// Mobile Controls
+// ================================
+
+let touchStartX = 0;
+let touchStartY = 0;
+
+document.addEventListener("touchstart", (event) => {
+
+    touchStartX = event.touches[0].clientX;
+    touchStartY = event.touches[0].clientY;
+
+}, { passive: true });
+
+document.addEventListener("touchmove", (event) => {
+
+    event.preventDefault();
+
+    const touch = event.touches[0];
+
+    const deltaX = touch.clientX - touchStartX;
+    const deltaY = touch.clientY - touchStartY;
+
+    camera.position.x += deltaX * 0.02;
+    camera.position.z += deltaY * 0.02;
+
+    // Stay inside the museum
+    camera.position.x = Math.max(-museumSize, Math.min(museumSize, camera.position.x));
+    camera.position.z = Math.max(-museumSize, Math.min(museumSize, camera.position.z));
+
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+
+}, { passive: false });
+
+// ================================
+// Animation
+// ================================
+
+function animate() {
+
+    requestAnimationFrame(animate);
+
+    renderer.render(scene, camera);
+
+}
+
+animate();
+
+// ================================
+// Resize
+// ================================
+
+window.addEventListener("resize", () => {
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+});
