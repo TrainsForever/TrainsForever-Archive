@@ -96,7 +96,16 @@ const frontRight = new THREE.Mesh(
   new THREE.BoxGeometry(4.5, 6, 0.3),
   wallMaterial
 );
+// ---------------- Walls ----------------
 
+const walls = [
+  backWall,
+  leftWall,
+  rightWall,
+  frontLeft,
+  frontMiddle,
+  frontRight
+];
 frontRight.position.set(7.75, 3, 10);
 scene.add(frontRight);
 
@@ -116,14 +125,31 @@ document.addEventListener("keydown", (event) => {
 document.addEventListener("keyup", (event) => {
   keys[event.code] = false;
 });
-
 function updateMovement() {
-  const speed = keys["ShiftLeft"] ? sprintSpeed : walkSpeed;
 
-  if (keys["KeyW"]) camera.translateZ(-speed);
-  if (keys["KeyS"]) camera.translateZ(speed);
-  if (keys["KeyA"]) camera.translateX(-speed);
-  if (keys["KeyD"]) camera.translateX(speed);
+    const speed = keys["ShiftLeft"] ? sprintSpeed : walkSpeed;
+
+    const oldX = camera.position.x;
+    const oldZ = camera.position.z;
+
+    if (keys["KeyW"]) camera.translateZ(-speed);
+    if (keys["KeyS"]) camera.translateZ(speed);
+    if (keys["KeyA"]) camera.translateX(-speed);
+    if (keys["KeyD"]) camera.translateX(speed);
+
+    // Keep player inside museum
+    if (
+        camera.position.x < -9 ||
+        camera.position.x > 9 ||
+        camera.position.z < -9 ||
+        camera.position.z > 9
+    ) {
+        camera.position.x = oldX;
+        camera.position.z = oldZ;
+    }
+
+}
+
 }
 
 // =============================
@@ -152,5 +178,29 @@ window.addEventListener("resize", () => {
   camera.updateProjectionMatrix();
 
   renderer.setSize(window.innerWidth, window.innerHeight);
+
+});
+
+// ---------------- Mouse Look ----------------
+
+let yaw = 0;
+let pitch = 0;
+
+document.body.addEventListener("click", () => {
+    document.body.requestPointerLock();
+});
+
+document.addEventListener("mousemove", (event) => {
+
+    if (document.pointerLockElement !== document.body) return;
+
+    yaw -= event.movementX * 0.002;
+    pitch -= event.movementY * 0.002;
+
+    pitch = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, pitch));
+
+    camera.rotation.order = "YXZ";
+    camera.rotation.y = yaw;
+    camera.rotation.x = pitch;
 
 });
