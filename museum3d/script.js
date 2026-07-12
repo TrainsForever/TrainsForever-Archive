@@ -1,87 +1,107 @@
-import * as THREE from 'three';
+import * as THREE from "three";
 
-// Scene
+// ---------------- Scene ----------------
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xdfefff);
+scene.background = new THREE.Color(0xddeeff);
 
-// Camera
+// ---------------- Camera ----------------
 const camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
+  75,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
 );
 
 camera.position.set(0, 2, 8);
 
-// Renderer
+// ---------------- Renderer ----------------
 const renderer = new THREE.WebGLRenderer({
-    canvas: document.getElementById("museum"),
-    antialias: true
+  canvas: document.getElementById("museum"),
+  antialias: true
 });
 
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 
-// Lighting
-const ambient = new THREE.AmbientLight(0xffffff, 2);
-scene.add(ambient);
+// ---------------- Lights ----------------
+scene.add(new THREE.AmbientLight(0xffffff, 2));
 
-const light = new THREE.DirectionalLight(0xffffff, 3);
-light.position.set(5, 10, 5);
-scene.add(light);
+const sun = new THREE.DirectionalLight(0xffffff, 2);
+sun.position.set(5, 10, 5);
+scene.add(sun);
 
-// Floor
+// ---------------- Floor ----------------
 const floor = new THREE.Mesh(
-    new THREE.PlaneGeometry(20,20),
-    new THREE.MeshStandardMaterial({
-        color: 0xf5f5f5
-    })
+  new THREE.PlaneGeometry(20,20),
+  new THREE.MeshStandardMaterial({
+    color: 0xeeeeee
+  })
 );
 
 floor.rotation.x = -Math.PI / 2;
 scene.add(floor);
 
-// Back Wall
+// ---------------- Wall Material ----------------
+const wallMaterial = new THREE.MeshStandardMaterial({
+  color: 0xffffff
+});
+
+// ---------------- Back Wall ----------------
 const backWall = new THREE.Mesh(
-    new THREE.BoxGeometry(20,6,0.3),
-    new THREE.MeshStandardMaterial({
-        color: 0xffffff
-    })
+  new THREE.BoxGeometry(20,6,0.3),
+  wallMaterial
 );
 
 backWall.position.set(0,3,-10);
 scene.add(backWall);
 
-// Left Wall
+// ---------------- Left Wall ----------------
 const leftWall = new THREE.Mesh(
-    new THREE.BoxGeometry(0.3,6,20),
-    new THREE.MeshStandardMaterial({
-        color: 0xffffff
-    })
+  new THREE.BoxGeometry(0.3,6,20),
+  wallMaterial
 );
 
 leftWall.position.set(-10,3,0);
 scene.add(leftWall);
 
-// Right Wall
+// ---------------- Right Wall ----------------
 const rightWall = leftWall.clone();
 rightWall.position.x = 10;
 scene.add(rightWall);
 
-// Ceiling
-const ceiling = new THREE.Mesh(
-    new THREE.PlaneGeometry(20,20),
-    new THREE.MeshStandardMaterial({
-        color: 0xffffff
-    })
+// ==================================================
+// FRONT WALL WITH 3 DOOR OPENINGS
+// ==================================================
+
+// Left section
+const frontLeft = new THREE.Mesh(
+  new THREE.BoxGeometry(4.5,6,0.3),
+  wallMaterial
 );
 
-ceiling.rotation.x = Math.PI / 2;
-ceiling.position.y = 6;
-scene.add(ceiling);
+frontLeft.position.set(-7.75,3,10);
+scene.add(frontLeft);
 
-// Animate
+// Middle section
+const frontMiddle = new THREE.Mesh(
+  new THREE.BoxGeometry(5,2,0.3),
+  wallMaterial
+);
+
+frontMiddle.position.set(0,5,10);
+scene.add(frontMiddle);
+
+// Right section
+const frontRight = new THREE.Mesh(
+  new THREE.BoxGeometry(4.5,6,0.3),
+  wallMaterial
+);
+
+frontRight.position.set(7.75,3,10);
+scene.add(frontRight);
+
+// =============================
+
 function animate(){
 
     requestAnimationFrame(animate);
