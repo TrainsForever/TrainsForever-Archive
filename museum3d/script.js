@@ -165,20 +165,23 @@ function animate() {
 }
 // ---------------- Mobile Touch ----------------
 
+// ---------------- Mobile Touch ----------------
+
+let touchStartX = 0;
+let touchStartY = 0;
+
+document.addEventListener("touchstart", (event) => {
+
+    touchStartX = event.touches[0].clientX;
+    touchStartY = event.touches[0].clientY;
+
+});
+
 document.addEventListener("touchmove", (event) => {
 
     event.preventDefault();
 
-    const touch = event.touches[0];
-
-    const deltaX = touch.clientX - touchStartX;
-    const deltaY = touch.clientY - touchStartY;
-
-    camera.position.x += deltaX * 0.01;
-    camera.position.z += deltaY * 0.01;
-
-    touchStartX = touch.clientX;
-    touchStartY = touch.clientY;
+    // ...
 
 }, { passive: false });
 
