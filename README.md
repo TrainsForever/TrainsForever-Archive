@@ -1,120 +1,160 @@
-Welcome to the TrainsForever Museum!
+<!DOCTYPE html>
+<html lang="en">
 
-## 💙 Why I Built This Museum
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-This museum exists because I wanted it to.
+<title>TrainsForever Museum Archive</title>
 
-I love documenting trains, preserving memories, and creating projects that I'm excited about. Since I was already building it for myself, I figured why not build it into a public museum for everyone. I care about my projects and spend tons of time on them. Thank you for visiting! This museum will always be updating and changing.
+<link rel="stylesheet" href="style.css">
+</head>
 
-## The Beginning
-This museum started as my personal collection, I just used the notes app. It got boring so I decoded to grow it in a fun clever way. But I wanted to share it with anyone who enjoys railroading. Whether you're a longtime subscriber, a fellow railfan, or just stopping by, I hope you enjoy exploring the collection as much as I've enjoyed building it.
-The Official TrainsForever Archive Museum!
+<body>
 
-Preserving a lifetime of railfan history.
+<div class="container">
 
-Welcome to the official TrainsForever archive.
+<header class="hero">
 
-Since the 2010s, I’ve documented heritage locomotives, commemorative locomotives, steam locomotives, rare consists, and railroad history through photography and video. I started my youtube channel in 2017. The musuem started building in late June, 2026. 
+<div class="hero-text">
 
-This museum is a living archive that continues to grow with every new catch.
+<p>WELCOME TO THE</p>
 
-## 📊 Understanding Museum Statistics
+<h1>TrainsForever Museum Archive</h1>
 
-The TrainsForever Archive Museum separates **Documented Catches** from **Documented Videos**.
+<h2>Preserving Railroad History Since 2017</h2>
 
-- **Documented Catches** represent every encounter I have personally documented through either photography or videography.
-- **Documented Videos** represent only the encounters that were published as videos on my YouTube channel.
+<p>
+Explore one of the largest personal railroad archives featuring heritage units,
+rare locomotives, photographs, videos, and documented railroad history.
+</p>
 
-Because of this, the number of documented catches may be higher than the number of documented videos. Some encounters were preserved through photographs only.
+</div>
 
+</header>
 
-## Museum Standards
+<section>
 
-📸 Every catch listed in this museum has been personally photographed or filmed.
+<h2>🏛 Welcome</h2>
 
-✅ Every entry is verified for accuracy before being added to the collection. If it has not been verified yet it will say "updating" or "verifying"
+<p>
+Welcome to the TrainsForever Museum Archive! This museum was created to preserve
+the history of special locomotives, memorable railfanning adventures, and years
+of photographs and videos collected since 2017.
+</p>
 
-📖 Many exhibits include personal stories and memories from the day they were documented.
+<p>
+As locomotives are repainted, retired, rebuilt, or disappear from service,
+this archive ensures they will always have a permanent home for future
+railfans to enjoy.
+</p>
 
-🚂 The collection continues to grow as new locomotives are discovered and recorded.
+</section>
 
+<section>
 
-Museum Exhibits
+<h2>🚂 Heritage Units Hall</h2>
 
-🚂 Norfolk Southern Heritage Collection
+<div class="stats">
 
-🚂 CSX Heritage Collection
+<div class="card">
+<h3>🐎 Norfolk Southern</h3>
+<p>Enter Exhibit Hall</p>
+</div>
 
-🚂 Union Pacific Heritage Collection
+<div class="card">
+<h3>🔵 CSX</h3>
+<p>Enter Exhibit Hall</p>
+</div>
 
-🚂 Canadian National Heritage Collection
+<div class="card">
+<h3>⚫ Canadian National</h3>
+<p>Enter Exhibit Hall</p>
+</div>
 
-🚂 Canadian Pacific Military Collection
+<div class="card">
+<h3>🟡 Union Pacific</h3>
+<p>Enter Exhibit Hall</p>
+</div>
 
-🎂 250th birthday series 
+<div class="card">
+<h3>🔴 Canadian Pacific</h3>
+<p>Maroon & Military Units</p>
+</div>
 
-🚆 Steam Collection
+</div>
 
-🚄 Amtrak Collection
+</section>
 
-🎯 Rare Consists
+<section>
 
-📊 Statistics
+<h2>📊 Museum Statistics</h2>
 
-📖 Stories
+<div class="stats">
 
-🎥 Video Library
+<div class="card">
+<h3>Coming Soon</h3>
+<p>Heritage Units Documented</p>
+</div>
 
-## Museum Exhibits
+<div class="card">
+<h3>Coming Soon</h3>
+<p>Museum Exhibits</p>
+</div>
 
-The TrainsForever Archive Museum is organized into exhibits, each documenting a different part of my railfan journey. Every exhibit continues to grow as new locomotives are photographed, videos are created, and stories are added.
+<div class="card">
+<h3>Coming Soon</h3>
+<p>Videos Archived</p>
+</div>
 
-### 🚂 Heritage Collections
-- [🚂 Norfolk Southern Heritage Collection](norfolk-southern-heritage.md)
-- (NS in progress)
-- CSX Heritage Collection (Next up)
-- Union Pacific Heritage Collection (coming soon)
-- Canadian National Heritage Collection (coming soon)
-- Canadian Pacific Military Collection (coming soon)
+<div class="card">
+<h3>Coming Soon</h3>
+<p>Photographs Archived</p>
+</div>
 
-### 🚆 Additional Exhibits (coming soon)
-- The 250 Units
-- Steam Collection
-- Amtrak Collection
-- Special Interest Locomotives
-- Rare Consists
-- Smaller Railroads (below class 1)
+</div>
 
-### 📖 Museum Features 
-- Statistics Hall
-- Current Hunt
-- Stories & Memories
-- Video Library
-- Photo Gallery
+</section>
 
----
+<section>
 
-**The TrainsForever Archive Museum is a living collection. Every exhibit is continually expanded as new locomotives are photographed and documented.**
+<h2>⭐ Featured Exhibit</h2>
 
-## Community Exhibits! 
-(new thought, possibly coming soon)
+<p>
+Norfolk Southern SD70ACe No. 1065 — Savannah & Atlanta Heritage Unit
 
+<br><br>
 
+The first completed exhibit in the TrainsForever Museum Archive.
+</p>
 
-🏛️ TrainsForever Archive Museum
+</section>
 
-⬇️
+<section>
 
-Museum Standards
+<h2>📰 Curator's Desk</h2>
 
-⬇️
+<p>
+Welcome to the museum! New exhibits are continually being added as the
+TrainsForever archive grows. Check back often for newly documented
+locomotives and expanded collections.
+</p>
 
-Museum Exhibits
+</section>
 
-⬇️
+<footer>
 
-About the Museum
+<p>
+© 2026 TrainsForever Museum Archive
 
-⬇️
+<br>
 
-The Railroads: (NS in Progress)
+Preserving Railroad History • One Train at a Time
+</p>
+
+</footer>
+
+</div>
+
+</body>
+</html>
