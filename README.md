@@ -1,160 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
+# 🏛 TrainsForever Museum Archive
 
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+## Preserving Railroad History Since 2017
 
-<title>TrainsForever Museum Archive</title>
+Welcome to the **TrainsForever Museum Archive**, a digital railroad museum dedicated to preserving the history of heritage locomotives, special trains, rare railroad equipment, photographs, and videos documented by TrainsForever.
 
-<link rel="stylesheet" href="style.css">
-</head>
+As locomotives are repainted, retired, rebuilt, or disappear from service, this museum ensures they will always have a permanent home for future generations of railfans.
 
-<body>
+---
 
-<div class="container">
+# 🚂 Heritage Units Hall
 
-<header class="hero">
+## 🐎 Norfolk Southern Heritage Fleet
 
-<div class="hero-text">
+- NS 1065 — Savannah & Atlanta *(Exhibit Complete)*
+- NS 1066 — New York Central
+- NS 1067 — Reading
+- NS 1068 — Erie
+- NS 1069 — Virginian
+- NS 1070 — Illinois Terminal
+- NS 1071 — Central of Georgia
+- NS 1072 — Pennsylvania
+- NS 1073 — Monongahela
+- NS 1074 — Nickel Plate Road
+- NS 1075 — Pittsburgh & West Virginia
+- NS 1076 — Conrail
+- NS 1077 — Chesapeake & Ohio
+- NS 1078 — Norfolk & Western
+- NS 1079 — Illinois Terminal
+- NS 1080 — Interstate
+- NS 1081 — Central Railroad of New Jersey
+- NS 1082 — Pennsylvania Railroad
+- NS 1083 — Original Norfolk Southern
+- NS 1084 — Lackawanna
+- NS 1085 — Western Maryland
+- NS 1086 — New York Central
 
-<p>WELCOME TO THE</p>
+---
 
-<h1>TrainsForever Museum Archive</h1>
+## 🔵 CSX Heritage Fleet
 
-<h2>Preserving Railroad History Since 2017</h2>
+- CSX 1827 — Baltimore & Ohio
+- CSX 1828 — Chessie System
+- CSX 1829 — Chesapeake & Ohio
+- CSX 1830 — Louisville & Nashville
+- CSX 1831 — Richmond, Fredericksburg & Potomac
+- CSX 1832 — Seaboard Air Line
+- CSX 1833 — Atlantic Coast Line
+- CSX 1834 — Clinchfield
+- CSX 1835 — Monon
+- CSX 1973 — Family Lines
 
-<p>
-Explore one of the largest personal railroad archives featuring heritage units,
-rare locomotives, photographs, videos, and documented railroad history.
-</p>
+---
 
-</div>
+## ⚫ Canadian National Heritage Fleet
 
-</header>
+- CN 8952 — BC Rail
+- CN 8953 — Illinois Central
+- CN 8954 — Wisconsin Central
+- CN 8955 — Grand Trunk Western
+- CN 8956 — EJ&E
 
-<section>
+---
 
-<h2>🏛 Welcome</h2>
+## 🟡 Union Pacific Heritage Fleet
 
-<p>
-Welcome to the TrainsForever Museum Archive! This museum was created to preserve
-the history of special locomotives, memorable railfanning adventures, and years
-of photographs and videos collected since 2017.
-</p>
+- UP 1982 — Missouri Pacific
+- UP 1983 — Western Pacific
+- UP 1988 — Katy
+- UP 1989 — Rio Grande
+- UP 1995 — Chicago & North Western
+- UP 1996 — Southern Pacific
 
-<p>
-As locomotives are repainted, retired, rebuilt, or disappear from service,
-this archive ensures they will always have a permanent home for future
-railfans to enjoy.
-</p>
+---
 
-</section>
+## 🔴 Canadian Pacific Heritage Fleet
 
-<section>
+- CP 7010 — Maroon Heritage Unit
+- CP 7020 — Military Heritage Unit
 
-<h2>🚂 Heritage Units Hall</h2>
+---
 
-<div class="stats">
+# 📊 Museum Statistics
 
-<div class="card">
-<h3>🐎 Norfolk Southern</h3>
-<p>Enter Exhibit Hall</p>
-</div>
+- 🚂 Heritage Units Documented
+- 📸 Photographs Archived
+- 🎥 Videos Archived
+- 🏛 Museum Exhibits
+- 📖 Museum Records
 
-<div class="card">
-<h3>🔵 CSX</h3>
-<p>Enter Exhibit Hall</p>
-</div>
+*Statistics are updated as the archive grows.*
 
-<div class="card">
-<h3>⚫ Canadian National</h3>
-<p>Enter Exhibit Hall</p>
-</div>
+---
 
-<div class="card">
-<h3>🟡 Union Pacific</h3>
-<p>Enter Exhibit Hall</p>
-</div>
+# ⭐ Featured Exhibit
 
-<div class="card">
-<h3>🔴 Canadian Pacific</h3>
-<p>Maroon & Military Units</p>
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2>📊 Museum Statistics</h2>
-
-<div class="stats">
-
-<div class="card">
-<h3>Coming Soon</h3>
-<p>Heritage Units Documented</p>
-</div>
-
-<div class="card">
-<h3>Coming Soon</h3>
-<p>Museum Exhibits</p>
-</div>
-
-<div class="card">
-<h3>Coming Soon</h3>
-<p>Videos Archived</p>
-</div>
-
-<div class="card">
-<h3>Coming Soon</h3>
-<p>Photographs Archived</p>
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2>⭐ Featured Exhibit</h2>
-
-<p>
-Norfolk Southern SD70ACe No. 1065 — Savannah & Atlanta Heritage Unit
-
-<br><br>
+**Norfolk Southern SD70ACe No. 1065 – Savannah & Atlanta Heritage Unit**
 
 The first completed exhibit in the TrainsForever Museum Archive.
-</p>
 
-</section>
+---
 
-<section>
+# 📰 Curator's Desk
 
-<h2>📰 Curator's Desk</h2>
+The museum is continually expanding with new exhibits, historical information, photographs, videos, and archive records.
 
-<p>
-Welcome to the museum! New exhibits are continually being added as the
-TrainsForever archive grows. Check back often for newly documented
-locomotives and expanded collections.
-</p>
+Thank you for visiting the TrainsForever Museum Archive!
 
-</section>
+---
 
-<footer>
-
-<p>
-© 2026 TrainsForever Museum Archive
-
-<br>
-
-Preserving Railroad History • One Train at a Time
-</p>
-
-</footer>
-
-</div>
-
-</body>
-</html>
+© TrainsForever Museum Archive
