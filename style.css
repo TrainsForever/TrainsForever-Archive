@@ -1,1 +1,276 @@
+/* ===========================
+   TrainsForever Museum Archive
+   Master Theme
+=========================== */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+:root{
+    --gold:#d4af37;
+    --gold-light:#f3d46a;
+    --background:#0d0d0d;
+    --panel:#181818;
+    --border:#333;
+    --text:#f5f5f5;
+}
+
+body{
+    background:var(--background);
+    color:var(--text);
+    font-family:Georgia, serif;
+    line-height:1.7;
+}
+
+.container{
+    width:min(1400px,92%);
+    margin:auto;
+}
+
+/* ===========================
+   Navigation
+=========================== */
+
+nav{
+    background:#111;
+    border-bottom:2px solid var(--gold);
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+nav .container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+}
+
+.logo{
+    color:var(--gold);
+    font-size:2rem;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.25s;
+}
+
+nav a:hover{
+    color:var(--gold);
+}
+
+/* ===========================
+   Hero
+=========================== */
+
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:60px;
+    padding:60px 0;
+}
+
+.hero-text h1{
+    color:var(--gold);
+    font-size:5rem;
+    line-height:1;
+}
+
+.hero-text h2{
+    font-size:2rem;
+    margin-top:10px;
+}
+
+.hero-text p{
+    color:#ccc;
+    margin-top:20px;
+}
+
+.hero img{
+    width:55%;
+    border-radius:12px;
+}
+
+/* ===========================
+   Sections
+=========================== */
+
+section{
+    margin:40px 0;
+}
+
+section h2{
+    color:var(--gold);
+    margin-bottom:20px;
+    border-left:5px solid var(--gold);
+    padding-left:15px;
+}
+
+/* ===========================
+   Statistic Cards
+=========================== */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:var(--panel);
+    border:2px solid var(--gold);
+    border-radius:14px;
+    text-align:center;
+    padding:30px 20px;
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h3{
+    color:var(--gold);
+    font-size:3rem;
+}
+
+.card p{
+    margin-top:10px;
+    font-size:1.1rem;
+}
+
+/* ===========================
+   Museum Record Table
+=========================== */
+
+.record-table{
+    width:100%;
+    border-collapse:collapse;
+    background:var(--panel);
+}
+
+.record-table th,
+.record-table td{
+    border:1px solid var(--border);
+    padding:14px;
+}
+
+.record-table th{
+    color:var(--gold);
+    text-align:left;
+    width:220px;
+}
+
+/* ===========================
+   Images
+=========================== */
+
+.featured-photo{
+    width:100%;
+    border-radius:12px;
+    border:2px solid var(--gold);
+}
+
+.caption{
+    text-align:center;
+    margin-top:15px;
+    color:#ccc;
+}
+
+/* ===========================
+   Video
+=========================== */
+
+iframe{
+    width:100%;
+    height:600px;
+    border:none;
+    border-radius:12px;
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+.button{
+    display:inline-block;
+    background:var(--gold);
+    color:#111;
+    padding:15px 35px;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:10px;
+    transition:.25s;
+}
+
+.button:hover{
+    background:var(--gold-light);
+}
+
+/* ===========================
+   Footer
+=========================== */
+
+footer{
+    text-align:center;
+    padding:40px 20px;
+    border-top:2px solid var(--gold);
+    margin-top:60px;
+}
+
+footer p{
+    margin:8px 0;
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media(max-width:900px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero img{
+    width:100%;
+}
+
+.hero-text h1{
+    font-size:3rem;
+}
+
+iframe{
+    height:350px;
+}
+
+nav .container{
+    flex-direction:column;
+    gap:20px;
+}
+
+nav ul{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+}
