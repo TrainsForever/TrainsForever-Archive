@@ -9,24 +9,21 @@
     box-sizing: border-box;
 }
 
-  body {
-    font-family: Arial, Helvetica, sans-serif;
+  body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    color:white;
 
-    background:
-        linear-gradient(to right,
-            rgba(255,255,255,0.95) 0%,
-            rgba(255,255,255,0.55) 20%,
-            rgba(255,255,255,0.55) 80%,
-            rgba(255,255,255,0.95) 100%),
-        url("IMG_9507.jpeg");
+    background-color:#111;
 
-    background-repeat: repeat-y;
-    background-position: center bottom;
-    background-size: 300% auto;
-    background-attachment: scroll;
+    background-image:
+        linear-gradient(rgba(15,15,15,.82), rgba(15,15,15,.82)),
+        url("IMG_9535.png");
 
-    color: #222;
-    line-height: 1.7;
+    background-repeat:no-repeat;
+    background-position:center top;
+    background-size:60%;
+    background-attachment:fixed;
 }
 
 .container {
