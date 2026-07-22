@@ -14,9 +14,10 @@
     background:
         linear-gradient(rgba(255,255,255,0.90), rgba(255,255,255,0.90)),
         url("images/tracks-background.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+ background-repeat: repeat-y;
+background-position: center top;
+background-size: 100% auto;
+background-attachment: scroll;
     color: #222;
     line-height: 1.7;
 }
