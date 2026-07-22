@@ -9,7 +9,7 @@
     box-sizing: border-box;
 }
 
-  body{
+body {
     margin:0;
     font-family:Arial, Helvetica, sans-serif;
     color:white;
@@ -17,12 +17,12 @@
     background-color:#111;
 
     background-image:
-        linear-gradient(rgba(15,15,15,.82), rgba(15,15,15,.82)),
+        linear-gradient(rgba(15,15,15,.75), rgba(15,15,15,.75)),
         url("IMG_9535.png");
 
     background-repeat:no-repeat;
-    background-position:center top;
-    background-size:60%;
+    background-position:center center;
+    background-size:45%;
     background-attachment:fixed;
 }
 
