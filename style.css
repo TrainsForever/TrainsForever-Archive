@@ -263,3 +263,18 @@ url("DB0D63C4-BAF4-4D7A-BB17-72E27EDD368D.png");
 .museum-sign-text p:last-child{
     color:#f2f2f2;
 }
+.enter-button{
+    display:inline-block;
+    padding:12px 28px;
+    background:#111;
+    color:#fff;
+    text-decoration:none;
+    font-weight:bold;
+    border:2px solid #d4af37;
+    border-radius:10px;
+}
+
+.enter-button:hover{
+    background:#d4af37;
+    color:#111;
+}
