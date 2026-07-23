@@ -278,3 +278,33 @@ url("DB0D63C4-BAF4-4D7A-BB17-72E27EDD368D.png");
     background:#d4af37;
     color:#111;
 }
+.museum-header{
+    background:#111;
+    color:#fff;
+    text-align:center;
+    padding:60px 30px;
+    border-radius:18px;
+    margin:25px auto 40px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+.museum-header h1{
+    margin:0;
+    font-size:3rem;
+    font-weight:800;
+}
+
+.museum-header h2{
+    margin-top:18px;
+    font-size:1.3rem;
+    color:#d4af37;
+    font-weight:600;
+}
+
+.museum-divider{
+    width:140px;
+    height:3px;
+    background:#d4af37;
+    margin:28px auto 0;
+    border-radius:3px;
+}
