@@ -190,3 +190,57 @@ url("DB0D63C4-BAF4-4D7A-BB17-72E27EDD368D.png");
     background-repeat: no-repeat;
     background-attachment: scroll;
 }
+
+/* ===========================
+   Museum Hero Banner
+=========================== */
+
+.museum-hero{
+    height:420px;
+
+    background:
+        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.65)),
+        url("DB0D63C4-BAF4-4D7A-BB17-72E27EDD368D.png");
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:center center;
+
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+
+    border-radius:18px;
+    margin:20px auto;
+}
+
+.museum-hero-overlay{
+
+    text-align:center;
+
+    padding:40px;
+
+    color:white;
+
+    text-shadow:
+        0 2px 10px black,
+        0 0 20px black;
+}
+
+.museum-hero h1{
+
+    font-size:3rem;
+    margin:10px 0;
+}
+
+.museum-hero h2{
+
+    color:#d4af37;
+    margin-bottom:15px;
+}
+
+.museum-hero h3{
+
+    font-weight:400;
+    letter-spacing:3px;
+}
