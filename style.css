@@ -255,8 +255,8 @@ url("DB0D63C4-BAF4-4D7A-BB17-72E27EDD368D.png");
    Transparent Welcome Hero
 =========================== */
 
-header.hero {
-    background: transparent !important;
+.hero {
+    background: transparent; !important;
     box-shadow: none !important;
     border: none !important;
 }
