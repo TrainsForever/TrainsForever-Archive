@@ -185,8 +185,8 @@ body.ns1065 {
         linear-gradient(rgba(0,0,0,0.70), rgba(0,0,0,0.85)),
 url("DB0D63C4-BAF4-4D7A-BB17-72E27EDD368D.png");
 
-    background-size: cover;
-    background-position: center center;
+    background-size: contain;
+    background-position: top center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
 }
