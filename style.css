@@ -294,3 +294,19 @@ url("DB0D63C4-BAF4-4D7A-BB17-72E27EDD368D.png");
 .vip-button:active {
     transform: translateY(1px);
 }
+/* Temporary disabled VIP button */
+.vip-button.disabled {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.95;
+}
+
+.coming-soon-text {
+    display: inline-block;
+    margin-top: 8px;
+    color: #d4af37;
+    font-size: 0.95rem;
+    font-style: italic;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
