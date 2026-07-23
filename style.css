@@ -260,8 +260,37 @@ url("DB0D63C4-BAF4-4D7A-BB17-72E27EDD368D.png");
     background:#d4af37;
     margin:25px auto 0;
 }
-<p style="text-align:center; margin-top:25px;">
-    <a class="vip-button" href="community-vip-photos/index.html">
-        ★ Community VIP Photos ★
-    </a>
-</p>
+.vip-button {
+    display: inline-block;
+    padding: 18px 40px;
+    margin: 20px auto;
+    background: linear-gradient(to bottom, #fff6b0 0%, #ffd700 35%, #c79a00 70%, #8b6508 100%);
+    border: 3px solid #6e5200;
+    border-radius: 12px;
+
+    color: #4a3200;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+
+    text-shadow:
+        1px 1px 0 #fff5b5,
+        -1px -1px 0 #7a5a00;
+
+    box-shadow:
+        inset 0 3px 6px rgba(255,255,255,0.7),
+        inset 0 -3px 6px rgba(0,0,0,0.3),
+        0 8px 20px rgba(0,0,0,0.45);
+
+    transition: all 0.2s ease;
+}
+
+.vip-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+}
+
+.vip-button:active {
+    transform: translateY(1px);
+}
