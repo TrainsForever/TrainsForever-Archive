@@ -244,3 +244,10 @@ url("DB0D63C4-BAF4-4D7A-BB17-72E27EDD368D.png");
     font-weight:400;
     letter-spacing:3px;
 }
+.museum-sign{
+    display:block;
+    width:100%;
+    max-width:1100px;
+    margin:25px auto 10px;
+    border-radius:18px;
+}
