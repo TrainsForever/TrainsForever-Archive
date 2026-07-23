@@ -238,3 +238,28 @@ url("DB0D63C4-BAF4-4D7A-BB17-72E27EDD368D.png");
 }
 
 
+.museum-sign-text h1{
+    font-size:2.2rem;
+    margin:0 0 10px;
+    color:#ffffff;          /* White */
+    text-shadow:
+        0 0 8px rgba(0,0,0,.9),
+        0 0 18px rgba(0,0,0,.9);
+}
+
+.museum-sign-text h2{
+    font-size:1.2rem;
+    margin:0 0 15px;
+    color:#d4af37;          /* Gold accent */
+    text-shadow:
+        0 0 8px rgba(0,0,0,.9);
+}
+.museum-sign-text p:first-child{
+    color:#d4af37;
+    font-weight:700;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+.museum-sign-text p:last-child{
+    color:#f2f2f2;
+}
