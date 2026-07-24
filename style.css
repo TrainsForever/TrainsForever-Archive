@@ -3,7 +3,6 @@
    Mobile-First Style Sheet
 =========================== */
 
-}
 * {
     margin: 0;
     padding: 0;
@@ -137,8 +136,6 @@ footer {
     grid-template-columns: repeat(2,1fr);
 }
 
-}
-
 /* Desktop */
 
 @media (min-width: 1000px) {
@@ -176,7 +173,6 @@ body.ns1065 {
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-color: #111;
-}
 }
 .enter-button{
     display:inline-block;
@@ -299,11 +295,3 @@ body.ns1065 {
     letter-spacing: 1px;
     text-transform: uppercase;
 }
-background:
-    linear-gradient(rgba(15,15,15,.80), rgba(15,15,15,.80)),
-    url("museum-wallpaper.png");
-
-background-size: 100% auto;
-background-repeat: repeat-y;
-background-position: top center;
-background-color: #111;
