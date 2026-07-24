@@ -2,6 +2,18 @@
    TrainsForever Museum Archive
    Mobile-First Style Sheet
 =========================== */
+
+/* Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -11,17 +23,11 @@ body {
         linear-gradient(rgba(15,15,15,.80), rgba(15,15,15,.80)),
         url("museum-wallpaper.png");
 
-    background-size: 100% auto;
+    background-size: cover;
     background-position: top center;
-    background-repeat: repeat-y;
+    background-repeat: no-repeat;
     background-attachment: scroll;
     background-color: #111;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-
 }
 
 .container {
@@ -31,7 +37,44 @@ body {
     padding: 20px;
 }
 
-/* Hero */
+/* ===========================
+   Museum Header
+=========================== */
+
+.museum-header {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 60px 30px;
+    border-radius: 18px;
+    margin: 25px auto 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+.museum-header h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.museum-header h2 {
+    margin-top: 18px;
+    font-size: 1.3rem;
+    color: #d4af37;
+    font-weight: 600;
+}
+
+.museum-divider {
+    width: 140px;
+    height: 3px;
+    background: #d4af37;
+    margin: 28px auto 0;
+    border-radius: 3px;
+}
+
+/* ===========================
+   Hero
+=========================== */
 
 .hero {
     background: #202020;
@@ -41,6 +84,7 @@ body {
     border-radius: 12px;
     margin-bottom: 30px;
 }
+
 .hero h1 {
     font-size: 2.2rem;
     margin: 15px 0;
@@ -57,10 +101,13 @@ body {
     margin: auto;
 }
 
-/* Sections */
+/* ===========================
+   Sections
+=========================== */
 
 section {
     background: white;
+    color: #222;
     padding: 25px;
     margin: 25px 0;
     border-radius: 12px;
@@ -72,7 +119,9 @@ section h2 {
     margin-bottom: 15px;
 }
 
-/* Cards */
+/* ===========================
+   Cards
+=========================== */
 
 .stats {
     display: grid;
@@ -87,18 +136,23 @@ section h2 {
     padding: 20px;
     border-radius: 10px;
 }
+
 .card,
 .card p,
 .card li,
 .card strong,
 .card span {
-    color: #222 !important;
-}
-.card h3 {
-    margin-bottom: 10px;
+    color: #222;
 }
 
-/* Buttons */
+.card h3 {
+    margin-bottom: 10px;
+    color: #1d3557;
+}
+
+/* ===========================
+   Buttons
+=========================== */
 
 .card a,
 .button {
@@ -123,7 +177,24 @@ section h2 {
     background: #457b9d;
 }
 
-/* Lists */
+.enter-button {
+    display: inline-block;
+    padding: 12px 28px;
+    background: #111;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #d4af37;
+    border-radius: 10px;
+}
+
+.enter-button:hover {
+    background: #d4af37;
+    color: #111;
+}
+/* ===========================
+   Lists
+=========================== */
 
 ul {
     padding-left: 25px;
@@ -134,7 +205,9 @@ li {
     margin-bottom: 8px;
 }
 
-/* Footer */
+/* ===========================
+   Footer
+=========================== */
 
 footer {
     text-align: center;
@@ -142,128 +215,21 @@ footer {
     color: #666;
 }
 
-/* Tablets */
-
-@media (min-width: 700px) {
-
-.stats {
-    grid-template-columns: repeat(2,1fr);
-}
-}
-/* Desktop */
-
-@media (min-width: 1000px) {
-
-.stats {
-    grid-template-columns: repeat(3,1fr);
-}
-
-.hero h1 {
-    font-size: 3rem;
-}
-
-}
-.coming-button {
-    display: inline-block;
-    background: #666;
-    color: white;
-    padding: 8px 14px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: default;
-    opacity: 0.9;
-}
 /* ===========================
-   NS 1065 Background
+   VIP Button
 =========================== */
 
-body.ns1065 {
-    background:
-        linear-gradient(rgba(0,0,0,0.70), rgba(0,0,0,0.85)),
-        url("DB0D63C4-BAF4-4D7A-BB17-72E27EDD368D.png");
-
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-color: #111;
-}
-.enter-button{
-    display:inline-block;
-    padding:12px 28px;
-    background:#111;
-    color:#fff;
-    text-decoration:none;
-    font-weight:bold;
-    border:2px solid #d4af37;
-    border-radius:10px;
-}
-
-.enter-button:hover{
-    background:#d4af37;
-    color:#111;
-}
-.museum-header{
-    background:#111;
-    color:#fff;
-    text-align:center;
-    padding:60px 30px;
-    border-radius:18px;
-    margin:25px auto 40px;
-    box-shadow:0 10px 30px rgba(0,0,0,.35);
-}
-
-.museum-header h1{
-    margin:0;
-    font-size:3rem;
-    font-weight:800;
-}
-
-.museum-header h2{
-    margin-top:18px;
-    font-size:1.3rem;
-    color:#d4af37;
-    font-weight:600;
-}
-
-.museum-divider{
-    width:140px;
-    height:3px;
-    background:#d4af37;
-    margin:28px auto 0;
-    border-radius:3px;
-}
-.museum-header{
-    background:#111;
-    color:#fff;
-    text-align:center;
-    padding:60px 30px;
-    border-radius:18px;
-    margin:25px auto 40px;
-}
-
-.museum-header h1{
-    margin:0;
-    font-size:3rem;
-    font-weight:800;
-}
-
-.museum-header h2{
-    margin-top:18px;
-    color:#d4af37;
-}
-
-.museum-divider{
-    width:140px;
-    height:3px;
-    background:#d4af37;
-    margin:25px auto 0;
-}
 .vip-button {
     display: inline-block;
     padding: 18px 40px;
     margin: 20px auto;
-    background: linear-gradient(to bottom, #fff6b0 0%, #ffd700 35%, #c79a00 70%, #8b6508 100%);
+    background: linear-gradient(
+        to bottom,
+        #fff6b0 0%,
+        #ffd700 35%,
+        #c79a00 70%,
+        #8b6508 100%
+    );
     border: 3px solid #6e5200;
     border-radius: 12px;
 
@@ -278,11 +244,11 @@ body.ns1065 {
         -1px -1px 0 #7a5a00;
 
     box-shadow:
-        inset 0 3px 6px rgba(255,255,255,0.7),
-        inset 0 -3px 6px rgba(0,0,0,0.3),
-        0 8px 20px rgba(0,0,0,0.45);
+        inset 0 3px 6px rgba(255,255,255,.7),
+        inset 0 -3px 6px rgba(0,0,0,.3),
+        0 8px 20px rgba(0,0,0,.45);
 
-    transition: all 0.2s ease;
+    transition: all .2s ease;
 }
 
 .vip-button:hover {
@@ -293,19 +259,74 @@ body.ns1065 {
 .vip-button:active {
     transform: translateY(1px);
 }
-/* Temporary disabled VIP button */
+
 .vip-button.disabled {
     cursor: default;
     pointer-events: none;
-    opacity: 0.95;
+    opacity: .95;
+}
+
+.coming-button {
+    display: inline-block;
+    background: #666;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: default;
+    opacity: .9;
 }
 
 .coming-soon-text {
     display: inline-block;
     margin-top: 8px;
     color: #d4af37;
-    font-size: 0.95rem;
+    font-size: .95rem;
     font-style: italic;
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+/* ===========================
+   NS 1065 Background
+=========================== */
+
+body.ns1065 {
+    background:
+        linear-gradient(rgba(0,0,0,.70), rgba(0,0,0,.85)),
+        url("DB0D63C4-BAF4-4D7A-BB17-72E27EDD368D.png");
+
+    background-size: contain;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-color: #111;
+}
+
+/* ===========================
+   Responsive Layout
+=========================== */
+
+@media (min-width: 700px) {
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (min-width: 1000px) {
+
+    .stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .museum-header h1 {
+        font-size: 3.4rem;
+    }
+
 }
