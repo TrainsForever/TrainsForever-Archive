@@ -2,7 +2,21 @@
    TrainsForever Museum Archive
    Mobile-First Style Sheet
 =========================== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
 
+    background:
+        linear-gradient(rgba(15,15,15,.80), rgba(15,15,15,.80)),
+        url("museum-wallpaper.png");
+
+    background-size: 100% auto;
+    background-position: top center;
+    background-repeat: repeat-y;
+    background-attachment: scroll;
+    background-color: #111;
+}
 * {
     margin: 0;
     padding: 0;
