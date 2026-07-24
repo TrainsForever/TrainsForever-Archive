@@ -21,7 +21,7 @@ body {
 
     background:
         linear-gradient(rgba(15,15,15,.80), rgba(15,15,15,.80)),
-        72853C1D-FC92-4B3C-866E-F82EC273D25F.png
+        url("72853C1D-FC92-4B3C-866E-F82EC273D25F.png");
 
     background-size: cover;
     background-position: top center;
