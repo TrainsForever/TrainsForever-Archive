@@ -354,3 +354,27 @@ body.ns1065 {
     transform: translateY(-2px);
     box-shadow: 0 0 12px rgba(212, 175, 55, 0.45);
 }
+.back-button-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.back-button {
+    display: inline-block;
+    background: #1b1b1b;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 14px 24px;
+    border: 2px solid #d4af37;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.25s ease;
+}
+
+.back-button:hover {
+    background: #d4af37;
+    color: #111111;
+    transform: translateY(-2px);
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.45);
+}
