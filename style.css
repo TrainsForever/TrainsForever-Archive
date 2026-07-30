@@ -386,3 +386,43 @@ body.ns1066 {
     --accent: #bdbdbd;       /* Silver */
     --text: #ffffff;         /* White */
 }
+/* ==========================================
+   NS 1066 - New York Central Theme
+   ========================================== */
+
+body.ns1066 {
+    background: #000000;
+}
+
+body.ns1066 .museum-header {
+    background: #2f2f2f;
+}
+
+body.ns1066 .card {
+    background: #2f2f2f;
+    color: #ffffff;
+    border-left: 6px solid #bdbdbd;
+}
+
+body.ns1066 h1,
+body.ns1066 h2,
+body.ns1066 h3 {
+    color: #ffffff;
+}
+
+body.ns1066 .museum-divider {
+    background: #bdbdbd;
+}
+
+body.ns1066 .enter-button,
+body.ns1066 .back-button {
+    background: #2f2f2f;
+    border: 2px solid #bdbdbd;
+    color: #ffffff;
+}
+
+body.ns1066 .enter-button:hover,
+body.ns1066 .back-button:hover {
+    background: #bdbdbd;
+    color: #111111;
+}
