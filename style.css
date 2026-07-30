@@ -390,6 +390,11 @@ body.ns1066 {
    ========================================== */
 
 body.ns1066 {
+    --primary: #2f2f2f;
+    --secondary: #000000;
+    --accent: #bdbdbd;
+    --text: #ffffff;
+
     background: #000000;
 }
 
