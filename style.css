@@ -378,3 +378,11 @@ body.ns1065 {
     transform: translateY(-2px);
     box-shadow: 0 0 12px rgba(212, 175, 55, 0.45);
 }
+/* NS 1066 - New York Central */
+
+body.ns1066 {
+    --primary: #2f2f2f;      /* Dark Gray */
+    --secondary: #000000;    /* Black */
+    --accent: #bdbdbd;       /* Silver */
+    --text: #ffffff;         /* White */
+}
