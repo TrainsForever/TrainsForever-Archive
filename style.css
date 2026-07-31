@@ -446,6 +446,38 @@ body.ns1066 .enter-button:hover,
 body.ns1066 .back-button:hover {
     background: #bdbdbd;
     color: #111111;
+   /* NS 1067 — Reading Lines */
+
+body.ns1067 {
+    background: #f5f8f0;
+}
+
+body.ns1067 .museum-header {
+    background: #2f6b3c;
+    color: #ffd84d;
+    border-bottom: 6px solid #ffd84d;
+}
+
+body.ns1067 .museum-header h1,
+body.ns1067 .museum-header h2 {
+    color: #ffd84d;
+}
+
+body.ns1067 h2 {
+    color: #2f6b3c;
+}
+
+body.ns1067 .card {
+    border-left: 6px solid #ffd84d;
+}
+
+body.ns1067 .back-button {
+    background: #2f6b3c;
+    color: #ffd84d;
+}
+
+body.ns1067 .back-button:hover {
+    background: #245530;
 }
 .reading-banner {
     text-align: center;
