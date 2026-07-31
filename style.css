@@ -256,6 +256,7 @@ footer {
     filter: brightness(1.08);
 }
 
+
 .vip-button:active {
     transform: translateY(1px);
 }
@@ -488,4 +489,11 @@ body.ns1067 .back-button:hover {
     max-width: 420px;
     width: 100%;
     height: auto;
+}
+.company-logo {
+    display: block;
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    margin: 20px auto;
 }
