@@ -497,3 +497,47 @@ body.ns1067 .back-button:hover {
     height: auto;
     margin: 20px auto;
 }
+/* ===== Reading Banner ===== */
+
+.reading-banner{
+    background:#111;
+    border:3px solid #f5c400;
+    border-radius:16px;
+    text-align:center;
+    padding:35px 20px;
+    margin:25px auto;
+    position:relative;
+    box-shadow:0 0 20px rgba(245,196,0,.25);
+}
+
+.reading-logo{
+    width:180px;
+    display:block;
+    margin:0 auto 15px;
+}
+
+.reading-banner h1{
+    color:#f5c400;
+    margin:10px 0 5px;
+    font-size:2.4rem;
+    letter-spacing:2px;
+}
+
+.subtitle{
+    color:#fff;
+    font-size:1.15rem;
+}
+
+.bee{
+    width:55px;
+    position:absolute;
+    top:25px;
+}
+
+.bee-left{
+    left:25px;
+}
+
+.bee-right{
+    right:25px;
+}
