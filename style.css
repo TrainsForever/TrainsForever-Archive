@@ -497,3 +497,73 @@ body.ns1067 .back-button:hover {
     height: auto;
     margin: 20px auto;
 }
+/* ==========================================
+   NS 1067 - Reading Lines Exhibit Header
+========================================== */
+
+.exhibit-header {
+    background: linear-gradient(180deg, #111111 0%, #1b1b1b 100%);
+    border: 3px solid #FFD200;
+    border-radius: 16px;
+    padding: 30px 20px;
+    margin: 25px auto;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 20px rgba(255, 210, 0, 0.25);
+}
+
+.reading-logo {
+    width: 170px;
+    max-width: 90%;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 10px rgba(255,210,0,0.35));
+}
+
+.bee-left,
+.bee-right {
+    position: absolute;
+    width: 55px;
+    opacity: 0.95;
+    transition: transform 0.3s ease;
+}
+
+.bee-left {
+    top: 25px;
+    left: 25px;
+    transform: rotate(-15deg);
+}
+
+.bee-right {
+    top: 25px;
+    right: 25px;
+    transform: rotate(15deg);
+}
+
+.bee-left:hover,
+.bee-right:hover {
+    transform: scale(1.1);
+}
+
+.exhibit-title {
+    color: #FFD200;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 10px 0 5px;
+    text-transform: uppercase;
+}
+
+.exhibit-subtitle {
+    color: #ffffff;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+}
+
+.exhibit-divider {
+    width: 220px;
+    height: 3px;
+    background: #FFD200;
+    margin: 0 auto;
+    border-radius: 50px;
+}
