@@ -2217,3 +2217,31 @@ body{
         0 14px 28px rgba(0,0,0,.35);
 
 }
+/* ===========================
+   MUSEUM BANNER
+=========================== */
+
+.museum-banner{
+
+    margin:35px 0 45px;
+
+    text-align:center;
+
+}
+
+.banner-image{
+
+    width:100%;
+
+    max-width:700px;
+
+    display:block;
+
+    margin:auto;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.45);
+
+}
