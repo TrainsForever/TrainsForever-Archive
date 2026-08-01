@@ -1306,26 +1306,13 @@ body{
     background-color:#1b1e22;
 
     background-image:
-
-        radial-gradient(
-            ellipse at top,
-            rgba(255,255,255,.04),
-            transparent 60%
-        ),
-
-        radial-gradient(
-            ellipse at bottom,
-            rgba(0,0,0,.35),
-            transparent 75%
-        ),
-
         linear-gradient(
             180deg,
-            #363d45 0%,
-            #2d333a 20%,
-            #262b31 45%,
-            #20252b 75%,
-            #1a1d21 100%
+            #3a424b 0%,
+            #313840 20%,
+            #2a3037 45%,
+            #23282e 70%,
+            #1c2025 100%
         );
 
     background-repeat:no-repeat;
