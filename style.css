@@ -1211,3 +1211,146 @@ a{
     transform:translateY(1px);
 
 }
+/* ==========================================================
+   HERO HEADER
+========================================================== */
+
+.hero{
+
+    background:linear-gradient(
+        180deg,
+        #1f1f1f,
+        #111111
+    );
+
+    border:3px solid var(--museum-gold);
+
+    border-radius:20px;
+
+    padding:55px 30px;
+
+    margin-bottom:35px;
+
+    text-align:center;
+
+    box-shadow:
+        0 12px 28px rgba(0,0,0,.40),
+        0 0 18px rgba(212,175,55,.15);
+
+}
+
+.hero-text{
+
+    max-width:850px;
+
+    margin:auto;
+
+}
+
+.hero p:first-child{
+
+    color:var(--museum-gold);
+
+    letter-spacing:4px;
+
+    font-size:.9rem;
+
+    font-weight:bold;
+
+    margin-bottom:12px;
+
+}
+
+.hero h1{
+
+    color:#ffffff;
+
+    font-size:3rem;
+
+    margin-bottom:12px;
+
+}
+
+.hero h2{
+
+    color:var(--museum-gold);
+
+    font-size:1.4rem;
+
+    font-weight:500;
+
+    margin-bottom:20px;
+
+}
+
+.hero p{
+
+    color:#dddddd;
+
+    line-height:1.8;
+
+}
+
+.hero img{
+
+    width:170px;
+
+    max-width:90%;
+
+    display:block;
+
+    margin:0 auto 25px;
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+footer{
+
+    margin-top:45px;
+
+    padding-top:25px;
+
+    border-top:1px solid rgba(255,255,255,.10);
+
+    text-align:center;
+
+    color:#bdbdbd;
+
+    font-size:.95rem;
+
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width:768px){
+
+    .hero{
+
+        padding:40px 20px;
+
+    }
+
+    .hero h1{
+
+        font-size:2.2rem;
+
+    }
+
+    .hero h2{
+
+        font-size:1.2rem;
+
+    }
+
+    .collection-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
