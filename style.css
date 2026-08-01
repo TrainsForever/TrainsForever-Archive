@@ -1313,3 +1313,50 @@ Future pages should inherit this design
 rather than create new styles.
 
 */
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    color:white;
+
+    line-height:1.75;
+
+    background-color:#1b1e22;
+
+    background-image:
+
+        radial-gradient(
+            ellipse at top,
+            rgba(255,255,255,.035),
+            transparent 55%
+        ),
+
+        radial-gradient(
+            ellipse at bottom,
+            rgba(0,0,0,.35),
+            transparent 70%
+        ),
+
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(255,255,255,.018),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(255,255,255,.015),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            180deg,
+            #2a2f35 0%,
+            #22262b 30%,
+            #1d2024 70%,
+            #181b1f 100%
+        );
+
+    background-attachment:fixed;
+
+}
