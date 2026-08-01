@@ -1290,34 +1290,16 @@ a:hover{
 
 
 /* ==========================================================
-   VERSION 6.0
+   BODY
 ========================================================== */
 
-/*
-
-TrainsForever Museum Archive
-Version 6.0
-"The Final Decision"
-
-Designed for:
-
-✔ Museum Lobby
-✔ Norfolk Southern Collection
-✔ Heritage Unit Exhibits
-✔ Future Railroad Galleries
-
-This stylesheet is intended to be the
-permanent foundation of the museum.
-
-Future pages should inherit this design
-rather than create new styles.
-
-*/
 body{
+
+    --accent:var(--museum-steel);
 
     font-family:Arial, Helvetica, sans-serif;
 
-    color:white;
+    color:var(--museum-white);
 
     line-height:1.75;
 
@@ -1327,35 +1309,28 @@ body{
 
         radial-gradient(
             ellipse at top,
-            rgba(255,255,255,.035),
-            transparent 55%
+            rgba(255,255,255,.04),
+            transparent 60%
         ),
 
         radial-gradient(
             ellipse at bottom,
             rgba(0,0,0,.35),
-            transparent 70%
-        ),
-
-        radial-gradient(
-            circle at 20% 30%,
-            rgba(255,255,255,.018),
-            transparent 30%
-        ),
-
-        radial-gradient(
-            circle at 80% 70%,
-            rgba(255,255,255,.015),
-            transparent 35%
+            transparent 75%
         ),
 
         linear-gradient(
             180deg,
-            #2a2f35 0%,
-            #22262b 30%,
-            #1d2024 70%,
-            #181b1f 100%
+            #363d45 0%,
+            #2d333a 20%,
+            #262b31 45%,
+            #20252b 75%,
+            #1a1d21 100%
         );
+
+    background-repeat:no-repeat;
+
+    background-size:cover;
 
     background-attachment:fixed;
 
