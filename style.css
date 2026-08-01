@@ -31,37 +31,36 @@ html{
 
 :root{
 
-    /* Museum Colors */
+    /* Museum Theme */
 
-    --museum-black:#111214;
-    --museum-dark:#1b1e22;
-    --museum-wall:#2b3138;
+    --museum-black:#15171a;
+    --museum-dark:#23272d;
+    --museum-wall:#363d45;
 
-    --museum-steel:#505862;
-    --museum-slate:#68717c;
+    --museum-steel:#69737d;
+    --museum-slate:#505862;
 
     --museum-white:#ffffff;
-    --museum-light:#d9d9d9;
+    --museum-light:#dddddd;
 
     --museum-gold:#d4af37;
-    --museum-gold-light:#f2dc88;
-
-    --shadow:
-
-        0 14px 34px rgba(0,0,0,.38);
+    --museum-gold-light:#f2de8a;
 
     --radius:18px;
+
+    --shadow:
+        0 16px 36px rgba(0,0,0,.35);
 
 }
 
 
 /* ==========================================================
-   ACCENT COLORS
+   PAGE ACCENTS
 ========================================================== */
 
 body{
 
-    --accent:var(--museum-slate);
+    --accent:var(--museum-steel);
 
 }
 
@@ -73,13 +72,13 @@ body.ns1065{
 
 body.ns1066{
 
-    --accent:#d7d7d7;
+    --accent:#d8d8d8;
 
 }
 
 body.ns1067{
 
-    --accent:#FFD200;
+    --accent:#ffd200;
 
 }
 
@@ -104,7 +103,7 @@ body{
 
     color:white;
 
-    line-height:1.7;
+    line-height:1.75;
 
     background:
 
@@ -112,7 +111,7 @@ body{
 
             circle at top,
 
-            rgba(255,255,255,.03),
+            rgba(255,255,255,.035),
 
             transparent 55%
 
@@ -122,7 +121,7 @@ body{
 
             90deg,
 
-            rgba(255,255,255,.02) 1px,
+            rgba(255,255,255,.018) 1px,
 
             transparent 1px
 
@@ -130,13 +129,13 @@ body{
 
         linear-gradient(
 
-            rgba(255,255,255,.02) 1px,
+            rgba(255,255,255,.018) 1px,
 
             transparent 1px
 
         ),
 
-        #17191c;
+        #1b1e22;
 
     background-size:
 
@@ -157,13 +156,13 @@ body{
 
 .container{
 
-    width:min(94%,1100px);
+    width:min(94%,1150px);
 
     margin:auto;
 
     padding:
 
-        30px
+        35px
         20px
         70px;
 
@@ -188,7 +187,7 @@ h1{
 
 h2{
 
-    font-size:1.6rem;
+    font-size:1.65rem;
 
     color:var(--accent);
 
@@ -198,7 +197,7 @@ h2{
 
 h3{
 
-    font-size:1.2rem;
+    font-size:1.25rem;
 
     color:white;
 
@@ -227,37 +226,37 @@ a{
 
 .museum-header{
 
+    text-align:center;
+
+    padding:
+
+        60px
+        40px;
+
+    margin:
+
+        35px
+        0
+        40px;
+
     background:
 
         linear-gradient(
 
             180deg,
 
-            #4a535d 0%,
+            #59636e 0%,
 
-            #343b43 100%
+            #454d56 100%
 
         );
 
     border:
 
         2px solid
-
-        #717b86;
+        #7d8791;
 
     border-radius:24px;
-
-    text-align:center;
-
-    padding:
-
-        55px
-        35px;
-
-    margin:
-
-        35px
-        0;
 
     box-shadow:
 
@@ -266,11 +265,13 @@ a{
 }
 
 
-/* Museum Logo */
+/* ==========================================================
+   MUSEUM LOGO
+========================================================== */
 
 .museum-logo{
 
-    width:170px;
+    width:180px;
 
     max-width:90%;
 
@@ -282,13 +283,15 @@ a{
 }
 
 
-/* Subtitle */
+/* ==========================================================
+   SUBTITLE
+========================================================== */
 
 .museum-subtitle{
 
-    margin-top:12px;
+    margin-top:14px;
 
-    color:#e4e4e4;
+    color:#ededed;
 
     font-size:1.05rem;
 
@@ -297,7 +300,9 @@ a{
 }
 
 
-/* Divider */
+/* ==========================================================
+   DIVIDER
+========================================================== */
 
 .museum-divider{
 
@@ -328,18 +333,22 @@ a{
 }
 
 
-/* Museum Version */
+/* ==========================================================
+   VERSION PLAQUE
+========================================================== */
 
 .museum-version{
 
     display:inline-block;
+
+    margin-top:10px;
 
     padding:
 
         10px
         24px;
 
-    background:#23272b;
+    background:#25292e;
 
     border:
 
@@ -369,23 +378,21 @@ a{
     background:
         linear-gradient(
             180deg,
-            #2f353c 0%,
-            #252a30 100%
+            #444c55 0%,
+            #353c44 100%
         );
 
-    border:1px solid #5d6670;
+    border:2px solid #6d7680;
 
-    border-top:5px solid var(--accent);
-
-    border-radius:16px;
+    border-radius:18px;
 
     padding:34px;
 
-    margin:32px 0;
+    margin:34px 0;
 
     box-shadow:
-        inset 0 2px 2px rgba(255,255,255,.05),
-        inset 0 -3px 5px rgba(0,0,0,.30),
+        inset 0 2px 0 rgba(255,255,255,.05),
+        inset 0 -3px 6px rgba(0,0,0,.25),
         var(--shadow);
 
     transition:
@@ -396,17 +403,19 @@ a{
 
 .museum-card:hover{
 
-    transform:translateY(-4px);
+    transform:translateY(-5px);
 
     box-shadow:
-        inset 0 2px 2px rgba(255,255,255,.05),
-        inset 0 -3px 5px rgba(0,0,0,.30),
-        0 18px 38px rgba(0,0,0,.48);
+        inset 0 2px 0 rgba(255,255,255,.05),
+        inset 0 -3px 6px rgba(0,0,0,.25),
+        0 20px 42px rgba(0,0,0,.45);
 
 }
 
 
-/* Steel Rivets */
+/* ==========================================================
+   STEEL RIVETS
+========================================================== */
 
 .museum-card::before{
 
@@ -415,18 +424,16 @@ a{
     position:absolute;
 
     top:14px;
-
     left:14px;
 
-    width:11px;
-
-    height:11px;
+    width:10px;
+    height:10px;
 
     border-radius:50%;
 
-    background:#969696;
+    background:#979797;
 
-    border:2px solid #565656;
+    border:2px solid #5d5d5d;
 
 }
 
@@ -437,18 +444,16 @@ a{
     position:absolute;
 
     top:14px;
-
     right:14px;
 
-    width:11px;
-
-    height:11px;
+    width:10px;
+    height:10px;
 
     border-radius:50%;
 
-    background:#969696;
+    background:#979797;
 
-    border:2px solid #565656;
+    border:2px solid #5d5d5d;
 
 }
 
@@ -459,13 +464,13 @@ a{
 
 .museum-card h2{
 
+    color:var(--accent);
+
     padding-bottom:16px;
 
     margin-bottom:24px;
 
-    border-bottom:2px solid rgba(255,255,255,.08);
-
-    color:var(--accent);
+    border-bottom:2px solid rgba(255,255,255,.10);
 
 }
 
@@ -473,7 +478,7 @@ a{
 
     color:white;
 
-    margin-bottom:12px;
+    margin-bottom:14px;
 
 }
 
@@ -497,10 +502,8 @@ a{
     grid-template-columns:
 
         60px
-
         1fr
-
-        120px;
+        130px;
 
     gap:18px;
 
@@ -520,7 +523,7 @@ a{
 
 .record-rank{
 
-    font-size:1.4rem;
+    font-size:1.45rem;
 
     text-align:center;
 
@@ -528,9 +531,9 @@ a{
 
 .record-name{
 
-    font-weight:700;
-
     color:white;
+
+    font-weight:700;
 
 }
 
@@ -546,27 +549,6 @@ a{
 
 
 /* ==========================================================
-   CURRENT EXHIBITION
-========================================================== */
-
-.featured-gallery{
-
-    text-align:center;
-
-}
-
-.featured-gallery h3{
-
-    font-size:2rem;
-
-    color:white;
-
-    margin-bottom:20px;
-
-}
-
-
-/* ==========================================================
    STATISTICS
 ========================================================== */
 
@@ -576,31 +558,26 @@ a{
 
     grid-template-columns:
 
-        repeat(auto-fit,minmax(180px,1fr));
+        repeat(auto-fit,minmax(200px,1fr));
 
     gap:22px;
 
-    margin-top:24px;
+    margin-top:26px;
 
 }
 
 .stat-box{
 
     background:
-
         linear-gradient(
-
             180deg,
-
-            #3b434d,
-
-            #2e353d
-
+            #58616b 0%,
+            #454d56 100%
         );
 
-    border:1px solid #69737d;
+    border:2px solid #747d88;
 
-    border-top:5px solid var(--accent);
+    border-top:5px solid var(--museum-gold);
 
     border-radius:14px;
 
@@ -608,13 +585,14 @@ a{
 
     text-align:center;
 
-    transition:.20s;
+    transition:
+        transform .20s;
 
 }
 
 .stat-box:hover{
 
-    transform:translateY(-4px);
+    transform:translateY(-5px);
 
 }
 
@@ -622,11 +600,11 @@ a{
 
     display:block;
 
-    font-size:2.5rem;
+    font-size:2.6rem;
 
     font-weight:800;
 
-    color:var(--accent);
+    color:var(--museum-gold);
 
     margin-bottom:8px;
 
@@ -634,13 +612,17 @@ a{
 
 .stat-label{
 
-    color:#d8d8d8;
+    color:white;
 
     font-size:.95rem;
 
+    line-height:1.5;
+
 }
+
+
 /* ==========================================================
-   RAILROAD COLLECTION GALLERY
+   MUSEUM GALLERIES
 ========================================================== */
 
 .collection-grid{
@@ -648,25 +630,25 @@ a{
     display:grid;
 
     grid-template-columns:
-        repeat(auto-fit,minmax(320px,1fr));
+
+        repeat(auto-fit,minmax(330px,1fr));
 
     gap:30px;
 
-    margin-top:30px;
+    margin-top:10px;
 
 }
-
 
 .collection-card{
 
     background:
         linear-gradient(
             180deg,
-            #505862 0%,
-            #3f464f 100%
+            #59636d 0%,
+            #454d56 100%
         );
 
-    border:2px solid #737d87;
+    border:2px solid #7b858f;
 
     border-radius:18px;
 
@@ -677,26 +659,50 @@ a{
         box-shadow .20s;
 
     box-shadow:
-        0 12px 26px rgba(0,0,0,.35);
+        0 12px 28px rgba(0,0,0,.35);
 
 }
-
 
 .collection-card:hover{
 
     transform:translateY(-6px);
 
     box-shadow:
-        0 18px 36px rgba(0,0,0,.45);
+        0 20px 40px rgba(0,0,0,.45);
 
 }
 
 
+/* ==========================================================
+   FEATURED GALLERY
+========================================================== */
+
+.featured-collection{
+
+    border:3px solid var(--museum-gold);
+
+    box-shadow:
+        0 0 28px rgba(212,175,55,.18),
+        0 20px 40px rgba(0,0,0,.40);
+
+}
+
+.featured-collection h3{
+
+    background:
+        linear-gradient(
+            180deg,
+            #383838 0%,
+            #222222 100%
+        );
+
+    color:var(--museum-gold);
+
+}
+
 .collection-card h3{
 
-    background:#2c3238;
-
-    color:white;
+    background:#31363c;
 
     padding:20px 24px;
 
@@ -706,10 +712,7 @@ a{
 
     font-size:1.35rem;
 
-    letter-spacing:1px;
-
 }
-
 
 .collection-card p{
 
@@ -717,22 +720,11 @@ a{
 
     margin:0;
 
-    color:#e3e3e3;
+    min-height:130px;
 
-    min-height:120px;
-
-}
-
-
-.collection-card .museum-button,
-.collection-card .coming-button{
-
-    margin:0 22px 22px;
+    color:#efefef;
 
 }
-
-
-
 /* ==========================================================
    MUSEUM BUTTONS
 ========================================================== */
@@ -741,9 +733,9 @@ a{
 
     display:flex;
 
-    justify-content:center;
-
     flex-wrap:wrap;
+
+    justify-content:center;
 
     gap:18px;
 
@@ -752,7 +744,9 @@ a{
 }
 
 
-/* Premium Gold Button */
+/* ==========================================================
+   PRIMARY GOLD BUTTON
+========================================================== */
 
 .museum-button{
 
@@ -762,11 +756,22 @@ a{
 
     justify-content:center;
 
-    min-width:260px;
+    min-width:270px;
 
-    padding:20px 36px;
+    padding:18px 36px;
 
     border-radius:14px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff3bf 0%,
+            #f3dc7c 18%,
+            #d4af37 55%,
+            #9f7720 100%
+        );
+
+    color:#111111;
 
     font-size:1rem;
 
@@ -774,42 +779,20 @@ a{
 
     letter-spacing:1px;
 
-    color:#111;
+    text-transform:uppercase;
 
-    background:
-
-        linear-gradient(
-
-            180deg,
-
-            #fff3b4 0%,
-
-            #f2d25d 20%,
-
-            var(--museum-gold) 55%,
-
-            #a77c17 100%
-
-        );
-
-    border:2px solid rgba(255,255,255,.30);
+    border:2px solid rgba(255,255,255,.28);
 
     box-shadow:
-
-        inset 0 2px 0 rgba(255,255,255,.50),
-
+        inset 0 2px 0 rgba(255,255,255,.45),
         0 10px 24px rgba(0,0,0,.35);
 
     transition:
-
         transform .20s,
-
-        filter .20s,
-
-        box-shadow .20s;
+        box-shadow .20s,
+        filter .20s;
 
 }
-
 
 .museum-button:hover{
 
@@ -818,97 +801,107 @@ a{
     filter:brightness(1.05);
 
     box-shadow:
-
         inset 0 2px 0 rgba(255,255,255,.55),
+        0 16px 34px rgba(0,0,0,.45),
+        0 0 20px rgba(212,175,55,.30);
 
-        0 16px 32px rgba(0,0,0,.45),
+}
 
-        0 0 24px rgba(212,175,55,.35);
+.museum-button:active{
+
+    transform:translateY(1px);
 
 }
 
 
-
-/* Hero Button */
+/* ==========================================================
+   FEATURED BUTTON
+========================================================== */
 
 .featured-button{
 
-    font-size:1.15rem;
-
     min-width:360px;
 
-    padding:24px 42px;
+    padding:22px 42px;
+
+    font-size:1.1rem;
 
 }
 
 
-
-/* VIP Button */
+/* ==========================================================
+   VIP BUTTON
+========================================================== */
 
 .vip-button{
 
-    min-width:420px;
+    min-width:430px;
 
-    padding:26px 46px;
+    padding:24px 46px;
 
     font-size:1.15rem;
 
 }
 
 
-
-/* Coming Soon */
+/* ==========================================================
+   COMING SOON BUTTON
+========================================================== */
 
 .coming-button{
 
     display:inline-flex;
 
-    justify-content:center;
-
     align-items:center;
 
-    min-width:260px;
+    justify-content:center;
 
-    padding:18px 32px;
+    min-width:250px;
+
+    padding:18px 30px;
+
+    margin:22px;
 
     border-radius:14px;
 
-    background:#2d3137;
+    background:
+        linear-gradient(
+            180deg,
+            #4d5560 0%,
+            #394048 100%
+        );
 
-    color:#bcbcbc;
-
-    border:2px dashed #6d7680;
+    color:#ececec;
 
     font-weight:700;
 
     letter-spacing:1px;
 
-    cursor:default;
+    border:2px dashed #8a949f;
 
 }
 
 
-
 /* ==========================================================
-   PHOTO FRAME
+   FEATURED PHOTO
 ========================================================== */
 
 .image-frame{
 
-    background:#1f2328;
+    background:#2d333a;
 
-    padding:14px;
+    border:2px solid #6f7983;
 
     border-radius:18px;
 
-    border:2px solid #5c6670;
+    padding:14px;
+
+    margin-top:24px;
 
     box-shadow:
-
-        0 12px 26px rgba(0,0,0,.35);
+        0 12px 28px rgba(0,0,0,.35);
 
 }
-
 
 .featured-photo{
 
@@ -916,12 +909,11 @@ a{
 
     width:100%;
 
-    border-radius:12px;
+    border-radius:10px;
 
-    border:3px solid var(--accent);
+    border:3px solid var(--museum-gold);
 
 }
-
 
 .photo-plaque{
 
@@ -929,14 +921,27 @@ a{
 
     padding:22px;
 
-    background:#1a1d21;
+    background:#323840;
 
-    border-left:5px solid var(--accent);
+    border-left:6px solid var(--museum-gold);
 
     border-radius:12px;
 
 }
 
+.photo-plaque h3{
+
+    color:var(--museum-gold);
+
+    margin-bottom:10px;
+
+}
+
+.photo-plaque p{
+
+    margin:0;
+
+}
 
 
 /* ==========================================================
@@ -947,30 +952,29 @@ a{
 
     margin-top:24px;
 
-    padding:32px;
+    padding:30px;
 
     text-align:center;
 
-    border-radius:18px;
-
     background:
-
         linear-gradient(
-
             180deg,
-
-            #343b44,
-
-            #2a3037
-
+            #505963 0%,
+            #3d444d 100%
         );
 
-    border:2px solid #69727c;
+    border:2px solid #76808a;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 12px 28px rgba(0,0,0,.30);
 
 }
 
-
 .video-card h3{
+
+    color:white;
 
     font-size:1.4rem;
 
@@ -978,12 +982,15 @@ a{
 
 }
 
-
 .video-card p{
+
+    color:#e0e0e0;
 
     margin-bottom:22px;
 
 }
+
+
 /* ==========================================================
    INFORMATION ROWS
 ========================================================== */
@@ -1012,7 +1019,7 @@ a{
 
 .info-title{
 
-    color:#c7ced6;
+    color:#d5d5d5;
 
     font-weight:600;
 
@@ -1027,8 +1034,6 @@ a{
     text-align:right;
 
 }
-
-
 /* ==========================================================
    FOOTER
 ========================================================== */
@@ -1037,7 +1042,7 @@ footer{
 
     margin-top:70px;
 
-    padding:45px 20px;
+    padding:50px 20px;
 
     text-align:center;
 
@@ -1055,9 +1060,9 @@ footer h2{
 
 footer p{
 
-    color:#bdbdbd;
+    color:#cfcfcf;
 
-    margin-bottom:12px;
+    margin-bottom:10px;
 
 }
 
@@ -1068,11 +1073,11 @@ footer p{
 
 img{
 
+    display:block;
+
     max-width:100%;
 
     height:auto;
-
-    display:block;
 
 }
 
@@ -1083,7 +1088,14 @@ img{
 
 a{
 
-    transition:.20s;
+    color:inherit;
+
+    text-decoration:none;
+
+    transition:
+        transform .20s,
+        color .20s,
+        filter .20s;
 
 }
 
@@ -1095,53 +1107,7 @@ a:hover{
 
 
 /* ==========================================================
-   SCROLLBAR
-========================================================== */
-
-::-webkit-scrollbar{
-
-    width:12px;
-
-}
-
-::-webkit-scrollbar-track{
-
-    background:#1c1f23;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-    background:var(--museum-gold);
-
-    border-radius:999px;
-
-    border:2px solid #1c1f23;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-    background:#f2d25d;
-
-}
-
-
-/* ==========================================================
-   TEXT SELECTION
-========================================================== */
-
-::selection{
-
-    background:var(--museum-gold);
-
-    color:#111111;
-
-}
-
-
-/* ==========================================================
-   PAGE FADE-IN
+   PAGE FADE
 ========================================================== */
 
 .container{
@@ -1172,7 +1138,53 @@ a:hover{
 
 
 /* ==========================================================
-   MOBILE
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:12px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#2a2f35;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--museum-gold);
+
+    border-radius:999px;
+
+    border:2px solid #2a2f35;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--museum-gold-light);
+
+}
+
+
+/* ==========================================================
+   TEXT SELECTION
+========================================================== */
+
+::selection{
+
+    background:var(--museum-gold);
+
+    color:#111111;
+
+}
+
+
+/* ==========================================================
+   MOBILE LAYOUT
 ========================================================== */
 
 @media (max-width:768px){
@@ -1194,6 +1206,12 @@ a:hover{
     .museum-header h1{
 
         font-size:2.2rem;
+
+    }
+
+    .museum-subtitle{
+
+        font-size:.95rem;
 
     }
 
@@ -1235,6 +1253,8 @@ a:hover{
 
         flex-direction:column;
 
+        align-items:stretch;
+
     }
 
     .museum-button,
@@ -1245,6 +1265,8 @@ a:hover{
         width:100%;
 
         min-width:unset;
+
+        margin:0;
 
     }
 
@@ -1274,20 +1296,20 @@ a:hover{
 /*
 
 TrainsForever Museum Archive
-
 Version 6.0
 "The Final Decision"
 
-Museum Director:
-Bryce
+Designed for:
 
-Lead Software Engineer:
-ChatGPT
+✔ Museum Lobby
+✔ Norfolk Southern Collection
+✔ Heritage Unit Exhibits
+✔ Future Railroad Galleries
 
-This stylesheet serves as the permanent
-foundation for the TrainsForever Museum.
+This stylesheet is intended to be the
+permanent foundation of the museum.
 
-Future exhibits should inherit this design
-rather than redesign it.
+Future pages should inherit this design
+rather than create new styles.
 
 */
