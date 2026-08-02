@@ -1,8 +1,7 @@
 /* ==========================================================
    TRAINSFOREVER MUSEUM ARCHIVE
-   VERSION 6.1
-   THE GOLDEN STANDARD
-   MASTER STYLESHEET
+   LOBBY STYLE
+   Version 1.0
 ========================================================== */
 
 
@@ -11,1142 +10,1321 @@
 ========================================================== */
 
 *{
+
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
+
 }
 
+
 html{
+
     scroll-behavior:smooth;
+
 }
 
 
 /* ==========================================================
-   MUSEUM VARIABLES
+   MUSEUM COLORS
 ========================================================== */
+
 
 :root{
 
-    /* Theme */
+    --museum-black:#101214;
 
-    --museum-bg:#20242a;
-    --museum-bg-dark:#181c20;
+    --museum-dark:#181c20;
 
-    --museum-panel:#454d56;
-    --museum-panel-dark:#353c44;
+    --museum-slate:#394149;
 
-    --museum-border:#707b86;
+    --museum-steel:#66717b;
+
+    --museum-light:#d9dde1;
 
     --museum-white:#ffffff;
-    --museum-light:#d8d8d8;
 
     --museum-gold:#d4af37;
-    --museum-gold-light:#f3dc7c;
-    --museum-gold-dark:#9f7720;
 
-    --museum-shadow:
-        0 16px 34px rgba(0,0,0,.35);
-
-    --radius:18px;
+    --museum-gold-light:#f1d878;
 
 }
 
 
-/* ==========================================================
-   PAGE ACCENTS
-========================================================== */
 
-body{
-    --accent:var(--museum-gold);
-}
-
-body.ns1065{ --accent:#d4af37; }
-body.ns1066{ --accent:#d8d8d8; }
-body.ns1067{ --accent:#ffd200; }
-body.ns1072{ --accent:#c8102e; }
 
 
 /* ==========================================================
    BODY
 ========================================================== */
 
-body{
+
+body.museum-lobby{
 
     font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+    Arial,
+    Helvetica,
+    sans-serif;
 
-    color:var(--museum-white);
-
-    line-height:1.75;
 
     background:
-        linear-gradient(
-            180deg,
-            #343b44 0%,
-            #2d333a 20%,
-            #272c33 50%,
-            #20252b 80%,
-            #1a1d21 100%
-        );
 
-    background-attachment:fixed;
+    radial-gradient(
+        circle at top,
+        rgba(255,255,255,.06),
+        transparent 45%
+    ),
+
+    linear-gradient(
+        180deg,
+        #15181b,
+        #090a0b
+    );
+
+
+    color:white;
+
+    line-height:1.7;
+
+    min-height:100vh;
 
 }
 
 
+
+
+
 /* ==========================================================
-   GLOBAL CONTAINER
+   MAIN CONTAINER
 ========================================================== */
 
-.container{
 
-    width:min(94%,1150px);
+.museum-container{
+
+
+    width:92%;
+
+
+    max-width:850px;
+
 
     margin:auto;
 
+
     padding:
-        35px
-        20px
-        70px;
+
+    25px 0 70px;
+
 
 }
 
 
+
+
+
+
 /* ==========================================================
-   TYPOGRAPHY
+   TEXT
 ========================================================== */
+
+
+h1,
+h2,
+h3{
+
+    font-weight:800;
+
+}
+
 
 h1{
 
     font-size:3rem;
 
-    font-weight:800;
-
-    letter-spacing:2px;
-
-    color:white;
+    letter-spacing:3px;
 
 }
+
 
 h2{
 
     font-size:1.7rem;
 
-    color:var(--accent);
-
-    margin-bottom:18px;
-
 }
+
 
 h3{
 
-    font-size:1.25rem;
-
-    color:white;
-
-    margin-bottom:12px;
+    font-size:1.2rem;
 
 }
+
 
 p{
 
-    color:var(--museum-light);
-
-    line-height:1.8;
+    color:#dddddd;
 
     margin-bottom:18px;
 
 }
+
 
 a{
 
-    color:inherit;
-
     text-decoration:none;
 
+    color:inherit;
+
 }
-
-
 /* ==========================================================
-   MUSEUM ENTRANCE
+   ENTRANCE PLAQUE
 ========================================================== */
 
-.museum-header{
+
+.entrance-plaque{
+
+
+    background:
+
+    linear-gradient(
+        180deg,
+        #4a535c,
+        #30373e
+    );
+
+
+    border:
+
+    2px solid #727d87;
+
+
+    border-radius:
+
+    22px;
+
+
+    padding:
+
+    55px 35px;
+
 
     text-align:center;
 
-    margin:35px 0 45px;
 
-    padding:60px 40px;
+    margin:
 
-    background:
-        linear-gradient(
-            180deg,
-            #5a646e 0%,
-            #454d56 100%
-        );
+    35px 0;
 
-    border:2px solid var(--museum-border);
 
-    border-radius:24px;
+    box-shadow:
 
-    box-shadow:var(--museum-shadow);
+    0 18px 35px rgba(0,0,0,.45),
+
+    inset 0 2px 5px rgba(255,255,255,.10);
+
 
 }
 
-.museum-logo{
 
-    width:180px;
 
-    max-width:90%;
+.entrance-plaque h1{
 
-    display:block;
 
-    margin:0 auto 28px;
+    color:white;
+
+
+    margin-bottom:10px;
+
 
 }
 
-.museum-subtitle{
 
-    margin-top:14px;
 
-    color:#eeeeee;
+.entrance-plaque h2{
+
+
+    color:#f1d878;
+
 
     letter-spacing:2px;
 
+
+    margin-bottom:15px;
+
+
 }
+
+
+
+.entrance-plaque h3{
+
+
+    color:#e1e5e8;
+
+
+    font-size:1rem;
+
+
+    letter-spacing:2px;
+
+
+    text-transform:uppercase;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+/* ==========================================================
+   MUSEUM DIVIDER
+========================================================== */
+
 
 .museum-divider{
 
-    width:170px;
+
+    width:160px;
+
 
     height:3px;
 
-    margin:28px auto;
 
-    border-radius:999px;
+    margin:25px auto;
+
 
     background:
-        linear-gradient(
-            to right,
-            transparent,
-            var(--museum-gold),
-            transparent
-        );
+
+    linear-gradient(
+        90deg,
+        transparent,
+        #d4af37,
+        transparent
+    );
+
 
 }
 
-.museum-version{
 
-    display:inline-block;
 
-    margin-top:10px;
 
-    padding:10px 24px;
 
-    border-radius:999px;
-
-    background:#2a2f35;
-
-    border:2px solid var(--museum-gold);
-
-    color:white;
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-}
 /* ==========================================================
-   MUSEUM EXHIBIT PLAQUES
+   MUSEUM PLAQUES
 ========================================================== */
 
-.museum-card{
 
-    position:relative;
+.museum-plaque{
 
-    margin:34px 0;
-
-    padding:34px;
-
-    overflow:hidden;
 
     background:
-        linear-gradient(
-            180deg,
-            var(--museum-panel) 0%,
-            var(--museum-panel-dark) 100%
-        );
 
-    border:2px solid var(--museum-border);
+    linear-gradient(
+        180deg,
+        #343b42,
+        #22272c
+    );
 
-    border-radius:var(--radius);
+
+    border:
+
+    1px solid #68727c;
+
+
+    border-left:
+
+    6px solid #d4af37;
+
+
+    border-radius:
+
+    18px;
+
+
+    padding:
+
+    35px;
+
+
+    margin:
+
+    35px 0;
+
 
     box-shadow:
-        inset 0 2px 0 rgba(255,255,255,.05),
-        inset 0 -3px 6px rgba(0,0,0,.25),
-        var(--museum-shadow);
 
-    transition:
-        transform .20s ease,
-        box-shadow .20s ease;
+    0 12px 28px rgba(0,0,0,.45),
+
+    inset 0 2px 3px rgba(255,255,255,.05);
+
 
 }
 
-.museum-card:hover{
 
-    transform:translateY(-4px);
 
-    box-shadow:
-        inset 0 2px 0 rgba(255,255,255,.05),
-        inset 0 -3px 6px rgba(0,0,0,.25),
-        0 22px 42px rgba(0,0,0,.45);
+
+.museum-plaque h2{
+
+
+    color:#f1d878;
+
+
+    border-bottom:
+
+    1px solid rgba(255,255,255,.15);
+
+
+    padding-bottom:
+
+    15px;
+
+
+    margin-bottom:
+
+    25px;
+
 
 }
+
+
+
+
+.museum-plaque p{
+
+
+    color:#e0e0e0;
+
+
+    line-height:1.8;
+
+
+}
+
+
+
 
 
 /* ==========================================================
-   STEEL RIVETS
+   VIP PLAQUE
 ========================================================== */
 
-.museum-card::before,
-.museum-card::after{
 
-    content:"";
+.vip-plaque{
 
-    position:absolute;
 
-    top:14px;
+    text-align:center;
 
-    width:10px;
-    height:10px;
-
-    border-radius:50%;
-
-    background:#9a9a9a;
-
-    border:2px solid #5e5e5e;
 
 }
 
-.museum-card::before{
 
-    left:14px;
-
-}
-
-.museum-card::after{
-
-    right:14px;
-
-}
 
 
 /* ==========================================================
-   PLAQUE HEADINGS
+   GOLD BUTTON
 ========================================================== */
 
-.museum-card h2{
 
-    color:var(--accent);
+.gold-button{
 
-    margin-bottom:24px;
 
-    padding-bottom:16px;
+    display:inline-flex;
 
-    border-bottom:2px solid rgba(255,255,255,.10);
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    margin-top:20px;
+
+
+    padding:
+
+    18px 40px;
+
+
+    min-width:260px;
+
+
+    border-radius:
+
+    12px;
+
+
+    background:
+
+    linear-gradient(
+        180deg,
+        #ffe9a3,
+        #d4af37,
+        #9c791d
+    );
+
+
+    color:#111;
+
+
+    font-weight:900;
+
+
+    letter-spacing:1px;
+
+
+    box-shadow:
+
+    inset 0 3px 5px rgba(255,255,255,.45),
+
+    0 10px 20px rgba(0,0,0,.45);
+
+
+    transition:.25s;
+
 
 }
 
-.museum-card h3{
 
-    color:white;
 
-    margin-bottom:14px;
+.gold-button:hover{
+
+
+    transform:
+
+    translateY(-4px);
+
+
+    filter:
+
+    brightness(1.1);
+
 
 }
-
-.museum-card p{
-
-    color:var(--museum-light);
-
-    margin-bottom:18px;
-
-}
-
-
 /* ==========================================================
    MUSEUM RECORDS
 ========================================================== */
 
-.record-row{
 
-    display:grid;
-
-    grid-template-columns:
-        55px
-        1fr
-        120px;
-
-    gap:18px;
-
-    align-items:center;
-
-    padding:16px 0;
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-}
-
-.record-row:last-child{
-
-    border-bottom:none;
-
-}
-
-.record-rank{
-
-    font-size:1.4rem;
-
-    text-align:center;
-
-}
-
-.record-name{
-
-    font-weight:700;
-
-    color:white;
-
-}
-
-.record-count{
-
-    text-align:right;
-
-    font-weight:700;
-
-    color:var(--museum-gold);
-
-}
-
-
-/* ==========================================================
-   MUSEUM STATISTICS
-========================================================== */
-
-.stats-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(190px,1fr));
-
-    gap:22px;
-
-    margin-top:28px;
-
-}
-
-.stat-box{
-
-    text-align:center;
-
-    padding:28px 20px;
+.records-plaque{
 
     background:
-        linear-gradient(
-            180deg,
-            #59636d 0%,
-            #454d56 100%
-        );
 
-    border:2px solid var(--museum-border);
-
-    border-top:5px solid var(--museum-gold);
-
-    border-radius:14px;
-
-    transition:
-        transform .20s ease;
-
-}
-
-.stat-box:hover{
-
-    transform:translateY(-4px);
-
-}
-
-.stat-number{
-
-    display:block;
-
-    font-size:2.5rem;
-
-    font-weight:800;
-
-    color:var(--museum-gold);
-
-    margin-bottom:8px;
-
-}
-
-.stat-label{
-
-    color:white;
-
-    font-size:.95rem;
-
-    line-height:1.5;
+    linear-gradient(
+        180deg,
+        #394149,
+        #252b31
+    );
 
 }
 
 
-/* ==========================================================
-   INFORMATION ROWS
-========================================================== */
 
-.info-row{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:20px;
-
-    padding:16px 0;
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-}
-
-.info-row:last-child{
-
-    border-bottom:none;
-
-}
-
-.info-title{
-
-    color:#d7d7d7;
-
-    font-weight:600;
-
-}
-
-.info-value{
-
-    color:white;
-
-    font-weight:700;
-
-    text-align:right;
-
-}
-/* ==========================================================
-   RAILROAD COLLECTIONS
-========================================================== */
-
-.collection-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-    gap:30px;
-
-    margin-top:28px;
-
-}
-
-.collection-card{
+.record-list{
 
     display:flex;
 
     flex-direction:column;
 
-    justify-content:space-between;
-
-    background:
-        linear-gradient(
-            180deg,
-            #5a646e 0%,
-            #454d56 100%
-        );
-
-    border:2px solid var(--museum-border);
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-    box-shadow:var(--museum-shadow);
-
-    transition:
-        transform .20s ease,
-        box-shadow .20s ease;
+    gap:18px;
 
 }
 
-.collection-card:hover{
 
-    transform:translateY(-6px);
+
+
+.record-item{
+
+
+    background:#181c20;
+
+
+    border:
+
+    1px solid #59636d;
+
+
+    border-left:
+
+    5px solid #d4af37;
+
+
+    border-radius:
+
+    12px;
+
+
+    padding:
+
+    20px 22px;
+
 
     box-shadow:
-        0 22px 42px rgba(0,0,0,.45);
+
+    0 8px 18px rgba(0,0,0,.30);
+
 
 }
 
-.collection-card h3{
 
-    background:#31363c;
+
+
+.record-item h3{
+
+
+    color:#f1d878;
+
+
+    margin-bottom:8px;
+
+
+}
+
+
+
+
+.record-item p{
+
+
+    margin:0;
+
+
+    color:#dddddd;
+
+
+}
+
+
+
+
+
+/* ==========================================================
+   COLLECTION GALLERY
+========================================================== */
+
+
+.collection-gallery{
+
+
+    margin:
+
+    40px 0;
+
+
+}
+
+
+
+.collection-gallery > h2{
+
+
+    text-align:center;
+
+
+    color:#f1d878;
+
+
+    margin-bottom:30px;
+
+
+}
+
+
+
+
+.collection-grid{
+
+
+    display:grid;
+
+
+    grid-template-columns:1fr;
+
+
+    gap:25px;
+
+
+}
+
+
+
+
+
+/* ==========================================================
+   COLLECTION PLAQUES
+========================================================== */
+
+
+.collection-plaque{
+
+
+    background:
+
+    linear-gradient(
+        180deg,
+        #424b54,
+        #2b3238
+    );
+
+
+    border:
+
+    2px solid #68737d;
+
+
+    border-radius:
+
+    18px;
+
+
+    padding:
+
+    30px;
+
+
+    text-align:center;
+
+
+    box-shadow:
+
+    0 12px 25px rgba(0,0,0,.40);
+
+
+    transition:.25s;
+
+
+}
+
+
+
+
+
+.collection-plaque:hover{
+
+
+    transform:
+
+    translateY(-5px);
+
+
+    border-color:
+
+    #d4af37;
+
+
+}
+
+
+
+
+
+.collection-plaque h3{
+
 
     color:white;
 
-    padding:20px 24px;
 
-    margin:0;
+    font-size:1.5rem;
 
-    border-bottom:2px solid rgba(255,255,255,.10);
+
+    margin-bottom:18px;
+
+
+}
+
+
+
+
+
+.collection-plaque p{
+
+
+    color:#e0e0e0;
+
+
+    margin-bottom:25px;
+
 
 }
 
-.collection-card p{
 
-    padding:22px;
 
-    margin:0;
 
-    flex:1;
 
-}
 
 
 /* ==========================================================
-   FEATURED COLLECTION
+   ACTIVE COLLECTION
 ========================================================== */
 
-.featured-collection{
 
-    border:3px solid var(--museum-gold);
+.active-collection{
 
-    box-shadow:
-        0 0 28px rgba(212,175,55,.18),
-        0 22px 42px rgba(0,0,0,.45);
+
+    border-top:
+
+    5px solid #d4af37;
+
 
 }
 
 
-/* ==========================================================
-   BUTTON ROW
-========================================================== */
-
-.button-row{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    justify-content:center;
-
-    gap:18px;
-
-    margin-top:26px;
-
-}
 
 
 /* ==========================================================
-   GOLD MUSEUM BUTTON
+   MUSEUM BUTTON
 ========================================================== */
+
 
 .museum-button{
 
+
     display:inline-flex;
 
-    justify-content:center;
 
     align-items:center;
 
-    min-width:280px;
 
-    padding:18px 34px;
+    justify-content:center;
 
-    border-radius:14px;
+
+    min-width:
+
+    230px;
+
+
+    padding:
+
+    16px 32px;
+
 
     background:
-        linear-gradient(
-            180deg,
-            #fff3bf 0%,
-            var(--museum-gold-light) 18%,
-            var(--museum-gold) 55%,
-            var(--museum-gold-dark) 100%
-        );
+
+    linear-gradient(
+        180deg,
+        #f2d979,
+        #d4af37,
+        #9c791d
+    );
+
 
     color:#111;
 
-    font-weight:800;
 
-    letter-spacing:1px;
+    border-radius:
 
-    text-transform:uppercase;
+    10px;
 
-    border:2px solid rgba(255,255,255,.28);
+
+    font-weight:
+
+    900;
+
+
+    letter-spacing:
+
+    1px;
+
 
     box-shadow:
-        inset 0 2px 0 rgba(255,255,255,.45),
-        0 12px 24px rgba(0,0,0,.35);
 
-    transition:
-        transform .20s ease,
-        filter .20s ease,
-        box-shadow .20s ease;
+
+    inset 0 2px 4px rgba(255,255,255,.4),
+
+    0 8px 18px rgba(0,0,0,.40);
+
+
+    transition:.25s;
+
 
 }
+
+
+
+
 
 .museum-button:hover{
 
-    transform:translateY(-4px);
 
-    filter:brightness(1.05);
+    transform:
 
-    box-shadow:
-        inset 0 2px 0 rgba(255,255,255,.55),
-        0 18px 34px rgba(0,0,0,.45),
-        0 0 20px rgba(212,175,55,.30);
+    translateY(-3px);
+
+
+    filter:
+
+    brightness(1.08);
+
 
 }
 
 
-/* ==========================================================
-   FEATURED BUTTON
-========================================================== */
 
-.featured-button{
-
-    min-width:360px;
-
-    font-size:1.1rem;
-
-}
-
-
-/* ==========================================================
-   VIP BUTTON
-========================================================== */
-
-.vip-button{
-
-    min-width:440px;
-
-    font-size:1.15rem;
-
-}
 
 
 /* ==========================================================
    COMING SOON BUTTON
 ========================================================== */
 
+
 .coming-button{
+
 
     display:inline-flex;
 
+
     justify-content:center;
+
 
     align-items:center;
 
-    min-width:260px;
 
-    padding:18px 30px;
+    padding:
 
-    border-radius:14px;
+    14px 28px;
 
-    background:
-        linear-gradient(
-            180deg,
-            #4f5862 0%,
-            #3b424a 100%
-        );
 
-    border:2px dashed #8c95a0;
+    background:#252a2f;
 
-    color:#ececec;
 
-    font-weight:700;
+    color:#bfc5ca;
 
-    letter-spacing:1px;
+
+    border:
+
+    2px dashed #78838d;
+
+
+    border-radius:
+
+    10px;
+
+
+    font-weight:
+
+    800;
+
+
+    letter-spacing:
+
+    1px;
+
 
 }
+/* ==========================================================
+   RAILFAN COMPANIONS
+========================================================== */
+
+
+.companion-list{
+
+    display:grid;
+
+    grid-template-columns:1fr;
+
+    gap:20px;
+
+}
+
+
+
+.companion-card{
+
+
+    background:#1b2025;
+
+
+    border:
+
+    1px solid #606a73;
+
+
+    border-left:
+
+    5px solid #d4af37;
+
+
+    border-radius:
+
+    12px;
+
+
+    padding:
+
+    22px;
+
+
+}
+
+
+
+.companion-card h3{
+
+
+    color:#f1d878;
+
+
+    margin-bottom:10px;
+
+
+}
+
+
+
 
 
 /* ==========================================================
-   FEATURED PHOTO
+   FEATURED EXHIBIT
 ========================================================== */
 
-.image-frame{
 
-    margin-top:24px;
+.featured-exhibit{
 
-    padding:14px;
-
-    background:#2f363d;
-
-    border:2px solid var(--museum-border);
-
-    border-radius:18px;
-
-    box-shadow:var(--museum-shadow);
-
-}
-
-.featured-photo{
-
-    width:100%;
-
-    display:block;
-
-    border-radius:10px;
-
-    border:3px solid var(--museum-gold);
-
-}
-
-.photo-plaque{
-
-    margin-top:22px;
-
-    padding:22px;
-
-    background:#333940;
-
-    border-left:6px solid var(--museum-gold);
-
-    border-radius:12px;
-
-}
-
-
-/* ==========================================================
-   FEATURED VIDEO
-========================================================== */
-
-.video-card{
-
-    margin-top:24px;
-
-    padding:30px;
 
     text-align:center;
 
-    background:
-        linear-gradient(
-            180deg,
-            #56606a 0%,
-            #434b54 100%
-        );
-
-    border:2px solid var(--museum-border);
-
-    border-radius:18px;
-
-    box-shadow:var(--museum-shadow);
 
 }
 
-.video-card h3{
 
-    margin-bottom:14px;
 
-}
 
-.video-card p{
+
+.featured-exhibit h3{
+
+
+    color:white;
+
+
+    font-size:1.4rem;
+
 
     margin-bottom:20px;
 
+
 }
+
+
+
+
+
+/* ==========================================================
+   PHOTO DISPLAY
+========================================================== */
+
+
+.photo-display{
+
+
+    background:#171b1f;
+
+
+    border:
+
+    2px solid #65707a;
+
+
+    border-radius:
+
+    15px;
+
+
+    padding:
+
+    18px;
+
+
+}
+
+
+
+
+.photo-display img{
+
+
+    width:100%;
+
+
+    border-radius:
+
+    10px;
+
+
+    border:
+
+    3px solid #d4af37;
+
+
+}
+
+
+
+
+
+.photo-caption{
+
+
+    margin-top:20px;
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+.photo-caption h3{
+
+
+    color:#f1d878;
+
+
+    margin-bottom:10px;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================================
+   VIDEO DISPLAY
+========================================================== */
+
+
+.video-display{
+
+
+    background:
+
+    linear-gradient(
+        180deg,
+        #252c32,
+        #181c20
+    );
+
+
+    border:
+
+    1px solid #66717b;
+
+
+    border-radius:
+
+    15px;
+
+
+    padding:
+
+    30px;
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+.video-display h3{
+
+
+    color:white;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================================
+   CURATOR DESK
+========================================================== */
+
+
+.museum-plaque:last-of-type{
+
+
+    margin-bottom:40px;
+
+
+}
+
+
+
+
+
+
+
 /* ==========================================================
    FOOTER
 ========================================================== */
 
-footer{
 
-    margin-top:70px;
+.museum-footer{
 
-    padding:50px 20px;
 
     text-align:center;
 
-    border-top:2px solid rgba(255,255,255,.08);
+
+    padding:
+
+    40px 20px;
+
+
+    margin-top:50px;
+
+
+    border-top:
+
+    2px solid rgba(255,255,255,.15);
+
 
 }
 
-footer h2{
 
-    color:white;
 
-    margin-bottom:12px;
+.museum-footer h2{
+
+
+    color:#f1d878;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+.museum-footer p{
+
+
+    color:#bfc5ca;
+
 
 }
 
-footer p{
 
-    color:var(--museum-light);
 
-    margin-bottom:10px;
-
-}
 
 
 /* ==========================================================
-   GLOBAL IMAGES
+   MOBILE OPTIMIZATION
 ========================================================== */
+
+
+@media(max-width:768px){
+
+
+
+.museum-container{
+
+
+    width:94%;
+
+
+}
+
+
+
+.entrance-plaque{
+
+
+    padding:
+
+    40px 22px;
+
+
+}
+
+
+
+.entrance-plaque h1{
+
+
+    font-size:2.3rem;
+
+
+}
+
+
+
+
+.museum-plaque{
+
+
+    padding:
+
+    25px;
+
+
+}
+
+
+
+.collection-plaque{
+
+
+    padding:
+
+    25px;
+
+
+}
+
+
+
+.gold-button,
+.museum-button{
+
+
+    width:100%;
+
+
+}
+
+
+
+}
+
+
+
+
+
+/* ==========================================================
+   IMAGE DEFAULTS
+========================================================== */
+
 
 img{
 
-    display:block;
 
     max-width:100%;
 
+
     height:auto;
 
-}
 
+    display:block;
 
-/* ==========================================================
-   LINKS
-========================================================== */
-
-a{
-
-    color:inherit;
-
-    text-decoration:none;
-
-    transition:
-        color .20s ease,
-        transform .20s ease,
-        filter .20s ease;
 
 }
-
-a:hover{
-
-    color:inherit;
-
-}
-
-
-/* ==========================================================
-   PAGE FADE
-========================================================== */
-
-.container{
-
-    animation:museumFade .40s ease;
-
-}
-
-@keyframes museumFade{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(8px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:none;
-
-    }
-
-}
-
-
-/* ==========================================================
-   SCROLLBAR
-========================================================== */
-
-::-webkit-scrollbar{
-
-    width:12px;
-
-}
-
-::-webkit-scrollbar-track{
-
-    background:#2a2f35;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-    background:var(--museum-gold);
-
-    border-radius:999px;
-
-    border:2px solid #2a2f35;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-    background:var(--museum-gold-light);
-
-}
-
-
-/* ==========================================================
-   TEXT SELECTION
-========================================================== */
-
-::selection{
-
-    background:var(--museum-gold);
-
-    color:#111;
-
-}
-
-
-/* ==========================================================
-   MOBILE LAYOUT
-========================================================== */
-
-@media (max-width:768px){
-
-    .container{
-
-        width:95%;
-
-        padding:20px 15px 50px;
-
-    }
-
-    .museum-header{
-
-        padding:40px 20px;
-
-    }
-
-    .museum-header h1{
-
-        font-size:2.2rem;
-
-    }
-
-    .museum-subtitle{
-
-        font-size:.95rem;
-
-        letter-spacing:1px;
-
-    }
-
-    .museum-card{
-
-        padding:24px;
-
-    }
-
-    .collection-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .stats-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-    .button-row{
-
-        flex-direction:column;
-
-        align-items:stretch;
-
-    }
-
-    .museum-button,
-    .featured-button,
-    .vip-button,
-    .coming-button{
-
-        width:100%;
-
-        min-width:unset;
-
-    }
-
-    .record-row{
-
-        grid-template-columns:1fr;
-
-        text-align:center;
-
-        gap:8px;
-
-    }
-
-    .record-count{
-
-        text-align:center;
-
-    }
-
-    .info-row{
-
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:8px;
-
-    }
-
-    .info-value{
-
-        text-align:left;
-
-    }
-
-}
-
-
-/* ==========================================================
-   VERSION 6.1
-   THE GOLDEN STANDARD
-========================================================== */
-
-/*
-
-TrainsForever Museum Archive
-
-Version 6.1
-"The Golden Standard"
-
-Engineering Principles
-
-✓ One selector per component
-✓ One body definition
-✓ Mobile-first
-✓ Museum-first design
-✓ Expandable architecture
-✓ Clean production code
-
-Future galleries should inherit this
-stylesheet instead of creating new ones.
-
-*/
