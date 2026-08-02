@@ -1149,3 +1149,367 @@ hr{
     margin:35px 0;
 
 }
+   
+/* ==========================================================
+   NORFOLK SOUTHERN COLLECTION THEME
+   Gallery One
+========================================================== */
+
+body.norfolk-southern{
+
+    --accent:#ffffff;
+
+}
+
+
+/* ==========================================================
+   NORFOLK SOUTHERN MUSEUM ENTRANCE
+========================================================== */
+
+body.norfolk-southern .museum-header{
+
+    background:linear-gradient(
+        180deg,
+        #2b2b2b 0%,
+        #171717 100%
+    );
+
+    border:2px solid #6d6d6d;
+
+    box-shadow:
+        0 14px 34px rgba(0,0,0,.55);
+
+}
+
+
+body.norfolk-southern .museum-header h1{
+
+    color:#ffffff;
+
+}
+
+
+body.norfolk-southern .museum-subtitle{
+
+    color:#d9d9d9;
+
+}
+
+
+body.norfolk-southern .museum-divider{
+
+    background:linear-gradient(
+
+        to right,
+
+        transparent,
+
+        #ffffff,
+
+        transparent
+
+    );
+
+}
+
+
+body.norfolk-southern .exhibit-number{
+
+    background:#111111;
+
+    color:#ffffff;
+
+    border:2px solid #7d7d7d;
+
+}
+
+
+/* ==========================================================
+   NORFOLK SOUTHERN PLAQUES
+========================================================== */
+
+body.norfolk-southern .museum-card{
+
+    background:linear-gradient(
+        180deg,
+        #232323 0%,
+        #171717 100%
+    );
+
+    border:1px solid #5f5f5f;
+
+    border-top:5px solid #ffffff;
+
+}
+
+
+body.norfolk-southern .museum-card h2{
+
+    color:#ffffff;
+
+    border-bottom:2px solid rgba(255,255,255,.10);
+
+}
+
+
+body.norfolk-southern .museum-card p{
+
+    color:#dddddd;
+
+}
+
+
+/* ==========================================================
+   NORFOLK SOUTHERN RIVETS
+========================================================== */
+
+body.norfolk-southern .museum-card::before,
+body.norfolk-southern .museum-card::after{
+
+    background:#9a9a9a;
+
+    border:2px solid #5a5a5a;
+
+}
+   /* ==========================================================
+   NORFOLK SOUTHERN GALLERY PLAQUES
+========================================================== */
+
+body.norfolk-southern .collection-card{
+
+    background:linear-gradient(
+        180deg,
+        #242424 0%,
+        #171717 100%
+    );
+
+    border:2px solid #666666;
+
+    border-radius:16px;
+
+    box-shadow:
+        0 12px 28px rgba(0,0,0,.45);
+
+    transition:
+        transform .25s,
+        box-shadow .25s,
+        border-color .25s;
+
+}
+
+
+body.norfolk-southern .collection-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#ffffff;
+
+    box-shadow:
+        0 18px 36px rgba(0,0,0,.60);
+
+}
+
+
+body.norfolk-southern .collection-card h3{
+
+    background:#101010;
+
+    color:#ffffff;
+
+    border-bottom:2px solid #6d6d6d;
+
+    padding:18px 22px;
+
+}
+
+
+body.norfolk-southern .collection-card p{
+
+    color:#d7d7d7;
+
+    line-height:1.8;
+
+}
+
+
+/* ==========================================================
+   GOLD MUSEUM BUTTONS
+========================================================== */
+
+body.norfolk-southern .museum-button{
+
+    width:100%;
+
+    min-width:unset;
+
+}
+
+
+/* ==========================================================
+   COMING SOON PLAQUES
+========================================================== */
+
+body.norfolk-southern .coming-button{
+
+    width:100%;
+
+    min-width:unset;
+
+    background:#323232;
+
+    color:#d8d8d8;
+
+    border:2px dashed #777777;
+
+}
+
+
+/* ==========================================================
+   COLLECTION STATISTICS
+========================================================== */
+
+body.norfolk-southern .info-row{
+
+    border-bottom:1px solid rgba(255,255,255,.10);
+
+}
+
+
+body.norfolk-southern .info-title{
+
+    color:#d7d7d7;
+
+}
+
+
+body.norfolk-southern .info-value{
+
+    color:#ffffff;
+
+    font-weight:700;
+
+}
+
+
+/* ==========================================================
+   COLLECTION GRID
+========================================================== */
+
+body.norfolk-southern .collection-grid{
+
+    gap:30px;
+
+}
+   /* ==========================================================
+   NORFOLK SOUTHERN FINISHING TOUCHES
+   Gallery One
+========================================================== */
+
+
+/* Collection Updates */
+
+body.norfolk-southern .info-row{
+
+    padding:18px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+body.norfolk-southern .info-title{
+
+    color:#d4d4d4;
+
+    font-weight:600;
+
+}
+
+body.norfolk-southern .info-value{
+
+    color:#ffffff;
+
+    font-weight:700;
+
+}
+
+
+/* Video Presentation */
+
+body.norfolk-southern .video-card{
+
+    background:linear-gradient(
+        180deg,
+        #252525 0%,
+        #181818 100%
+    );
+
+    border:2px solid #5d5d5d;
+
+}
+
+
+/* Featured Photograph */
+
+body.norfolk-southern .image-frame{
+
+    background:#151515;
+
+    border:2px solid #5d5d5d;
+
+}
+
+
+/* Photo Plaque */
+
+body.norfolk-southern .photo-plaque{
+
+    background:#1a1a1a;
+
+    border-left:5px solid #ffffff;
+
+}
+
+
+/* Footer */
+
+body.norfolk-southern footer{
+
+    border-top:2px solid #444444;
+
+    color:#bdbdbd;
+
+}
+
+body.norfolk-southern footer strong{
+
+    color:#ffffff;
+
+}
+
+
+/* Museum Navigation */
+
+body.norfolk-southern .button-row{
+
+    justify-content:center;
+
+}
+
+
+/* Mobile */
+
+@media (max-width:768px){
+
+    body.norfolk-southern .museum-header{
+
+        padding:38px 20px;
+
+    }
+
+    body.norfolk-southern .collection-card{
+
+        margin-bottom:10px;
+
+    }
+
+}
