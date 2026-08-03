@@ -2507,9 +2507,38 @@ body.norfolk-southern footer p{
    NS 1067 • READING RAILROAD
 ========================================================== */
 
-body.reading-1067{
+body.reading-1067 .museum-header{
 
-    background:#0b0b0b;
+    position:relative;
+
+    overflow:hidden;
+
+    padding:70px 40px;
+
+    border-radius:26px;
+
+    border:2px solid #1f8a43;
+
+    border-bottom:8px solid #ffd200;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.45),
+            rgba(0,0,0,.60)
+        ),
+        url("8423BE6F-9E0F-4899-B4DB-93C0B710F02E.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    box-shadow:
+        0 22px 45px rgba(0,0,0,.65);
+
+}
+   
 
 }
 
