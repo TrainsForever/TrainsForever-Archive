@@ -2501,9 +2501,9 @@ body.reading-1067 .museum-header{
         ),
         url("8423BE6F-9E0F-4899-B4DB-93C0B710F02E.png");
 
-    background-size: 110% auto;
+    background-size: cover;
 
-    background-position: center center;
+    background-position: 50% 50%;
 
     background-repeat:no-repeat;
 
