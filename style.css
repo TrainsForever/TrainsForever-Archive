@@ -2498,3 +2498,422 @@ body.norfolk-southern footer p{
     }
 
 }
+/* ==========================================================
+   EXHIBIT 003
+   NS 1067 • READING RAILROAD
+========================================================== */
+
+body.reading-1067 .museum-header{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at 25px 25px,
+            rgba(255,208,0,.08) 3px,
+            transparent 4px),
+
+        radial-gradient(circle at 75px 25px,
+            rgba(255,208,0,.08) 3px,
+            transparent 4px),
+
+        radial-gradient(circle at 50px 68px,
+            rgba(255,208,0,.08) 3px,
+            transparent 4px),
+
+        linear-gradient(
+            180deg,
+            #10351b 0%,
+            #09170c 55%,
+            #050505 100%
+        );
+
+    background-size:100px 86px;
+
+    border:2px solid #2f9d48;
+
+    border-bottom:6px solid #ffd000;
+
+    border-radius:24px;
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.60);
+
+}
+
+
+/* Dark Honeycomb Overlay */
+
+body.reading-1067 .museum-header::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:.18;
+
+    background-image:
+
+        linear-gradient(30deg,
+            transparent 45%,
+            rgba(255,208,0,.18) 46%,
+            rgba(255,208,0,.18) 54%,
+            transparent 55%),
+
+        linear-gradient(-30deg,
+            transparent 45%,
+            rgba(255,208,0,.18) 46%,
+            rgba(255,208,0,.18) 54%,
+            transparent 55%);
+
+    background-size:42px 36px;
+
+    pointer-events:none;
+
+}
+
+
+/* Bee Banner */
+
+body.reading-1067 .bee-banner{
+
+    display:inline-block;
+
+    margin-bottom:20px;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    background:#ffd000;
+
+    color:#111111;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+
+/* Title */
+
+body.reading-1067 .museum-header h1{
+
+    color:#ffffff;
+
+    text-shadow:
+
+        0 0 12px rgba(47,157,72,.35);
+
+}
+
+
+/* Railroad Name */
+
+body.reading-1067 .museum-header h2{
+
+    color:#ffd000;
+
+    margin-top:10px;
+
+}
+
+
+/* Subtitle */
+
+body.reading-1067 .museum-subtitle{
+
+    color:#eeeeee;
+
+}
+   /* ==========================================================
+   EXHIBIT 003 DISPLAY FEATURES
+========================================================== */
+
+/* Museum Cards */
+
+body.reading-1067 .museum-card{
+
+    background:linear-gradient(
+        180deg,
+        #1a241b 0%,
+        #111111 100%
+    );
+
+    border:1px solid #2f9d48;
+
+    border-top:5px solid #ffd000;
+
+}
+
+
+/* Card Titles */
+
+body.reading-1067 .museum-card h2{
+
+    color:#ffd000;
+
+}
+
+
+/* Paragraphs */
+
+body.reading-1067 .museum-card p{
+
+    color:#e8e8e8;
+
+}
+
+
+/* Statistics */
+
+body.reading-1067 .info-title{
+
+    color:#ffd000;
+
+    font-weight:700;
+
+}
+
+body.reading-1067 .info-value{
+
+    color:#ffffff;
+
+    font-weight:700;
+
+}
+
+
+/* Featured Photograph */
+
+body.reading-1067 .image-frame{
+
+    background:linear-gradient(
+        180deg,
+        #18351d,
+        #101010
+    );
+
+    border:2px solid #2f9d48;
+
+    border-radius:18px;
+
+    padding:14px;
+
+    box-shadow:
+        0 15px 30px rgba(0,0,0,.45);
+
+}
+
+body.reading-1067 .featured-photo{
+
+    border:3px solid #ffd000;
+
+    border-radius:10px;
+
+}
+
+
+/* Photo Plaque */
+
+body.reading-1067 .photo-plaque{
+
+    margin-top:20px;
+
+    padding:20px;
+
+    background:#171717;
+
+    border-left:5px solid #ffd000;
+
+    border-radius:12px;
+
+}
+
+body.reading-1067 .photo-plaque h3{
+
+    color:#ffd000;
+
+}
+
+body.reading-1067 .photo-plaque p{
+
+    color:#dddddd;
+
+}
+
+
+/* Curator's Notes */
+
+body.reading-1067 .museum-plaque{
+
+    margin-top:20px;
+
+    padding:24px;
+
+    background:#161616;
+
+    border-left:5px solid #2f9d48;
+
+    border-radius:12px;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,.05);
+
+}
+
+body.reading-1067 .museum-plaque h3{
+
+    color:#ffd000;
+
+}
+
+body.reading-1067 .museum-plaque p{
+
+    color:#dddddd;
+
+}
+   /* ==========================================================
+   EXHIBIT 003 FINAL DETAILS
+========================================================== */
+
+/* Silver Museum Rivets */
+
+body.reading-1067 .museum-card::before,
+body.reading-1067 .museum-card::after{
+
+    background:#ffd000;
+
+    border:2px solid #2f9d48;
+
+}
+
+
+/* Museum Divider */
+
+body.reading-1067 .museum-divider{
+
+    background:linear-gradient(
+        to right,
+        transparent,
+        #ffd000,
+        transparent
+    );
+
+}
+
+
+/* Exhibit Number */
+
+body.reading-1067 .exhibit-number{
+
+    background:linear-gradient(
+        180deg,
+        #18351d,
+        #111111
+    );
+
+    border:2px solid #2f9d48;
+
+    color:#ffd000;
+
+    box-shadow:
+        0 0 18px rgba(47,157,72,.45);
+
+}
+
+
+/* Statistics Hover */
+
+body.reading-1067 .info-row{
+
+    transition:
+        background .25s,
+        padding-left .25s;
+
+}
+
+body.reading-1067 .info-row:hover{
+
+    background:rgba(255,208,0,.05);
+
+    padding-left:12px;
+
+}
+
+
+/* Museum Cards */
+
+body.reading-1067 .museum-card:hover{
+
+    border-color:#ffd000;
+
+    box-shadow:
+        0 18px 36px rgba(0,0,0,.55);
+
+}
+
+
+/* Gold Museum Buttons */
+
+body.reading-1067 .museum-button{
+
+    box-shadow:
+        inset 0 2px 0 rgba(255,255,255,.35),
+        0 10px 22px rgba(0,0,0,.40);
+
+}
+
+
+/* Footer */
+
+body.reading-1067 footer{
+
+    margin-top:70px;
+
+    padding:40px 20px;
+
+    text-align:center;
+
+    border-top:2px solid #2f9d48;
+
+}
+
+body.reading-1067 footer strong{
+
+    color:#ffd000;
+
+}
+
+body.reading-1067 footer p{
+
+    color:#dddddd;
+
+}
+
+
+/* Mobile */
+
+@media (max-width:768px){
+
+    body.reading-1067 .museum-header{
+
+        padding:40px 24px;
+
+    }
+
+    body.reading-1067 .bee-banner{
+
+        font-size:.80rem;
+
+        letter-spacing:1px;
+
+    }
+
+}
