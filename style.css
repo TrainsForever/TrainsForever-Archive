@@ -2517,39 +2517,7 @@ body.reading-1067 .museum-header{
 
 
 /* ==========================================================
-   HEADER
-========================================================== */
-
-
-    body.reading-1067 .museum-header{
-
-    position:relative;
-
-    overflow:hidden;
-
-    padding:70px 40px;
-
-    border-radius:26px;
-
-    border:2px solid #1f8a43;
-
-    border-bottom:8px solid #ffd200;
-
-    background:
-        linear-gradient(
-            rgba(0,0,0,.45),
-            rgba(0,0,0,.55)
-        ),
-        url("images/bee-line-background.png");
-
-    background-size:cover;
-
-    background-position:center;
-
-    background-repeat:no-repeat;
-
-    box-shadow:
-        0 20px 40px rgba(0,0,0,.60);
+   
 
 }
 
