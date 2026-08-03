@@ -2514,6 +2514,8 @@ body.reading-1067{
 
 body.reading-1067 .museum-header{
 
+    body.reading-1067 .museum-header{
+
     position:relative;
 
     overflow:hidden;
@@ -2526,21 +2528,23 @@ body.reading-1067 .museum-header{
 
     border-bottom:8px solid #ffd200;
 
-    background:
-
+    background-image:
         linear-gradient(
-            180deg,
-            #184e2a 0%,
-            #12371f 20%,
-            #0c2013 45%,
-            #080808 100%
-        );
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.55)
+        ),
+        url("images/bee-line-background.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
 
     box-shadow:
-        0 22px 45px rgba(0,0,0,.65);
+        0 20px 40px rgba(0,0,0,.60);
 
 }
-
 
 /* ==========================================================
    TRUE HONEYCOMB
