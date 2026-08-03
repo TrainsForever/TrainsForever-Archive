@@ -2528,9 +2528,9 @@ body.reading-1067 .museum-header{
 
     border-bottom:8px solid #ffd200;
 
-    background-image:
+    background:
         linear-gradient(
-            rgba(0,0,0,.55),
+            rgba(0,0,0,.45),
             rgba(0,0,0,.55)
         ),
         url("images/bee-line-background.png");
