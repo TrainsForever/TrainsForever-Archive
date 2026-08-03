@@ -3354,3 +3354,34 @@ body.reading-1067 footer strong{
     }
 
 } 
+/* Museum Statistics Emblem */
+
+body.reading-1067 .stats-emblem{
+
+    text-align:center;
+
+    margin-bottom:18px;
+
+}
+
+body.reading-1067 .stats-emblem img{
+
+    width:120px;
+
+    max-width:40%;
+
+    display:block;
+
+    margin:0 auto;
+
+    filter:drop-shadow(0 0 12px rgba(255,210,0,.25));
+
+    transition:transform .25s ease;
+
+}
+
+body.reading-1067 .stats-emblem img:hover{
+
+    transform:scale(1.05);
+
+}
