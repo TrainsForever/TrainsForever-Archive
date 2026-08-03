@@ -2503,7 +2503,7 @@ body.reading-1067 .museum-header{
 
     background-size:cover;
 
-    background-position: 47% center;
+    background-position: 44% center;
 
     background-repeat:no-repeat;
 
@@ -2552,49 +2552,6 @@ body.reading-1067 .museum-header{
         0 20px 40px rgba(0,0,0,.60);
 
 }
-
-/* ==========================================================
-   TRUE HONEYCOMB
-========================================================== */
-
-body.reading-1067 .museum-header::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    opacity:.14;
-
-    background:
-
-        linear-gradient(30deg,
-            #ffd200 12%,
-            transparent 12.5%,
-            transparent 87%,
-            #ffd200 87.5%,
-            #ffd200),
-
-        linear-gradient(150deg,
-            #ffd200 12%,
-            transparent 12.5%,
-            transparent 87%,
-            #ffd200 87.5%,
-            #ffd200),
-
-        linear-gradient(90deg,
-            #1f8a43 2%,
-            transparent 2.5%,
-            transparent 97%,
-            #1f8a43 97.5%);
-
-    background-size:70px 40px;
-
-    pointer-events:none;
-
-}
-
 
 /* Dark Steel Overlay */
 
