@@ -1811,25 +1811,26 @@ body.norfolk-southern footer strong{
 /* Exhibit Header */
 
 body.norfolk-southern .museum-header{
-background:
-    radial-gradient(circle at 15% 20%, rgba(212,175,55,.18) 1px, transparent 2px),
-    radial-gradient(circle at 75% 30%, rgba(212,175,55,.15) 1px, transparent 2px),
-    radial-gradient(circle at 35% 70%, rgba(244,221,135,.12) 1.5px, transparent 2px),
-    radial-gradient(circle at 90% 80%, rgba(212,175,55,.15) 1px, transparent 2px),
-    radial-gradient(circle at 55% 45%, rgba(255,255,255,.05) 1px, transparent 2px),
-    linear-gradient(
-        180deg,
-        #1b1b1b 0%,
-        #0d0d0d 100%
-    );
 
-background-size:
-    220px 220px,
-    260px 260px,
-    280px 280px,
-    240px 240px,
-    200px 200px,
-    cover;
+    background:
+        radial-gradient(circle at 18% 22%, rgba(212,175,55,.35) 1px, transparent 2px),
+        radial-gradient(circle at 82% 30%, rgba(212,175,55,.30) 1px, transparent 2px),
+        radial-gradient(circle at 40% 72%, rgba(255,230,140,.22) 1.5px, transparent 2px),
+        radial-gradient(circle at 92% 82%, rgba(212,175,55,.28) 1px, transparent 2px),
+        linear-gradient(
+            180deg,
+            #1a1a1a 0%,
+            #080808 100%
+        ) !important;
+
+    background-size:
+        120px 120px,
+        140px 140px,
+        160px 160px,
+        120px 120px,
+        cover;
+
+}
 
 /* Exhibit Number */
 
