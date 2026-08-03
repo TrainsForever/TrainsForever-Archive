@@ -51,10 +51,8 @@ html{
 /* ==========================================================
    BODY
 ========================================================== */
-
 body{
-body{
-    background:red !important;
+    
     font-family:Arial, Helvetica, sans-serif;
 
     color:var(--white);
