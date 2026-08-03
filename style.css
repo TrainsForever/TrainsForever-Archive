@@ -1812,10 +1812,18 @@ body.norfolk-southern footer strong{
 
 body.norfolk-southern .museum-header{
 
-    background:linear-gradient(
-        180deg,
-        #202020 0%,
-        #101010 100%
+  background:
+    linear-gradient(
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.60)
+    ),
+    url("images/black-gold-speckle.png");
+
+background-size:cover;
+
+background-position:center;
+
+background-repeat:no-repeat;
     );
 
     border:2px solid #666666;
