@@ -3432,3 +3432,16 @@ body.reading-1067 .stats-emblem img:hover{
     color:#fff;
     font-size:.9rem;
 }
+<section class="museum-card">
+
+    <h2>📸 Featured Photograph</h2>
+
+    <img src="/2B300FD7-DBFF-4118-A1AF-5ED023671BEB.png"
+         alt="Featured Photograph"
+         class="featured-photo">
+
+    <p>
+        NS 1067 (Reading) leading a freight train.
+    </p>
+
+</section>
