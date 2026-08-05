@@ -2479,6 +2479,62 @@ body.norfolk-southern footer p{
     z-index: 1;
 }
    /* ==========================================
+   NS 1066 Hero Header
+   New York Central Inspired
+========================================== */
+
+.museum-header-1066{
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to bottom,#181818,#090909);
+    border:2px solid #8d8d8d;
+}
+
+.museum-header-1066::before{
+    content:"";
+    position:absolute;
+    left:-10%;
+    bottom:-5%;
+    width:60%;
+    height:70%;
+
+    background:
+    repeating-linear-gradient(
+        135deg,
+        transparent 0 18px,
+        rgba(255,255,255,.14) 18px 22px,
+        transparent 22px 40px
+    );
+
+    opacity:.55;
+    pointer-events:none;
+}
+
+.museum-header-1066::after{
+    content:"";
+    position:absolute;
+    right:-10%;
+    bottom:-5%;
+    width:60%;
+    height:70%;
+
+    background:
+    repeating-linear-gradient(
+        45deg,
+        transparent 0 18px,
+        rgba(255,255,255,.14) 18px 22px,
+        transparent 22px 40px
+    );
+
+    opacity:.55;
+    pointer-events:none;
+}
+
+.museum-header-1066>*{
+    position:relative;
+    z-index:2;
+}
+   /* ==========================================
    NS 1066 Hero Card
    New York Central inspired striping
 ========================================== */
