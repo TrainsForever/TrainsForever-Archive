@@ -2473,10 +2473,12 @@ body.norfolk-southern footer p{
         max-width:none;
 
     }
+}
 
 .stat-card-1066 > *{
     position: relative;
     z-index: 1;
+    
 }
    /* ==========================================
    NS 1066 Hero Header
