@@ -2474,6 +2474,9 @@ body.norfolk-southern footer p{
 
     }
 
+.stat-card-1066 > *{
+    position: relative;
+    z-index: 1;
 }
 /* ==========================================================
    EXHIBIT 003
