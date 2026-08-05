@@ -2478,6 +2478,74 @@ body.norfolk-southern footer p{
     position: relative;
     z-index: 1;
 }
+   /* ==========================================
+   NS 1066 Hero Card
+   New York Central inspired striping
+========================================== */
+
+.stat-card-1066{
+    position:relative;
+    overflow:hidden;
+    background:#0f0f10;
+    border:2px solid #6d6d6d;
+}
+
+.stat-card-1066::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+
+    /* left nose stripes */
+    repeating-linear-gradient(
+        135deg,
+        transparent 0 22px,
+        rgba(255,255,255,.12) 22px 26px,
+        transparent 26px 48px
+    );
+
+    opacity:.45;
+
+    clip-path:polygon(
+        0 100%,
+        0 45%,
+        45% 100%
+    );
+
+    pointer-events:none;
+}
+
+.stat-card-1066::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+
+    /* right nose stripes */
+    repeating-linear-gradient(
+        45deg,
+        transparent 0 22px,
+        rgba(255,255,255,.12) 22px 26px,
+        transparent 26px 48px
+    );
+
+    opacity:.45;
+
+    clip-path:polygon(
+        100% 100%,
+        100% 45%,
+        55% 100%
+    );
+
+    pointer-events:none;
+}
+
+.stat-card-1066 > *{
+    position:relative;
+    z-index:2;
+}
 /* ==========================================================
    EXHIBIT 003
    NS 1067 • READING RAILROAD
