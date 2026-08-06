@@ -3593,7 +3593,6 @@ body.nyc-1066 .museum-header {
     border: 2px solid #d9d9d9;
 }
 
-/
 /* NS 1066 - Museum Statistics */
 
 .ns1066-stats {
@@ -3608,7 +3607,7 @@ body.nyc-1066 .museum-header {
 
     background-image:
         linear-gradient(rgba(20,20,20,.35), rgba(20,20,20,.75)),
-        url("../../images/IMG_44D4C499-8CF6-41E5-96AD-659FC6137CB0.jpeg");
+   url("images/IMG_44D4C499-8CF6-41E5-96AD-659FC6137CB0.jpeg")
 
     background-size: cover;
     background-position: center;
