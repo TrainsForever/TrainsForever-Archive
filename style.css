@@ -2117,7 +2117,14 @@ body.norfolk-southern .museum-card{
 /* Header */
 
 body.norfolk-southern .museum-header{
+.museum-header-1066 {
+    background-image:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.75)),
+        url("../../images/IMG_AA598C7F-D492-4BF0-96F5-1F96D3DEADDA.jpeg");
 
+    background-size: cover;
+    background-position: center;
+}
     background:linear-gradient(
         180deg,
         #1d1d1d 0%,
@@ -3587,3 +3594,25 @@ body.nyc-1066 .museum-header {
 }
 
 /
+/* NS 1066 - Museum Statistics */
+
+.ns1066-stats {
+    position: relative;
+    overflow: hidden;
+}
+
+.ns1066-stats::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(20,20,20,.35), rgba(20,20,20,.75)),
+        url("../../images/IMG_44D4C499-8CF6-41E5-96AD-659FC6137CB0.jpeg");
+
+    background-size: cover;
+    background-position: center;
+    opacity: .22;
+
+    pointer-events: none;
+}
