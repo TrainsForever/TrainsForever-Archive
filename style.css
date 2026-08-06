@@ -3595,12 +3595,11 @@ body.nyc-1066 .museum-header {
 
 /* NS 1066 - Museum Statistics */
 
-.ns1066-stats {
-    position: relative;
+.stat-card-1066{    position: relative;
     overflow: hidden;
 }
 
-.ns1066-stats::before {
+.stat-card-1066::before{
     content: "";
     position: absolute;
     inset: 0;
