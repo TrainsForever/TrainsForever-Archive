@@ -3586,26 +3586,4 @@ body.nyc-1066 .museum-header {
     border: 2px solid #d9d9d9;
 }
 
-/* Outer pinstripes */
-body.nyc-1066 .museum-header::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-
-    background:
-        /* LEFT */
-        linear-gradient(#f8f8f8,#f8f8f8) left 28px top 0 / 4px 100% no-repeat,
-        linear-gradient(#f8f8f8,#f8f8f8) left 42px top 0 / 4px 100% no-repeat,
-        linear-gradient(#f8f8f8,#f8f8f8) left 56px top 0 / 4px 100% no-repeat,
-
-        /* RIGHT */
-        linear-gradient(#f8f8f8,#f8f8f8) right 28px top 0 / 4px 100% no-repeat,
-        linear-gradient(#f8f8f8,#f8f8f8) right 42px top 0 / 4px 100% no-repeat,
-        linear-gradient(#f8f8f8,#f8f8f8) right 56px top 0 / 4px 100% no-repeat,
-
-        /* TOP */
-        linear-gradient(#f8f8f8,#f8f8f8) left 0 top 28px / 100% 4px no-repeat,
-        linear-gradient(#f8f8f8,#f8f8f8) left 0 top 42px / 100% 4px no-repeat,
-        linear-gradient(#f8f8f8,#f8f8f8) left 0 top 56px / 100% 4px no-repeat;
-}
+/
