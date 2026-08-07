@@ -3227,3 +3227,13 @@ body.reading-1067 .museum-header::before{
     pointer-events:none;
 
 }
+/* NS 1067 Reading Exhibit Entrance */
+
+.reading-header {
+    background-image:
+        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
+        url("../../images/IMG_B59FC99F-36F8-4AD0-B043-8F38A8E65ECC.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
