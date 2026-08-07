@@ -2219,7 +2219,7 @@ body.nyc-1066 .museum-card p{
     overflow:hidden;
 }
 
-.stat-card-1066::before{
+.stat-card-1066::after{
     content:"";
     position:absolute;
     inset:0;
