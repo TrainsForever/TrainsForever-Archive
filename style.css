@@ -3196,31 +3196,6 @@ body.nyc-1066 .museum-header{
 
     pointer-events: none;
 }
-/* ==========================================================
-   NS 1067 • HONEYCOMB TITLE OVERLAY
-========================================================== */
-
-body.reading-1067 .museum-header::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background-image:
-        radial-gradient(
-            rgba(255,210,0,.55) 2px,
-            transparent 2px
-        );
-
-    background-size:42px 36px;
-
-    opacity:.42;
-
-    pointer-events:none;
-
-}
 /* NS 1067 Reading Exhibit Entrance */
 
 .reading-header {
