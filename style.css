@@ -1576,7 +1576,7 @@ body.norfolk-southern .collection-card p:first-of-type{
 
 /* Featured Exhibit (NS 1065) */
 
-body.norfolk-southern .collection-card:first-child{
+body.norfolk-southern .collection-card{
 
     border:2px solid #d4af37;
 
@@ -1589,7 +1589,7 @@ body.norfolk-southern .collection-card:first-child{
 
 /* Featured exhibit title */
 
-body.norfolk-southern .collection-card:first-child h3{
+body.norfolk-southern .collection-card{
 
     border-bottom:2px solid #d4af37;
 
