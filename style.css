@@ -1783,7 +1783,11 @@ body.norfolk-southern footer strong{
 
 /* Exhibit Header */
 
-body.norfolk-southern .museum-header{
+body.norfolk-southern.sa-1065 .museum-header {
+    background:
+        linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.60)),
+        url("../../images/FF2706B8-283C-4230-9DB4-AA18C1CF32BB.png") center center / cover no-repeat !important;
+}
 
     background:
         radial-gradient(circle at 18% 22%, rgba(212,175,55,.35) 1px, transparent 2px),
