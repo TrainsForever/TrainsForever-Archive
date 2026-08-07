@@ -2134,23 +2134,6 @@ body.nyc-1066 .museum-header{
         0 0 22px rgba(220,220,220,.18);
 
 }
-   /* ==========================================
-   NS 1066 Hero Header
-   New York Central Inspired
-========================================== */
-
-.museum-header-1066{
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(to bottom,#181818,#090909);
-    border:2px solid #8d8d8d;
-}
-
-
-.museum-header-1066>*{
-    position:relative;
-    z-index:2;
-}
  
 /* ==========================================================
    EXHIBIT 003
@@ -2186,15 +2169,6 @@ body.reading-1067 .museum-header{
 
     box-shadow:
         0 22px 45px rgba(0,0,0,.65);
-
-}
-   
-
-}
-
-
-/* ==========================================================
-   
 
 }
 
@@ -3122,44 +3096,3 @@ body.reading-1067 .stats-emblem img:hover{
     </p>
 
 </section>
-/* ==========================================
-   NS 1066 • New York Central Pinstripes
-========================================== */
-
-body.nyc-1066 .museum-header{
-    position:relative;
-    overflow:hidden;
-
-    background:
-        linear-gradient(rgba(0,0,0,.40), rgba(0,0,0,.70)),
-        url("/images/IMG_AA598C7F-D492-4BF0-96F5-1F96D3DEADDA.jpeg");
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-
-    border-radius:26px;
-    border:2px solid #d9d9d9;
-}
-
-/* NS 1066 - Museum Statistics */
-
-.stat-card-1066{    position: relative;
-    overflow: hidden;
-}
-
-.stat-card-1066::before{
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background-image:
-        linear-gradient(rgba(20,20,20,.35), rgba(20,20,20,.75)),
-   url("/images/IMG_44D4C499-8CF6-41E5-96AD-659FC6137CB0.jpeg");
-
-    background-size: cover;
-    background-position: center;
-    opacity: .22;
-
-    pointer-events: none;
-}
