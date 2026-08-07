@@ -2134,7 +2134,258 @@ body.nyc-1066 .museum-header{
         0 0 22px rgba(220,220,220,.18);
 
 }
- 
+ /* ==========================================================
+   EXHIBIT 002
+   NS 1066 • NEW YORK CENTRAL
+========================================================== */
+
+/* Header */
+
+body.nyc-1066 .museum-header{
+    position:relative;
+    overflow:hidden;
+
+    background:
+        linear-gradient(rgba(0,0,0,.40), rgba(0,0,0,.70)),
+        url("/images/IMG_AA598C7F-D492-4BF0-96F5-1F96D3DEADDA.jpeg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    border:2px solid #d9d9d9;
+    border-radius:26px;
+
+    box-shadow:
+        0 0 24px rgba(255,255,255,.15);
+}
+
+body.nyc-1066 .museum-header h1{
+    color:#ffffff;
+}
+
+body.nyc-1066 .museum-subtitle{
+    color:#ececec;
+}
+
+body.nyc-1066 .museum-divider{
+    background:linear-gradient(
+        to right,
+        transparent,
+        #d9d9d9,
+        transparent
+    );
+}
+
+body.nyc-1066 .exhibit-number{
+    background:#111;
+    color:#fff;
+    border:2px solid #bdbdbd;
+}
+
+
+/* ==========================================================
+   MUSEUM CARDS
+========================================================== */
+
+body.nyc-1066 .museum-card{
+    background:linear-gradient(
+        180deg,
+        #222222,
+        #151515
+    );
+
+    border:2px solid #666;
+
+    border-top:5px solid #d9d9d9;
+}
+
+body.nyc-1066 .museum-card h2{
+    color:#ffffff;
+}
+
+body.nyc-1066 .museum-card p{
+    color:#dddddd;
+}
+
+
+/* ==========================================================
+   STATISTICS CARD
+========================================================== */
+
+.stat-card-1066{
+    position:relative;
+    overflow:hidden;
+}
+
+.stat-card-1066::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(rgba(15,15,15,.45), rgba(15,15,15,.78)),
+        url("/images/IMG_44D4C499-8CF6-41E5-96AD-659FC6137CB0.jpeg");
+
+    background-size:cover;
+    background-position:center;
+
+    opacity:.28;
+
+    pointer-events:none;
+}
+
+.stat-card-1066 > *{
+    position:relative;
+    z-index:1;
+}
+
+
+/* ==========================================================
+   PHOTO FRAME
+========================================================== */
+
+body.nyc-1066 .image-frame{
+    background:#171717;
+    border:2px solid #8a8a8a;
+}
+
+body.nyc-1066 .featured-photo{
+    border:3px solid #d9d9d9;
+}
+
+
+/* ==========================================================
+   INFO ROWS
+========================================================== */
+
+body.nyc-1066 .info-title{
+    color:#dddddd;
+}
+
+body.nyc-1066 .info-value{
+    color:#ffffff;
+}
+
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+body.nyc-1066 .museum-button{
+    width:100%;
+    max-width:360px;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width:768px){
+
+    body.nyc-1066 .museum-header{
+        padding:42px 22px;
+    }
+
+}
+/* ==========================================================
+   NS 1066 • NEW YORK CENTRAL FINISHING TOUCHES
+========================================================== */
+
+/* Silver divider */
+
+body.nyc-1066 .museum-card h2::after{
+    content:"";
+    display:block;
+    width:70px;
+    height:3px;
+    margin-top:10px;
+    border-radius:999px;
+
+    background:linear-gradient(
+        to right,
+        #666,
+        #f2f2f2,
+        #666
+    );
+}
+
+/* Soft metallic glow */
+
+body.nyc-1066 .museum-header{
+    box-shadow:
+        0 0 24px rgba(255,255,255,.15),
+        0 20px 45px rgba(0,0,0,.55);
+}
+
+/* Smooth card animation */
+
+body.nyc-1066 .museum-card{
+    animation:nycFade .5s ease both;
+}
+
+@keyframes nycFade{
+
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:none;
+    }
+
+}
+
+/* Statistics hover */
+
+body.nyc-1066 .info-row{
+    transition:.25s;
+}
+
+body.nyc-1066 .info-row:hover{
+
+    background:rgba(255,255,255,.05);
+
+    padding-left:12px;
+
+}
+
+/* Photograph */
+
+body.nyc-1066 .featured-photo{
+
+    transition:
+        transform .35s,
+        box-shadow .35s;
+
+}
+
+body.nyc-1066 .featured-photo:hover{
+
+    transform:scale(1.015);
+
+    box-shadow:
+        0 12px 28px rgba(255,255,255,.15);
+
+}
+
+/* Footer */
+
+body.nyc-1066 footer{
+
+    border-top:2px solid #8d8d8d;
+
+}
+
+body.nyc-1066 footer strong{
+
+    color:#ffffff;
+
+}
+
 /* ==========================================================
    EXHIBIT 003
    NS 1067 • READING RAILROAD
