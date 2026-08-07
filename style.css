@@ -3358,3 +3358,153 @@ background:
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
+/* ==========================================================
+   NS 1065 • PHOENIX ENTRANCE
+========================================================== */
+
+body.sa-1065 .museum-header{
+
+    background:
+        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.70)),
+        url("/images/FF2706B8-283C-4230-9DB4-AA18C1CF32BB.png");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+}
+/* ==========================================================
+   NS 1065 • PHOENIX STATISTICS
+========================================================== */
+
+.stat-card-1065{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.stat-card-1065::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.72)),
+        url("/images/FF2706B8-283C-4230-9DB4-AA18C1CF32BB.png");
+
+    background-size:cover;
+    background-position:center;
+
+    opacity:.35;
+
+    pointer-events:none;
+
+}
+
+.stat-card-1065>*{
+
+    position:relative;
+
+    z-index:2;
+
+}
+/* ==========================================================
+   NS 1066 • SKYLINE ENTRANCE
+========================================================== */
+
+body.nyc-1066 .museum-header{
+
+    background:
+        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.70)),
+        url("/images/IMG_44D4C499-8CF6-41E5-96AD-659FC6137CB0.jpeg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+}
+/* ==========================================================
+   NS 1066 • ENGINE TITLE CARD
+========================================================== */
+
+.title-card-1066{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.title-card-1066::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(rgba(0,0,0,.48),rgba(0,0,0,.72)),
+        url("/images/IMG_AA598C7F-D492-4BF0-96F5-1F96D3DEADDA.jpeg");
+
+    background-size:cover;
+    background-position:center;
+
+    opacity:.35;
+
+    pointer-events:none;
+
+}
+
+.title-card-1066>*{
+
+    position:relative;
+
+    z-index:2;
+
+}
+/* ==========================================================
+   NS 1066 • SKYLINE STATISTICS
+========================================================== */
+
+.stat-card-1066{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.stat-card-1066::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.72)),
+        url("/images/IMG_44D4C499-8CF6-41E5-96AD-659FC6137CB0.jpeg");
+
+    background-size:cover;
+    background-position:center;
+
+    opacity:.32;
+
+    pointer-events:none;
+
+}
+
+.stat-card-1066>*{
+
+    position:relative;
+
+    z-index:2;
+
+}
