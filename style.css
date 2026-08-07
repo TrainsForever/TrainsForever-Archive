@@ -3227,3 +3227,13 @@ body.reading-1067 .museum-header::before{
     pointer-events:none;
 
 }
+/* Bee Line Exhibit Entrance */
+.bee-line-entrance {
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                url("images/bee-line-background.jpg") center center / cover no-repeat;
+}
+/* NS 1067 Title Card */
+.ns1067-title-card {
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+                url("images/bee-line-background.jpg") center center / cover no-repeat;
+}
