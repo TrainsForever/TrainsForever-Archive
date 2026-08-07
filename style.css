@@ -2172,14 +2172,6 @@ body.nyc-1066 .museum-header{
     width:60%;
     height:70%;
 
-    background:
-    repeating-linear-gradient(
-        135deg,
-        transparent 0 18px,
-        rgba(255,255,255,.14) 18px 22px,
-        transparent 22px 40px
-    );
-
     opacity:.55;
     pointer-events:none;
 }
@@ -2191,14 +2183,6 @@ body.nyc-1066 .museum-header{
     bottom:-5%;
     width:60%;
     height:70%;
-
-    background:
-    repeating-linear-gradient(
-        45deg,
-        transparent 0 18px,
-        rgba(255,255,255,.14) 18px 22px,
-        transparent 22px 40px
-    );
 
     opacity:.55;
     pointer-events:none;
