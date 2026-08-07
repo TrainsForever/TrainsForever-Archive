@@ -3393,10 +3393,3 @@ body.reading-1067 .stats-emblem img:hover{
     font-size:.9rem;
 }
 
-background:
-    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.75)),
-    url("/images/IMG_B59FC99F-36F8-4AD0-B043-8F38A8E65ECC.jpeg");
-
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
