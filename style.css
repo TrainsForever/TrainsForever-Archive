@@ -1,7 +1,9 @@
-no/* ==========================================================
+CSS workshop 
+
+/* ==========================================================
    TRAINSFOREVER MUSEUM ARCHIVE
-   VERSION 1.0
-   OFFICIAL MASTER STYLESHEET
+   VERSION 2.0
+   MUSEUM BASE
 ========================================================== */
 
 
@@ -21,29 +23,27 @@ html{
 
 
 /* ==========================================================
-   MUSEUM VARIABLES
+   ROOT COLORS
 ========================================================== */
 
 :root{
 
-    --background:#14171b;
-    --background-light:#1d2228;
+    --background:#000000;
+    --background-light:#141414;
 
-    --plaque:#313841;
-    --plaque-dark:#252b31;
+    --card:#1a1a1a;
+    --card-dark:#111111;
 
-    --steel:#7d8792;
-    --steel-dark:#59626c;
-
-    --white:#ffffff;
-    --light:#d8d8d8;
+    --steel:#777777;
 
     --gold:#d4af37;
-    --gold-light:#f4dd87;
+    --gold-light:#ffe48a;
 
-    --shadow:0 14px 30px rgba(0,0,0,.35);
+    --white:#ffffff;
+    --text:#dddddd;
 
-    --radius:18px;
+    --shadow:
+        0 16px 34px rgba(0,0,0,.45);
 
 }
 
@@ -51,16 +51,17 @@ html{
 /* ==========================================================
    BODY
 ========================================================== */
-    
+
 body{
 
-    font-family:Arial, Helvetica, sans-serif;
+    background:#000;
 
-    color:var(--white);
+    color:#fff;
+
+    font-family:Arial,Helvetica,sans-serif;
 
     line-height:1.8;
 
-    background:#000000;
 }
 
 
@@ -74,7 +75,7 @@ body{
 
     margin:auto;
 
-    padding:30px 20px 80px;
+    padding:30px 20px 70px;
 
 }
 
@@ -85,19 +86,17 @@ body{
 
 h1{
 
-    font-size:2.8rem;
-
-    font-weight:800;
-
-    letter-spacing:2px;
+    font-size:3rem;
 
     margin-bottom:10px;
+
+    font-weight:800;
 
 }
 
 h2{
 
-    font-size:1.65rem;
+    font-size:1.6rem;
 
     margin-bottom:20px;
 
@@ -105,7 +104,7 @@ h2{
 
 h3{
 
-    font-size:1.15rem;
+    font-size:1.2rem;
 
     margin-bottom:12px;
 
@@ -113,7 +112,7 @@ h3{
 
 p{
 
-    color:var(--light);
+    color:var(--text);
 
     margin-bottom:18px;
 
@@ -136,48 +135,16 @@ a{
 
     text-align:center;
 
-    background:linear-gradient(
-
-        180deg,
-
-        #49525d 0%,
-
-        #3b434c 100%
-
-    );
-
-    border:2px solid var(--steel);
+    padding:65px 35px;
 
     border-radius:26px;
 
-    padding:60px 35px;
-
     margin:35px 0;
 
-    box-shadow:var(--shadow);
-
 }
 
 
-.museum-header h1{
-
-    color:white;
-
-    font-size:3rem;
-
-}
-
-
-.museum-subtitle{
-
-    color:#ececec;
-
-    letter-spacing:2px;
-
-    font-size:1.05rem;
-
-}
-
+/* Divider */
 
 .museum-divider{
 
@@ -189,44 +156,26 @@ a{
 
     border-radius:999px;
 
-    background:linear-gradient(
-
-        to right,
-
-        transparent,
-
-        var(--gold),
-
-        transparent
-
-    );
-
 }
 
+
+/* Exhibit Number */
 
 .exhibit-number{
 
     display:inline-block;
 
-    padding:10px 24px;
+    margin-top:24px;
 
-    margin-top:18px;
-
-    background:#23272d;
-
-    color:white;
-
-    border:2px solid var(--steel);
+    padding:12px 28px;
 
     border-radius:999px;
 
-    letter-spacing:2px;
-
-    font-weight:700;
-
 }
+
+
 /* ==========================================================
-   MUSEUM PLAQUES
+   MUSEUM CARD
 ========================================================== */
 
 .museum-card{
@@ -235,76 +184,20 @@ a{
 
     overflow:hidden;
 
-    background:linear-gradient(
-
-        180deg,
-
-        var(--plaque) 0%,
-
-        var(--plaque-dark) 100%
-
-    );
-
-    border:1px solid var(--steel-dark);
-
-    border-top:5px solid var(--steel);
-
-    border-radius:16px;
-
     padding:34px;
 
     margin:34px 0;
 
+    border-radius:18px;
+
     box-shadow:var(--shadow);
 
-    transition:
-        transform .25s,
-        box-shadow .25s,
-        border-color .25s;
-
 }
 
 
-.museum-card:hover{
+/* Steel Rivets */
 
-    transform:translateY(-5px);
-
-    border-color:#9aa5af;
-
-    box-shadow:
-
-        0 18px 36px rgba(0,0,0,.45);
-
-}
-
-
-/* ==========================================================
-   STEEL RIVETS
-========================================================== */
-
-.museum-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:14px;
-
-    left:14px;
-
-    width:10px;
-
-    height:10px;
-
-    border-radius:50%;
-
-    background:#9099a2;
-
-    border:2px solid #5d6670;
-
-}
-
-
+.museum-card::before,
 .museum-card::after{
 
     content:"";
@@ -313,218 +206,23 @@ a{
 
     top:14px;
 
-    right:14px;
+    width:12px;
 
-    width:10px;
-
-    height:10px;
+    height:12px;
 
     border-radius:50%;
 
-    background:#9099a2;
+}
 
-    border:2px solid #5d6670;
+.museum-card::before{
+
+    left:14px;
 
 }
 
+.museum-card::after{
 
-/* ==========================================================
-   CARD HEADINGS
-========================================================== */
-
-.museum-card h2{
-
-    color:white;
-
-    font-size:1.55rem;
-
-    margin-bottom:22px;
-
-    padding-bottom:16px;
-
-    border-bottom:2px solid rgba(255,255,255,.10);
-
-}
-
-
-.museum-card h3{
-
-    color:white;
-
-}
-
-
-.museum-card p{
-
-    color:#dddddd;
-
-    line-height:1.85;
-
-}
-
-
-/* ==========================================================
-   COLLECTION GRID
-========================================================== */
-
-.collection-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-    gap:28px;
-
-    margin-top:30px;
-
-}
-
-
-/* ==========================================================
-   COLLECTION PLAQUES
-========================================================== */
-
-.collection-card{
-
-    background:linear-gradient(
-
-        180deg,
-
-        #4c5560 0%,
-
-        #394149 100%
-
-    );
-
-    border:2px solid var(--steel);
-
-    border-radius:14px;
-
-    overflow:hidden;
-
-    box-shadow:
-
-        0 10px 22px rgba(0,0,0,.30);
-
-    transition:
-        transform .20s,
-        box-shadow .20s;
-
-}
-
-
-.collection-card:hover{
-
-    transform:translateY(-5px);
-
-    box-shadow:
-
-        0 18px 34px rgba(0,0,0,.45);
-
-}
-
-
-.collection-card h3{
-
-    background:#2b3138;
-
-    color:white;
-
-    padding:18px 22px;
-
-    margin:0;
-
-    border-bottom:2px solid var(--steel);
-
-}
-
-
-.collection-card p{
-
-    padding:22px;
-
-    margin:0;
-
-    color:#ececec;
-
-    min-height:110px;
-
-}
-/* ==========================================================
-   MUSEUM STATISTICS
-========================================================== */
-
-.stats-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-
-    gap:22px;
-
-    margin-top:28px;
-
-}
-
-.stat-box{
-
-    background:linear-gradient(
-
-        180deg,
-
-        #3d454f 0%,
-
-        #2e353d 100%
-
-    );
-
-    border:1px solid var(--steel);
-
-    border-top:4px solid var(--gold);
-
-    border-radius:14px;
-
-    padding:26px;
-
-    text-align:center;
-
-    transition:
-        transform .20s,
-        box-shadow .20s;
-
-}
-
-.stat-box:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:
-
-        0 12px 24px rgba(0,0,0,.35);
-
-}
-
-.stat-number{
-
-    display:block;
-
-    font-size:2.5rem;
-
-    font-weight:800;
-
-    color:var(--gold);
-
-    margin-bottom:10px;
-
-}
-
-.stat-label{
-
-    color:#ececec;
-
-    font-size:.95rem;
-
-    line-height:1.5;
+    right:14px;
 
 }
 
@@ -545,19 +243,9 @@ a{
 
     padding:18px 0;
 
-    border-bottom:1px solid rgba(255,255,255,.10);
-
-}
-
-.info-row:last-child{
-
-    border-bottom:none;
-
 }
 
 .info-title{
-
-    color:#d0d6dc;
 
     font-weight:600;
 
@@ -565,11 +253,59 @@ a{
 
 .info-value{
 
-    color:white;
-
     font-weight:700;
 
-    text-align:right;
+}
+
+
+/* ==========================================================
+   COLLECTION GRID
+========================================================== */
+
+.collection-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+    margin-top:30px;
+
+}
+
+
+/* ==========================================================
+   COLLECTION CARD
+========================================================== */
+
+.collection-card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+}
+
+.collection-card h3{
+
+    margin:0;
+
+    padding:20px;
+
+}
+
+.collection-card p{
+
+    flex:1;
+
+    padding:22px;
+
+    margin:0;
 
 }
 
@@ -580,292 +316,58 @@ a{
 
 .button-row{
 
+    padding:22px;
+
     display:flex;
 
     justify-content:center;
 
-    flex-wrap:wrap;
-
-    gap:18px;
-
-    margin-top:28px;
-
 }
 
 
 /* ==========================================================
-   PRIMARY MUSEUM BUTTON
+   BUTTONS
 ========================================================== */
 
-.museum-button{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    min-width:280px;
-
-    padding:18px 34px;
-
-    background:linear-gradient(
-
-        180deg,
-
-        var(--gold-light) 0%,
-
-        var(--gold) 55%,
-
-        #a88420 100%
-
-    );
-
-    color:#111111;
-
-    border:2px solid rgba(255,255,255,.25);
-
-    border-radius:12px;
-
-    font-weight:800;
-
-    letter-spacing:1px;
-
-    text-transform:uppercase;
-
-    box-shadow:
-
-        inset 0 2px 0 rgba(255,255,255,.45),
-
-        0 10px 20px rgba(0,0,0,.35);
-
-    transition:
-        transform .20s,
-        filter .20s,
-        box-shadow .20s;
-
-}
-
-.museum-button:hover{
-
-    transform:translateY(-4px);
-
-    filter:brightness(1.08);
-
-    box-shadow:
-
-        inset 0 2px 0 rgba(255,255,255,.45),
-
-        0 16px 30px rgba(0,0,0,.45);
-
-}
-
-
-/* ==========================================================
-   COMING SOON BUTTON
-========================================================== */
-
+.museum-button,
 .coming-button{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    min-width:280px;
-
-    padding:18px 34px;
-
-    background:#404852;
-
-    color:#d7d7d7;
-
-    border:2px dashed var(--steel);
-
-    border-radius:12px;
-
-    font-weight:700;
-
-    letter-spacing:1px;
-
-    text-transform:uppercase;
-
-    cursor:default;
-
-}
-
-
-/* ==========================================================
-   VIP BUTTON
-========================================================== */
-
-.vip-button{
-
-    display:block;
 
     width:100%;
 
-    padding:26px;
+    padding:18px;
 
     text-align:center;
 
-    font-size:1.2rem;
+    border-radius:12px;
 
     font-weight:800;
 
-    letter-spacing:2px;
+    letter-spacing:1px;
 
     text-transform:uppercase;
 
-    color:#111111;
-
-    background:linear-gradient(
-
-        180deg,
-
-        #fff1b5 0%,
-
-        var(--gold-light) 30%,
-
-        var(--gold) 65%,
-
-        #9d7b1b 100%
-
-    );
-
-    border:3px solid rgba(255,255,255,.35);
-
-    border-radius:16px;
-
-    box-shadow:
-
-        inset 0 3px 0 rgba(255,255,255,.45),
-
-        0 16px 34px rgba(0,0,0,.45);
-
-    transition:
-        transform .25s,
-        box-shadow .25s;
-
 }
 
-.vip-button:hover{
 
-    transform:translateY(-5px) scale(1.02);
-
-    box-shadow:
-
-        inset 0 3px 0 rgba(255,255,255,.45),
-
-        0 24px 42px rgba(0,0,0,.55);
-
-}
 /* ==========================================================
-   FEATURED PHOTOGRAPH
+   PHOTO
 ========================================================== */
 
 .image-frame{
 
-    background:#262c33;
+    border-radius:18px;
 
-    border:2px solid var(--steel);
-
-    border-radius:16px;
-
-    padding:12px;
-
-    margin-top:22px;
-
-    box-shadow:
-        0 12px 24px rgba(0,0,0,.35);
+    padding:14px;
 
 }
 
 .featured-photo{
 
-    width:100%;
-
     display:block;
 
-    border-radius:10px;
-
-    border:3px solid var(--steel);
-
-}
-
-.photo-plaque{
-
-    margin-top:20px;
-
-    padding:20px;
-
-    background:#23292f;
-
-    border-left:5px solid var(--gold);
+    width:100%;
 
     border-radius:10px;
-
-}
-
-.photo-plaque h3{
-
-    color:white;
-
-    margin-bottom:10px;
-
-}
-
-.photo-plaque p{
-
-    margin:0;
-
-}
-
-
-/* ==========================================================
-   PRESENTATION THEATER
-========================================================== */
-
-.video-card{
-
-    margin-top:24px;
-
-    padding:30px;
-
-    text-align:center;
-
-    background:linear-gradient(
-
-        180deg,
-
-        #343c45,
-
-        #2a3138
-
-    );
-
-    border:1px solid var(--steel);
-
-    border-radius:16px;
-
-    box-shadow:
-
-        0 10px 22px rgba(0,0,0,.30);
-
-}
-
-.video-card h3{
-
-    color:white;
-
-    margin-bottom:14px;
-
-}
-
-.video-card p{
-
-    color:#dddddd;
 
 }
 
@@ -882,91 +384,11 @@ footer{
 
     text-align:center;
 
-    border-top:2px solid rgba(255,255,255,.08);
-
-}
-
-footer strong{
-
-    color:white;
-
-    letter-spacing:2px;
-
-}
-
-footer p{
-
-    color:#bfbfbf;
-
 }
 
 
 /* ==========================================================
-   GLOBAL
-========================================================== */
-
-img{
-
-    max-width:100%;
-
-    height:auto;
-
-    display:block;
-
-}
-
-::selection{
-
-    background:var(--gold);
-
-    color:#111111;
-
-}
-
-a{
-
-    transition:.20s;
-
-}
-
-a:hover{
-
-    color:inherit;
-
-}
-
-
-/* ==========================================================
-   SCROLLBAR
-========================================================== */
-
-::-webkit-scrollbar{
-
-    width:12px;
-
-}
-
-::-webkit-scrollbar-track{
-
-    background:#23282d;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-    background:var(--steel);
-
-    border-radius:999px;
-
-}
-
-::-webkit-scrollbar-thumb:hover{
-
-    background:#9aa5af;
-
-}
-/* ==========================================================
-   MOBILE LAYOUT
+   MOBILE
 ========================================================== */
 
 @media (max-width:768px){
@@ -981,43 +403,13 @@ a:hover{
 
     .museum-header{
 
-        padding:40px 22px;
-
-        margin:25px 0;
+        padding:45px 22px;
 
     }
 
-    .museum-header h1{
+    h1{
 
-        font-size:2.2rem;
-
-    }
-
-    .museum-subtitle{
-
-        font-size:.95rem;
-
-        letter-spacing:1px;
-
-    }
-
-    .museum-card{
-
-        padding:24px;
-
-        margin:24px 0;
-
-    }
-
-    .museum-card h2{
-
-        font-size:1.35rem;
-
-    }
-
-    .stats-grid{
-
-        grid-template-columns:1fr;
+        font-size:2.3rem;
 
     }
 
@@ -1027,43 +419,1109 @@ a:hover{
 
     }
 
-    .button-row{
-
-        flex-direction:column;
-
-    }
-
-    .museum-button,
-    .coming-button,
-    .vip-button{
-
-        width:100%;
-
-        min-width:unset;
-
-    }
-
     .info-row{
 
         flex-direction:column;
 
         align-items:flex-start;
 
-        gap:8px;
-
     }
 
-    .info-value{
+}
 
-        text-align:left;
+/* ==========================================================
+   NORFOLK SOUTHERN COLLECTION
+   GALLERY ONE
+========================================================== */
 
-    }
+body.norfolk-southern{
+
+    background:#000000;
 
 }
 
 
 /* ==========================================================
-   PAGE ANIMATION
+   MUSEUM ENTRANCE
+========================================================== */
+
+body.norfolk-southern .museum-header{
+
+    background:linear-gradient(
+        180deg,
+        #2a2a2a,
+        #131313
+    );
+
+    border:2px solid #6d6d6d;
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.60);
+
+}
+
+body.norfolk-southern .museum-header h1{
+
+    color:#ffffff;
+
+}
+
+body.norfolk-southern .museum-subtitle{
+
+    color:#dddddd;
+
+}
+
+body.norfolk-southern .museum-divider{
+
+    background:linear-gradient(
+        to right,
+        transparent,
+        #d4af37,
+        transparent
+    );
+
+}
+
+body.norfolk-southern .exhibit-number{
+
+    background:#111111;
+
+    color:#ffffff;
+
+    border:2px solid #888888;
+
+}
+
+
+/* ==========================================================
+   MUSEUM CARDS
+========================================================== */
+
+body.norfolk-southern .museum-card{
+
+    background:linear-gradient(
+        180deg,
+        #232323,
+        #161616
+    );
+
+    border:2px solid #5f5f5f;
+
+    border-top:5px solid #d4af37;
+
+}
+
+body.norfolk-southern .museum-card::before,
+body.norfolk-southern .museum-card::after{
+
+    background:#9b9b9b;
+
+    border:2px solid #5a5a5a;
+
+}
+
+body.norfolk-southern .museum-card h2{
+
+    color:#ffffff;
+
+    border-bottom:2px solid rgba(255,255,255,.08);
+
+    padding-bottom:16px;
+
+}
+
+body.norfolk-southern .museum-card p{
+
+    color:#dddddd;
+
+}
+
+
+/* ==========================================================
+   INFORMATION ROWS
+========================================================== */
+
+body.norfolk-southern .info-row{
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+body.norfolk-southern .info-row:last-child{
+
+    border-bottom:none;
+
+}
+
+body.norfolk-southern .info-title{
+
+    color:#d6d6d6;
+
+}
+
+body.norfolk-southern .info-value{
+
+    color:#ffffff;
+
+}
+
+
+/* ==========================================================
+   COLLECTION CARDS
+========================================================== */
+
+body.norfolk-southern .collection-card{
+
+    background:linear-gradient(
+        180deg,
+        #202020,
+        #121212
+    );
+
+    border:2px solid #d4af37;
+
+    box-shadow:
+        0 0 18px rgba(212,175,55,.18),
+        0 16px 32px rgba(0,0,0,.55);
+
+    transition:
+        transform .25s,
+        box-shadow .25s;
+
+}
+
+body.norfolk-southern .collection-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 0 24px rgba(212,175,55,.28),
+        0 20px 40px rgba(0,0,0,.60);
+
+}
+
+body.norfolk-southern .collection-card h3{
+
+    background:#0f0f0f;
+
+    color:#ffffff;
+
+    border-bottom:2px solid #d4af37;
+
+}
+
+body.norfolk-southern .collection-card p{
+
+    color:#dddddd;
+
+}
+
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+body.norfolk-southern .button-row{
+
+    margin-top:auto;
+
+    padding:22px;
+
+}
+
+body.norfolk-southern .museum-button{
+
+    width:100%;
+
+    background:linear-gradient(
+        180deg,
+        #fff0a8,
+        #d4af37,
+        #9d7b1b
+    );
+
+    color:#111111;
+
+    border:2px solid rgba(255,255,255,.25);
+
+cursor:pointer;
+
+    box-shadow:
+        inset 0 2px 0 rgba(255,255,255,.45),
+        0 10px 22px rgba(0,0,0,.35);
+
+}
+
+body.norfolk-southern .coming-button{
+
+    width:100%;
+
+    background:#323232;
+
+    color:#d7d7d7;
+
+    border:2px dashed #777777;
+
+}
+
+
+/* ==========================================================
+   PHOTO FRAME
+========================================================== */
+
+body.norfolk-southern .image-frame{
+
+    background:#161616;
+
+    border:2px solid #666666;
+
+}
+
+body.norfolk-southern .featured-photo{
+
+    border:3px solid #ffffff;
+
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+body.norfolk-southern footer{
+
+    border-top:2px solid #444444;
+
+}
+
+body.norfolk-southern footer strong{
+
+    color:#ffffff;
+
+}
+
+body.norfolk-southern footer p{
+
+    color:#cfcfcf;
+
+}
+
+/* ==========================================================
+   EXHIBIT 001
+   NS 1065 • SAVANNAH & ATLANTA
+========================================================== */
+
+/* ==========================================================
+   EXHIBIT ENTRANCE
+========================================================== */
+
+body.sa-1065 .museum-header{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:80px 40px;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.40),
+            rgba(0,0,0,.70)
+        ),
+      url("/images/FF2706B8-283C-4230-9DB4-AA18C1CF32BB.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    border:2px solid #d4af37;
+
+    border-bottom:8px solid #ffffff;
+
+    border-radius:26px;
+
+    box-shadow:
+        0 24px 48px rgba(0,0,0,.60);
+
+}
+
+
+/* ==========================================================
+   FIRE GLOW
+========================================================== */
+
+body.sa-1065 .museum-header::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(
+            circle at top,
+            rgba(255,170,40,.18),
+            transparent 60%
+        );
+
+    pointer-events:none;
+
+}
+
+
+/* ==========================================================
+   TITLES
+========================================================== */
+
+body.sa-1065 .museum-header h1{
+
+    position:relative;
+
+    z-index:5;
+
+    color:#ffffff;
+
+    font-size:3.8rem;
+
+    text-shadow:
+
+        0 0 18px rgba(255,140,0,.40);
+
+}
+
+body.sa-1065 .museum-header h2{
+
+    position:relative;
+
+    z-index:5;
+
+    color:#ffd87d;
+
+    font-size:2rem;
+
+}
+
+body.sa-1065 .museum-subtitle{
+
+    position:relative;
+
+    z-index:5;
+
+    color:#f4f4f4;
+
+}
+
+
+/* ==========================================================
+   EXHIBIT NUMBER
+========================================================== */
+
+body.sa-1065 .exhibit-number{
+
+    position:relative;
+
+    z-index:5;
+
+    background:#111111;
+
+    color:#ffd87d;
+
+    border:2px solid #d4af37;
+
+}
+
+
+/* ==========================================================
+   MUSEUM CARDS
+========================================================== */
+
+body.sa-1065 .museum-card{
+
+    background:
+
+        linear-gradient(
+            180deg,
+            #1f1a18,
+            #141110
+        );
+
+    border:2px solid #6a5a32;
+
+    border-top:5px solid #d4af37;
+
+}
+
+
+/* ==========================================================
+   HEADINGS
+========================================================== */
+
+body.sa-1065 .museum-card h2{
+
+    color:#ffd87d;
+
+}
+
+body.sa-1065 .museum-card p{
+
+    color:#dddddd;
+
+}
+
+
+/* ==========================================================
+   PHOTOGRAPH
+========================================================== */
+
+body.sa-1065 .image-frame{
+
+    border:2px solid #d4af37;
+
+    background:#151515;
+
+}
+
+body.sa-1065 .featured-photo{
+
+    border:3px solid #ffd87d;
+
+}
+
+
+/* ==========================================================
+   PHOTO PLAQUE
+========================================================== */
+
+body.sa-1065 .photo-plaque{
+
+    background:#181818;
+
+    border-left:6px solid #d4af37;
+
+}
+
+body.sa-1065 .photo-plaque h3{
+
+    color:#ffd87d;
+
+}
+
+
+/* ==========================================================
+   CURATOR PLAQUE
+========================================================== */
+
+body.sa-1065 .museum-plaque{
+
+    background:#181818;
+
+    border-left:6px solid #d4af37;
+
+}
+
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+body.sa-1065 .museum-button{
+
+    background:
+
+        linear-gradient(
+            #fff0a8,
+            #d4af37,
+            #9d7b1b
+        );
+
+    color:#111111;
+
+    border:2px solid #ffffff22;
+
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+body.sa-1065 footer{
+
+    border-top:2px solid #5d4a20;
+
+}
+
+body.sa-1065 footer strong{
+
+    color:#ffd87d;
+
+}
+
+/* ==========================================================
+   EXHIBIT 002
+   NS 1066 • NEW YORK CENTRAL
+========================================================== */
+
+
+/* ==========================================================
+   EXHIBIT ENTRANCE
+========================================================== */
+
+body.nyc-1066 .museum-header{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:80px 40px;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.40),
+            rgba(0,0,0,.72)
+        ),
+        url("/images/NYC-SKYLINE.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    border:2px solid #d6d6d6;
+
+    border-bottom:8px solid #ffffff;
+
+    border-radius:26px;
+
+    box-shadow:
+        0 22px 45px rgba(0,0,0,.60);
+
+}
+
+
+/* ==========================================================
+   SILVER GLOW
+========================================================== */
+
+body.nyc-1066 .museum-header::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+
+            rgba(255,255,255,.05),
+
+            rgba(255,255,255,0)
+
+        );
+
+    pointer-events:none;
+
+}
+
+
+/* ==========================================================
+   TITLES
+========================================================== */
+
+body.nyc-1066 .museum-header h1{
+
+    position:relative;
+
+    z-index:5;
+
+    color:#ffffff;
+
+    font-size:3.8rem;
+
+    text-shadow:
+
+        0 0 18px rgba(255,255,255,.25);
+
+}
+
+body.nyc-1066 .museum-header h2{
+
+    position:relative;
+
+    z-index:5;
+
+    color:#e8e8e8;
+
+    font-size:2rem;
+
+}
+
+body.nyc-1066 .museum-subtitle{
+
+    position:relative;
+
+    z-index:5;
+
+    color:#f0f0f0;
+
+}
+
+
+/* ==========================================================
+   EXHIBIT NUMBER
+========================================================== */
+
+body.nyc-1066 .exhibit-number{
+
+    position:relative;
+
+    z-index:5;
+
+    background:#101010;
+
+    color:#ffffff;
+
+    border:2px solid #d6d6d6;
+
+}
+
+
+/* ==========================================================
+   MUSEUM CARDS
+========================================================== */
+
+body.nyc-1066 .museum-card{
+
+    background:
+
+        linear-gradient(
+
+            180deg,
+
+            #222222,
+
+            #141414
+
+        );
+
+    border:2px solid #666666;
+
+    border-top:5px solid #d6d6d6;
+
+}
+
+
+/* ==========================================================
+   HEADINGS
+========================================================== */
+
+body.nyc-1066 .museum-card h2{
+
+    color:#ffffff;
+
+}
+
+body.nyc-1066 .museum-card p{
+
+    color:#dddddd;
+
+}
+
+
+/* ==========================================================
+   PHOTO FRAME
+========================================================== */
+
+body.nyc-1066 .image-frame{
+
+    background:#171717;
+
+    border:2px solid #888888;
+
+}
+
+body.nyc-1066 .featured-photo{
+
+    border:3px solid #d6d6d6;
+
+}
+
+
+/* ==========================================================
+   PHOTO PLAQUE
+========================================================== */
+
+body.nyc-1066 .photo-plaque{
+
+    background:#181818;
+
+    border-left:6px solid #d6d6d6;
+
+}
+
+body.nyc-1066 .photo-plaque h3{
+
+    color:#ffffff;
+
+}
+
+
+/* ==========================================================
+   CURATOR PLAQUE
+========================================================== */
+
+body.nyc-1066 .museum-plaque{
+
+    background:#181818;
+
+    border-left:6px solid #d6d6d6;
+
+}
+
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+body.nyc-1066 .museum-button{
+
+    background:
+
+        linear-gradient(
+
+            #ffffff,
+
+            #d6d6d6,
+
+            #a5a5a5
+
+        );
+
+    color:#111111;
+
+    border:2px solid rgba(255,255,255,.35);
+
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+body.nyc-1066 footer{
+
+    border-top:2px solid #777777;
+
+}
+
+body.nyc-1066 footer strong{
+
+    color:#ffffff;
+
+}
+
+/* ==========================================================
+   EXHIBIT 003
+   NS 1067 • READING RAILROAD
+========================================================== */
+
+/* ==========================================================
+   EXHIBIT ENTRANCE
+========================================================== */
+
+body.reading-1067 .museum-header{
+
+    position:relative;
+    overflow:hidden;
+
+    padding:85px 40px;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.42),
+            rgba(0,0,0,.68)
+        ),
+        url("/images/8423BE6F-9E0F-4899-B4DB-93C0B710F02E.png");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    border:2px solid #1f8a43;
+    border-bottom:8px solid #ffd200;
+
+    border-radius:26px;
+
+    box-shadow:
+        0 24px 48px rgba(0,0,0,.60);
+
+}
+
+
+/* ==========================================================
+   HONEYCOMB OVERLAY
+========================================================== */
+
+body.reading-1067 .museum-header::before{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    opacity:.28;
+
+    background-image:
+        radial-gradient(
+            rgba(255,210,0,.55) 2px,
+            transparent 2px
+        );
+
+    background-size:42px 36px;
+
+    pointer-events:none;
+
+}
+
+
+/* ==========================================================
+   BEE BADGE
+========================================================== */
+
+body.reading-1067 .bee-banner{
+
+    position:relative;
+    z-index:5;
+
+    display:inline-block;
+
+    padding:12px 28px;
+
+    margin-bottom:28px;
+
+    border-radius:999px;
+
+    background:
+        linear-gradient(
+            #fff18a,
+            #ffd200
+        );
+
+    color:#111111;
+
+    font-weight:800;
+    letter-spacing:2px;
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,.35);
+
+}
+
+
+/* ==========================================================
+   TITLES
+========================================================== */
+
+body.reading-1067 .museum-header h1{
+
+    position:relative;
+    z-index:5;
+
+    color:#ffffff;
+
+    font-size:4rem;
+
+    text-shadow:
+        0 0 18px rgba(31,138,67,.45);
+
+}
+
+body.reading-1067 .museum-header h2{
+
+    position:relative;
+    z-index:5;
+
+    color:#ffd200;
+
+    font-size:2rem;
+
+}
+
+body.reading-1067 .museum-subtitle{
+
+    position:relative;
+    z-index:5;
+
+    color:#f2f2f2;
+
+}
+
+
+/* ==========================================================
+   EXHIBIT NUMBER
+========================================================== */
+
+body.reading-1067 .exhibit-number{
+
+    position:relative;
+    z-index:5;
+
+    background:#12351c;
+
+    border:2px solid #ffd200;
+
+    color:#ffd200;
+
+}
+
+
+/* ==========================================================
+   MUSEUM CARDS
+========================================================== */
+
+body.reading-1067 .museum-card{
+
+    background:
+        linear-gradient(
+            180deg,
+            #171717,
+            #101010
+        );
+
+    border:2px solid #1f8a43;
+
+    border-top:5px solid #ffd200;
+
+    border-radius:18px;
+
+}
+
+
+/* Honeycomb Watermark */
+
+body.reading-1067 .museum-card::before{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    opacity:.03;
+
+    background-image:
+        radial-gradient(
+            rgba(255,210,0,.90) 1.6px,
+            transparent 2px
+        );
+
+    background-size:38px 33px;
+
+    pointer-events:none;
+
+}
+
+
+/* ==========================================================
+   HEADINGS
+========================================================== */
+
+body.reading-1067 .museum-card h2{
+
+    color:#ffd200;
+
+}
+
+body.reading-1067 .museum-card p{
+
+    color:#dddddd;
+
+}
+
+
+/* ==========================================================
+   PHOTO
+========================================================== */
+
+body.reading-1067 .image-frame{
+
+    background:#151515;
+
+    border:2px solid #1f8a43;
+
+}
+
+body.reading-1067 .featured-photo{
+
+    border:3px solid #ffd200;
+
+}
+
+
+/* ==========================================================
+   CURATOR PLAQUE
+========================================================== */
+
+body.reading-1067 .museum-plaque{
+
+    background:#181818;
+
+    border-left:6px solid #ffd200;
+
+}
+
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+body.reading-1067 .museum-button{
+
+    background:
+        linear-gradient(
+            #fff18a,
+            #ffd200,
+            #d7aa00
+        );
+
+    color:#111111;
+
+    border:2px solid #1f8a43;
+
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+body.reading-1067 footer{
+
+    border-top:2px solid #1f8a43;
+
+}
+
+body.reading-1067 footer strong{
+
+    color:#ffd200;
+
+}
+
+/* ==========================================================
+   MUSEUM EFFECTS
+   TrainsForever Museum Archive
+========================================================== */
+
+
+/* ==========================================================
+   PAGE FADE
 ========================================================== */
 
 .container{
@@ -1094,175 +1552,10 @@ a:hover{
 
 
 /* ==========================================================
-   FINISHING DETAILS
+   CARD HOVER
 ========================================================== */
 
-section{
-
-    margin-bottom:34px;
-
-}
-
-.museum-card>*:last-child{
-
-    margin-bottom:0;
-
-}
-
-hr{
-
-    border:none;
-
-    height:1px;
-
-    background:rgba(255,255,255,.08);
-
-    margin:35px 0;
-
-}
-   
-/* ==========================================================
-   NORFOLK SOUTHERN COLLECTION THEME
-   Gallery One
-========================================================== */
-
-body.norfolk-southern{
-
-    --accent:#ffffff;
-
-}
-
-
-/* ==========================================================
-   NORFOLK SOUTHERN MUSEUM ENTRANCE
-========================================================== */
-
-body.norfolk-southern .museum-header{
-
-    background:linear-gradient(
-        180deg,
-        #2b2b2b 0%,
-        #171717 100%
-    );
-
-    border:2px solid #6d6d6d;
-
-    box-shadow:
-        0 14px 34px rgba(0,0,0,.55);
-
-}
-
-
-body.norfolk-southern .museum-header h1{
-
-    color:#ffffff;
-
-}
-
-
-body.norfolk-southern .museum-subtitle{
-
-    color:#d9d9d9;
-
-}
-
-
-body.norfolk-southern .museum-divider{
-
-    background:linear-gradient(
-
-        to right,
-
-        transparent,
-
-        #ffffff,
-
-        transparent
-
-    );
-
-}
-
-
-body.norfolk-southern .exhibit-number{
-
-    background:#111111;
-
-    color:#ffffff;
-
-    border:2px solid #7d7d7d;
-
-}
-
-
-/* ==========================================================
-   NORFOLK SOUTHERN PLAQUES
-========================================================== */
-
-body.norfolk-southern .museum-card{
-
-    background:linear-gradient(
-        180deg,
-        #232323 0%,
-        #171717 100%
-    );
-
-    border:1px solid #5f5f5f;
-
-    border-top:5px solid #ffffff;
-
-}
-
-
-body.norfolk-southern .museum-card h2{
-
-    color:#ffffff;
-
-    border-bottom:2px solid rgba(255,255,255,.10);
-
-}
-
-
-body.norfolk-southern .museum-card p{
-
-    color:#dddddd;
-
-}
-
-
-/* ==========================================================
-   NORFOLK SOUTHERN RIVETS
-========================================================== */
-
-body.norfolk-southern .museum-card::before,
-body.norfolk-southern .museum-card::after{
-
-    background:#9a9a9a;
-
-    border:2px solid #5a5a5a;
-
-}
-   /* ==========================================================
-   NORFOLK SOUTHERN GALLERY PLAQUES
-========================================================== */
-
-body.norfolk-southern .collection-card{
-
-    background:linear-gradient(
-        180deg,
-        #222222 0%,
-        #141414 100%
-    );
-
-    border:2px solid #d4af37;
-
-    border-radius:16px;
-
-    overflow:hidden;
-
-    box-shadow:
-        0 0 18px rgba(212,175,55,.25),
-        0 16px 32px rgba(0,0,0,.55);
+.museum-card{
 
     transition:
         transform .25s,
@@ -1271,2240 +1564,146 @@ body.norfolk-southern .collection-card{
 
 }
 
-
-body.norfolk-southern .collection-card:hover{
+.museum-card:hover{
 
     transform:translateY(-6px);
 
-    border-color:#ffffff;
+    box-shadow:
+        0 22px 42px rgba(0,0,0,.55);
+
+}
+
+
+/* ==========================================================
+   PHOTO HOVER
+========================================================== */
+
+.featured-photo{
+
+    transition:
+        transform .35s,
+        box-shadow .35s;
+
+}
+
+.featured-photo:hover{
+
+    transform:scale(1.015);
 
     box-shadow:
-        0 18px 36px rgba(0,0,0,.60);
-
-}
-
-
-body.norfolk-southern .collection-card h3{
-
-    background:#101010;
-
-    color:#ffffff;
-
-    border-bottom:2px solid #6d6d6d;
-
-    padding:18px 22px;
-
-}
-
-
-body.norfolk-southern .collection-card p{
-
-    color:#d7d7d7;
-
-    line-height:1.8;
+        0 16px 32px rgba(0,0,0,.35);
 
 }
 
 
 /* ==========================================================
-   GOLD MUSEUM BUTTONS
+   BUTTON HOVER
 ========================================================== */
 
-body.norfolk-southern .museum-button{
-
-    width:100%;
-
-    min-width:unset;
-
-}
-
-
-/* ==========================================================
-   COMING SOON PLAQUES
-========================================================== */
-
-body.norfolk-southern .coming-button{
-
-    width:100%;
-
-    min-width:unset;
-
-    background:#323232;
-
-    color:#d8d8d8;
-
-    border:2px dashed #777777;
-
-}
-
-
-/* ==========================================================
-   COLLECTION STATISTICS
-========================================================== */
-
-body.norfolk-southern .info-row{
-
-    border-bottom:1px solid rgba(255,255,255,.10);
-
-}
-
-
-body.norfolk-southern .info-title{
-
-    color:#d7d7d7;
-
-}
-
-
-body.norfolk-southern .info-value{
-
-    color:#ffffff;
-
-    font-weight:700;
-
-}
-
-
-/* ==========================================================
-   COLLECTION GRID
-========================================================== */
-
-body.norfolk-southern .collection-grid{
-
-    gap:30px;
-
-}
-   /* ==========================================================
-   NORFOLK SOUTHERN FINISHING TOUCHES
-   Gallery One
-========================================================== */
-
-
-/* Collection Updates */
-
-body.norfolk-southern .info-row{
-
-    padding:18px 0;
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-}
-
-body.norfolk-southern .info-title{
-
-    color:#d4d4d4;
-
-    font-weight:600;
-
-}
-
-body.norfolk-southern .info-value{
-
-    color:#ffffff;
-
-    font-weight:700;
-
-}
-
-
-/* Video Presentation */
-
-body.norfolk-southern .video-card{
-
-    background:linear-gradient(
-        180deg,
-        #252525 0%,
-        #181818 100%
-    );
-
-    border:2px solid #5d5d5d;
-
-}
-
-
-/* Featured Photograph */
-
-body.norfolk-southern .image-frame{
-
-    background:#151515;
-
-    border:2px solid #5d5d5d;
-
-}
-
-
-/* Photo Plaque */
-
-body.norfolk-southern .photo-plaque{
-
-    background:#1a1a1a;
-
-    border-left:5px solid #ffffff;
-
-}
-
-
-/* Footer */
-
-body.norfolk-southern footer{
-
-    border-top:2px solid #444444;
-
-    color:#bdbdbd;
-
-}
-
-body.norfolk-southern footer strong{
-
-    color:#ffffff;
-
-}
-
-
-/* Museum Navigation */
-
-body.norfolk-southern .button-row{
-
-    justify-content:center;
-
-}
-
-
-/* Mobile */
-
-@media (max-width:768px){
-
-    body.norfolk-southern .museum-header{
-
-        padding:38px 20px;
-
-    }
-
-    body.norfolk-southern .collection-card{
-
-        margin-bottom:10px;
-
-    }
-
-}
-/* ==========================================================
-   NORFOLK SOUTHERN HERITAGE COLLECTION
-========================================================== */
-
-/* Heritage exhibit cards */
-
-body.norfolk-southern .collection-card{
-
-    background:linear-gradient(
-        180deg,
-        #202020 0%,
-        #131313 100%
-    );
-
-    border:2px solid #666666;
-
-    border-radius:18px;
-
-    overflow:hidden;
-
-    box-shadow:
-        0 12px 28px rgba(0,0,0,.50);
+.museum-button{
 
     transition:
         transform .25s,
-        box-shadow .25s,
-        border-color .25s;
+        filter .25s,
+        box-shadow .25s;
 
 }
 
+.museum-button:hover{
 
-/* Hover */
+    transform:translateY(-4px);
 
-body.norfolk-southern .collection-card:hover{
-
-    transform:translateY(-6px);
-
-    border-color:#ffffff;
+    filter:brightness(1.05);
 
     box-shadow:
-        0 18px 36px rgba(0,0,0,.65);
+        0 14px 30px rgba(0,0,0,.40);
 
 }
 
 
-/* Card title */
-
-body.norfolk-southern .collection-card h3{
-
-    background:#0f0f0f;
-
-    color:#ffffff;
-
-    padding:18px 22px;
-
-    margin:0;
-
-    border-bottom:2px solid #666666;
-
-}
-
-
-/* Card text */
-
-body.norfolk-southern .collection-card p{
-
-    color:#dddddd;
-
-    padding:0 22px;
-
-    line-height:1.8;
-
-}
-
-
-/* First paragraph */
-
-body.norfolk-southern .collection-card p:first-of-type{
-
-    margin-top:22px;
-
-    font-weight:600;
-
-    color:#ffffff;
-
-}
-   /* ==========================================================
-   HERITAGE EXHIBIT DETAILS
-========================================================== */
-
-/* Featured Exhibit (NS 1065) */
-
-body.norfolk-southern .collection-card:first-child{
-
-    border:2px solid #d4af37;
-
-    box-shadow:
-        0 0 18px rgba(212,175,55,.25),
-        0 16px 32px rgba(0,0,0,.55);
-
-}
-
-
-/* Featured exhibit title */
-
-body.norfolk-southern .collection-card:first-child h3{
-
-    border-bottom:2px solid #d4af37;
-
-}
-
-
-/* Museum buttons */
-
-body.norfolk-southern .museum-button{
-
-    width:100%;
-
-    min-width:unset;
-
-}
-
-
-/* Coming Soon plaques */
-
-body.norfolk-southern .coming-button{
-
-    width:100%;
-
-    min-width:unset;
-
-    background:#2e2e2e;
-
-    color:#d6d6d6;
-
-    border:2px dashed #7a7a7a;
-
-}
-
-
-/* Button spacing */
-
-body.norfolk-southern .button-row{
-
-    margin-top:auto;
-
-    padding:22px;
-
-}
-
-
-/* Heritage exhibit spacing */
-
-body.norfolk-southern .collection-card{
-
-    display:flex;
-
-    flex-direction:column;
-
-    min-height:320px;
-
-}
-
-
-/* Strong labels */
-
-body.norfolk-southern .collection-card strong{
-
-    color:#ffffff;
-
-}
-
-
-/* Status text */
-
-body.norfolk-southern .collection-card p:last-of-type{
-
-    margin-top:10px;
-
-}
-   /* ==========================================================
-   HERITAGE COLLECTION FINISHING TOUCHES
-========================================================== */
-
-/* Desktop Gallery */
-
-body.norfolk-southern .collection-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-    gap:30px;
-
-    margin-top:30px;
-
-}
-
-
-/* Decorative Steel Rivets */
-
-body.norfolk-southern .collection-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:14px;
-
-    left:14px;
-
-    width:10px;
-
-    height:10px;
-
-    border-radius:50%;
-
-    background:#8d8d8d;
-
-    border:2px solid #5a5a5a;
-
-}
-
-body.norfolk-southern .collection-card::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:14px;
-
-    right:14px;
-
-    width:10px;
-
-    height:10px;
-
-    border-radius:50%;
-
-    background:#8d8d8d;
-
-    border:2px solid #5a5a5a;
-
-}
-
-
-/* Required for Rivets */
-
-body.norfolk-southern .collection-card{
-
-    position:relative;
-
-}
-
-
-/* Navigation Card */
-
-body.norfolk-southern .back-button{
-
-    width:100%;
-
-    min-width:unset;
-
-}
-
-
-/* Footer */
-
-body.norfolk-southern footer{
-
-    border-top:2px solid #4d4d4d;
-
-}
-
-body.norfolk-southern footer strong{
-
-    color:#ffffff;
-
-}
-
-
-/* Mobile */
-
-@media (max-width:768px){
-
-    body.norfolk-southern .collection-grid{
-
-        grid-template-columns:1fr;
-
-    }
-
-}
 /* ==========================================================
-   EXHIBIT 001
-   NS 1065
+   COLLECTION CARD HOVER
 ========================================================== */
 
-/* Exhibit Header */
+.collection-card{
 
-body.norfolk-southern .museum-header{
-
-    background:
-        radial-gradient(circle at 18% 22%, rgba(212,175,55,.35) 1px, transparent 2px),
-        radial-gradient(circle at 82% 30%, rgba(212,175,55,.30) 1px, transparent 2px),
-        radial-gradient(circle at 40% 72%, rgba(255,230,140,.22) 1.5px, transparent 2px),
-        radial-gradient(circle at 92% 82%, rgba(212,175,55,.28) 1px, transparent 2px),
-        linear-gradient(
-            180deg,
-            #1a1a1a 0%,
-            #080808 100%
-        ) !important;
-
-    background-size:
-        120px 120px,
-        140px 140px,
-        160px 160px,
-        120px 120px,
-        cover;
+    transition:
+        transform .25s,
+        box-shadow .25s;
 
 }
 
-/* Exhibit Number */
+.collection-card:hover{
 
-body.norfolk-southern .exhibit-number{
-
-    background:#111111;
-
-    color:#ffffff;
-
-    border:2px solid #888888;
+    transform:translateY(-8px);
 
 }
 
 
-/* Museum Cards */
-
-body.norfolk-southern .museum-card{
-
-    background:linear-gradient(
-        180deg,
-        #232323 0%,
-        #161616 100%
-    );
-
-    border:1px solid #5f5f5f;
-
-    border-top:5px solid #ffffff;
-
-}
-
-
-/* Card Titles */
-
-body.norfolk-southern .museum-card h2{
-
-    color:#ffffff;
-
-}
-
-
-/* Paragraphs */
-
-body.norfolk-southern .museum-card p{
-
-    color:#dddddd;
-
-}
-
-
-/* Information Rows */
-
-body.norfolk-southern .info-title{
-
-    color:#d8d8d8;
-
-}
-
-body.norfolk-southern .info-value{
-
-    color:#ffffff;
-
-    font-weight:700;
-
-}
-   /* ==========================================================
-   EXHIBIT 001 DISPLAY FEATURES
+/* ==========================================================
+   PLAQUE SHADOW
 ========================================================== */
 
-/* Featured Photograph */
-
-body.norfolk-southern .image-frame{
-
-    background:linear-gradient(
-        180deg,
-        #1b1b1b 0%,
-        #111111 100%
-    );
-
-    border:2px solid #666666;
-
-    border-radius:18px;
-
-    padding:14px;
-
-    box-shadow:
-        0 14px 30px rgba(0,0,0,.55);
-
-}
-
-
-/* Photograph */
-
-body.norfolk-southern .featured-photo{
-
-    display:block;
-
-    width:100%;
-
-    border-radius:10px;
-
-    border:3px solid #ffffff;
-
-}
-
-
-/* Museum Photo Plaque */
-
-body.norfolk-southern .photo-plaque{
-
-    margin-top:20px;
-
-    padding:20px;
-
-    background:#171717;
-
-    border-left:5px solid #d4af37;
-
-    border-radius:12px;
-
-}
-
-body.norfolk-southern .photo-plaque h3{
-
-    color:#ffffff;
-
-}
-
-body.norfolk-southern .photo-plaque p{
-
-    color:#d8d8d8;
-
-}
-
-
-/* Video Theater */
-
-body.norfolk-southern .video-card{
-
-    background:linear-gradient(
-        180deg,
-        #222222 0%,
-        #141414 100%
-    );
-
-    border:2px solid #5f5f5f;
-
-    border-radius:16px;
-
-}
-
-
-/* Curator's Memory Plaque */
-
-body.norfolk-southern .museum-plaque{
-
-    margin-top:20px;
-
-    padding:24px;
-
-    background:#171717;
-
-    border-left:5px solid #d4af37;
-
-    border-radius:12px;
+.photo-plaque,
+.museum-plaque{
 
     box-shadow:
         inset 0 0 0 1px rgba(255,255,255,.05);
 
 }
 
-body.norfolk-southern .museum-plaque h3{
 
-    color:#ffffff;
-
-    margin-bottom:12px;
-
-}
-
-body.norfolk-southern .museum-plaque p{
-
-    color:#dddddd;
-
-}
-   /* ==========================================================
-   EXHIBIT 001 FINISHING TOUCHES
+/* ==========================================================
+   IMAGE FRAME
 ========================================================== */
 
-
-/* Navigation Buttons */
-
-body.norfolk-southern .button-row{
-
-    justify-content:center;
-
-    gap:18px;
-
-}
-
-body.norfolk-southern .museum-button{
-
-    width:100%;
-
-    max-width:360px;
-
-}
-
-
-/* Museum Divider */
-
-body.norfolk-southern .museum-divider{
-
-    background:linear-gradient(
-        to right,
-        transparent,
-        #d4af37,
-        transparent
-    );
-
-}
-
-
-/* Exhibit Statistics */
-
-body.norfolk-southern .info-row{
-
-    padding:18px 0;
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-}
-
-body.norfolk-southern .info-row:last-child{
-
-    border-bottom:none;
-
-}
-
-
-/* Footer */
-
-body.norfolk-southern footer{
-
-    margin-top:70px;
-
-    padding:40px 20px;
-
-    text-align:center;
-
-    border-top:2px solid #444444;
-
-}
-
-body.norfolk-southern footer strong{
-
-    color:#ffffff;
-
-}
-
-body.norfolk-southern footer p{
-
-    color:#cfcfcf;
-
-}
-
-
-/* Scroll Animation */
-
-body.norfolk-southern .museum-card{
-
-    animation:exhibitFade .45s ease;
-
-}
-
-@keyframes exhibitFade{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(12px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:none;
-
-    }
-
-}
-
-
-/* Mobile */
-
-@media (max-width:768px){
-
-    body.norfolk-southern .museum-button{
-
-        max-width:none;
-
-    }
-
-}
-  /* Header Background */
-
-body.nyc-1066 .museum-header{
-
-    position:relative;
-    overflow:hidden;
-
-    background:
-        linear-gradient(
-            rgba(0,0,0,.40),
-            rgba(0,0,0,.70)
-        ),
-        url("images/IMG_AA598C7F-D492-4BF0-96F5-1F96D3DEADDA.jpeg");
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-
-    border:2px solid #bdbdbd;
-    border-radius:26px;
+.image-frame{
 
     box-shadow:
-        0 0 22px rgba(220,220,220,.18);
-
-}
- /* ==========================================================
-   EXHIBIT 002
-   NS 1066 • NEW YORK CENTRAL
-========================================================== */
-
-/* Header */
-
-.museum-header-1066{
-    position:relative;
-    overflow:hidden;
-
-    background:
-        linear-gradient(rgba(0,0,0,.40), rgba(0,0,0,.70)),
-        url("/images/IMG_AA598C7F-D492-4BF0-96F5-1F96D3DEADDA.jpeg");
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-
-    border:2px solid #d9d9d9;
-    border-radius:26px;
-
-    box-shadow:
-        0 0 24px rgba(255,255,255,.15),
-        0 20px 45px rgba(0,0,0,.55);
-}
-
-body.nyc-1066 .museum-header h1{
-    color:#ffffff;
-}
-
-body.nyc-1066 .museum-subtitle{
-    color:#ececec;
-}
-
-body.nyc-1066 .museum-divider{
-    background:linear-gradient(
-        to right,
-        transparent,
-        #d9d9d9,
-        transparent
-    );
-}
-
-body.nyc-1066 .exhibit-number{
-    background:#111;
-    color:#fff;
-    border:2px solid #bdbdbd;
-}
-
-
-/* ==========================================================
-   MUSEUM CARDS
-========================================================== */
-
-body.nyc-1066 .museum-card{
-    background:linear-gradient(
-        180deg,
-        #222222,
-        #151515
-    );
-
-    border:2px solid #666;
-
-    border-top:5px solid #d9d9d9;
-}
-
-body.nyc-1066 .museum-card h2{
-    color:#ffffff;
-}
-
-body.nyc-1066 .museum-card p{
-    color:#dddddd;
-}
-
-
-/* ==========================================================
-   STATISTICS CARD
-========================================================== */
-
-.stat-card-1066{
-    position:relative;
-    overflow:hidden;
-}
-
-.stat-card-1066::after{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-        linear-gradient(rgba(15,15,15,.45), rgba(15,15,15,.78)),
-        url("/images/IMG_44D4C499-8CF6-41E5-96AD-659FC6137CB0.jpeg");
-
-    background-size:cover;
-    background-position:center;
-
-    opacity:.28;
-
-    pointer-events:none;
-}
-
-.stat-card-1066 > *{
-    position:relative;
-    z-index:1;
-}
-
-
-/* ==========================================================
-   PHOTO FRAME
-========================================================== */
-
-body.nyc-1066 .image-frame{
-    background:#171717;
-    border:2px solid #8a8a8a;
-}
-
-body.nyc-1066 .featured-photo{
-    border:3px solid #d9d9d9;
-}
-
-
-/* ==========================================================
-   INFO ROWS
-========================================================== */
-
-body.nyc-1066 .info-title{
-    color:#dddddd;
-}
-
-body.nyc-1066 .info-value{
-    color:#ffffff;
-}
-
-
-/* ==========================================================
-   BUTTONS
-========================================================== */
-
-body.nyc-1066 .museum-button{
-    width:100%;
-    max-width:360px;
-}
-
-
-/* ==========================================================
-   MOBILE
-========================================================== */
-
-@media (max-width:768px){
-
-    body.nyc-1066 .museum-header{
-        padding:42px 22px;
-    }
-
-}
-/* ==========================================================
-   NS 1066 • NEW YORK CENTRAL FINISHING TOUCHES
-========================================================== */
-
-/* Silver divider */
-
-body.nyc-1066 .museum-card h2::after{
-    content:"";
-    display:block;
-    width:70px;
-    height:3px;
-    margin-top:10px;
-    border-radius:999px;
-
-    background:linear-gradient(
-        to right,
-        #666,
-        #f2f2f2,
-        #666
-    );
-}
-
-/* Soft metallic glow */
-
-body.nyc-1066 .museum-header{
-    box-shadow:
-        0 0 24px rgba(255,255,255,.15),
-        0 20px 45px rgba(0,0,0,.55);
-}
-
-/* Smooth card animation */
-
-body.nyc-1066 .museum-card{
-    animation:nycFade .5s ease both;
-}
-
-@keyframes nycFade{
-
-    from{
-        opacity:0;
-        transform:translateY(15px);
-    }
-
-    to{
-        opacity:1;
-        transform:none;
-    }
-
-}
-
-/* Statistics hover */
-
-body.nyc-1066 .info-row{
-    transition:.25s;
-}
-
-body.nyc-1066 .info-row:hover{
-
-    background:rgba(255,255,255,.05);
-
-    padding-left:12px;
-
-}
-
-/* Photograph */
-
-body.nyc-1066 .featured-photo{
-
-    transition:
-        transform .35s,
-        box-shadow .35s;
-
-}
-
-body.nyc-1066 .featured-photo:hover{
-
-    transform:scale(1.015);
-
-    box-shadow:
-        0 12px 28px rgba(255,255,255,.15);
-
-}
-
-/* Footer */
-
-body.nyc-1066 footer{
-
-    border-top:2px solid #8d8d8d;
-
-}
-
-body.nyc-1066 footer strong{
-
-    color:#ffffff;
-
-}
-
-/* ==========================================================
-   EXHIBIT 003
-   NS 1067 • READING RAILROAD
-========================================================== */
-
-body.reading-1067 .museum-header{
-
-    position:relative;
-
-    overflow:hidden;
-
-    padding:70px 40px;
-
-    border-radius:26px;
-
-    border:2px solid #1f8a43;
-
-    border-bottom:8px solid #ffd200;
-
-    background:
-        linear-gradient(
-            rgba(0,0,0,.45),
-            rgba(0,0,0,.60)
-        ),
-        url("8423BE6F-9E0F-4899-B4DB-93C0B710F02E.png");
-
-    background-size: cover;
-
-    background-position: 53%;
-
-    background-repeat:no-repeat;
-
-    box-shadow:
-        0 22px 45px rgba(0,0,0,.65);
-
-}
-
-/* Dark Steel Overlay */
-
-body.reading-1067 .museum-header::after{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-
-        linear-gradient(
-            rgba(255,255,255,.03),
-            rgba(255,255,255,0)
-        );
-
-    pointer-events:none;
+        0 16px 32px rgba(0,0,0,.45);
 
 }
 
 
 /* ==========================================================
-   BEE LINE BADGE
+   TEXT SELECTION
 ========================================================== */
 
-body.reading-1067 .bee-banner{
+::selection{
 
-    position:relative;
+    background:#d4af37;
 
-    z-index:5;
-
-    display:inline-block;
-
-    padding:10px 24px;
-
-    margin-bottom:28px;
-
-    border-radius:999px;
-
-    background:
-
-        linear-gradient(
-            180deg,
-            #ffe978,
-            #ffd200
-        );
-
-    color:#101010;
-
-    font-weight:800;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-
-    box-shadow:
-
-        inset 0 2px 0 rgba(255,255,255,.45),
-
-        0 10px 18px rgba(0,0,0,.35);
+    color:#111111;
 
 }
 
 
 /* ==========================================================
-   TITLE
+   SCROLLBAR
 ========================================================== */
 
-body.reading-1067 h1{
-
-    position:relative;
-
-    z-index:5;
-
-    color:#ffffff;
-
-    font-size:3.2rem;
-
-    text-shadow:
-
-        0 0 18px rgba(31,138,67,.40);
-
-}
-
-
-body.reading-1067 h2{
-
-    position:relative;
-
-    z-index:5;
-
-    color:#ffd200;
-
-    font-size:1.8rem;
-
-    margin-top:10px;
-
-    text-shadow:
-
-        0 0 10px rgba(255,210,0,.30);
-
-}
-
-
-body.reading-1067 .museum-subtitle{
-
-    position:relative;
-
-    z-index:5;
-
-    color:#f2f2f2;
-
-}
-
-
-/* ==========================================================
-   ESTABLISHED
-========================================================== */
-
-body.reading-1067 .established{
-
-    position:relative;
-
-    z-index:5;
-
-    margin-top:24px;
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:24px;
-
-    flex-wrap:wrap;
-
-    color:#ffe978;
-
-    font-size:.9rem;
-
-}
-   /* ==========================================================
-   READING MUSEUM CARDS
-========================================================== */
-
-body.reading-1067 .museum-card{
-
-    position:relative;
-
-    overflow:hidden;
-
-    background:
-        linear-gradient(
-            180deg,
-            #171717 0%,
-            #101010 100%
-        );
-
-    border:2px solid #1f8a43;
-
-    border-top:5px solid #ffd200;
-
-    border-radius:18px;
-
-    transition:
-        transform .25s,
-        border-color .25s,
-        box-shadow .25s;
-
-}
-
-
-body.reading-1067 .museum-card:hover{
-
-    transform:translateY(-6px);
-
-    border-color:#ffd200;
-
-    box-shadow:
-        0 18px 36px rgba(0,0,0,.55);
-
-}
-
-
-/* Honeycomb Watermark */
-
-body.reading-1067 .museum-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    opacity:.035;
-
-    background-image:
-
-        radial-gradient(circle,#ffd200 1.6px,transparent 2px);
-
-    background-size:38px 33px;
-
-    pointer-events:none;
-
-}
-
-
-/* Rivets */
-
-body.reading-1067 .museum-card::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:14px;
-
-    right:14px;
+::-webkit-scrollbar{
 
     width:12px;
 
-    height:12px;
+}
 
-    border-radius:50%;
+::-webkit-scrollbar-track{
 
-    background:#ffd200;
-
-    border:2px solid #1f8a43;
+    background:#1a1a1a;
 
 }
 
+::-webkit-scrollbar-thumb{
 
-/* ==========================================================
-   HEADINGS
-========================================================== */
-
-body.reading-1067 .museum-card h2{
-
-    color:#ffd200;
-
-    border-bottom:2px solid rgba(255,210,0,.15);
-
-}
-
-
-body.reading-1067 .museum-card h3{
-
-    color:#ffffff;
-
-}
-
-
-body.reading-1067 .museum-card p{
-
-    color:#e3e3e3;
-
-}
-
-
-/* ==========================================================
-   STATISTICS
-========================================================== */
-
-body.reading-1067 .info-row{
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
-    transition:.25s;
-
-}
-
-
-body.reading-1067 .info-row:hover{
-
-    background:rgba(31,138,67,.12);
-
-    padding-left:12px;
-
-}
-
-
-body.reading-1067 .info-title{
-
-    color:#ffd200;
-
-    font-weight:700;
-
-}
-
-
-body.reading-1067 .info-value{
-
-    color:#ffffff;
-
-    font-weight:700;
-
-}
-   /* ==========================================================
-   FEATURED PHOTOGRAPH
-========================================================== */
-
-body.reading-1067 .image-frame{
-
-    position:relative;
-
-    background:linear-gradient(
-        180deg,
-        #17381f 0%,
-        #111111 100%
-    );
-
-    border:2px solid #1f8a43;
-
-    border-radius:18px;
-
-    padding:14px;
-
-    overflow:hidden;
-
-    box-shadow:
-        0 14px 28px rgba(0,0,0,.45);
-
-}
-
-
-/* Honeycomb Reflection */
-
-body.reading-1067 .image-frame::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    opacity:.08;
-
-    background-image:
-
-        radial-gradient(circle,
-            rgba(255,210,0,.85) 1.4px,
-            transparent 2px);
-
-    background-size:34px 30px;
-
-    pointer-events:none;
-
-}
-
-
-/* Photo */
-
-body.reading-1067 .featured-photo{
-
-    position:relative;
-
-    z-index:2;
-
-    width:100%;
-
-    display:block;
-
-    border-radius:10px;
-
-    border:3px solid #ffd200;
-
-}
-
-
-/* ==========================================================
-   PHOTO PLAQUE
-========================================================== */
-
-body.reading-1067 .photo-plaque{
-
-    margin-top:22px;
-
-    padding:22px;
-
-    background:linear-gradient(
-        180deg,
-        #191919,
-        #121212
-    );
-
-    border-left:6px solid #ffd200;
-
-    border-radius:12px;
-
-}
-
-
-body.reading-1067 .photo-plaque h3{
-
-    color:#ffd200;
-
-    margin-bottom:12px;
-
-}
-
-
-body.reading-1067 .photo-plaque p{
-
-    color:#dddddd;
-
-}
-
-
-/* ==========================================================
-   CURATOR PLAQUE
-========================================================== */
-
-body.reading-1067 .museum-plaque{
-
-    margin-top:22px;
-
-    padding:26px;
-
-    background:linear-gradient(
-        180deg,
-        #181818,
-        #101010
-    );
-
-    border-left:6px solid #1f8a43;
-
-    border-radius:12px;
-
-    box-shadow:
-        inset 0 0 0 1px rgba(255,255,255,.04);
-
-}
-
-
-body.reading-1067 .museum-plaque h3{
-
-    color:#ffd200;
-
-    margin-bottom:14px;
-
-}
-
-
-body.reading-1067 .museum-plaque p{
-
-    color:#dddddd;
-
-}
-
-
-/* ==========================================================
-   VIDEO ARCHIVE
-========================================================== */
-
-body.reading-1067 .video-card{
-
-    background:linear-gradient(
-        180deg,
-        #1a1a1a,
-        #101010
-    );
-
-    border:2px solid #1f8a43;
-
-    border-top:5px solid #ffd200;
-
-    border-radius:16px;
-
-    box-shadow:
-        0 12px 24px rgba(0,0,0,.35);
-
-}
-
-
-body.reading-1067 .video-card h3{
-
-    color:#ffd200;
-
-}
-
-
-body.reading-1067 .video-card p{
-
-    color:#e2e2e2;
-
-}
-   /* ==========================================================
-   EXHIBIT NUMBER
-========================================================== */
-
-body.reading-1067 .exhibit-number{
-
-    position:relative;
-
-    z-index:5;
-
-    display:inline-block;
-
-    margin-top:28px;
-
-    padding:14px 28px;
+    background:#777777;
 
     border-radius:999px;
 
-    background:linear-gradient(
-        180deg,
-        #184e2a,
-        #0d2414
-    );
-
-    border:2px solid #ffd200;
-
-    color:#ffd200;
-
-    font-weight:800;
-
-    letter-spacing:2px;
-
-    box-shadow:
-        0 0 18px rgba(31,138,67,.45);
-
 }
 
+::-webkit-scrollbar-thumb:hover{
 
-/* ==========================================================
-   MUSEUM BUTTONS
-========================================================== */
-
-body.reading-1067 .button-row{
-
-    display:flex;
-
-    flex-wrap:wrap;
-
-    justify-content:center;
-
-    gap:16px;
-
-}
-
-
-body.reading-1067 .museum-button{
-
-    background:linear-gradient(
-        180deg,
-        #ffe979 0%,
-        #ffd200 55%,
-        #d7aa00 100%
-    );
-
-    color:#111111;
-
-    border:2px solid #1f8a43;
-
-    border-radius:12px;
-
-    padding:14px 28px;
-
-    font-weight:800;
-
-    letter-spacing:1px;
-
-    text-decoration:none;
-
-    transition:
-        transform .25s,
-        box-shadow .25s,
-        filter .25s;
-
-    box-shadow:
-        inset 0 2px 0 rgba(255,255,255,.45),
-        0 10px 20px rgba(0,0,0,.35);
-
-}
-
-
-body.reading-1067 .museum-button:hover{
-
-    transform:translateY(-4px);
-
-    filter:brightness(1.06);
-
-    box-shadow:
-        0 14px 28px rgba(0,0,0,.45);
-
-}
-
-
-/* ==========================================================
-   DIVIDER
-========================================================== */
-
-body.reading-1067 .museum-divider{
-
-    height:3px;
-
-    margin:28px auto;
-
-    background:linear-gradient(
-        to right,
-        transparent,
-        #ffd200,
-        transparent
-    );
-
-}
-
-
-/* ==========================================================
-   FOOTER
-========================================================== */
-
-body.reading-1067 footer{
-
-    margin-top:70px;
-
-    padding:40px 20px;
-
-    text-align:center;
-
-    border-top:2px solid #1f8a43;
-
-    background:linear-gradient(
-        180deg,
-        #101010,
-        #080808
-    );
-
-}
-
-
-body.reading-1067 footer strong{
-
-    color:#ffd200;
-
-}
-
-
-body.reading-1067 footer p{
-
-    color:#d8d8d8;
-
-}
-  /* ==========================================================
-   EXHIBIT 003
-   FINAL POLISH
-========================================================== */
-
-/* Smooth Scrolling */
-
-html{
-
-    scroll-behavior:smooth;
-
-}
-
-
-/* Museum Card Animation */
-
-body.reading-1067 .museum-card{
-
-    animation:readingFade .6s ease both;
-
-}
-
-@keyframes readingFade{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(18px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-}
-
-
-/* Honey Gold Text Selection */
-
-body.reading-1067 ::selection{
-
-    background:#ffd200;
-
-    color:#111111;
-
-}
-
-
-/* Links */
-
-body.reading-1067 a{
-
-    transition:.25s;
-
-}
-
-body.reading-1067 a:hover{
-
-    text-decoration:none;
-
-}
-
-
-/* Thin Green Accent Line */
-
-body.reading-1067 .museum-card h2::after{
-
-    content:"";
-
-    display:block;
-
-    width:70px;
-
-    height:3px;
-
-    margin-top:10px;
-
-    border-radius:99px;
-
-    background:#1f8a43;
-
-}
-
-
-/* Bee Banner Glow */
-
-body.reading-1067 .bee-banner{
-
-    animation:beeGlow 4s ease-in-out infinite;
-
-}
-
-@keyframes beeGlow{
-
-    0%{
-
-        box-shadow:
-            0 0 10px rgba(255,210,0,.20);
-
-    }
-
-    50%{
-
-        box-shadow:
-            0 0 22px rgba(255,210,0,.40);
-
-    }
-
-    100%{
-
-        box-shadow:
-            0 0 10px rgba(255,210,0,.20);
-
-    }
-
-}
-
-
-/* Image Hover */
-
-body.reading-1067 .featured-photo{
-
-    transition:
-        transform .35s,
-        box-shadow .35s;
-
-}
-
-body.reading-1067 .featured-photo:hover{
-
-    transform:scale(1.015);
-
-    box-shadow:
-        0 12px 28px rgba(0,0,0,.40);
-
-}
-
-
-/* Footer Logo */
-
-body.reading-1067 footer strong{
-
-    letter-spacing:2px;
-
-}
-
-
-/* Mobile */
-
-@media (max-width:768px){
-
-    body.reading-1067 .museum-header{
-
-        padding:42px 22px;
-
-    }
-
-    body.reading-1067 h1{
-
-        font-size:2.4rem;
-
-    }
-
-    body.reading-1067 h2{
-
-        font-size:1.4rem;
-
-    }
-
-    body.reading-1067 .established{
-
-        flex-direction:column;
-
-        gap:8px;
-
-    }
-
-    body.reading-1067 .museum-button{
-
-        width:100%;
-
-    }
-
-} 
-/* Museum Statistics Emblem */
-
-body.reading-1067 .stats-emblem{
-
-    text-align:center;
-
-    margin-bottom:18px;
-
-}
-
-body.reading-1067 .stats-emblem img{
-
-    width:120px;
-
-    max-width:40%;
-
-    display:block;
-
-    margin:0 auto;
-
-    filter:
-    brightness(1.35)
-    contrast(1.15)
-    saturate(1.15)
-    drop-shadow(0 0 14px rgba(255,210,0,.55));
-
-    transition:transform .25s ease;
-
-}
-
-body.reading-1067 .stats-emblem img:hover{
-
-    transform:scale(1.05);
-
-}
-.stats-card{
-    background:
-        linear-gradient(rgba(0,0,0,.82), rgba(0,0,0,.82)),
-        url("../../images/IMG_B59FC99F-36F8-4AD0-B043-8F38A8E65ECC.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    border: 2px solid #c9a227;
-    border-radius: 14px;
-    overflow: hidden;
-}
-
-.stats-overlay{
-    padding:20px;
-}
-
-.stat-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-}
-
-.stat-box{
-    background:rgba(0,0,0,.65);
-    border:1px solid rgba(201,162,39,.45);
-    border-radius:10px;
-    padding:12px;
-    text-align:center;
-    backdrop-filter:blur(2px);
-}
-
-.stat-number{
-    display:block;
-    font-size:1.8rem;
-    font-weight:bold;
-    color:#f4c542;
-}
-
-.stat-label{
-    color:#fff;
-    font-size:.9rem;
-}
-<section class="museum-card">
-
-    <h2>📸 Featured Photograph</h2>
-
-    <img src="/2B300FD7-DBFF-4118-A1AF-5ED023671BEB.png"
-         alt="Featured Photograph"
-         class="featured-photo">
-
-    <p>
-        NS 1067 (Reading) leading a freight train.
-    </p>
-
-</section>
-background:
-    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.75)),
-    url("/images/IMG_B59FC99F-36F8-4AD0-B043-8F38A8E65ECC.jpeg");
-
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-/* ==========================================================
-   NS 1065 • PHOENIX ENTRANCE
-========================================================== */
-
-body.sa-1065 .museum-header{
-
-    background:
-        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.70)),
-        url("/images/FF2706B8-283C-4230-9DB4-AA18C1CF32BB.png");
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-
-}
-/* ==========================================================
-   NS 1065 • PHOENIX STATISTICS
-========================================================== */
-
-.stat-card-1065{
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-.stat-card-1065::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.72)),
-        url("/images/FF2706B8-283C-4230-9DB4-AA18C1CF32BB.png");
-
-    background-size:cover;
-    background-position:center;
-
-    opacity:.35;
-
-    pointer-events:none;
-
-}
-
-.stat-card-1065>*{
-
-    position:relative;
-
-    z-index:2;
-
-}
-/* ==========================================================
-   NS 1066 • SKYLINE ENTRANCE
-========================================================== */
-
-body.nyc-1066 .museum-header{
-
-    background:
-        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.70)),
-        url("/images/IMG_44D4C499-8CF6-41E5-96AD-659FC6137CB0.jpeg");
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
-
-}
-/* ==========================================================
-   NS 1066 • ENGINE TITLE CARD
-========================================================== */
-
-.title-card-1066{
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-.title-card-1066::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        linear-gradient(rgba(0,0,0,.48),rgba(0,0,0,.72)),
-        url("/images/IMG_AA598C7F-D492-4BF0-96F5-1F96D3DEADDA.jpeg");
-
-    background-size:cover;
-    background-position:center;
-
-    opacity:.35;
-
-    pointer-events:none;
-
-}
-
-.title-card-1066>*{
-
-    position:relative;
-
-    z-index:2;
-
-}
-/* ==========================================================
-   NS 1066 • SKYLINE STATISTICS
-========================================================== */
-
-.stat-card-1066{
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-.stat-card-1066::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.72)),
-        url("/images/IMG_44D4C499-8CF6-41E5-96AD-659FC6137CB0.jpeg");
-
-    background-size:cover;
-    background-position:center;
-
-    opacity:.32;
-
-    pointer-events:none;
-
-}
-
-.stat-card-1066>*{
-
-    position:relative;
-
-    z-index:2;
+    background:#9b9b9b;
 
 }
