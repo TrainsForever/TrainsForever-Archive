@@ -1,4 +1,4 @@
-/* ==========================================================
+no/* ==========================================================
    TRAINSFOREVER MUSEUM ARCHIVE
    VERSION 1.0
    OFFICIAL MASTER STYLESHEET
@@ -2141,7 +2141,7 @@ body.nyc-1066 .museum-header{
 
 /* Header */
 
-body.nyc-1066 .museum-header{
+.museum-header-1066{
     position:relative;
     overflow:hidden;
 
@@ -2157,7 +2157,8 @@ body.nyc-1066 .museum-header{
     border-radius:26px;
 
     box-shadow:
-        0 0 24px rgba(255,255,255,.15);
+        0 0 24px rgba(255,255,255,.15),
+        0 20px 45px rgba(0,0,0,.55);
 }
 
 body.nyc-1066 .museum-header h1{
