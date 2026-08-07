@@ -1872,6 +1872,20 @@ body.norfolk-southern .info-value{
    EXHIBIT 001 DISPLAY FEATURES
 ========================================================== */
 
+background:
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.60)),
+    url("../../images/FF2706B8-283C-4230-9DB4-AA18C1CF32BB.png");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+
+background-image:
+    linear-gradient(rgba(0,0,0,.12), rgba(0,0,0,.12)),
+    url("../../images/FF2706B8-283C-4230-9DB4-AA18C1CF32BB.png");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+
 /* Featured Photograph */
 
 body.norfolk-southern .image-frame{
