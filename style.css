@@ -3254,3 +3254,175 @@ body.nyc-1066 .museum-header{
     background-position: center;
     background-repeat: no-repeat;
 }
+/* ==========================================================
+   NS 1065 • ATLANTA / PHOENIX HERITAGE CARD
+   FINAL CARD CSS
+========================================================== */
+
+body.norfolk-southern .collection-card:first-child{
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:0;
+
+    background:#111111;
+
+    border:2px solid #d4af37 !important;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 0 18px rgba(212,175,55,.25),
+        0 16px 32px rgba(0,0,0,.55);
+
+}
+
+
+/* ==========================================================
+   1065 TITLE
+========================================================== */
+
+body.norfolk-southern .collection-card:first-child h3{
+
+    order:1;
+
+    background:#0f0f0f !important;
+
+    color:#f4dd87 !important;
+
+    font-family:Georgia, "Times New Roman", serif !important;
+
+    font-size:1.55rem !important;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-align:center;
+
+    padding:20px;
+
+    margin:0;
+
+    border:none !important;
+
+    text-shadow:
+        0 0 10px rgba(212,175,55,.35);
+
+}
+
+
+/* ==========================================================
+   ATLANTA / PHOENIX IMAGE
+========================================================== */
+
+body.norfolk-southern .collection-card:first-child::before{
+
+    content:"";
+
+    display:block;
+
+    order:2;
+
+    width:100%;
+
+    height:520px;
+
+    background-image:
+        url("images/IMG_0211.jpeg");
+
+    background-size:cover;
+
+    background-position:center center;
+
+    background-repeat:no-repeat;
+
+}
+
+
+/* ==========================================================
+   HIDE OLD RAILROAD NAME
+   The new image already contains
+   "Savannah & Atlanta Railway"
+========================================================== */
+
+body.norfolk-southern .collection-card:first-child p:first-of-type{
+
+    display:none;
+
+}
+
+
+/* ==========================================================
+   EXHIBIT STATUS
+========================================================== */
+
+body.norfolk-southern .collection-card:first-child p:last-of-type{
+
+    order:3;
+
+    position:relative;
+
+    z-index:2;
+
+    background:#171717;
+
+    color:#ffffff !important;
+
+    padding:22px;
+
+    margin:0;
+
+    min-height:0;
+
+    text-shadow:none;
+
+}
+
+
+/* ==========================================================
+   ENTER EXHIBIT BUTTON
+========================================================== */
+
+body.norfolk-southern .collection-card:first-child .button-row{
+
+    order:4;
+
+    position:relative;
+
+    z-index:3;
+
+    margin-top:0;
+
+    padding:22px;
+
+    background:#111111;
+
+}
+
+
+/* ==========================================================
+   1065 MOBILE
+========================================================== */
+
+@media (max-width:768px){
+
+    body.norfolk-southern .collection-card:first-child::before{
+
+        height:auto;
+
+        aspect-ratio:835 / 1160;
+
+        background-size:cover;
+
+        background-position:center center;
+
+    }
+
+}
