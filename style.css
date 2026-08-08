@@ -20,7 +20,7 @@ html{
 }
 
 
-/* ==========================================================
+/* ================================no==========================
    MUSEUM VARIABLES
 ========================================================== */
 
@@ -3306,20 +3306,19 @@ body.norfolk-southern .collection-card:first-child h3{
 
 body.norfolk-southern .collection-card:first-child{
 
-    /* Keep the existing Phoenix image from stretching */
-    background-size:cover;
-    background-position:center;
+    background-size:100% auto;
+    background-position:center center;
+    background-repeat:no-repeat;
 
 }
 
 
-/* Remove the yellow line underneath the title */
+/* Phoenix Card Title */
 
 body.norfolk-southern .collection-card:first-child h3{
 
     border-bottom:none;
 
-    /* Match the main exhibit-title look */
     font-size:1.55rem;
     font-weight:800;
     letter-spacing:2px;
