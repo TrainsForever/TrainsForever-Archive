@@ -3505,7 +3505,8 @@ body.norfolk-southern .collection-card:first-child::before{
     aspect-ratio:835 / 1160;
 
     background-image:
-        url("images/IMG_0211.jpeg");
+      background-image:
+    url("/TrainsForever-Archive/images/IMG_0211.jpeg");
 
     background-size:cover;
 
