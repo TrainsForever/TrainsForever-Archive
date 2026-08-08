@@ -3300,3 +3300,29 @@ body.norfolk-southern .collection-card:first-child h3{
     border-bottom:2px solid #d4af37;
 
 }
+/* ==========================================================
+   NS 1065 • PHOENIX HERITAGE CARD
+========================================================== */
+
+body.norfolk-southern .collection-card:first-child{
+
+    /* Keep the existing Phoenix image from stretching */
+    background-size:cover;
+    background-position:center;
+
+}
+
+
+/* Remove the yellow line underneath the title */
+
+body.norfolk-southern .collection-card:first-child h3{
+
+    border-bottom:none;
+
+    /* Match the main exhibit-title look */
+    font-size:1.55rem;
+    font-weight:800;
+    letter-spacing:2px;
+    color:#ffffff;
+
+}
