@@ -3504,6 +3504,8 @@ body.norfolk-southern .collection-card:first-child::before{
 
     aspect-ratio:835 / 1160;
 
+    border-radius:0;
+
     background-image:
         url("../../images/IMG_0211.jpeg");
 
