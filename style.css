@@ -3254,31 +3254,33 @@ body.nyc-1066 .museum-header{
     background-position: center;
     background-repeat: no-repeat;
 }
-//* ==========================================================
+/* ==========================================================
    NS 1065 • PHOENIX HERITAGE CARD
-   FINAL VERSION
+   CLEAN FINAL VERSION
 ========================================================== */
 
 body.norfolk-southern .collection-card:first-child{
 
     position:relative;
 
-    background:
+    overflow:hidden;
+
+    background-image:
         linear-gradient(
-            rgba(0,0,0,.45),
-            rgba(0,0,0,.68)
+            rgba(0,0,0,.38),
+            rgba(0,0,0,.60)
         ),
-        url("images/FF2706B8-283C-4230-9DB4-AA18C1CF32BB.png");
+        url("images/FF2706B8-283C-4230-9DB4-AA18C1CF32BB.png") !important;
 
-    background-size:100% auto;
+    background-size:100% auto !important;
 
-    background-position:center top;
+    background-position:center center !important;
 
-    background-repeat:no-repeat;
+    background-repeat:no-repeat !important;
 
-    border:2px solid #d4af37;
+    border:2px solid #d4af37 !important;
 
-    border-radius:18px;
+    border-bottom:2px solid #d4af37 !important;
 
     box-shadow:
         0 0 18px rgba(212,175,55,.25),
@@ -3288,35 +3290,35 @@ body.norfolk-southern .collection-card:first-child{
 
 
 /* ==========================================================
-   PHOENIX CARD TITLE
+   1065 TITLE
 ========================================================== */
 
 body.norfolk-southern .collection-card:first-child h3{
 
-    background:rgba(15,15,15,.88);
+    background:rgba(15,15,15,.92) !important;
 
-    color:#f4dd87;
+    color:#f4dd87 !important;
 
-    font-family:Georgia, "Times New Roman", serif;
+    font-family:Georgia, "Times New Roman", serif !important;
 
-    font-size:1.55rem;
+    font-size:1.55rem !important;
 
-    font-weight:800;
+    font-weight:800 !important;
 
-    letter-spacing:2px;
+    letter-spacing:2px !important;
 
     text-align:center;
 
     text-shadow:
         0 0 10px rgba(212,175,55,.35);
 
-    border-bottom:none;
+    border-bottom:none !important;
 
 }
 
 
 /* ==========================================================
-   PHOENIX CARD TEXT
+   1065 TEXT
 ========================================================== */
 
 body.norfolk-southern .collection-card:first-child p{
@@ -3325,38 +3327,38 @@ body.norfolk-southern .collection-card:first-child p{
 
     z-index:2;
 
-    color:#ffffff;
+    color:#ffffff !important;
 
     text-shadow:
-        0 2px 6px rgba(0,0,0,.85);
+        0 2px 6px rgba(0,0,0,.9);
 
 }
 
 
 /* ==========================================================
-   PHOENIX CARD BUTTON
+   1065 BUTTON
 ========================================================== */
 
 body.norfolk-southern .collection-card:first-child .button-row{
 
     position:relative;
 
-    z-index:2;
+    z-index:3;
 
 }
 
 
 /* ==========================================================
-   PHOENIX CARD MOBILE
+   1065 MOBILE
 ========================================================== */
 
 @media (max-width:768px){
 
     body.norfolk-southern .collection-card:first-child{
 
-        background-size:auto 100%;
+        background-size:100% auto !important;
 
-        background-position:center center;
+        background-position:center center !important;
 
     }
 
