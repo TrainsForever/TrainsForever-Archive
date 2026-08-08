@@ -3254,3 +3254,49 @@ body.nyc-1066 .museum-header{
     background-position: center;
     background-repeat: no-repeat;
 }
+/* ==========================================================
+   NS 1065 • PHOENIX HERITAGE CARD
+========================================================== */
+
+body.norfolk-southern .collection-card:first-child{
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.62),
+            rgba(0,0,0,.78)
+        ),
+        url("images/FF2706B8-283C-4230-9DB4-AA18C1CF32BB.png");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    border:2px solid #d4af37;
+
+    box-shadow:
+        0 0 18px rgba(212,175,55,.25),
+        0 16px 32px rgba(0,0,0,.55);
+
+}
+
+
+/* 1065 Title */
+
+body.norfolk-southern .collection-card:first-child h3{
+
+    color:#f4dd87;
+
+    font-family:Georgia, "Times New Roman", serif;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    text-shadow:
+        0 2px 8px rgba(0,0,0,.8);
+
+    border-bottom:2px solid #d4af37;
+
+}
