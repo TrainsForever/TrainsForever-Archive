@@ -3426,9 +3426,9 @@ body.norfolk-southern .collection-card:first-child .button-row{
     }
 
 }
-/* ==========================================================
+//* ==========================================================
    NS 1065 • ATLANTA / PHOENIX HERITAGE CARD
-   FINAL CARD VERSION
+   FINAL CARD CSS
 ========================================================== */
 
 body.norfolk-southern .collection-card:first-child{
@@ -3505,8 +3505,7 @@ body.norfolk-southern .collection-card:first-child::before{
     aspect-ratio:835 / 1160;
 
     background-image:
-      background-image:
-    url("/TrainsForever-Archive/images/IMG_0211.jpeg");
+        url("../../images/IMG_0211.jpeg");
 
     background-size:cover;
 
@@ -3524,7 +3523,7 @@ body.norfolk-southern .collection-card:first-child::before{
 
 body.norfolk-southern .collection-card:first-child p:first-of-type{
 
-    display:none;
+    display:none !important;
 
 }
 
