@@ -3254,26 +3254,31 @@ body.nyc-1066 .museum-header{
     background-position: center;
     background-repeat: no-repeat;
 }
-/* ==========================================================
+//* ==========================================================
    NS 1065 • PHOENIX HERITAGE CARD
+   FINAL VERSION
 ========================================================== */
 
 body.norfolk-southern .collection-card:first-child{
 
+    position:relative;
+
     background:
         linear-gradient(
-            rgba(0,0,0,.62),
-            rgba(0,0,0,.78)
+            rgba(0,0,0,.45),
+            rgba(0,0,0,.68)
         ),
         url("images/FF2706B8-283C-4230-9DB4-AA18C1CF32BB.png");
 
-   background-size:100% 100%;
+    background-size:100% auto;
 
-    background-position:center;
+    background-position:center top;
 
     background-repeat:no-repeat;
 
     border:2px solid #d4af37;
+
+    border-radius:18px;
 
     box-shadow:
         0 0 18px rgba(212,175,55,.25),
@@ -3282,46 +3287,77 @@ body.norfolk-southern .collection-card:first-child{
 }
 
 
-/* 1065 Title */
+/* ==========================================================
+   PHOENIX CARD TITLE
+========================================================== */
 
 body.norfolk-southern .collection-card:first-child h3{
+
+    background:rgba(15,15,15,.88);
 
     color:#f4dd87;
 
     font-family:Georgia, "Times New Roman", serif;
 
-    font-weight:700;
+    font-size:1.55rem;
 
-    letter-spacing:1px;
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    text-align:center;
 
     text-shadow:
-        0 2px 8px rgba(0,0,0,.8);
-
-    border-bottom:2px solid #d4af37;
-
-}
-/* ==========================================================
-   NS 1065 • PHOENIX HERITAGE CARD
-========================================================== */
-
-body.norfolk-southern .collection-card:first-child{
-
-    background-size:100% auto;
-    background-position:center center;
-    background-repeat:no-repeat;
-
-}
-
-
-/* Phoenix Card Title */
-
-body.norfolk-southern .collection-card:first-child h3{
+        0 0 10px rgba(212,175,55,.35);
 
     border-bottom:none;
 
-    font-size:1.55rem;
-    font-weight:800;
-    letter-spacing:2px;
+}
+
+
+/* ==========================================================
+   PHOENIX CARD TEXT
+========================================================== */
+
+body.norfolk-southern .collection-card:first-child p{
+
+    position:relative;
+
+    z-index:2;
+
     color:#ffffff;
+
+    text-shadow:
+        0 2px 6px rgba(0,0,0,.85);
+
+}
+
+
+/* ==========================================================
+   PHOENIX CARD BUTTON
+========================================================== */
+
+body.norfolk-southern .collection-card:first-child .button-row{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+/* ==========================================================
+   PHOENIX CARD MOBILE
+========================================================== */
+
+@media (max-width:768px){
+
+    body.norfolk-southern .collection-card:first-child{
+
+        background-size:auto 100%;
+
+        background-position:center center;
+
+    }
 
 }
