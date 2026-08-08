@@ -3267,7 +3267,7 @@ body.norfolk-southern .collection-card:first-child{
         ),
         url("images/FF2706B8-283C-4230-9DB4-AA18C1CF32BB.png");
 
-    background-size:cover;
+   background-size:100% 100%;
 
     background-position:center;
 
