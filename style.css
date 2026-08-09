@@ -3614,3 +3614,10 @@ body.norfolk-southern .collection-card:first-child .museum-button{
     }
 
 }
+/* NS 1065 Phoenix image */
+.phoenix-1065 {
+    background-image: url("../../images/FF2706B8-283C-4230-9DB4-AA18C1CF32BB.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
