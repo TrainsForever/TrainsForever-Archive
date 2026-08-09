@@ -3659,3 +3659,19 @@ body.norfolk-southern .collection-card:first-child .phoenix-1065{
     }
 
 }
+/* NS 1066 • New York Central Skyline */
+
+body.norfolk-southern .card-1066 .nyc-1066-skyline{
+
+    width:100%;
+    height:180px;
+
+    background-image:
+        url("images/IMG_44D4C499-8CF6-41E5-96AD-659FC6137CB0.jpeg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    border-bottom:2px solid #d4af37;
+}
