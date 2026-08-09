@@ -3862,3 +3862,29 @@ body.norfolk-southern .card-1066 .button-row{
     }
 
 }
+body.norfolk-southern .card-1065 .atlanta-1065{
+
+    color:#f4dd87;
+
+    font-family:Georgia, "Times New Roman", serif;
+
+    font-size:1.4rem;
+
+    font-weight:700;
+
+    font-style:italic;
+
+    letter-spacing:5px;
+
+    text-align:center;
+
+    padding:10px 20px 14px;
+
+    background:#0f0f0f;
+
+    text-transform:uppercase;
+
+    text-shadow:
+        0 0 8px rgba(212,175,55,.35);
+
+}
