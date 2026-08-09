@@ -3619,3 +3619,44 @@ body.norfolk-southern .collection-card:first-child .museum-button{
     background-position: center;
     background-repeat: no-repeat;
 }
+/* ==========================================================
+   NS 1065 • FINAL IMAGE FIX
+========================================================== */
+
+body.norfolk-southern .collection-card:first-child::before{
+    display:none !important;
+}
+
+body.norfolk-southern .collection-card:first-child .phoenix-1065{
+    display:block !important;
+
+    width:100% !important;
+    height:520px !important;
+
+    margin:0 !important;
+    padding:0 !important;
+
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,.10),
+            rgba(0,0,0,.25)
+        ),
+        url("images/FF2706B8-283C-4230-9DB4-AA18C1CF32BB.png") !important;
+
+    background-size:cover !important;
+    background-position:center center !important;
+    background-repeat:no-repeat !important;
+
+    background-color:#111111 !important;
+
+    border:none !important;
+}
+
+@media (max-width:768px){
+
+    body.norfolk-southern .collection-card:first-child .phoenix-1065{
+        height:auto !important;
+        aspect-ratio:835 / 1160;
+    }
+
+}
