@@ -3021,3 +3021,24 @@ body.norfolk-southern {
     background-image: none !important;
     background-color: #111111 !important;
 }
+/* ==========================================================
+   HERITAGE PAGE — FINAL DISPLAY FIX
+========================================================== */
+
+html,
+body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+body.norfolk-southern{
+    background:#ffffff !important;
+    background-image:none !important;
+}
+
+body.norfolk-southern .container{
+    width:100%;
+    max-width:100%;
+    box-sizing:border-box;
+}
