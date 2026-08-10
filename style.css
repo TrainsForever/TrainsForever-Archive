@@ -3005,3 +3005,11 @@ body.norfolk-southern .card-1067 .museum-button{
 body.norfolk-southern .collection-grid{
     grid-template-columns:1fr;
 }
+/* ==========================================================
+   FINAL HERITAGE PAGE OVERRIDE
+   Overrides the previous collection-grid rule
+========================================================== */
+
+body.norfolk-southern .collection-grid {
+    grid-template-columns: 1fr;
+}
