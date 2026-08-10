@@ -3032,11 +3032,6 @@ body{
     overflow-x:hidden;
 }
 
-body.norfolk-southern{
-    background:#ffffff !important;
-    background-image:none !important;
-}
-
 body.norfolk-southern .container{
     width:100%;
     max-width:100%;
