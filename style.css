@@ -3861,40 +3861,31 @@ body.norfolk-southern .card-1066 .button-row{
 
     }
 
-body.norfolk-southern .card-1065 .atlanta-1065{
-
-    position:absolute;
-
-    top:18px;
-
-    left:0;
-
-    width:100%;
-
-    z-index:5;
+body.norfolk-southern .card-1065 .savannah-atlanta-1065{
 
     color:#f4dd87;
 
     font-family:Georgia, "Times New Roman", serif;
 
-    font-size:1.5rem;
+    font-size:1.45rem;
 
     font-weight:700;
 
     font-style:italic;
 
-    letter-spacing:6px;
+    letter-spacing:3px;
 
     text-align:center;
 
-    text-transform:uppercase;
+    padding:16px 20px;
+
+    margin:0;
+
+    background:#0f0f0f;
+
+    border-bottom:2px solid #d4af37;
 
     text-shadow:
-        0 0 10px rgba(212,175,55,.45),
-        0 2px 5px #000000;
-
-    background:transparent;
-
-    padding:0;
+        0 0 10px rgba(212,175,55,.35);
 
 }
