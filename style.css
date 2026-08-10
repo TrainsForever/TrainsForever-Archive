@@ -3013,3 +3013,11 @@ body.norfolk-southern .collection-grid{
 body.norfolk-southern .collection-grid {
     grid-template-columns: 1fr;
 }
+/* ==========================================================
+   HERITAGE PAGE — REMOVE UNWANTED PAGE BACKGROUND
+========================================================== */
+
+body.norfolk-southern {
+    background-image: none !important;
+    background-color: #111111 !important;
+}
