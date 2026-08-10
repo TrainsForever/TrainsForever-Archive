@@ -3425,33 +3425,36 @@ body.norfolk-southern .collection-card:first-child .button-row{
     }
 
 }
-//* ==========================================================
-   NS 1065 • ATLANTA / PHOENIX HERITAGE CARD
-   FINAL CARD CSS
-========================================================== */
+/body.norfolk-southern .card-1065 .phoenix-1065{
 
-body.norfolk-southern .collection-card:first-child{
+    display:block !important;
 
-    position:relative;
+    width:100% !important;
 
-    overflow:hidden;
+    height:420px !important;
 
-    display:flex;
+    margin:0 !important;
 
-    flex-direction:column;
+    padding:0 !important;
 
-    background:#111111;
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,.10),
+            rgba(0,0,0,.25)
+        ),
+        url("images/FF2706B8-283C-4230-9DB4-AA18C1CF32BB.png") !important;
 
-    border:2px solid #d4af37 !important;
+    background-size:85% auto !important;
 
-    border-radius:18px;
+    background-position:49% center !important;
 
-    box-shadow:
-        0 0 18px rgba(212,175,55,.25),
-        0 16px 32px rgba(0,0,0,.55);
+    background-repeat:no-repeat !important;
+
+    background-color:#000000 !important;
+
+    border:none !important;
 
 }
-
 
 /* ==========================================================
    NS 1065 TITLE
