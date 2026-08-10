@@ -3034,3 +3034,20 @@ body.norfolk-southern .container{
     max-width:100%;
     box-sizing:border-box;
 }
+/* ==========================================================
+   HERITAGE COLLECTION — SCOPE COLLECTION STYLING
+========================================================== */
+
+body.heritage-collection .collection-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:30px;
+    margin-top:30px;
+}
+
+body.heritage-collection .collection-card{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    box-sizing:border-box;
+}
