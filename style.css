@@ -3020,3 +3020,10 @@ body.norfolk-southern .card-1067 .museum-button{
     }
 
 }
+/* ==========================================================
+   HERITAGE EXHIBITS • FULL WIDTH CARDS
+========================================================== */
+
+body.norfolk-southern .collection-grid{
+    grid-template-columns:1fr;
+}
