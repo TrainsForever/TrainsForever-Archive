@@ -3017,10 +3017,7 @@ body.norfolk-southern .collection-grid {
    HERITAGE PAGE — REMOVE UNWANTED PAGE BACKGROUND
 ========================================================== */
 
-body.norfolk-southern {
-    background-image: none !important;
-    background-color: #111111 !important;
-}
+
 /* ==========================================================
    HERITAGE PAGE — FINAL DISPLAY FIX
 ========================================================== */
