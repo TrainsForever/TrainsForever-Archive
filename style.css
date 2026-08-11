@@ -3721,3 +3721,170 @@ body.heritage-collection .collection-card{
     }
 
 }
+/* ==========================================================
+   FINAL STAT CARD FIXES
+========================================================== */
+
+
+/* ==========================================================
+   NS 1067 — GLASS STAT BUBBLES
+   Keep existing honeycomb background
+========================================================== */
+
+body.reading-1067 .stats-card {
+    overflow:hidden;
+}
+
+body.reading-1067 .stats-overlay {
+    padding:0;
+}
+
+body.reading-1067 .stats-overlay h2 {
+    color:#ffffff;
+}
+
+body.reading-1067 .stat-grid {
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:14px;
+    margin-top:20px;
+}
+
+body.reading-1067 .stat-box {
+    padding:18px 12px;
+
+    text-align:center;
+
+    background:rgba(15, 20, 20, 0.32);
+
+    border:1px solid rgba(255,255,255,0.55);
+
+    border-radius:16px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.22),
+        0 8px 18px rgba(0,0,0,0.35);
+
+    backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);
+}
+
+body.reading-1067 .stat-number {
+    display:block;
+
+    color:#ffd200;
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    line-height:1.1;
+
+    margin-bottom:8px;
+}
+
+body.reading-1067 .stat-label {
+    display:block;
+
+    color:#ffffff;
+
+    font-size:.9rem;
+
+    line-height:1.4;
+}
+
+
+/* ==========================================================
+   MUSEUM LOBBY — RECORDS GLASS CARD
+========================================================== */
+
+.museum-records-card .stats-grid {
+    display:grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap:14px;
+
+    margin-top:28px;
+}
+
+.museum-records-card .stat-box {
+    padding:20px 12px;
+
+    text-align:center;
+
+    background:rgba(20,25,30,0.24);
+
+    border:1px solid rgba(255,255,255,0.60);
+
+    border-radius:16px;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.22),
+        0 8px 18px rgba(0,0,0,0.28);
+
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+}
+
+.museum-records-card .stat-number {
+    display:block;
+
+    color:#f4d86a;
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    line-height:1.1;
+
+    margin-bottom:10px;
+}
+
+.museum-records-card .stat-label {
+    display:block;
+
+    color:#ffffff;
+
+    font-size:.9rem;
+
+    line-height:1.45;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width:768px) {
+
+    body.reading-1067 .stat-grid {
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:12px;
+    }
+
+    body.reading-1067 .stat-box {
+        padding:18px 10px;
+    }
+
+    body.reading-1067 .stat-number {
+        font-size:1.7rem;
+    }
+
+    .museum-records-card .stats-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap:12px;
+    }
+
+    .museum-records-card .stat-box {
+        padding:18px 10px;
+    }
+
+    .museum-records-card .stat-number {
+        font-size:1.7rem;
+    }
+
+}
