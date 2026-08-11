@@ -4135,3 +4135,21 @@ body.reading-1067 .stat-label {
     padding: 10px 14px;
     border-radius: 10px;
 }
+/* Museum Records description readability */
+
+.museum-records-card > p {
+    color: #ffffff !important;
+    font-weight: 600;
+
+    background: rgba(0, 0, 0, 0.48);
+
+    padding: 14px 16px;
+
+    border-radius: 12px;
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,0.95);
+
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
