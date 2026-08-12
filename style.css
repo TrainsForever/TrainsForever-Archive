@@ -7033,3 +7033,534 @@ body::after {
 
 </body>
 </html>
+/* =====================================================
+   TRAINSFOREVER VIP SOCIETY — FINAL DESIGN
+   ===================================================== */
+
+.vip-hero-heading {
+    max-width: 650px;
+    margin: 22px auto 10px;
+
+    color: #d4af37;
+
+    font-size: clamp(22px, 5vw, 32px);
+
+    line-height: 1.25;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+
+/* =====================================================
+   COLLECTION
+   ===================================================== */
+
+.vip-collection {
+    margin-top: 25px;
+    padding: 35px 20px;
+
+    text-align: center;
+
+    border: 1px solid rgba(212, 175, 55, 0.6);
+    border-radius: 22px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(212, 175, 55, 0.14),
+            transparent 58%
+        ),
+        #070707;
+
+    box-shadow:
+        0 0 40px rgba(212, 175, 55, 0.07);
+}
+
+.vip-collection h2,
+.vip-pricing-section h2 {
+    margin: 18px 0 10px;
+
+    color: #d4af37;
+
+    font-size: clamp(27px, 6vw, 38px);
+}
+
+.vip-section-intro {
+    max-width: 650px;
+
+    margin: 0 auto 18px;
+
+    color: #ddd;
+
+    line-height: 1.65;
+}
+
+.vip-collection-count {
+    color: #d4af37;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    font-weight: 800;
+}
+
+.vip-collection-footer {
+    margin-top: 28px;
+
+    color: #fff;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   COINS
+   ===================================================== */
+
+.vip-coin-showcase {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    gap: 14px;
+
+    align-items: start;
+
+    margin-top: 30px;
+}
+
+.vip-showcase-coin h3 {
+    margin-top: 12px;
+
+    color: #ddd;
+
+    font-size: 12px;
+}
+
+.vip-coin {
+    width: 112px;
+    height: 112px;
+
+    margin: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+
+    box-sizing: border-box;
+
+    border: 7px solid #d0a936;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #3c3c3c,
+            #080808 72%
+        );
+
+    color: #d4af37;
+
+    box-shadow:
+        0 0 25px rgba(212,175,55,0.18),
+        inset 0 0 18px rgba(212,175,55,0.1),
+        0 8px 18px rgba(0,0,0,0.5);
+}
+
+.vip-coin::after {
+    content: "";
+
+    position: absolute;
+
+    width: 96px;
+    height: 96px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255,255,255,0.13);
+
+    pointer-events: none;
+}
+
+.vip-coin span {
+    font-size: 7px;
+
+    letter-spacing: 1.5px;
+}
+
+.vip-coin strong {
+    margin: 5px 0;
+
+    font-size: 28px;
+
+    letter-spacing: 2px;
+}
+
+.vip-coin small {
+    font-size: 8px;
+
+    letter-spacing: 1px;
+}
+
+.vip-coin-two {
+    border-color: #bdbdbd;
+}
+
+.vip-coin-three {
+    border-color: #d4af37;
+}
+
+.vip-coin-four {
+    border-color: #bdbdbd;
+}
+
+.vip-coin-five {
+    border-color: #d4af37;
+}
+
+
+/* =====================================================
+   PRICING
+   ===================================================== */
+
+.vip-pricing-section {
+    margin-top: 25px;
+    padding: 35px 20px;
+
+    text-align: center;
+
+    border: 1px solid rgba(212,175,55,0.5);
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111,
+            #050505
+        );
+}
+
+.vip-price-card {
+    max-width: 520px;
+
+    margin: 28px auto 0;
+
+    padding: 28px 22px;
+
+    border: 1px solid rgba(212,175,55,0.65);
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.01)
+        );
+
+    box-shadow:
+        0 0 30px rgba(212,175,55,0.06);
+}
+
+.vip-price-crown {
+    font-size: 30px;
+}
+
+.vip-price-card h3 {
+    color: #d4af37;
+
+    letter-spacing: 1.5px;
+
+    font-size: 16px;
+}
+
+.vip-big-price {
+    margin: 8px 0;
+
+    color: #fff;
+
+    font-size: 50px;
+
+    font-weight: 900;
+}
+
+.vip-price-description {
+    color: #bbb;
+
+    font-size: 13px;
+}
+
+.vip-price-card ul {
+    list-style: none;
+
+    padding: 0;
+
+    margin: 20px 0;
+
+    text-align: left;
+}
+
+.vip-price-card li {
+    padding: 8px 0;
+
+    color: #ddd;
+
+    font-size: 13px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.06);
+}
+
+.vip-buy-button {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 15px;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f4d46b,
+            #c79b24
+        );
+
+    border: 2px solid #f7df83;
+
+    color: #111 !important;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 4px 0 #806014,
+        0 10px 20px rgba(0,0,0,0.45);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.vip-buy-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 0 #806014,
+        0 14px 25px rgba(212,175,55,0.2);
+}
+
+
+/* =====================================================
+   ADDITIONAL COINS
+   ===================================================== */
+
+.vip-additional-coins {
+    max-width: 720px;
+
+    margin: 30px auto 0;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid rgba(212,175,55,0.2);
+}
+
+.vip-additional-coins h3 {
+    color: #d4af37;
+
+    font-size: 20px;
+}
+
+.vip-additional-coins > p {
+    color: #aaa;
+
+    font-size: 13px;
+}
+
+.vip-additional-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.vip-additional-card {
+    padding: 18px 10px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+
+    border:
+        1px solid rgba(212,175,55,0.25);
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.025);
+}
+
+.vip-additional-card strong {
+    color: #d4af37;
+
+    font-size: 23px;
+}
+
+.vip-additional-card span {
+    color: #fff;
+
+    font-size: 18px;
+
+    font-weight: 800;
+}
+
+.vip-additional-card a {
+    color: #d4af37;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    text-decoration: none;
+
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   MEMBER CARD
+   ===================================================== */
+
+.vip-member-card {
+    max-width: 360px;
+
+    margin: 25px auto;
+
+    padding: 22px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    border:
+        1px solid rgba(212,175,55,0.65);
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #171717,
+            #070707
+        );
+
+    box-shadow:
+        0 0 25px rgba(212,175,55,0.08);
+}
+
+.vip-member-card span {
+    color: #d4af37;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+.vip-member-card strong {
+    color: #fff;
+
+    font-size: 22px;
+
+    letter-spacing: 1px;
+}
+
+.vip-member-card small {
+    color: #888;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+.vip-final {
+    margin-bottom: 20px;
+}
+
+.vip-final-line {
+    color: #d4af37 !important;
+
+    font-weight: 800;
+
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 850px) {
+
+    .vip-coin-showcase {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .vip-additional-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .vip-collection,
+    .vip-pricing-section {
+        padding: 30px 15px;
+    }
+
+    .vip-coin-showcase {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .vip-coin {
+        width: 100px;
+        height: 100px;
+    }
+
+    .vip-coin::after {
+        width: 84px;
+        height: 84px;
+    }
+
+    .vip-price-card {
+        padding: 24px 16px;
+    }
+}
