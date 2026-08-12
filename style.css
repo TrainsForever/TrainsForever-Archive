@@ -5873,52 +5873,7 @@ footer .footer-small {
 /* ==========================================================
    END VIP SOCIETY CSS
 ========================================================== */
-/* ==========================================================
-   REMOVE UNWANTED GRID / TEXTURE
-========================================================== */
 
-.museum-header,
-.museum-header::before,
-.museum-header::after {
-    background-image: none !important;
-}
-/* ==========================================================
-   FINAL CLEAN BACKGROUND OVERRIDE
-========================================================== */
-
-html,
-body,
-.container,
-.museum-header,
-.museum-header::before,
-.museum-header::after {
-    background-image: none !important;
-}
-/* ==========================================================
-   RESTORE MUSEUM HEADER
-   Keep the steel appearance while we track down the grid
-========================================================== */
-
-.museum-header {
-    background: linear-gradient(
-        180deg,
-        #49525d 0%,
-        #3b434c 100%
-    ) !important;
-}
-
-.museum-header::before,
-.museum-header::after {
-    background-image: none !important;
-}
-/* ==========================================================
-   CLEAN MUSEUM HEADER TEST
-========================================================== */
-
-.museum-header {
-    background: #3b434c !important;
-    background-image: none !important;
-}
 /* =========================================================
    TRAINSFOREVER VIP
    VERY IMPORTANT PAGE
