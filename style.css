@@ -5894,3 +5894,20 @@ body,
 .museum-header::after {
     background-image: none !important;
 }
+/* ==========================================================
+   RESTORE MUSEUM HEADER
+   Keep the steel appearance while we track down the grid
+========================================================== */
+
+.museum-header {
+    background: linear-gradient(
+        180deg,
+        #49525d 0%,
+        #3b434c 100%
+    ) !important;
+}
+
+.museum-header::before,
+.museum-header::after {
+    background-image: none !important;
+}
