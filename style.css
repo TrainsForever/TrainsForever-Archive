@@ -6292,3 +6292,340 @@ body::after {
     background-image: none !important;
     background: none !important;
 }
+/* =====================================================
+   VIP COIN PACKAGE
+   ===================================================== */
+
+.vip-coin-launch {
+    margin-top: 25px;
+    padding: 40px 24px;
+    text-align: center;
+
+    border: 1px solid rgba(212, 175, 55, 0.7);
+    border-radius: 24px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(212, 175, 55, 0.14),
+            transparent 55%
+        ),
+        linear-gradient(
+            145deg,
+            #151515,
+            #060606
+        );
+
+    box-shadow:
+        0 0 45px rgba(212, 175, 55, 0.08),
+        inset 0 0 35px rgba(212, 175, 55, 0.025);
+}
+
+.vip-coin-badge {
+    display: inline-block;
+
+    padding: 9px 20px;
+
+    border: 1px solid #d4af37;
+    border-radius: 999px;
+
+    color: #d4af37;
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    background: rgba(212, 175, 55, 0.08);
+}
+
+.vip-coin-launch h2 {
+    color: #d4af37;
+    font-size: clamp(27px, 6vw, 40px);
+
+    margin: 22px 0 10px;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.vip-coin-divider {
+    width: 75px;
+    height: 2px;
+
+    margin: 20px auto;
+
+    background: #d4af37;
+
+    box-shadow:
+        0 0 12px rgba(212, 175, 55, 0.5);
+}
+
+.vip-coin-launch > p {
+    max-width: 700px;
+
+    margin: 12px auto;
+
+    color: #e4e4e4;
+
+    line-height: 1.7;
+}
+
+
+/* COIN DISPLAY */
+
+.vip-coin-display {
+    display: flex;
+    justify-content: center;
+
+    margin: 32px 0;
+}
+
+.vip-coin-art {
+    width: 190px;
+    height: 190px;
+
+    border-radius: 50%;
+
+    padding: 8px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f5d66c,
+            #a77c13,
+            #e9c957,
+            #8b6610
+        );
+
+    box-shadow:
+        0 0 35px rgba(212, 175, 55, 0.25),
+        0 12px 30px rgba(0, 0, 0, 0.55);
+}
+
+.vip-coin-face {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border: 2px solid rgba(255,255,255,0.35);
+
+    background:
+        radial-gradient(
+            circle,
+            #292929,
+            #080808 72%
+        );
+
+    color: #d4af37;
+
+    text-align: center;
+
+    box-shadow:
+        inset 0 0 20px rgba(212, 175, 55, 0.12);
+}
+
+.vip-coin-top {
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.vip-coin-main {
+    margin: 10px 0;
+
+    font-size: 48px;
+    font-weight: 900;
+
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 15px rgba(212, 175, 55, 0.35);
+}
+
+.vip-coin-bottom {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+}
+
+.vip-coin-title {
+    color: #fff !important;
+
+    font-size: 20px !important;
+
+    margin-top: 5px !important;
+}
+
+.vip-coin-description {
+    color: #cfcfcf !important;
+
+    font-size: 14px;
+}
+
+
+/* PACKAGE ITEMS */
+
+.vip-package-grid {
+    max-width: 650px;
+
+    margin: 28px auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+}
+
+.vip-package-item {
+    padding: 15px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    text-align: left;
+
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.035);
+
+    color: #e4e4e4;
+
+    font-size: 13px;
+}
+
+.vip-package-item span {
+    font-size: 22px;
+}
+
+
+/* PRICE */
+
+.vip-price-box {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    margin: 30px auto 20px;
+}
+
+.vip-price-label {
+    color: #999;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.vip-price {
+    color: #d4af37;
+
+    font-size: 52px;
+    font-weight: 900;
+
+    line-height: 1;
+
+    margin: 8px 0;
+
+    text-shadow:
+        0 0 18px rgba(212, 175, 55, 0.2);
+}
+
+.vip-price-note {
+    color: #888;
+
+    font-size: 12px;
+}
+
+
+/* BUY BUTTON */
+
+.vip-buy-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: min(100%, 420px);
+
+    box-sizing: border-box;
+
+    margin: 10px auto;
+
+    padding: 16px 22px;
+
+    border: 2px solid #f5da70;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f5d66c,
+            #c79b24
+        );
+
+    color: #111 !important;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 5px 0 #806014,
+        0 12px 25px rgba(0,0,0,0.4);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.vip-buy-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 0 #806014,
+        0 16px 30px rgba(212,175,55,0.2);
+}
+
+.vip-payment-note {
+    color: #888 !important;
+
+    font-size: 11px !important;
+
+    margin-top: 12px !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .vip-coin-launch {
+        padding: 30px 15px;
+    }
+
+    .vip-package-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vip-coin-art {
+        width: 165px;
+        height: 165px;
+    }
+
+    .vip-buy-button {
+        width: 100%;
+    }
+}
