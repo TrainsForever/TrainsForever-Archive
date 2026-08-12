@@ -5919,3 +5919,351 @@ body,
     background: #3b434c !important;
     background-image: none !important;
 }
+/* =========================================================
+   TRAINSFOREVER VIP
+   VERY IMPORTANT PAGE
+   ========================================================= */
+
+.vip-page {
+    min-height: 100vh;
+    padding: 30px 18px 70px;
+    background:
+        radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.16), transparent 35%),
+        linear-gradient(180deg, #050505 0%, #0b0b0b 45%, #030303 100%);
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Gold atmospheric glow */
+
+.vip-page::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: -250px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: radial-gradient(
+        circle,
+        rgba(212, 175, 55, 0.18),
+        transparent 70%
+    );
+    pointer-events: none;
+}
+
+/* Main container */
+
+.vip-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------------------------------------------------------
+   TOP NAVIGATION
+   --------------------------------------------------------- */
+
+.vip-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.vip-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    border-radius: 999px;
+    color: #d4af37;
+    background: rgba(0, 0, 0, 0.45);
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.vip-back:hover {
+    background: #d4af37;
+    color: #050505;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+}
+
+/* ---------------------------------------------------------
+   VIP HERO
+   --------------------------------------------------------- */
+
+.vip-hero {
+    text-align: center;
+    padding: 55px 20px 60px;
+    border: 1px solid rgba(212, 175, 55, 0.45);
+    border-radius: 24px;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.01)
+        );
+    box-shadow:
+        0 0 60px rgba(212, 175, 55, 0.08),
+        inset 0 0 40px rgba(212, 175, 55, 0.025);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative gold lines */
+
+.vip-hero::before,
+.vip-hero::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 38%;
+    top: 50%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #d4af37,
+        transparent
+    );
+}
+
+.vip-hero::before {
+    left: -5%;
+}
+
+.vip-hero::after {
+    right: -5%;
+}
+
+/* VIP badge */
+
+.vip-badge {
+    display: inline-block;
+    padding: 9px 22px;
+    border: 1px solid #d4af37;
+    border-radius: 999px;
+    color: #d4af37;
+    background: rgba(212, 175, 55, 0.08);
+    letter-spacing: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    box-shadow:
+        0 0 18px rgba(212, 175, 55, 0.12);
+    margin-bottom: 25px;
+}
+
+/* Giant VIP lettering */
+
+.vip-title {
+    margin: 0;
+    font-size: clamp(70px, 18vw, 170px);
+    line-height: 0.85;
+    font-weight: 900;
+    letter-spacing: -8px;
+    color: #d4af37;
+    text-shadow:
+        0 0 12px rgba(212, 175, 55, 0.35),
+        0 0 45px rgba(212, 175, 55, 0.12);
+}
+
+/* The actual pun */
+
+.vip-subtitle {
+    margin: 28px 0 0;
+    font-size: clamp(18px, 4vw, 28px);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 700;
+}
+
+.vip-subtitle span {
+    color: #d4af37;
+}
+
+/* Small description */
+
+.vip-intro {
+    max-width: 650px;
+    margin: 18px auto 0;
+    color: #bdbdbd;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* ---------------------------------------------------------
+   ACCESS STATUS
+   --------------------------------------------------------- */
+
+.vip-status {
+    margin: 30px auto 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: rgba(30, 100, 50, 0.15);
+    border: 1px solid rgba(100, 200, 120, 0.3);
+    color: #b8e8c0;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.vip-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #7ee28d;
+    box-shadow: 0 0 10px rgba(126, 226, 141, 0.8);
+}
+
+/* ---------------------------------------------------------
+   VIP CONTENT GRID
+   --------------------------------------------------------- */
+
+.vip-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.vip-card {
+    padding: 28px;
+    border-radius: 18px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.045),
+            rgba(255,255,255,0.012)
+        );
+    transition: 0.3s ease;
+}
+
+.vip-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(212, 175, 55, 0.65);
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.45),
+        0 0 25px rgba(212, 175, 55, 0.08);
+}
+
+.vip-card-icon {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.vip-card h2 {
+    margin: 0 0 10px;
+    color: #d4af37;
+    font-size: 20px;
+}
+
+.vip-card p {
+    margin: 0;
+    color: #bdbdbd;
+    line-height: 1.65;
+}
+
+/* ---------------------------------------------------------
+   FEATURED VIP SECTION
+   --------------------------------------------------------- */
+
+.vip-feature {
+    margin-top: 25px;
+    padding: 35px 25px;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px solid #d4af37;
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(212, 175, 55, 0.10),
+            transparent 65%
+        ),
+        #080808;
+    box-shadow:
+        0 0 40px rgba(212, 175, 55, 0.08);
+}
+
+.vip-feature h2 {
+    color: #d4af37;
+    margin-top: 0;
+}
+
+.vip-feature p {
+    color: #c7c7c7;
+    line-height: 1.7;
+}
+
+/* ---------------------------------------------------------
+   GOLD DIVIDER
+   --------------------------------------------------------- */
+
+.vip-divider {
+    width: 80px;
+    height: 2px;
+    margin: 30px auto;
+    background: #d4af37;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+}
+
+/* ---------------------------------------------------------
+   FOOTER
+   --------------------------------------------------------- */
+
+.vip-footer {
+    text-align: center;
+    margin-top: 45px;
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.vip-footer strong {
+    color: #d4af37;
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+    .vip-page {
+        padding: 20px 12px 50px;
+    }
+
+    .vip-topbar {
+        margin-bottom: 20px;
+    }
+
+    .vip-hero {
+        padding: 45px 15px;
+        border-radius: 18px;
+    }
+
+    .vip-title {
+        letter-spacing: -5px;
+    }
+
+    .vip-subtitle {
+        letter-spacing: 2px;
+    }
+
+    .vip-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vip-card {
+        padding: 24px 20px;
+    }
+}
