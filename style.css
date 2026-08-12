@@ -4187,3 +4187,54 @@ body.reading-1067 .stat-label {
 
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+   /* ==========================================================
+   VIP SOCIETY LOBBY BUTTON
+========================================================== */
+
+.vip-button-container {
+    text-align: center;
+    margin-top: 28px;
+}
+
+.vip-lobby-button {
+    display: inline-block;
+
+    padding: 18px 42px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 1.35rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+    text-decoration: none;
+
+    color: #111;
+
+    background: linear-gradient(
+        180deg,
+        #ffe88a 0%,
+        #e5bd3f 50%,
+        #b88716 100%
+    );
+
+    border: 2px solid #fff1a8;
+    border-radius: 10px;
+
+    box-shadow:
+        0 4px 0 #73540c,
+        0 8px 18px rgba(0, 0, 0, 0.45);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.vip-lobby-button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 7px 0 #73540c,
+        0 12px 24px rgba(0, 0, 0, 0.55);
+}
