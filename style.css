@@ -5911,3 +5911,11 @@ body,
 .museum-header::after {
     background-image: none !important;
 }
+/* ==========================================================
+   CLEAN MUSEUM HEADER TEST
+========================================================== */
+
+.museum-header {
+    background: #3b434c !important;
+    background-image: none !important;
+}
