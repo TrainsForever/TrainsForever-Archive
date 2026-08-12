@@ -5882,3 +5882,15 @@ footer .footer-small {
 .museum-header::after {
     background-image: none !important;
 }
+/* ==========================================================
+   FINAL CLEAN BACKGROUND OVERRIDE
+========================================================== */
+
+html,
+body,
+.container,
+.museum-header,
+.museum-header::before,
+.museum-header::after {
+    background-image: none !important;
+}
