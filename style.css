@@ -6276,3 +6276,19 @@ body {
     background-image: none !important;
 }
 index.html
+/* =========================================
+   PURE BLACK MUSEUM BACKGROUND
+   ========================================= */
+
+html,
+body {
+    background: #000000 !important;
+    background-image: none !important;
+}
+
+/* Remove any background texture/overlay */
+body::before,
+body::after {
+    background-image: none !important;
+    background: none !important;
+}
