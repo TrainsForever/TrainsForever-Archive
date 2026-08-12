@@ -5873,3 +5873,12 @@ footer .footer-small {
 /* ==========================================================
    END VIP SOCIETY CSS
 ========================================================== */
+/* ==========================================================
+   REMOVE UNWANTED GRID / TEXTURE
+========================================================== */
+
+.museum-header,
+.museum-header::before,
+.museum-header::after {
+    background-image: none !important;
+}
