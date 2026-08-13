@@ -8761,3 +8761,19 @@ body.nyc-1066 .museum-header {
     background-position: center !important;
     background-repeat: no-repeat !important;
 }
+/* ==========================================================
+   NS 1066 — NEW YORK CENTRAL SKYLINE
+========================================================== */
+
+body.nyc-1066 .museum-header {
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.45),
+            rgba(0, 0, 0, 0.68)
+        ),
+        url("images/IMG_44D4C499-8CF6-41E5-96AD-659FC6137CB0.jpeg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
