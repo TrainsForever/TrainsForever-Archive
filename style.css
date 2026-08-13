@@ -8746,3 +8746,19 @@ body.nyc-1066 .museum-card::after {
     display: none !important;
     background: none !important;
 }
+/* ==========================================================
+   NS 1066 — RESTORE POSTER ART
+========================================================== */
+
+body.nyc-1066 .museum-header {
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.58),
+            rgba(0,0,0,0.72)
+        ),
+        url("../../images/IMG_44D4C499-8CF6-41E5-96AD-659FC6137CB0.jpeg") !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
