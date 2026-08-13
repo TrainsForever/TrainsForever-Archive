@@ -8127,3 +8127,12 @@ body.sa-1065 footer strong {
         width: 100% !important;
     }
 }
+/* REMOVE LARGE DECORATIVE CIRCLES FROM 1065 */
+
+body.sa-1065 .museum-card::before {
+    display: none !important;
+}
+
+body.sa-1065 .museum-card::after {
+    display: none !important;
+}
