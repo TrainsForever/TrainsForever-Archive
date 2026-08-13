@@ -218,31 +218,260 @@
 
 
 
-        <!-- PAYMENT -->
+        <!-- ==========================================================
+     VIP PURCHASE
+========================================================== -->
 
-        <section class="vip-feature">
+<section class="vip-feature vip-purchase-section">
 
-            <div class="vip-badge">
+    <div class="vip-badge">
+        👑 JOIN THE VIP SOCIETY
+    </div>
 
-                💳 PAYMENT
+    <h2>
+        Become a Founding VIP
+    </h2>
 
-            </div>
+    <p>
+        Join the TrainsForever Museum VIP Society and become
+        part of the museum as it continues to grow.
+    </p>
+
+    <div class="vip-purchase-box">
+
+        <div class="vip-price">
+            $30
+        </div>
+
+        <p>
+            Founding VIP Membership
+        </p>
+
+        <button
+            type="button"
+            class="vip-buy-button"
+            onclick="openVipNotice()">
+
+            🪙 PURCHASE VIP MEMBERSHIP
+
+        </button>
+
+    </div>
+
+</section>
 
 
-            <h2>
+<!-- ==========================================================
+     FOUNDING VIP NOTICE
+========================================================== -->
 
-                Secure Your Membership
+<div
+    id="vipNotice"
+    class="vip-modal"
+    aria-hidden="true">
 
-            </h2>
+    <div class="vip-modal-box">
 
+        <button
+            type="button"
+            class="vip-modal-close"
+            onclick="closeVipNotice()"
+            aria-label="Close">
+
+            ×
+
+        </button>
+
+
+        <div class="vip-badge">
+            🏛️ FOUNDING VIP NOTICE
+        </div>
+
+
+        <h2>
+            Before You Join
+        </h2>
+
+
+        <p>
+            Your VIP membership begins immediately when you
+            complete your membership purchase.
+        </p>
+
+
+        <div class="vip-notice-card">
+
+            <h3>
+                🏛️ Your VIP Membership
+            </h3>
 
             <p>
-
-                Complete your payment below to
-                purchase the TrainsForever VIP Package.
-
+                You will be officially welcomed into the
+                TrainsForever Museum VIP Society immediately
+                after completing your membership.
             </p>
 
+        </div>
+
+
+        <div class="vip-notice-card">
+
+            <h3>
+                🪙 Your Founding VIP Coin
+            </h3>
+
+            <p>
+                The first coin production run will be ordered
+                once enough Founding VIP memberships have been
+                purchased to fund the production order.
+            </p>
+
+            <p>
+                Your coin is reserved for you as a Founding VIP
+                and will be shipped once the production run is
+                completed and the coins arrive.
+            </p>
+
+            <p>
+                We'll provide updates on the production process
+                as the museum continues to grow.
+            </p>
+
+        </div>
+
+
+        <div class="vip-notice-card">
+
+            <h3>
+                ✨ The VIP Society Is Growing
+            </h3>
+
+            <p>
+                The TrainsForever Museum VIP Society is an
+                evolving part of the museum.
+            </p>
+
+            <p>
+                New member features, activities, collectibles,
+                exhibits, and other additions will be created
+                and introduced over time.
+            </p>
+
+            <p>
+                Your membership gives you access to the Society
+                as it grows. Some features may not be available
+                immediately and will be added as development
+                continues.
+            </p>
+
+        </div>
+
+
+        <!-- ACKNOWLEDGMENT -->
+
+        <label class="vip-acknowledge">
+
+            <input
+                type="checkbox"
+                id="vipAcknowledge"
+                onchange="toggleVipContinue()">
+
+            <span>
+                I understand that my VIP membership begins
+                immediately, that my physical Founding VIP Coin
+                will be shipped after the first production run
+                is funded, produced, and received, and that
+                additional VIP Society features will be added
+                as the museum continues to grow.
+            </span>
+
+        </label>
+
+
+        <button
+            type="button"
+            id="vipContinueButton"
+            class="vip-continue-button"
+            disabled
+            onclick="continueToVipPayment()">
+
+            ✓ I ACKNOWLEDGE &amp; CONTINUE TO PAYMENT
+
+        </button>
+
+
+        <button
+            type="button"
+            class="vip-cancel-button"
+            onclick="closeVipNotice()">
+
+            CANCEL
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ==========================================================
+     VIP PURCHASE JAVASCRIPT
+========================================================== -->
+
+<script>
+
+function openVipNotice() {
+
+    const modal = document.getElementById("vipNotice");
+
+    modal.classList.add("active");
+
+    modal.setAttribute("aria-hidden", "false");
+
+}
+
+
+function closeVipNotice() {
+
+    const modal = document.getElementById("vipNotice");
+
+    modal.classList.remove("active");
+
+    modal.setAttribute("aria-hidden", "true");
+
+}
+
+
+function toggleVipContinue() {
+
+    const checkbox =
+        document.getElementById("vipAcknowledge");
+
+    const button =
+        document.getElementById("vipContinueButton");
+
+    button.disabled = !checkbox.checked;
+
+}
+
+
+function continueToVipPayment() {
+
+    const checkbox =
+        document.getElementById("vipAcknowledge");
+
+    if (!checkbox.checked) {
+        return;
+    }
+
+    window.open(
+        "https://square.link/u/kqevqEk3?src=embed",
+        "_blank"
+    );
+
+}
+
+</script>
 
             <!-- PAYMENT BUTTON -->
 
