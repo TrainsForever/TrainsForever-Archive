@@ -8745,18 +8745,17 @@ body.nyc-1066 .museum-card::after {
     content: none !important;
     display: none !important;
     background: none !important;
-}
-/* ==========================================================
-   NS 1066 — RESTORE POSTER ART
+}/* ==========================================================
+   NS 1066 — RESTORE NEW YORK CENTRAL POSTER
 ========================================================== */
 
 body.nyc-1066 .museum-header {
-    background:
+    background-image:
         linear-gradient(
-            rgba(0,0,0,0.58),
-            rgba(0,0,0,0.72)
+            rgba(0, 0, 0, 0.58),
+            rgba(0, 0, 0, 0.72)
         ),
-        url("../../images/IMG_44D4C499-8CF6-41E5-96AD-659FC6137CB0.jpeg") !important;
+        url("images/IMG_44D4C499-8CF6-41E5-96AD-659FC6137CB0.jpeg") !important;
 
     background-size: cover !important;
     background-position: center !important;
