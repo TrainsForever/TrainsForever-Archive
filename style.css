@@ -7519,3 +7519,611 @@ body::after {
         padding: 24px 16px;
     }
 }
+/* ==========================================================
+   NS 1065 — SAVANNAH & ATLANTA
+   COMPLETE EXHIBIT OVERRIDE
+   This section intentionally overrides previous 1065 styling.
+========================================================== */
+
+body.sa-1065 {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        Helvetica,
+        sans-serif !important;
+
+    color: #f4f4f4 !important;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(255, 190, 60, 0.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 25%,
+            rgba(120, 30, 30, 0.20),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #070707 0%,
+            #17120c 45%,
+            #080808 100%
+        ) !important;
+
+    background-attachment: fixed !important;
+}
+
+
+/* ==========================================================
+   MAIN CONTAINER
+========================================================== */
+
+body.sa-1065 .container {
+    width: min(1100px, 92%) !important;
+
+    margin: 0 auto !important;
+    padding: 35px 0 60px !important;
+
+    box-sizing: border-box !important;
+}
+
+
+/* ==========================================================
+   EXHIBIT HEADER
+========================================================== */
+
+body.sa-1065 .museum-header {
+    position: relative !important;
+
+    overflow: hidden !important;
+
+    padding: 70px 35px 55px !important;
+
+    margin-bottom: 28px !important;
+
+    border-radius: 30px !important;
+
+    border: 1px solid rgba(255, 211, 112, 0.35) !important;
+
+    background-color: #111 !important;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+
+    text-align: center !important;
+}
+
+
+/* Soft glass glow */
+
+body.sa-1065 .museum-header::after {
+    content: "" !important;
+
+    position: absolute !important;
+
+    inset: 0 !important;
+
+    pointer-events: none !important;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255, 210, 100, 0.20),
+            transparent 48%
+        ) !important;
+}
+
+
+/* ==========================================================
+   HEADER TEXT
+========================================================== */
+
+body.sa-1065 .museum-header h1 {
+    position: relative !important;
+    z-index: 2 !important;
+
+    margin: 0 0 8px !important;
+
+    font-size: clamp(3.2rem, 9vw, 6.5rem) !important;
+
+    font-weight: 900 !important;
+
+    letter-spacing: 0.04em !important;
+
+    line-height: 0.95 !important;
+
+    color: #ffffff !important;
+
+    text-shadow:
+        0 3px 15px rgba(0, 0, 0, 0.8),
+        0 0 25px rgba(255, 205, 100, 0.25) !important;
+}
+
+
+body.sa-1065 .museum-header h2 {
+    position: relative !important;
+    z-index: 2 !important;
+
+    margin: 12px 0 !important;
+
+    font-size: clamp(1.3rem, 3vw, 2rem) !important;
+
+    color: #ffd978 !important;
+
+    font-weight: 700 !important;
+}
+
+
+body.sa-1065 .museum-subtitle {
+    position: relative !important;
+    z-index: 2 !important;
+
+    margin: 10px 0 20px !important;
+
+    color: rgba(255, 255, 255, 0.85) !important;
+
+    font-size: 1rem !important;
+
+    letter-spacing: 0.08em !important;
+
+    text-transform: uppercase !important;
+}
+
+
+body.sa-1065 .exhibit-number {
+    position: relative !important;
+    z-index: 2 !important;
+
+    display: inline-block !important;
+
+    padding: 9px 18px !important;
+
+    border-radius: 999px !important;
+
+    background: rgba(255, 255, 255, 0.10) !important;
+
+    border: 1px solid rgba(255, 215, 120, 0.35) !important;
+
+    color: #ffe4a3 !important;
+
+    font-size: 0.8rem !important;
+
+    font-weight: 700 !important;
+
+    letter-spacing: 0.14em !important;
+}
+
+
+/* ==========================================================
+   DIVIDERS
+========================================================== */
+
+body.sa-1065 .museum-divider {
+    width: 80% !important;
+
+    max-width: 600px !important;
+
+    height: 2px !important;
+
+    margin: 25px auto !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #d6a94a,
+            #fff1bd,
+            #d6a94a,
+            transparent
+        ) !important;
+
+    border: none !important;
+
+    opacity: 0.8 !important;
+}
+
+
+/* ==========================================================
+   GLASS / BUBBLE CARDS
+========================================================== */
+
+body.sa-1065 .museum-card {
+    position: relative !important;
+
+    overflow: hidden !important;
+
+    margin: 25px 0 !important;
+
+    padding: 30px !important;
+
+    border-radius: 28px !important;
+
+    border: 1px solid rgba(255, 214, 125, 0.24) !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.105),
+            rgba(255, 255, 255, 0.035)
+        ) !important;
+
+    box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 255, 255, 0.13) !important;
+
+    backdrop-filter: blur(18px) !important;
+
+    -webkit-backdrop-filter: blur(18px) !important;
+}
+
+
+/* Bubble highlight */
+
+body.sa-1065 .museum-card::before {
+    content: "" !important;
+
+    position: absolute !important;
+
+    top: -100px !important;
+    right: -80px !important;
+
+    width: 220px !important;
+    height: 220px !important;
+
+    border-radius: 50% !important;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255, 222, 145, 0.14),
+            transparent 70%
+        ) !important;
+
+    pointer-events: none !important;
+}
+
+
+/* ==========================================================
+   CARD HEADINGS
+========================================================== */
+
+body.sa-1065 .museum-card h2 {
+    position: relative !important;
+
+    margin: 0 0 20px !important;
+
+    color: #ffe09a !important;
+
+    font-size: clamp(1.35rem, 3vw, 1.9rem) !important;
+
+    font-weight: 800 !important;
+
+    letter-spacing: 0.02em !important;
+}
+
+
+body.sa-1065 .museum-card h3 {
+    color: #ffe6ae !important;
+
+    margin-top: 0 !important;
+}
+
+
+/* ==========================================================
+   BODY TEXT
+========================================================== */
+
+body.sa-1065 .museum-card p {
+    color: rgba(255, 255, 255, 0.86) !important;
+
+    line-height: 1.75 !important;
+
+    font-size: 1rem !important;
+}
+
+
+/* ==========================================================
+   STAT / INFORMATION BUBBLES
+========================================================== */
+
+body.sa-1065 .info-row {
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: space-between !important;
+
+    gap: 20px !important;
+
+    margin: 12px 0 !important;
+
+    padding: 16px 19px !important;
+
+    border-radius: 18px !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.10) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.095),
+            rgba(255, 255, 255, 0.035)
+        ) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.07),
+        0 7px 20px rgba(0, 0, 0, 0.18) !important;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease !important;
+}
+
+
+body.sa-1065 .info-row:hover {
+    transform: translateY(-2px) !important;
+
+    border-color: rgba(255, 218, 130, 0.35) !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 214, 120, 0.13),
+            rgba(255, 255, 255, 0.045)
+        ) !important;
+}
+
+
+body.sa-1065 .info-title {
+    color: rgba(255, 255, 255, 0.72) !important;
+
+    font-weight: 600 !important;
+}
+
+
+body.sa-1065 .info-value {
+    color: #ffe29a !important;
+
+    font-weight: 800 !important;
+
+    text-align: right !important;
+}
+
+
+/* ==========================================================
+   IMAGE FRAME
+========================================================== */
+
+body.sa-1065 .image-frame {
+    padding: 10px !important;
+
+    margin: 20px 0 !important;
+
+    border-radius: 24px !important;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 222, 145, 0.18),
+            rgba(255, 255, 255, 0.04)
+        ) !important;
+
+    border: 1px solid rgba(255, 215, 125, 0.25) !important;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+
+body.sa-1065 .featured-photo {
+    display: block !important;
+
+    width: 100% !important;
+
+    max-height: 650px !important;
+
+    object-fit: contain !important;
+
+    border-radius: 17px !important;
+}
+
+
+/* ==========================================================
+   PHOTO PLAQUE
+========================================================== */
+
+body.sa-1065 .photo-plaque {
+    margin-top: 20px !important;
+
+    padding: 20px 22px !important;
+
+    border-radius: 20px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.40),
+            rgba(255, 213, 120, 0.06)
+        ) !important;
+
+    border-left: 4px solid #d7ad54 !important;
+}
+
+
+/* ==========================================================
+   MUSEUM PLAQUE
+========================================================== */
+
+body.sa-1065 .museum-plaque {
+    margin-top: 20px !important;
+
+    padding: 24px !important;
+
+    border-radius: 22px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 214, 120, 0.10),
+            rgba(255, 255, 255, 0.035)
+        ) !important;
+
+    border: 1px solid rgba(255, 215, 125, 0.20) !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+}
+
+
+/* ==========================================================
+   BUTTON AREA
+========================================================== */
+
+body.sa-1065 .button-row {
+    display: flex !important;
+
+    flex-wrap: wrap !important;
+
+    gap: 12px !important;
+
+    margin-top: 20px !important;
+}
+
+
+body.sa-1065 .museum-button,
+body.sa-1065 .coming-button {
+    display: inline-flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    min-height: 48px !important;
+
+    padding: 12px 20px !important;
+
+    border-radius: 999px !important;
+
+    text-decoration: none !important;
+
+    font-weight: 800 !important;
+
+    letter-spacing: 0.03em !important;
+
+    box-sizing: border-box !important;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease !important;
+}
+
+
+body.sa-1065 .museum-button {
+    color: #17120b !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe6a3,
+            #d5a947
+        ) !important;
+
+    border: 1px solid rgba(255, 237, 181, 0.7) !important;
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.30) !important;
+}
+
+
+body.sa-1065 .museum-button:hover {
+    transform: translateY(-3px) !important;
+
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.42) !important;
+}
+
+
+body.sa-1065 .coming-button {
+    color: #ffe4a0 !important;
+
+    background: rgba(255, 255, 255, 0.07) !important;
+
+    border: 1px solid rgba(255, 215, 120, 0.25) !important;
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+body.sa-1065 footer {
+    margin-top: 40px !important;
+
+    padding: 35px 20px !important;
+
+    text-align: center !important;
+
+    color: rgba(255, 255, 255, 0.65) !important;
+}
+
+
+body.sa-1065 footer strong {
+    color: #ffe09a !important;
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 700px) {
+
+    body.sa-1065 .container {
+        width: 94% !important;
+
+        padding-top: 18px !important;
+    }
+
+    body.sa-1065 .museum-header {
+        padding: 50px 20px 40px !important;
+
+        border-radius: 24px !important;
+    }
+
+    body.sa-1065 .museum-card {
+        padding: 22px 18px !important;
+
+        border-radius: 23px !important;
+    }
+
+    body.sa-1065 .info-row {
+        flex-direction: column !important;
+
+        align-items: flex-start !important;
+
+        gap: 6px !important;
+    }
+
+    body.sa-1065 .info-value {
+        text-align: left !important;
+    }
+
+    body.sa-1065 .button-row {
+        flex-direction: column !important;
+    }
+
+    body.sa-1065 .museum-button,
+    body.sa-1065 .coming-button {
+        width: 100% !important;
+    }
+}
