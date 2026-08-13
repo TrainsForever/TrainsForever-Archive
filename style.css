@@ -8739,3 +8739,10 @@ body.nyc-1066 .museum-card::after {
     display: none !important;
     background: none !important;
 }
+/* REMOVE THE LARGE CIRCLES */
+body.nyc-1066 .museum-card::before,
+body.nyc-1066 .museum-card::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+}
