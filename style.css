@@ -10063,3 +10063,943 @@ body.vip-welcome-page {
     }
 
 }
+/* ==========================================================
+   VIP LOBBY
+========================================================== */
+
+body.vip-lobby-page {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    color: #f5f5f5;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at 15% 5%,
+            rgba(255,210,100,0.13),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 35%,
+            rgba(255,255,255,0.07),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #050505,
+            #15110a,
+            #050505
+        );
+
+    background-attachment: fixed;
+
+}
+
+
+.vip-lobby-container {
+
+    width: min(1050px, 92%);
+
+    margin: auto;
+
+    padding: 20px 0 60px;
+
+}
+
+
+/* ==========================================================
+   TOP BAR
+========================================================== */
+
+.vip-lobby-topbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+
+}
+
+
+.vip-lobby-back {
+
+    color: #d8b45d;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+}
+
+
+.vip-lobby-title {
+
+    color: #ffe09a;
+
+    font-weight: 900;
+
+    letter-spacing: 0.08em;
+
+    font-size: 0.8rem;
+
+}
+
+
+/* ==========================================================
+   WELCOME
+========================================================== */
+
+.vip-lobby-welcome {
+
+    text-align: center;
+
+    padding: 55px 25px;
+
+    margin-bottom: 25px;
+
+    border-radius: 32px;
+
+    border: 1px solid
+        rgba(255,215,120,0.28);
+
+    background:
+
+        radial-gradient(
+            circle at center top,
+            rgba(255,215,120,0.14),
+            transparent 60%
+        ),
+
+        rgba(255,255,255,0.045);
+
+    box-shadow:
+        0 25px 65px rgba(0,0,0,0.45);
+
+}
+
+
+.lobby-crown {
+
+    font-size: 3.2rem;
+
+}
+
+
+.lobby-eyebrow {
+
+    display: block;
+
+    margin-top: 8px;
+
+    color: #d4ae58;
+
+    font-size: 0.72rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.18em;
+
+}
+
+
+.vip-lobby-welcome h1 {
+
+    margin: 15px 0;
+
+    font-size:
+        clamp(2.4rem, 7vw, 4.8rem);
+
+    line-height: 1;
+
+}
+
+
+.vip-lobby-welcome h1 span {
+
+    display: block;
+
+    color: #ffe09a;
+
+}
+
+
+.vip-lobby-welcome p {
+
+    color:
+        rgba(255,255,255,0.72);
+
+    font-size: 1.05rem;
+
+}
+
+
+.lobby-member-badge {
+
+    display: inline-block;
+
+    margin-top: 15px;
+
+    padding: 9px 16px;
+
+    border-radius: 999px;
+
+    color: #ffe09a;
+
+    background:
+        rgba(255,215,120,0.08);
+
+    border:
+        1px solid
+        rgba(255,215,120,0.25);
+
+    font-size: 0.72rem;
+
+    font-weight: 900;
+
+}
+
+
+/* ==========================================================
+   GENERAL CARDS
+========================================================== */
+
+.lobby-card {
+
+    margin: 22px 0;
+
+    padding: 28px;
+
+    border-radius: 27px;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.11);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.075),
+            rgba(255,255,255,0.025)
+        );
+
+    box-shadow:
+        0 18px 45px
+        rgba(0,0,0,0.35);
+
+    backdrop-filter: blur(16px);
+
+}
+
+
+.lobby-section-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+}
+
+
+.lobby-section-title > span {
+
+    font-size: 2.1rem;
+
+}
+
+
+.lobby-section-title small {
+
+    color: #cba34e;
+
+    font-weight: 900;
+
+    font-size: 0.67rem;
+
+    letter-spacing: 0.13em;
+
+}
+
+
+.lobby-section-title h2 {
+
+    margin: 4px 0 0;
+
+    color: #ffe09a;
+
+}
+
+
+.section-description {
+
+    color:
+        rgba(255,255,255,0.70);
+
+    line-height: 1.65;
+
+}
+
+
+/* ==========================================================
+   CONSTRUCTION
+========================================================== */
+
+.construction-post {
+
+    margin-top: 18px;
+
+    padding: 19px;
+
+    border-radius: 19px;
+
+    background:
+        rgba(255,255,255,0.045);
+
+    border-left:
+        3px solid #d4aa4e;
+
+}
+
+
+.post-date {
+
+    color: #d4aa4e;
+
+    font-size: 0.67rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.10em;
+
+}
+
+
+.construction-post h3 {
+
+    margin: 7px 0;
+
+}
+
+
+.construction-post p {
+
+    margin-bottom: 0;
+
+    color:
+        rgba(255,255,255,0.68);
+
+    line-height: 1.6;
+
+}
+
+
+/* ==========================================================
+   TRAIN REPORT
+========================================================== */
+
+.train-report {
+
+    margin-top: 20px;
+
+    padding: 21px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(0,0,0,0.28);
+
+    border:
+        1px solid
+        rgba(255,215,120,0.17);
+
+}
+
+
+.report-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+}
+
+
+.report-top strong {
+
+    color: #ffe09a;
+
+    font-size: 1.15rem;
+
+}
+
+
+.report-top span {
+
+    color: #b9974a;
+
+    font-size: 0.62rem;
+
+    font-weight: 900;
+
+}
+
+
+.report-location {
+
+    margin-top: 10px;
+
+    color:
+        rgba(255,255,255,0.72);
+
+}
+
+
+.train-report p {
+
+    line-height: 1.6;
+
+}
+
+
+.report-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding-top: 13px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+    color:
+        rgba(255,255,255,0.45);
+
+    font-size: 0.72rem;
+
+}
+
+
+.report-action-area {
+
+    text-align: center;
+
+    margin-top: 20px;
+
+}
+
+
+.report-action-area p {
+
+    color:
+        rgba(255,255,255,0.40);
+
+    font-size: 0.75rem;
+
+}
+
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+
+.lobby-primary-button,
+.lobby-secondary-button {
+
+    border: none;
+
+    border-radius: 999px;
+
+    padding: 13px 20px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+}
+
+
+.lobby-primary-button {
+
+    color: #17120a;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe6a1,
+            #c39434
+        );
+
+}
+
+
+.lobby-secondary-button {
+
+    color: #ffe09a;
+
+    background:
+        rgba(255,215,120,0.08);
+
+    border:
+        1px solid
+        rgba(255,215,120,0.25);
+
+}
+
+
+/* ==========================================================
+   MEMBER ACTIONS
+========================================================== */
+
+.lobby-action-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+
+    margin-top: 20px;
+
+}
+
+
+.lobby-action-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    text-align: left;
+
+    padding: 21px;
+
+    border-radius: 20px;
+
+    color: white;
+
+    background:
+        rgba(255,255,255,0.045);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease;
+
+}
+
+
+.lobby-action-card:hover {
+
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(255,215,120,0.30);
+
+}
+
+
+.lobby-action-card span {
+
+    font-size: 1.8rem;
+
+}
+
+
+.lobby-action-card strong {
+
+    margin-top: 8px;
+
+}
+
+
+.lobby-action-card small {
+
+    margin-top: 5px;
+
+    color:
+        rgba(255,255,255,0.52);
+
+}
+
+
+/* ==========================================================
+   COMING NOTE
+========================================================== */
+
+.coming-note {
+
+    margin-top: 18px;
+
+    padding: 13px;
+
+    border-radius: 14px;
+
+    text-align: center;
+
+    color:
+        rgba(255,255,255,0.52);
+
+    background:
+        rgba(255,255,255,0.035);
+
+    font-size: 0.75rem;
+
+}
+
+
+/* ==========================================================
+   CHAT
+========================================================== */
+
+.chat-preview {
+
+    margin: 20px 0;
+
+}
+
+
+.chat-message {
+
+    display: flex;
+
+    gap: 12px;
+
+    padding: 15px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.08);
+
+}
+
+
+.chat-avatar {
+
+    width: 38px;
+
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,215,120,0.10);
+
+}
+
+
+.chat-message p {
+
+    margin: 5px 0 0;
+
+    color:
+        rgba(255,255,255,0.62);
+
+    font-size: 0.9rem;
+
+    line-height: 1.5;
+
+}
+
+
+/* ==========================================================
+   3D
+========================================================== */
+
+.lobby-3d-box {
+
+    margin: 25px 0;
+
+    padding: 50px 25px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(255,215,120,0.13),
+            transparent 60%
+        ),
+
+        linear-gradient(
+            135deg,
+            #090909,
+            #1b150b,
+            #070707
+        );
+
+    border:
+        1px solid
+        rgba(255,215,120,0.25);
+
+}
+
+
+.three-d-mark {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 72px;
+
+    height: 72px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe5a0,
+            #b9872d
+        );
+
+    color: #17120a;
+
+    font-weight: 1000;
+
+}
+
+
+.lobby-3d-box > span {
+
+    color: #cda550;
+
+    font-size: 0.7rem;
+
+    font-weight: 900;
+
+    letter-spacing: 0.13em;
+
+}
+
+
+.lobby-3d-box h2 {
+
+    color: #ffe09a;
+
+    font-size: 2rem;
+
+}
+
+
+.lobby-3d-box p {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    color:
+        rgba(255,255,255,0.68);
+
+    line-height: 1.7;
+
+}
+
+
+.lobby-coming-soon {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 9px 16px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,215,120,0.08);
+
+    color: #ffe09a;
+
+    font-size: 0.7rem;
+
+    font-weight: 900;
+
+}
+
+
+/* ==========================================================
+   FINAL
+========================================================== */
+
+.lobby-final {
+
+    padding: 45px 20px;
+
+    text-align: center;
+
+}
+
+
+.lobby-final > div {
+
+    color: #d4ab54;
+
+    letter-spacing: .4em;
+
+}
+
+
+.lobby-final h2 {
+
+    font-size: 2rem;
+
+    color: #ffffff;
+
+}
+
+
+.lobby-final p {
+
+    max-width: 650px;
+
+    margin: 12px auto;
+
+    color:
+        rgba(255,255,255,0.65);
+
+    line-height: 1.7;
+
+}
+
+
+.lobby-final strong {
+
+    display: block;
+
+    margin-top: 20px;
+
+    color: #ffe09a;
+
+    font-size: 1.15rem;
+
+}
+
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.vip-lobby-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 25px 0;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,0.10);
+
+    color:
+        rgba(255,255,255,0.45);
+
+    font-size: 0.75rem;
+
+}
+
+
+.vip-lobby-footer a {
+
+    color: #d6b25f;
+
+    text-decoration: none;
+
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 650px) {
+
+    .vip-lobby-container {
+
+        width: 94%;
+
+    }
+
+
+    .vip-lobby-topbar {
+
+        align-items: flex-start;
+
+    }
+
+
+    .lobby-action-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .report-top,
+    .report-footer {
+
+        flex-direction: column;
+
+    }
+
+
+    .lobby-card {
+
+        padding: 22px 18px;
+
+    }
+
+
+    .vip-lobby-welcome {
+
+        padding: 45px 20px;
+
+    }
+
+}
