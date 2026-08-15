@@ -22304,3 +22304,216 @@ body.vip-lobby-page {
     }
 
 }
+/* ==========================================================
+   MUSEUM RECORDS — TOP 5 MOST CAUGHT
+   FEATURE CARD — KEEP EXISTING PHOTO
+========================================================== */
+
+.museum-records-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 32px 26px !important;
+
+    border-radius: 28px !important;
+
+    border: 2px solid #d4af37 !important;
+
+    /* KEEP YOUR EXISTING BACKGROUND PHOTO */
+    background-color: #171b20 !important;
+
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,.08),
+        0 0 25px rgba(212,175,55,.18),
+        0 18px 45px rgba(0,0,0,.65),
+        inset 0 1px 0 rgba(255,255,255,.18);
+
+}
+
+
+/* ==========================================================
+   DARK PHOTO OVERLAY
+========================================================== */
+
+.museum-records-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.20),
+            rgba(0,0,0,.48)
+        );
+
+    pointer-events: none;
+
+    z-index: 1;
+
+}
+
+
+/* ==========================================================
+   GOLD DISPLAY LIGHT
+========================================================== */
+
+.museum-records-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 8%;
+    right: 8%;
+
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #fff1a8,
+            #d4af37,
+            #fff1a8,
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px rgba(212,175,55,.8),
+        0 0 30px rgba(212,175,55,.35);
+
+    z-index: 3;
+
+}
+
+
+/* ==========================================================
+   KEEP CARD CONTENT ABOVE PHOTO OVERLAY
+========================================================== */
+
+.museum-records-card > * {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+/* ==========================================================
+   TITLE
+========================================================== */
+
+.museum-records-card h2 {
+
+    margin-bottom: 12px !important;
+
+    color: #fff1a8 !important;
+
+    font-size: clamp(1.5rem, 5vw, 2rem) !important;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+        0 2px 5px #000,
+        0 0 12px rgba(212,175,55,.45);
+
+}
+
+
+/* ==========================================================
+   DESCRIPTION
+========================================================== */
+
+.museum-records-card .records-description {
+
+    color: #ffffff !important;
+
+    background:
+        rgba(8,12,16,.68) !important;
+
+    border: 1px solid rgba(255,255,255,.22) !important;
+
+    border-radius: 16px !important;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.08),
+        0 8px 20px rgba(0,0,0,.30);
+
+}
+
+
+/* ==========================================================
+   TOP 5 LIST
+========================================================== */
+
+.museum-records-card li {
+
+    margin-bottom: 12px;
+
+    padding: 15px 18px !important;
+
+    border-radius: 14px;
+
+    border: 1px solid rgba(212,175,55,.25);
+
+    background:
+        rgba(5,8,11,.62);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.06),
+        0 6px 14px rgba(0,0,0,.30);
+
+    transition:
+        transform .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+
+}
+
+
+.museum-records-card li:hover {
+
+    transform: translateX(5px);
+
+    border-color: rgba(212,175,55,.7);
+
+    box-shadow:
+        0 0 16px rgba(212,175,55,.16),
+        inset 0 1px 0 rgba(255,255,255,.1);
+
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 600px) {
+
+    .museum-records-card {
+
+        padding: 26px 17px !important;
+
+        border-radius: 22px !important;
+
+    }
+
+    .museum-records-card li {
+
+        padding: 13px 14px !important;
+
+    }
+
+}
