@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>TrainForever Museum — Profile</title>
 
@@ -16,143 +15,70 @@
         body {
             margin: 0;
             min-height: 100vh;
-            background: #0b0f13;
-            color: #ffffff;
+            background: #11161b;
+            color: white;
             font-family: Arial, sans-serif;
         }
 
         .profile-page {
             max-width: 700px;
             margin: 0 auto;
-            padding: 35px 20px 60px;
-        }
-
-        .profile-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .profile-header h1 {
-            color: #f4d86a;
-            font-size: 2rem;
-            margin-bottom: 8px;
-        }
-
-        .profile-header p {
-            color: #c9cdd2;
-            line-height: 1.5;
+            padding: 40px 20px;
         }
 
         .profile-card {
-            background: linear-gradient(
-                145deg,
-                #252b32,
-                #11151a
-            );
-
-            border: 1px solid #d4af37;
-            border-radius: 22px;
+            background: #20262c;
+            border: 2px solid #d4af37;
+            border-radius: 20px;
             padding: 25px;
-
-            box-shadow:
-                0 15px 35px rgba(0,0,0,.45),
-                inset 0 1px 0 rgba(255,255,255,.12);
+            box-shadow: 0 15px 35px rgba(0,0,0,.45);
         }
 
-        .profile-card h2 {
-            color: #fff0a5;
+        h1 {
             margin-top: 0;
+            color: #f4d86a;
+            text-align: center;
         }
 
-        .profile-field {
-            margin-bottom: 20px;
+        p {
+            color: #d5d9dd;
+            text-align: center;
         }
 
-        .profile-field label {
+        label {
             display: block;
+            margin-top: 20px;
             margin-bottom: 7px;
-            font-weight: 700;
-            color: #e9d57a;
+            font-weight: bold;
+            color: #f4d86a;
         }
 
-        .profile-field input,
-        .profile-field textarea {
+        input,
+        textarea {
             width: 100%;
             box-sizing: border-box;
-
             padding: 13px;
-
-            border-radius: 12px;
-            border: 1px solid #555e68;
-
-            background: #0d1116;
-            color: #ffffff;
-
+            border-radius: 10px;
+            border: 1px solid #626b74;
+            background: #0d1115;
+            color: white;
             font-size: 1rem;
         }
 
-        .profile-field textarea {
+        textarea {
             min-height: 110px;
-            resize: vertical;
         }
 
-        .profile-button {
+        button {
             width: 100%;
-
+            margin-top: 20px;
             padding: 14px;
-
             border: 0;
-            border-radius: 12px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #fff0a5,
-                    #c99b25
-                );
-
+            border-radius: 10px;
+            background: #d4af37;
             color: #17120a;
-
             font-weight: 900;
             font-size: 1rem;
-
-            cursor: pointer;
-        }
-
-        .profile-button:hover {
-            filter: brightness(1.08);
-        }
-
-        .account-actions {
-            margin-top: 25px;
-            padding-top: 20px;
-
-            border-top: 1px solid #444b53;
-        }
-
-        .account-actions button {
-            width: 100%;
-            margin-top: 10px;
-
-            padding: 12px;
-
-            border-radius: 10px;
-            border: 1px solid #68717b;
-
-            background: #1b2026;
-            color: #ffffff;
-
-            cursor: pointer;
-        }
-
-        .account-actions button:hover {
-            background: #292f36;
-        }
-
-        .profile-status {
-            margin-top: 18px;
-            text-align: center;
-            color: #c9cdd2;
         }
 
     </style>
@@ -163,96 +89,41 @@
 
     <main class="profile-page">
 
-        <header class="profile-header">
+        <section class="profile-card">
 
             <h1>👤 Museum Profile</h1>
 
             <p>
-                Create your TrainForever Museum member profile.
+                Create your TrainForever Museum profile.
             </p>
 
-        </header>
+            <label for="displayName">
+                Display Name
+            </label>
 
-
-        <section class="profile-card">
-
-            <h2>Profile Information</h2>
-
-
-            <div class="profile-field">
-
-                <label for="displayName">
-                    Display Name
-                </label>
-
-                <input
-                    type="text"
-                    id="displayName"
-                    placeholder="Your museum name"
-                >
-
-            </div>
-
-
-            <div class="profile-field">
-
-                <label for="bio">
-                    About You
-                </label>
-
-                <textarea
-                    id="bio"
-                    placeholder="Tell us about your railroad interests..."
-                ></textarea>
-
-            </div>
-
-
-            <button
-                type="button"
-                class="profile-button"
-                id="saveProfileButton"
+            <input
+                id="displayName"
+                type="text"
+                placeholder="Your display name"
             >
+
+            <label for="bio">
+                About You
+            </label>
+
+            <textarea
+                id="bio"
+                placeholder="Tell us about your railroad interests..."
+            ></textarea>
+
+            <button type="button">
                 SAVE PROFILE
             </button>
-
-
-            <div class="account-actions">
-
-                <button
-                    type="button"
-                    id="changeEmailButton"
-                >
-                    ✉️ CHANGE EMAIL
-                </button>
-
-                <button
-                    type="button"
-                    id="changePasswordButton"
-                >
-                    🔐 CHANGE PASSWORD
-                </button>
-
-                <button
-                    type="button"
-                    id="signOutButton"
-                >
-                    SIGN OUT
-                </button>
-
-            </div>
-
-
-            <div
-                class="profile-status"
-                id="profileStatus"
-            >
-                Your profile will be connected to your museum account.
-            </div>
 
         </section>
 
     </main>
 
 </body>
+
 </html>
