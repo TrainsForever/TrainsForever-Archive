@@ -22303,10 +22303,12 @@ body.vip-lobby-page {
 
     }
 
+
 }
 /* ==========================================================
-   MUSEUM RECORDS — TOP 5 MOST CAUGHT
-   FEATURE CARD — KEEP EXISTING PHOTO
+   MUSEUM RECORDS
+   TOP 5 MOST CAUGHT — FEATURE DISPLAY
+   KEEP EXISTING BACKGROUND PHOTO
 ========================================================== */
 
 .museum-records-card {
@@ -22315,165 +22317,145 @@ body.vip-lobby-page {
 
     overflow: hidden;
 
-    padding: 32px 26px !important;
-
-    border-radius: 28px !important;
+    border-radius: 26px !important;
 
     border: 2px solid #d4af37 !important;
 
-    /* KEEP YOUR EXISTING BACKGROUND PHOTO */
-    background-color: #171b20 !important;
-
-    box-shadow:
-        0 0 0 1px rgba(255,255,255,.08),
-        0 0 25px rgba(212,175,55,.18),
-        0 18px 45px rgba(0,0,0,.65),
-        inset 0 1px 0 rgba(255,255,255,.18);
-
-}
-
-
-/* ==========================================================
-   DARK PHOTO OVERLAY
-========================================================== */
-
-.museum-records-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
+    border-top: 6px solid #f4d86a !important;
 
     background:
         linear-gradient(
             180deg,
-            rgba(0,0,0,.20),
-            rgba(0,0,0,.48)
-        );
-
-    pointer-events: none;
-
-    z-index: 1;
-
-}
-
-
-/* ==========================================================
-   GOLD DISPLAY LIGHT
-========================================================== */
-
-.museum-records-card::after {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 8%;
-    right: 8%;
-
-    height: 3px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #fff1a8,
-            #d4af37,
-            #fff1a8,
-            transparent
-        );
+            rgba(5,8,12,.18),
+            rgba(5,8,12,.48)
+        ),
+        url("images/6192E172-50B3-40EC-BBBA-8B9FE6910CC4.png")
+        center / cover no-repeat !important;
 
     box-shadow:
-        0 0 12px rgba(212,175,55,.8),
-        0 0 30px rgba(212,175,55,.35);
-
-    z-index: 3;
+        0 0 0 1px rgba(255,255,255,.12),
+        0 15px 40px rgba(0,0,0,.55),
+        0 0 28px rgba(212,175,55,.22),
+        inset 0 1px 0 rgba(255,255,255,.25);
 
 }
 
 
 /* ==========================================================
-   KEEP CARD CONTENT ABOVE PHOTO OVERLAY
+   TOP 5 TITLE
 ========================================================== */
 
-.museum-records-card > * {
+.museum-records-card h2 {
 
     position: relative;
 
     z-index: 2;
 
-}
-
-
-/* ==========================================================
-   TITLE
-========================================================== */
-
-.museum-records-card h2 {
-
-    margin-bottom: 12px !important;
+    margin-bottom: 6px !important;
 
     color: #fff1a8 !important;
 
-    font-size: clamp(1.5rem, 5vw, 2rem) !important;
+    font-size: clamp(1.65rem, 6vw, 2.4rem) !important;
 
     font-weight: 900;
 
-    letter-spacing: 1.5px;
+    line-height: 1.05;
+
+    letter-spacing: 2px;
 
     text-transform: uppercase;
 
+    text-align: center;
+
     text-shadow:
-        0 2px 5px #000,
-        0 0 12px rgba(212,175,55,.45);
+        0 3px 6px #000,
+        0 0 14px rgba(212,175,55,.65);
 
 }
 
 
 /* ==========================================================
-   DESCRIPTION
+   TOP 5 SUBTITLE / DESCRIPTION
 ========================================================== */
 
 .museum-records-card .records-description {
 
+    position: relative;
+
+    z-index: 2;
+
     color: #ffffff !important;
 
+    text-align: center;
+
     background:
-        rgba(8,12,16,.68) !important;
+        rgba(5,8,12,.68) !important;
 
-    border: 1px solid rgba(255,255,255,.22) !important;
+    border: 1px solid rgba(244,216,106,.45) !important;
 
-    border-radius: 16px !important;
+    border-radius: 14px !important;
+
+    padding: 13px 16px !important;
 
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.08),
-        0 8px 20px rgba(0,0,0,.30);
+        inset 0 1px 0 rgba(255,255,255,.12),
+        0 8px 20px rgba(0,0,0,.35);
 
 }
 
 
 /* ==========================================================
-   TOP 5 LIST
+   RANKING GRID
 ========================================================== */
 
-.museum-records-card li {
+.museum-records-card .stats-grid {
 
-    margin-bottom: 12px;
+    position: relative;
 
-    padding: 15px 18px !important;
+    z-index: 2;
 
-    border-radius: 14px;
+    display: grid;
 
-    border: 1px solid rgba(212,175,55,.25);
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-top: 22px;
+
+}
+
+
+/* ==========================================================
+   INDIVIDUAL TOP 5 RECORD
+========================================================== */
+
+.museum-records-card .stat-box {
+
+    position: relative;
+
+    padding: 20px 12px;
+
+    text-align: center;
 
     background:
-        rgba(5,8,11,.62);
+        linear-gradient(
+            145deg,
+            rgba(20,25,30,.76),
+            rgba(4,7,10,.70)
+        ) !important;
+
+    border: 1px solid rgba(244,216,106,.38) !important;
+
+    border-radius: 16px !important;
 
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.06),
-        0 6px 14px rgba(0,0,0,.30);
+        inset 0 1px 0 rgba(255,255,255,.14),
+        0 8px 18px rgba(0,0,0,.38);
+
+    backdrop-filter: blur(7px);
+
+    -webkit-backdrop-filter: blur(7px);
 
     transition:
         transform .2s ease,
@@ -22483,15 +22465,67 @@ body.vip-lobby-page {
 }
 
 
-.museum-records-card li:hover {
+/* ==========================================================
+   RECORD NUMBER
+========================================================== */
 
-    transform: translateX(5px);
+.museum-records-card .stat-number {
 
-    border-color: rgba(212,175,55,.7);
+    display: block;
+
+    color: #fff0a5 !important;
+
+    font-size: 2.15rem !important;
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    margin-bottom: 9px;
+
+    text-shadow:
+        0 2px 5px #000,
+        0 0 12px rgba(212,175,55,.55);
+
+}
+
+
+/* ==========================================================
+   RECORD LABEL
+========================================================== */
+
+.museum-records-card .stat-label {
+
+    display: block;
+
+    color: #ffffff !important;
+
+    font-size: .92rem;
+
+    font-weight: 700;
+
+    line-height: 1.4;
+
+    text-shadow:
+        0 2px 4px #000;
+
+}
+
+
+/* ==========================================================
+   HOVER
+========================================================== */
+
+.museum-records-card .stat-box:hover {
+
+    transform: translateY(-5px);
+
+    border-color: #f4d86a !important;
 
     box-shadow:
-        0 0 16px rgba(212,175,55,.16),
-        inset 0 1px 0 rgba(255,255,255,.1);
+        0 0 18px rgba(212,175,55,.22),
+        inset 0 1px 0 rgba(255,255,255,.18),
+        0 12px 25px rgba(0,0,0,.45);
 
 }
 
@@ -22504,15 +22538,39 @@ body.vip-lobby-page {
 
     .museum-records-card {
 
-        padding: 26px 17px !important;
-
         border-radius: 22px !important;
+
+        padding: 24px 14px !important;
 
     }
 
-    .museum-records-card li {
 
-        padding: 13px 14px !important;
+    .museum-records-card .stats-grid {
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 10px;
+
+    }
+
+
+    .museum-records-card .stat-box {
+
+        padding: 17px 8px;
+
+    }
+
+
+    .museum-records-card .stat-number {
+
+        font-size: 1.8rem !important;
+
+    }
+
+
+    .museum-records-card .stat-label {
+
+        font-size: .82rem;
 
     }
 
