@@ -19,41 +19,50 @@
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:#fff;font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif}
 button,input,textarea{font:inherit}
 button{cursor:pointer}
+
 #viewport{
   position:fixed;inset:0;overflow:hidden;
-  background:radial-gradient(circle at 50% 38%,#536673 0,#25333d 27%,#0b1117 62%,#020407 100%);
+  background:
+    radial-gradient(circle at 50% 38%,#536673 0,#25333d 27%,#0b1117 62%,#020407 100%);
   touch-action:none;
   cursor:grab;
 }
 #viewport.dragging{cursor:grabbing}
+
 #ceiling{
   position:absolute;inset:0 0 60% 0;
   background:linear-gradient(#071019,#1b2832);
   opacity:.9;pointer-events:none
 }
+
 #floor{
   position:absolute;left:-20%;right:-20%;bottom:-35%;height:70%;
   background:linear-gradient(#1a252d,#060a0f);
   transform:perspective(700px) rotateX(55deg);
   border-top:1px solid #fff2;pointer-events:none
 }
+
 #floor:after{
   content:"";position:absolute;inset:0;
   background:repeating-linear-gradient(90deg,transparent 0 110px,#fff1 111px 113px)
 }
+
 #glow{
   position:absolute;left:8%;right:8%;bottom:29%;height:2px;
   background:linear-gradient(90deg,transparent,var(--gold),transparent);
   box-shadow:0 0 35px #f3c85b88;pointer-events:none
 }
+
+/* The room is a large 2D stage. The camera can move in BOTH axes. */
 #stage{
   position:absolute;
-  width:3400px;height:2400px;
+  width:5200px;height:3600px;
   left:50%;top:50%;
-  margin-left:-1700px;margin-top:-1200px;
+  margin-left:-2600px;margin-top:-1800px;
   transform:translate3d(0,0,0);
   will-change:transform;
 }
+
 .card{
   position:absolute;
   width:410px;min-height:280px;
@@ -62,7 +71,9 @@ button{cursor:pointer}
   border:1px solid var(--line);
   box-shadow:0 30px 80px #000b,inset 0 1px #fff1;
   backdrop-filter:blur(12px);
+  overflow:hidden;
 }
+
 .card.wide{width:560px}
 .card.tall{min-height:430px}
 .card h2{margin:0 0 12px;color:var(--gold2);font-size:20px}
@@ -83,224 +94,161 @@ small{color:var(--muted);font-size:10px}
 }
 .feed b,.person b,.idea b{color:var(--gold2)}
 
-.statgrid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:6px;
-  margin:10px 0
-}
-.stat{
-  padding:9px;
-  text-align:center;
-  border-radius:11px;
-  background:#ffffff08;
-  border:1px solid #ffffff0d
-}
-.stat strong{
-  display:block;
-  color:var(--gold2);
-  font-size:18px
-}
-.stat span{
-  font-size:8px;
-  color:#9eabb3
-}
+.statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0}
+.stat{padding:9px;text-align:center;border-radius:11px;background:#ffffff08;border:1px solid #ffffff0d}
+.stat strong{display:block;color:var(--gold2);font-size:18px}.stat span{font-size:8px;color:#9eabb3}
 
 .btn{
-  border:1px solid #f3c85b55;
-  background:#f3c85b14;
-  color:var(--gold2);
-  border-radius:10px;
-  padding:9px 12px;
-  font-weight:800;
-  font-size:10px
+  border:1px solid #f3c85b55;background:#f3c85b14;color:var(--gold2);
+  border-radius:10px;padding:9px 12px;font-weight:800;font-size:10px
 }
 
 .input,.textarea{
-  width:100%;
-  padding:10px;
-  border-radius:10px;
-  border:1px solid #fff2;
-  background:#02070b;
-  color:#fff;
-  -webkit-user-select:text;
-  user-select:text
+  width:100%;padding:10px;border-radius:10px;border:1px solid #fff2;
+  background:#02070b;color:#fff;-webkit-user-select:text;user-select:text
 }
-.textarea{
-  min-height:75px;
-  resize:none
-}
+.textarea{min-height:75px;resize:none}
 
 .hero{
-  width:600px!important;
-  min-height:420px!important;
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  background:
-    radial-gradient(circle at 50% 30%,#f3c85b1c,transparent 40%),
-    linear-gradient(145deg,#172733f5,#04080df5)
+  width:600px!important;min-height:420px!important;text-align:center;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  background:radial-gradient(circle at 50% 30%,#f3c85b1c,transparent 40%),linear-gradient(145deg,#172733f5,#04080df5)
 }
-.hero .logo{
-  font-size:80px;
-  filter:drop-shadow(0 0 28px #f3c85b66)
-}
-.hero h1{
-  font-size:45px;
-  letter-spacing:5px;
-  color:var(--gold2);
-  margin:5px
-}
-.hero .kicker{
-  font-size:9px;
-  letter-spacing:4px;
-  color:#aab6bf
-}
+.hero .logo{font-size:80px;filter:drop-shadow(0 0 28px #f3c85b66)}
+.hero h1{font-size:45px;letter-spacing:5px;color:var(--gold2);margin:5px}
+.hero .kicker{font-size:9px;letter-spacing:4px;color:#aab6bf}
 
-.badges{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:6px
-}
-.badges div{
-  padding:9px;
-  text-align:center;
-  border-radius:11px;
-  background:#fff1;
-  border:1px solid #fff1;
-  font-size:9px
-}
-.badges span{
-  display:block;
-  font-size:20px;
-  margin-bottom:3px
-}
+.badges{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.badges div{padding:9px;text-align:center;border-radius:11px;background:#fff1;border:1px solid #fff1;font-size:9px}
+.badges span{display:block;font-size:20px;margin-bottom:3px}
 
-.hall{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:7px
-}
-.hall div{
-  padding:12px;
-  text-align:center;
-  border-radius:14px;
-  border:1px solid #f3c85b30;
-  background:#fff1
-}
-.avatar{
-  width:45px;
-  height:45px;
-  margin:auto auto 5px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:#26343e;
-  border:2px solid #f3c85b55;
-  font-size:20px
-}
+.hall{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.hall div{padding:12px;text-align:center;border-radius:14px;border:1px solid #f3c85b30;background:#fff1}
+.avatar{width:45px;height:45px;margin:auto auto 5px;border-radius:50%;display:grid;place-items:center;background:#26343e;border:2px solid #f3c85b55;font-size:20px}
 
 #top{
-  position:fixed;
-  z-index:50;
-  top:12px;
-  left:12px;
-  right:12px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  pointer-events:none
+  position:fixed;z-index:50;top:12px;left:12px;right:12px;
+  display:flex;justify-content:space-between;align-items:center;pointer-events:none
 }
 .pill{
-  pointer-events:auto;
-  padding:8px 11px;
-  border-radius:999px;
-  background:#000c;
-  border:1px solid #fff2;
-  color:var(--gold2);
-  font-size:9px;
-  font-weight:900
+  pointer-events:auto;padding:8px 11px;border-radius:999px;background:#000c;
+  border:1px solid #fff2;color:var(--gold2);font-size:9px;font-weight:900
 }
 
 #ownerPanel{
-  display:none;
-  position:fixed;
-  z-index:60;
-  right:12px;
-  top:55px;
-  width:min(320px,86vw);
-  padding:15px;
-  border-radius:18px;
-  background:#050a0ff2;
-  border:1px solid #fff2;
-  box-shadow:0 25px 70px #000d;
-  backdrop-filter:blur(14px)
+  display:none;position:fixed;z-index:60;right:12px;top:55px;width:min(320px,86vw);
+  padding:15px;border-radius:18px;background:#050a0ff2;border:1px solid #fff2;
+  box-shadow:0 25px 70px #000d;backdrop-filter:blur(14px)
 }
 #ownerPanel.open{display:block}
 
-.owner-only{
-  display:none;
-}
-.owner-mode .owner-only{
-  display:block;
-}
-.owner-controls{
-  margin-top:10px;
-  padding:10px;
-  border-radius:12px;
-  background:#f3c85b0d;
-  border:1px solid #f3c85b33;
-}
-.owner-controls h4{
-  margin:0 0 8px;
-  color:var(--gold2);
-  font-size:11px;
-}
-.points-row{
-  display:flex;
-  gap:6px;
-  align-items:center;
-}
-.points-row input{
-  flex:1;
-}
-.locked-note{
-  color:#9eabb3;
-  font-size:9px;
-  margin-top:7px;
-}
-
 #hint{
-  position:fixed;
-  z-index:50;
-  left:50%;
-  bottom:14px;
-  transform:translateX(-50%);
-  padding:8px 12px;
-  border-radius:999px;
-  background:#000c;
-  border:1px solid #fff2;
-  color:#cbd4da;
-  font-size:9px;
-  white-space:nowrap;
-  pointer-events:none;
-  transition:opacity .6s
+  position:fixed;z-index:50;left:50%;bottom:14px;transform:translateX(-50%);
+  padding:8px 12px;border-radius:999px;background:#000c;border:1px solid #fff2;
+  color:#cbd4da;font-size:9px;white-space:nowrap;pointer-events:none;transition:opacity .6s
 }
 #hint.hide{opacity:0}
 
 #position{
-  position:fixed;
-  z-index:50;
-  left:12px;
-  bottom:12px;
-  padding:6px 9px;
-  border-radius:999px;
-  background:#0008;
-  color:#94a1aa;
-  font-size:8px;
-  pointer-events:none
+  position:fixed;z-index:50;left:12px;bottom:12px;padding:6px 9px;border-radius:999px;
+  background:#0008;color:#94a1aa;font-size:8px;pointer-events:none
+}
+
+/* TRAIN-THEMED ROOM BACKGROUND */
+#viewport:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.95;
+  background:
+    radial-gradient(ellipse at 50% 48%,transparent 0 25%,#02060bcc 75%),
+    linear-gradient(180deg,#07131d 0 38%,#111b21 38% 48%,#080d12 48% 100%);
+}
+#viewport:after{
+  content:"";
+  position:absolute;
+  left:-10%;
+  right:-10%;
+  bottom:8%;
+  height:28%;
+  pointer-events:none;
+  opacity:.5;
+  background:
+    repeating-linear-gradient(90deg,transparent 0 140px,#a8783220 141px 148px),
+    linear-gradient(7deg,transparent 0 46%,#d7b15c22 47% 48%,transparent 49% 54%,#d7b15c22 55% 56%,transparent 57%);
+  transform:perspective(900px) rotateX(50deg);
+}
+#trainBackdrop{
+  position:absolute;
+  left:50%;
+  top:29%;
+  width:520px;
+  height:170px;
+  transform:translateX(-50%);
+  opacity:.16;
+  pointer-events:none;
+  filter:blur(.2px);
+}
+#trainBackdrop .engine{
+  position:absolute;
+  left:95px;
+  bottom:30px;
+  width:270px;
+  height:72px;
+  border-radius:8px 20px 8px 8px;
+  background:linear-gradient(#d9e0e2,#6f7d85 55%,#303b42);
+  box-shadow:0 0 35px #d9e0e244;
+}
+#trainBackdrop .cab{
+  position:absolute;
+  right:22px;
+  bottom:102px;
+  width:86px;
+  height:90px;
+  border:8px solid #65747d;
+  border-bottom:0;
+  background:#17232b;
+}
+#trainBackdrop .stack{
+  position:absolute;
+  left:50px;
+  bottom:102px;
+  width:42px;
+  height:70px;
+  border-radius:12px 12px 5px 5px;
+  background:#4b5960;
+}
+#trainBackdrop .smoke{
+  position:absolute;
+  left:32px;
+  bottom:160px;
+  width:150px;
+  height:70px;
+  border-radius:50%;
+  background:radial-gradient(circle,#cbd2d51c 0 35%,transparent 70%);
+}
+#trainBackdrop .wheel{
+  position:absolute;
+  bottom:4px;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:7px solid #73818a;
+  background:#0b1116;
+}
+#trainBackdrop .w1{left:120px}
+#trainBackdrop .w2{left:195px}
+#trainBackdrop .w3{left:270px}
+#trainBackdrop .light{
+  position:absolute;
+  left:78px;
+  bottom:68px;
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#f3c85b;
+  box-shadow:0 0 35px #f3c85b;
 }
 </style>
 </head>
@@ -308,106 +256,54 @@ small{color:var(--muted);font-size:10px}
 <body>
 
 <div id="viewport">
-
   <div id="ceiling"></div>
   <div id="floor"></div>
   <div id="glow"></div>
 
-  <div id="top">
-    <div class="pill">
-      🚂 TRAINSFOREVER • SOCIETY LOUNGE
-    </div>
+  <div id="trainBackdrop" aria-hidden="true">
+    <div class="smoke"></div>
+    <div class="engine"></div>
+    <div class="cab"></div>
+    <div class="stack"></div>
+    <div class="light"></div>
+    <div class="wheel w1"></div>
+    <div class="wheel w2"></div>
+    <div class="wheel w3"></div>
+  </div>
 
-    <button class="pill" id="ownerButton">
-      OWNER OVERVIEW
-    </button>
+  <div id="top">
+    <div class="pill">🚂 TRAINSFOREVER • SOCIETY LOUNGE</div>
+    <button class="pill" id="ownerButton">OWNER OVERVIEW</button>
   </div>
 
   <aside id="ownerPanel">
-
-    <h3 style="margin:0 0 10px;color:var(--gold2)">
-      Owner Overview
-    </h3>
+    <h3 style="margin:0 0 10px;color:var(--gold2)">Owner Overview</h3>
 
     <div class="statgrid">
-
-      <div class="stat">
-        <strong id="oMembers">0</strong>
-        <span>MEMBERS</span>
-      </div>
-
-      <div class="stat">
-        <strong id="oActive">0</strong>
-        <span>ACTIVE</span>
-      </div>
-
-      <div class="stat">
-        <strong id="oViews">0</strong>
-        <span>VIEWS</span>
-      </div>
-
-      <div class="stat">
-        <strong id="oReports">0</strong>
-        <span>REPORTS</span>
-      </div>
-
+      <div class="stat"><strong id="oMembers">0</strong><span>MEMBERS</span></div>
+      <div class="stat"><strong id="oActive">0</strong><span>ACTIVE</span></div>
+      <div class="stat"><strong id="oViews">0</strong><span>VIEWS</span></div>
+      <div class="stat"><strong id="oReports">0</strong><span>REPORTS</span></div>
     </div>
 
-    <div class="feed">
-      💡 <b>Suggestions:</b> 0
-    </div>
-
-    <div class="feed">
-      🤝 <b>Friend requests:</b> 0
-    </div>
-
-    <div class="feed">
-      💬 <b>Chat activity:</b> 0
-    </div>
+    <div class="feed">💡 <b>Suggestions:</b> 0</div>
+    <div class="feed">🤝 <b>Friend requests:</b> 0</div>
+    <div class="feed">💬 <b>Chat activity:</b> 0</div>
 
     <div class="owner-controls">
-
-      <h4>
-        ⭐ Respect Points — Owner Only
-      </h4>
-
-      <input
-        id="pointMember"
-        class="input"
-        placeholder="Member name"
-      >
-
+      <h4>⭐ Respect Points — Owner Only</h4>
+      <input id="pointMember" class="input" placeholder="Member name">
       <br><br>
 
       <div class="points-row">
-
-        <input
-          id="pointAmount"
-          class="input"
-          type="number"
-          placeholder="Points"
-        >
-
-        <button
-          class="btn"
-          id="addPoints"
-        >
-          ＋ Add
-        </button>
-
-        <button
-          class="btn"
-          id="removePoints"
-        >
-          − Remove
-        </button>
-
+        <input id="pointAmount" class="input" type="number" placeholder="Points">
+        <button class="btn" id="addPoints">＋ Add</button>
+        <button class="btn" id="removePoints">− Remove</button>
       </div>
 
       <div class="locked-note">
         Only the Owner can change a member's points.
       </div>
-
     </div>
 
     <p>
@@ -415,776 +311,228 @@ small{color:var(--muted);font-size:10px}
         Member/activity counters start at zero and should later be populated from your real database.
       </small>
     </p>
-
   </aside>
-
 
   <div id="stage">
 
-
-    <!-- CENTER -->
-
-    <section
-      class="card hero"
-      style="left:1400px;top:980px"
-    >
-
-      <div class="label">
-        THE LOUNGE
-      </div>
-
-      <div class="logo">
-        🚂
-      </div>
-
-      <div class="kicker">
-        THE TRAINSFOREVER SOCIETY
-      </div>
-
-      <h1>
-        LOUNGE
-      </h1>
-
-      <p>
-        Turn around. Look up. Look down. Explore the Society.
-      </p>
-
-      <div
-        style="
-        margin-top:12px;
-        color:#9eabb3;
-        font-size:10px
-        "
-      >
+    <section class="card hero" style="left:2300px;top:1500px">
+      <div class="label">THE LOUNGE</div>
+      <div class="logo">🚂</div>
+      <div class="kicker">THE TRAINSFOREVER SOCIETY</div>
+      <h1>LOUNGE</h1>
+      <p>Turn around. Look up. Look down. Explore the Society.</p>
+      <div style="margin-top:12px;color:#9eabb3;font-size:10px">
         SWIPE ANYWHERE • LEFT • RIGHT • UP • DOWN
       </div>
-
     </section>
 
-
-    <!-- COMMAND -->
-
-    <section
-      class="card wide"
-      style="left:100px;top:180px"
-    >
-
-      <div class="label">
-        SOCIETY COMMAND WALL
-      </div>
-
-      <h2>
-        🌐 Everything at a Glance
-      </h2>
+    <section class="card wide" style="left:180px;top:180px">
+      <div class="label">SOCIETY COMMAND WALL</div>
+      <h2>🌐 Everything at a Glance</h2>
 
       <div class="statgrid">
-
-        <div class="stat">
-          <strong>0</strong>
-          <span>MEMBERS</span>
-        </div>
-
-        <div class="stat">
-          <strong>0</strong>
-          <span>ACTIVE</span>
-        </div>
-
-        <div class="stat">
-          <strong>0</strong>
-          <span>VIEWS</span>
-        </div>
-
-        <div class="stat">
-          <strong>0</strong>
-          <span>REPORTS</span>
-        </div>
-
+        <div class="stat"><strong>0</strong><span>MEMBERS</span></div>
+        <div class="stat"><strong>0</strong><span>ACTIVE</span></div>
+        <div class="stat"><strong>0</strong><span>VIEWS</span></div>
+        <div class="stat"><strong>0</strong><span>REPORTS</span></div>
       </div>
 
-      <div class="feed">
-        <b>🚂 Heritage Units</b>
-        <br>
-        <small>
-          Latest HeritageUnits.com reports.
-        </small>
-      </div>
-
-      <div class="feed">
-        <b>📝 Member Reports</b>
-        <br>
-        <small>
-          TrainsForever member sightings.
-        </small>
-      </div>
-
-      <div class="feed">
-        <b>🏆 Hall of Fame</b>
-        <br>
-        <small>
-          Featured Society members.
-        </small>
-      </div>
-
-      <div class="feed">
-        <b>💡 Suggestion Box</b>
-        <br>
-        <small>
-          Ideas waiting for the Owner.
-        </small>
-      </div>
-
+      <div class="feed"><b>🚂 Heritage Units</b><br><small>Latest HeritageUnits.com reports.</small></div>
+      <div class="feed"><b>📝 Member Reports</b><br><small>TrainsForever member sightings.</small></div>
+      <div class="feed"><b>🏆 Hall of Fame</b><br><small>Featured Society members.</small></div>
+      <div class="feed"><b>💡 Suggestion Box</b><br><small>Ideas waiting for the Owner.</small></div>
     </section>
 
-
-    <!-- CHAT -->
-
-    <section
-      class="card"
-      style="left:850px;top:180px"
-    >
-
-      <div class="label">
-        MEMBER CHAT
-      </div>
-
-      <h2>
-        💬 Chat
-      </h2>
+    <section class="card" style="left:900px;top:180px">
+      <div class="label">MEMBER CHAT</div>
+      <h2>💬 Chat</h2>
 
       <div class="feed">
-        <b>
-          Society Chat
-        </b>
-        <br>
-        <small>
-          No messages yet.
-        </small>
+        <b>Society Chat</b><br>
+        <small>No messages yet.</small>
       </div>
 
-      <input
-        class="input"
-        placeholder="Say something…"
-      >
-
+      <input class="input" placeholder="Say something…">
       <br><br>
-
-      <button class="btn">
-        Send Message
-      </button>
+      <button class="btn">Send Message</button>
 
       <p>
         <small>
           One small image at a time. No videos in Lounge chat.
         </small>
       </p>
-
     </section>
 
+    <section class="card" style="left:1620px;top:180px">
+      <div class="label">MEMBERS</div>
+      <h2>👥 Society Members</h2>
 
-    <!-- MEMBERS -->
+      <div style="font-size:44px;color:var(--gold2);font-weight:900">0</div>
+      <small>members</small>
 
-    <section
-      class="card"
-      style="left:1600px;top:180px"
-    >
+      <div class="person"><b>🟢 Active now: 0</b></div>
+      <div class="person"><b>🤝 Friends: 0</b></div>
+      <div class="person"><b>🎖️ Badges earned: 0</b></div>
 
-      <div class="label">
-        MEMBERS
-      </div>
-
-      <h2>
-        👥 Society Members
-      </h2>
-
-      <div
-        style="
-        font-size:44px;
-        color:var(--gold2);
-        font-weight:900
-        "
-      >
-        0
-      </div>
-
-      <small>
-        members
-      </small>
-
-      <div class="person">
-        <b>
-          🟢 Active now: 0
-        </b>
-      </div>
-
-      <div class="person">
-        <b>
-          🤝 Friends: 0
-        </b>
-      </div>
-
-      <div class="person">
-        <b>
-          🎖️ Badges earned: 0
-        </b>
-      </div>
-
-      <button class="btn">
-        Find Friends
-      </button>
-
+      <button class="btn">Find Friends</button>
     </section>
 
-
-    <!-- HERITAGE -->
-
-    <section
-      class="card wide"
-      style="left:2200px;top:700px"
-    >
-
-      <div class="label">
-        HERITAGE UNITS
-      </div>
-
-      <h2>
-        🚂 HeritageUnits.com — Latest Reports
-      </h2>
+    <section class="card wide" style="left:3050px;top:650px">
+      <div class="label">HERITAGE UNITS</div>
+      <h2>🚂 HeritageUnits.com — Latest Reports</h2>
 
       <div class="feed">
-        <b>
-          Official-source panel
-        </b>
-
-        <br>
-
+        <b>Official-source panel</b><br>
         <small>
           Real reports will appear here when the permitted source connection is wired in.
         </small>
       </div>
 
       <div class="feed">
-        <b class="gold">
-          No reports loaded yet
-        </b>
-
-        <br>
-
-        <small>
-          This does not invent sightings.
-        </small>
+        <b class="gold">No reports loaded yet</b><br>
+        <small>This does not invent sightings.</small>
       </div>
 
       <div class="feed">
-        <b class="gold">
-          No reports loaded yet
-        </b>
-
-        <br>
-
-        <small>
-          This does not invent sightings.
-        </small>
+        <b class="gold">No reports loaded yet</b><br>
+        <small>This does not invent sightings.</small>
       </div>
 
-      <button class="btn">
-        Open HeritageUnits.com
-      </button>
-
+      <button class="btn">Open HeritageUnits.com</button>
     </section>
 
-
-    <!-- MEMBER REPORTS -->
-
-    <section
-      class="card wide"
-      style="left:1050px;top:1540px"
-    >
-
-      <div class="label">
-        MEMBER REPORTS
-      </div>
-
-      <h2>
-        📝 TrainsForever Member Reports
-      </h2>
+    <section class="card wide" style="left:1550px;top:1750px">
+      <div class="label">MEMBER REPORTS</div>
+      <h2>📝 TrainsForever Member Reports</h2>
 
       <div class="feed">
-
-        <b>
-          No member reports yet.
-        </b>
-
-        <br>
-
-        <small>
-          The first member sighting will appear here.
-        </small>
-
+        <b>No member reports yet.</b><br>
+        <small>The first member sighting will appear here.</small>
       </div>
 
-      <button class="btn">
-        ＋ Submit Train Report
-      </button>
-
+      <button class="btn">＋ Submit Train Report</button>
     </section>
 
+    <section class="card" style="left:120px;top:1200px">
+      <div class="label">TRAIN OF THE DAY</div>
+      <h2>🚆 Featured Train</h2>
 
-    <!-- TRAIN OF DAY -->
-
-    <section
-      class="card"
-      style="left:100px;top:1220px"
-    >
-
-      <div class="label">
-        TRAIN OF THE DAY
-      </div>
-
-      <h2>
-        🚆 Featured Train
-      </h2>
-
-      <div
-        style="
-        font-size:70px;
-        text-align:center
-        "
-      >
-        🚂
-      </div>
+      <div style="font-size:70px;text-align:center">🚂</div>
 
       <p style="text-align:center">
-
-        <b class="gold">
-          Coming Soon
-        </b>
-
-        <br>
-
+        <b class="gold">Coming Soon</b><br>
         Choose the first featured locomotive when the Society opens.
-
       </p>
-
     </section>
 
-
-    <!-- HALL OF FAME -->
-
-    <section
-      class="card wide"
-      style="left:100px;top:1760px"
-    >
-
-      <div class="label">
-        HALL OF FAME
-      </div>
-
-      <h2>
-        🏆 Society Hall of Fame
-      </h2>
-
-      <div class="hall">
-
-        <div>
-
-          <div class="avatar">
-            🚂
-          </div>
-
-          <b>
-            First Member
-          </b>
-
-          <br>
-
-          <small>
-            Awaiting the Society's first member.
-          </small>
-
-        </div>
-
-
-        <div>
-
-          <div class="avatar">
-            ⭐
-          </div>
-
-          <b>
-            Heritage Hero
-          </b>
-
-          <br>
-
-          <small>
-            Awaiting its first honoree.
-          </small>
-
-        </div>
-
-
-        <div>
-
-          <div class="avatar">
-            🏛️
-          </div>
-
-          <b>
-            Museum Builder
-          </b>
-
-          <br>
-
-          <small>
-            Awaiting its first honoree.
-          </small>
-
-        </div>
-
-
-        <div>
-
-          <div class="avatar">
-            🤝
-          </div>
-
-          <b>
-            Society Spirit
-          </b>
-
-          <br>
-
-          <small>
-            Awaiting its first honoree.
-          </small>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- SUGGESTIONS -->
-
-    <section
-      class="card"
-      style="left:1750px;top:1640px"
-    >
-
-      <div class="label">
-        SUGGESTION BOX
-      </div>
-
-      <h2>
-        💡 Ideas
-      </h2>
+    <section class="card" style="left:2250px;top:2300px">
+      <div class="label">SUGGESTION BOX</div>
+      <h2>💡 Ideas</h2>
 
       <div class="feed">
-
-        <b>
-          No suggestions yet.
-        </b>
-
-        <br>
-
-        <small>
-          Be the first person to leave an idea.
-        </small>
-
+        <b>No suggestions yet.</b><br>
+        <small>Be the first person to leave an idea.</small>
       </div>
 
-      <textarea
-        class="textarea"
-        placeholder="Leave a suggestion…"
-      ></textarea>
-
+      <textarea class="textarea" placeholder="Leave a suggestion…"></textarea>
       <br><br>
 
-      <button class="btn">
-        Submit Suggestion
-      </button>
-
+      <button class="btn">Submit Suggestion</button>
     </section>
 
-
-    <!-- BADGES -->
-
-    <section
-      class="card"
-      style="left:2400px;top:170px"
-    >
-
-      <div class="label">
-        BADGE ROOM
-      </div>
-
-      <h2>
-        🎖️ Badges
-      </h2>
+    <section class="card" style="left:3900px;top:170px">
+      <div class="label">BADGE ROOM</div>
+      <h2>🎖️ Badges</h2>
 
       <div class="badges">
-
-        <div>
-          <span>🚂</span>
-          First Sighting
-        </div>
-
-        <div>
-          <span>📋</span>
-          First Report
-        </div>
-
-        <div>
-          <span>📸</span>
-          Contributor
-        </div>
-
-        <div>
-          <span>🛤️</span>
-          Heritage Hunter
-        </div>
-
-        <div>
-          <span>🤝</span>
-          Helpful Member
-        </div>
-
-        <div>
-          <span>🏆</span>
-          Hall of Fame
-        </div>
-
-        <div>
-          <span>✨</span>
-          Executive
-        </div>
-
-        <div>
-          <span>🛡️</span>
-          Director
-        </div>
-
-        <div>
-          <span>🏛️</span>
-          Veteran
-        </div>
-
+        <div><span>🚂</span>First Sighting</div>
+        <div><span>📋</span>First Report</div>
+        <div><span>📸</span>Contributor</div>
+        <div><span>🛤️</span>Heritage Hunter</div>
+        <div><span>🤝</span>Helpful Member</div>
+        <div><span>🏆</span>Hall of Fame</div>
+        <div><span>✨</span>Executive</div>
+        <div><span>🛡️</span>Director</div>
+        <div><span>🏛️</span>Veteran</div>
       </div>
-
     </section>
 
-
-    <!-- ALL USERS -->
-
-    <section
-      class="card wide"
-      style="left:2350px;top:520px"
-    >
-
-      <div class="label">
-        ALL USERS
-      </div>
-
-      <h2>
-        👥 Society User Directory
-      </h2>
+    <section class="card wide" style="left:3750px;top:1200px">
+      <div class="label">ALL USERS</div>
+      <h2>👥 Society User Directory</h2>
 
       <div class="statgrid">
-
-        <div class="stat">
-          <strong id="userCount">0</strong>
-          <span>USERS</span>
-        </div>
-
-        <div class="stat">
-          <strong>0</strong>
-          <span>RESPECT</span>
-        </div>
-
-        <div class="stat">
-          <strong>0</strong>
-          <span>BADGES</span>
-        </div>
-
-        <div class="stat">
-          <strong>0</strong>
-          <span>ACTIVE</span>
-        </div>
-
+        <div class="stat"><strong id="userCount">0</strong><span>USERS</span></div>
+        <div class="stat"><strong>0</strong><span>RESPECT</span></div>
+        <div class="stat"><strong>0</strong><span>BADGES</span></div>
+        <div class="stat"><strong>0</strong><span>ACTIVE</span></div>
       </div>
 
       <div class="feed">
-
-        <b>
-          No members yet.
-        </b>
-
-        <br>
-
+        <b>No members yet.</b><br>
         <small>
           When people join, every user can appear here with their display name, respect points, and earned badges.
         </small>
-
       </div>
 
       <div class="person">
-
-        <b>
-          👤 Member list
-        </b>
-
-        <br>
-
-        <small>
-          Display name • Respect Points • Badges earned
-        </small>
-
+        <b>👤 Member list</b><br>
+        <small>Display name • Respect Points • Badges earned</small>
       </div>
 
       <div class="person">
-
-        <b>
-          🔐 Owner-managed respect
-        </b>
-
-        <br>
-
-        <small>
-          Only the Owner can add or remove points.
-        </small>
-
+        <b>🔐 Owner-managed respect</b><br>
+        <small>Only the Owner can add or remove points.</small>
       </div>
 
       <div class="person">
-
-        <b>
-          ⭐ Respect Points
-        </b>
-
-        <br>
-
+        <b>⭐ Respect Points</b><br>
         <small>
           Everyone starts at 0. Points can grow from positive Society participation.
         </small>
-
       </div>
 
       <div class="person">
-
-        <b>
-          🎖️ Badges
-        </b>
-
-        <br>
-
+        <b>🎖️ Badges</b><br>
         <small>
           Earned badges will appear beside each member as they unlock them.
         </small>
-
       </div>
-
     </section>
 
-
-    <!-- FRIENDS -->
-
-    <section
-      class="card"
-      style="left:2400px;top:1120px"
-    >
-
-      <div class="label">
-        FRIENDS
-      </div>
-
-      <h2>
-        🤝 Society Friends
-      </h2>
+    <section class="card" style="left:3950px;top:1200px">
+      <div class="label">FRIENDS</div>
+      <h2>🤝 Society Friends</h2>
 
       <div class="feed">
-
-        <b>
-          Friends: 0
-        </b>
-
-        <br>
-
-        <small>
-          Your Society friend list will appear here.
-        </small>
-
+        <b>Friends: 0</b><br>
+        <small>Your Society friend list will appear here.</small>
       </div>
 
-      <button class="btn">
-        Find Members
-      </button>
-
+      <button class="btn">Find Members</button>
     </section>
 
-
-    <!-- CONSTRUCTION -->
-
-    <section
-      class="card"
-      style="left:1400px;top:180px"
-    >
-
-      <div class="label">
-        CONSTRUCTION
-      </div>
-
-      <h2>
-        🚧 Owner's Construction
-      </h2>
+    <section class="card" style="left:2320px;top:120px">
+      <div class="label">CONSTRUCTION</div>
+      <h2>🚧 Owner's Construction</h2>
 
       <div class="feed">
-
-        <b>
-          Current project
-        </b>
-
-        <br>
-
-        <small>
-          The Society Lounge.
-        </small>
-
+        <b>Current project</b><br>
+        <small>The Society Lounge.</small>
       </div>
 
       <div class="feed">
-
-        <b>
-          Next project
-        </b>
-
-        <br>
-
-        <small>
-          Live Heritage Unit source connection.
-        </small>
-
+        <b>Next project</b><br>
+        <small>Live Heritage Unit source connection.</small>
       </div>
 
       <div class="feed">
-
-        <b>
-          Next project
-        </b>
-
-        <br>
-
-        <small>
-          Realtime member activity.
-        </small>
-
+        <b>Next project</b><br>
+        <small>Realtime member activity.</small>
       </div>
 
       <div class="owner-only owner-controls">
-
-        <h4>
-          🔒 Owner Construction Posting
-        </h4>
+        <h4>🔒 Owner Construction Posting</h4>
 
         <textarea
           class="textarea"
@@ -1196,34 +544,18 @@ small{color:var(--muted);font-size:10px}
         <button class="btn">
           Post Construction Update
         </button>
-
       </div>
 
       <div class="locked-note">
         Members can view construction updates, but cannot post them.
       </div>
-
     </section>
 
+    <section class="card" style="left:3900px;top:2350px">
+      <div class="label">TRAINSFORVER DESK</div>
+      <h2>👑 TrainsForver Desk</h2>
 
-    <!-- OWNER DESK -->
-
-    <section
-      class="card"
-      style="left:2500px;top:1740px"
-    >
-
-      <div class="label">
-        TRAINSFORVER DESK
-      </div>
-
-      <h2>
-        👑 TrainsForver Desk
-      </h2>
-
-      <p>
-        Private contact with the Museum Owner.
-      </p>
+      <p>Private contact with the Museum Owner.</p>
 
       <textarea
         class="textarea"
@@ -1237,257 +569,105 @@ small{color:var(--muted);font-size:10px}
       </button>
 
       <p>
-
-        <small>
-          Your phone number is never shown publicly.
-        </small>
-
+        <small>Your phone number is never shown publicly.</small>
       </p>
-
     </section>
 
-
-    <!-- LIBRARY -->
-
-    <section
-      class="card"
-      style="left:650px;top:680px"
-    >
-
-      <div class="label">
-        RAILROAD LIBRARY
-      </div>
-
-      <h2>
-        📚 Society Library
-      </h2>
+    <section class="card" style="left:850px;top:800px">
+      <div class="label">RAILROAD LIBRARY</div>
+      <h2>📚 Society Library</h2>
 
       <div class="feed">
-
-        <b>
-          Locomotive Histories
-        </b>
-
-        <br>
-
-        <small>
-          Articles and reference material.
-        </small>
-
+        <b>Locomotive Histories</b><br>
+        <small>Articles and reference material.</small>
       </div>
 
       <div class="feed">
-
-        <b>
-          Railroad History
-        </b>
-
-        <br>
-
-        <small>
-          Stories, facts, and archives.
-        </small>
-
+        <b>Railroad History</b><br>
+        <small>Stories, facts, and archives.</small>
       </div>
 
       <div class="feed">
-
-        <b>
-          Member Knowledge
-        </b>
-
-        <br>
-
-        <small>
-          Things members want to share.
-        </small>
-
+        <b>Member Knowledge</b><br>
+        <small>Things members want to share.</small>
       </div>
-
     </section>
 
+    <section class="card" style="left:800px;top:1350px">
+      <div class="label">TODAY IN RAILROAD HISTORY</div>
 
-    <!-- TODAY IN HISTORY -->
+      <h2>🕰️ Today in History</h2>
 
-    <section
-      class="card"
-      style="left:750px;top:1160px"
-    >
-
-      <div class="label">
-        TODAY IN RAILROAD HISTORY
-      </div>
-
-      <h2>
-        🕰️ Today in History
-      </h2>
-
-      <p>
-
-        <b class="gold">
-          Coming Soon
-        </b>
-
-      </p>
+      <p><b class="gold">Coming Soon</b></p>
 
       <p>
         The Society can feature a railroad event from this date.
       </p>
-
     </section>
 
+    <section class="card" style="left:3050px;top:120px">
+      <div class="label">MEMBER POLLS</div>
 
-    <!-- POLLS -->
-
-    <section
-      class="card"
-      style="left:1950px;top:180px"
-    >
-
-      <div class="label">
-        MEMBER POLLS
-      </div>
-
-      <h2>
-        🗳️ Polls
-      </h2>
+      <h2>🗳️ Polls</h2>
 
       <div class="feed">
-
-        <b>
-          No polls yet.
-        </b>
-
-        <br>
-
-        <small>
-          Only the Owner can create Society polls.
-        </small>
-
+        <b>No polls yet.</b><br>
+        <small>Only the Owner can create Society polls.</small>
       </div>
 
-      <button class="btn">
-        Vote
-      </button>
-
+      <button class="btn">Vote</button>
 
       <div class="owner-only owner-controls">
+        <h4>🔒 Owner Poll Creator</h4>
 
-        <h4>
-          🔒 Owner Poll Creator
-        </h4>
-
-        <input
-          class="input"
-          placeholder="Poll question"
-        >
-
+        <input class="input" placeholder="Poll question">
         <br><br>
 
-        <input
-          class="input"
-          placeholder="Option 1"
-        >
-
+        <input class="input" placeholder="Option 1">
         <br><br>
 
-        <input
-          class="input"
-          placeholder="Option 2"
-        >
-
+        <input class="input" placeholder="Option 2">
         <br><br>
 
-        <button class="btn">
-          ＋ Create Poll
-        </button>
-
+        <button class="btn">＋ Create Poll</button>
       </div>
 
       <div class="locked-note">
         Members can vote, but cannot create polls.
       </div>
-
     </section>
 
+    <section class="card" style="left:150px;top:650px">
+      <div class="label">MEMBER PROJECTS</div>
 
-    <!-- PROJECTS -->
-
-    <section
-      class="card"
-      style="left:80px;top:700px"
-    >
-
-      <div class="label">
-        MEMBER PROJECTS
-      </div>
-
-      <h2>
-        🛠️ Member Projects
-      </h2>
+      <h2>🛠️ Member Projects</h2>
 
       <div class="feed">
-
-        <b>
-          No projects yet.
-        </b>
-
-        <br>
-
+        <b>No projects yet.</b><br>
         <small>
           Layouts, restorations, models, art, and railroad projects can live here.
         </small>
-
       </div>
 
-      <button class="btn">
-        Show a Project
-      </button>
-
+      <button class="btn">Show a Project</button>
     </section>
 
+    <section class="card" style="left:800px;top:2200px">
+      <div class="label">SOCIETY EVENTS</div>
 
-    <!-- EVENTS -->
-
-    <section
-      class="card"
-      style="left:80px;top:980px"
-    >
-
-      <div class="label">
-        SOCIETY EVENTS
-      </div>
-
-      <h2>
-        🎟️ Events
-      </h2>
+      <h2>🎟️ Events</h2>
 
       <div class="feed">
-
-        <b>
-          No events yet.
-        </b>
-
-        <br>
-
+        <b>No events yet.</b><br>
         <small>
           Challenges, trivia, virtual meetups, and special Society events.
         </small>
-
       </div>
 
-
       <div class="owner-only owner-controls">
+        <h4>🔒 Owner Event Creator</h4>
 
-        <h4>
-          🔒 Owner Event Creator
-        </h4>
-
-        <input
-          class="input"
-          placeholder="Event name"
-        >
-
+        <input class="input" placeholder="Event name">
         <br><br>
 
         <textarea
@@ -1497,68 +677,31 @@ small{color:var(--muted);font-size:10px}
 
         <br><br>
 
-        <button class="btn">
-          ＋ Create Event
-        </button>
-
+        <button class="btn">＋ Create Event</button>
       </div>
 
       <div class="locked-note">
         Only the Owner can create future Society events.
       </div>
-
     </section>
 
+    <section class="card" style="left:3850px;top:650px">
+      <div class="label">YOUR PROFILE</div>
 
-    <!-- PROFILE -->
-
-    <section
-      class="card"
-      style="left:1750px;top:720px"
-    >
-
-      <div class="label">
-        YOUR PROFILE
-      </div>
-
-      <h2>
-        👤 Member Profile
-      </h2>
+      <h2>👤 Member Profile</h2>
 
       <div class="person">
-
-        <b>
-          Not signed in
-        </b>
-
-        <br>
-
-        <small>
-          Sign up to create your Society profile.
-        </small>
-
+        <b>Not signed in</b><br>
+        <small>Sign up to create your Society profile.</small>
       </div>
 
-      <div class="tile">
-        🎖️ Badges: 0
-      </div>
-
-      <div class="tile">
-        🏆 Trophies: 0
-      </div>
-
-      <div class="tile">
-        🚂 Reports: 0
-      </div>
-
-      <div class="tile">
-        🤝 Friends: 0
-      </div>
-
+      <div class="tile">🎖️ Badges: 0</div>
+      <div class="tile">🏆 Trophies: 0</div>
+      <div class="tile">🚂 Reports: 0</div>
+      <div class="tile">🤝 Friends: 0</div>
     </section>
 
   </div>
-
 
   <div id="hint">
     SWIPE ANYWHERE — ← → TURN • ↑ ↓ LOOK AROUND
@@ -1570,154 +713,78 @@ small{color:var(--muted);font-size:10px}
 
 </div>
 
-
 <script>
 
-const viewport =
-  document.getElementById("viewport");
-
-const stage =
-  document.getElementById("stage");
-
-const hint =
-  document.getElementById("hint");
-
-const position =
-  document.getElementById("position");
-
-const ownerButton =
-  document.getElementById("ownerButton");
-
-const ownerPanel =
-  document.getElementById("ownerPanel");
-
+const viewport=document.getElementById("viewport");
+const stage=document.getElementById("stage");
+const hint=document.getElementById("hint");
+const position=document.getElementById("position");
+const ownerButton=document.getElementById("ownerButton");
+const ownerPanel=document.getElementById("ownerPanel");
 
 let x=0,y=0;
-
 let startX=0,startY=0;
-
 let startCamX=0,startCamY=0;
-
 let dragging=false;
-
 let moved=false;
 
-
-const minX=-1250,maxX=1250;
-
-const minY=-900,maxY=900;
-
+const minX=-2100,maxX=2100;
+const minY=-1450,maxY=1450;
 
 function clamp(n,min,max){
-
-  return Math.max(
-    min,
-    Math.min(
-      max,
-      n
-    )
-  );
-
+  return Math.max(min,Math.min(max,n));
 }
 
-
 function render(){
-
   stage.style.transform=
     `translate3d(${x}px,${y}px,0)`;
 
   position.textContent=
     `ROOM VIEW • 0 MEMBERS • 0 ACTIVE`;
-
 }
 
-
 function isInteractive(el){
-
   return el.closest(
     "input,textarea,button,a,select,label"
   );
-
 }
-
 
 viewport.addEventListener(
   "pointerdown",
-
   e=>{
-
-    if(
-      isInteractive(e.target)
-    ){
-
-      return;
-
-    }
-
+    if(isInteractive(e.target)) return;
 
     dragging=true;
-
     moved=false;
 
     startX=e.clientX;
-
     startY=e.clientY;
 
     startCamX=x;
-
     startCamY=y;
 
-
-    viewport.classList.add(
-      "dragging"
-    );
-
+    viewport.classList.add("dragging");
 
     try{
-
-      viewport.setPointerCapture(
-        e.pointerId
-      );
-
+      viewport.setPointerCapture(e.pointerId);
     }catch(_){}
-
   }
-
 );
-
 
 viewport.addEventListener(
   "pointermove",
-
   e=>{
+    if(!dragging) return;
 
-    if(
-      !dragging
-    ){
-
-      return;
-
-    }
-
-
-    const dx =
-      e.clientX -
-      startX;
-
-    const dy =
-      e.clientY -
-      startY;
-
+    const dx=e.clientX-startX;
+    const dy=e.clientY-startY;
 
     if(
       Math.abs(dx)>4 ||
       Math.abs(dy)>4
     ){
-
       moved=true;
-
     }
-
 
     x=clamp(
       startCamX+dx,
@@ -1725,84 +792,57 @@ viewport.addEventListener(
       maxX
     );
 
-
     y=clamp(
       startCamY+dy,
       minY,
       maxY
     );
 
-
     render();
-
   }
-
 );
 
-
 function endDrag(){
-
   dragging=false;
-
-  viewport.classList.remove(
-    "dragging"
-  );
-
+  viewport.classList.remove("dragging");
 }
-
 
 viewport.addEventListener(
   "pointerup",
   endDrag
 );
 
-
 viewport.addEventListener(
   "pointercancel",
   endDrag
 );
 
-
 /*
   OWNER PERMISSIONS
 
   This visual prototype keeps owner controls hidden
-  until owner mode is enabled.
-
-  For the real site, the backend must verify the
-  logged-in account before adding this class.
+  until owner mode is enabled. For the real site, the
+  backend must verify the logged-in account before
+  adding this class.
 
   Never rely on client-side JavaScript alone for security.
 */
 
 function enableOwnerMode(){
-
-  document.body.classList.add(
-    "owner-mode"
-  );
-
+  document.body.classList.add("owner-mode");
 }
 
-
-function changeRespectPoints(
-  memberName,
-  amount
-){
+function changeRespectPoints(memberName,amount){
 
   if(
     !memberName ||
     !Number.isFinite(amount) ||
     amount===0
   ){
-
     return;
-
   }
 
-
   /*
-    Prototype only.
-
     Production version should send this to
     the backend, which verifies that the
     requester is the Owner.
@@ -1813,9 +853,7 @@ function changeRespectPoints(
     memberName,
     amount
   );
-
 }
-
 
 document.getElementById(
   "addPoints"
@@ -1823,12 +861,12 @@ document.getElementById(
   "click",
   ()=>{
 
-    const name =
+    const name=
       document.getElementById(
         "pointMember"
       ).value.trim();
 
-    const amount =
+    const amount=
       Number(
         document.getElementById(
           "pointAmount"
@@ -1843,19 +881,18 @@ document.getElementById(
   }
 );
 
-
 document.getElementById(
   "removePoints"
 ).addEventListener(
   "click",
   ()=>{
 
-    const name =
+    const name=
       document.getElementById(
         "pointMember"
       ).value.trim();
 
-    const amount =
+    const amount=
       Number(
         document.getElementById(
           "pointAmount"
@@ -1870,13 +907,11 @@ document.getElementById(
   }
 );
 
-
 /*
   Uncomment only for your own local testing:
 
   enableOwnerMode();
 */
-
 
 ownerButton.addEventListener(
   "click",
@@ -1891,16 +926,12 @@ ownerButton.addEventListener(
   }
 );
 
-
 setTimeout(
   ()=>{
-    hint.classList.add(
-      "hide"
-    );
+    hint.classList.add("hide");
   },
   7000
 );
-
 
 render();
 
