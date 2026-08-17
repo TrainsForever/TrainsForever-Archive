@@ -2262,12 +2262,36 @@ let animationFrame=null;
 
 /* CAMERA LIMITS */
 
-const minX=-1750;
-const maxX=1750;
+function getCameraBounds(){
 
-const minY=-1150;
-const maxY=1150;
+  const stageHalfW =
+    stage.offsetWidth / 2;
 
+  const stageHalfH =
+    stage.offsetHeight / 2;
+
+  const screenHalfW =
+    viewport.clientWidth / 2;
+
+  const screenHalfH =
+    viewport.clientHeight / 2;
+
+  const padding = 80;
+
+  return {
+    minX:
+      -(stageHalfW - screenHalfW + padding),
+
+    maxX:
+      stageHalfW - screenHalfW + padding,
+
+    minY:
+      -(stageHalfH - screenHalfH + padding),
+
+    maxY:
+      stageHalfH - screenHalfH + padding
+  };
+}
 
 /* CLAMP */
 
@@ -2327,18 +2351,20 @@ function startInertia(){
       return;
     }
 
-    x=clamp(
-      x+velocityX,
-      minX,
-      maxX
-    );
+    const bounds =
+  getCameraBounds();
 
-    y=clamp(
-      y+velocityY,
-      minY,
-      maxY
-    );
+x=clamp(
+  x+velocityX,
+  bounds.minX,
+  bounds.maxX
+);
 
+y=clamp(
+  y+velocityY,
+  bounds.minY,
+  bounds.maxY
+);
     render();
 
     animationFrame=
@@ -2358,14 +2384,26 @@ function startInertia(){
 
 function render(){
 
+  const bounds =
+  getCameraBounds();
+
+x=clamp(
+  startCamX+dx,
+  bounds.minX,
+  bounds.maxX
+);
+
+y=clamp(
+  startCamY+dy,
+  bounds.minY,
+  bounds.maxY
+);
   stage.style.transform=
     `translate3d(${x}px,${y}px,0)`;
 
   position.textContent=
     `ROOM VIEW • 0 MEMBERS • 0 ACTIVE`;
 }
-
-
 /* INTERACTIVE ELEMENT CHECK */
 
 function isInteractive(el){
@@ -2694,7 +2732,10 @@ setTimeout(
 /* INITIAL RENDER */
 
 render();
-
+window.addEventListener(
+  "resize",
+  render
+);
 </script>
 
 </body>
