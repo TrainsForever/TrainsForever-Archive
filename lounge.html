@@ -1,749 +1,767 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
+<meta charset="utf-8">
 
-    <meta charset="UTF-8">
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1,
+               maximum-scale=1,
+               user-scalable=no">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<title>TrainsForever Society Lounge</title>
 
-    <title>TrainsForever VIP Lounge</title>
+<style>
 
-<link rel="stylesheet" href="vip-lounge.css">
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+
+    margin: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    background: #05070a;
+
+    color: #f4f4f4;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+}
+
+body {
+
+    -webkit-user-select: none;
+    user-select: none;
+
+}
+
+
+/* =========================================================
+   LOUNGE
+========================================================= */
+
+#lounge {
+
+    position: fixed;
+
+    inset: 0;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 38%,
+            #45515d 0%,
+            #202932 36%,
+            #080b0f 76%,
+            #030406 100%
+        );
+
+}
+
+
+/* =========================================================
+   CONTINUOUS ROOM TRACK
+========================================================= */
+
+#track {
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    height: 100%;
+
+    width: max-content;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 70px;
+
+    padding-left: 38vw;
+    padding-right: 38vw;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    scroll-snap-type: x proximity;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+
+    touch-action: pan-x;
+
+}
+
+#track::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+
+/* =========================================================
+   ROOM
+========================================================= */
+
+.room {
+
+    width: min(82vw, 540px);
+
+    height: min(76vh, 650px);
+
+    flex: 0 0 auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    scroll-snap-align: center;
+
+}
+
+
+.room:nth-child(odd) {
+
+    transform:
+        perspective(1100px)
+        rotateY(-2deg);
+
+}
+
+
+.room:nth-child(even) {
+
+    transform:
+        perspective(1100px)
+        rotateY(2deg);
+
+}
+
+
+/* =========================================================
+   GOLD SECTION SIGN
+========================================================= */
+
+.sign {
+
+    align-self: center;
+
+    margin-bottom: 12px;
+
+    padding: 9px 15px;
+
+    border-radius: 999px;
+
+    background: #05070bdd;
+
+    border: 1px solid #ffe49b55;
+
+    color: #ffe49b;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+/* =========================================================
+   CARDS
+========================================================= */
+
+.card {
+
+    width: 100%;
+
+    min-height: 350px;
+
+    padding: 27px;
+
+    border-radius: 28px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(63,75,88,.97),
+            rgba(8,12,17,.98)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    box-shadow:
+
+        0 30px 80px
+        rgba(0,0,0,.7),
+
+        inset 0 1px
+        rgba(255,255,255,.1);
+
+}
+
+
+/* =========================================================
+   TEXT
+========================================================= */
+
+h1,
+h2 {
+
+    margin: 0 0 15px;
+
+    color: #ffe49b;
+
+}
+
+h2 {
+
+    font-size: 22px;
+
+}
+
+p {
+
+    color: #d5dbe0;
+
+    font-size: 14px;
+
+    line-height: 1.55;
+
+}
+
+small {
+
+    color: #aeb6bf;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   CENTER WELCOME
+========================================================= */
+
+.center-icon {
+
+    text-align: center;
+
+    font-size: 75px;
+
+    margin: 5px;
+
+}
+
+.center-title {
+
+    text-align: center;
+
+    color: #ffe49b;
+
+    font-size: 20px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+}
+
+
+/* =========================================================
+   CHAT
+========================================================= */
+
+.chat {
+
+    height: 175px;
+
+    overflow: auto;
+
+    padding: 10px;
+
+    border-radius: 14px;
+
+    background: #05080b;
+
+    margin: 10px 0;
+
+    -webkit-user-select: text;
+    user-select: text;
+
+}
+
+.msg {
+
+    padding: 8px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.08);
+
+    font-size: 12px;
+
+}
+
+.msg b {
+
+    color: #ffe49b;
+
+}
+
+.msg p {
+
+    font-size: 12px;
+
+    margin: 3px 0;
+
+}
+
+
+/* =========================================================
+   FORM ELEMENTS
+========================================================= */
+
+input,
+textarea {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    background: #05080b;
+
+    color: #fff;
+
+    font-size: 14px;
+
+    -webkit-user-select: text;
+    user-select: text;
+
+}
+
+textarea {
+
+    min-height: 80px;
+
+    resize: none;
+
+}
+
+
+/* =========================================================
+   GOLD BUTTON
+========================================================= */
+
+.btn {
+
+    display: block;
+
+    width: 100%;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    border:
+        1px solid
+        #d7ad4366;
+
+    background:
+        #d7ad4318;
+
+    color: #ffe49b;
+
+    font-weight: 900;
+
+    font-size: 13px;
+
+}
+
+
+/* =========================================================
+   MEMBER LIST
+========================================================= */
+
+.row {
+
+    padding: 11px;
+
+    margin: 7px 0;
+
+    border-radius: 11px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    font-size: 13px;
+
+}
+
+.gold {
+
+    color: #ffe49b !important;
+
+}
+
+.big {
+
+    font-size: 46px;
+
+    font-weight: 900;
+
+    color: #68df92;
+
+}
+
+
+/* =========================================================
+   BADGES
+========================================================= */
+
+.badges {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 7px;
+
+}
+
+.badges span {
+
+    padding: 9px;
+
+    border-radius: 9px;
+
+    background:
+        #ffffff09;
+
+    border:
+        1px solid
+        #ffffff12;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   EXHIBIT
+========================================================= */
+
+.exhibit {
+
+    height: 170px;
+
+    border-radius: 18px;
+
+    display: grid;
+
+    place-items: center;
+
+    background:
+
+        radial-gradient(
+            circle,
+            #5b6975,
+            #070a0e
+        );
+
+    font-size: 85px;
+
+}
+
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+#topbar {
+
+    position: fixed;
+
+    z-index: 50;
+
+    top: 12px;
+
+    left: 12px;
+    right: 12px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    pointer-events: none;
+
+}
+
+#topbar b {
+
+    padding: 8px 12px;
+
+    border-radius: 999px;
+
+    background: #000b;
+
+    border:
+        1px solid
+        #fff1;
+
+    color: #ffe49b;
+
+    font-size: 11px;
+
+}
+
+#home {
+
+    pointer-events: auto;
+
+    border:
+        1px solid
+        #ffe49b55;
+
+    background: #000b;
+
+    color: #ffe49b;
+
+    border-radius: 999px;
+
+    padding: 8px 12px;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================================
+   SWIPE MESSAGE
+========================================================= */
+
+#hint {
+
+    position: fixed;
+
+    z-index: 40;
+
+    bottom: 14px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    padding: 9px 14px;
+
+    border-radius: 999px;
+
+    background: #000c;
+
+    border:
+        1px solid
+        #fff1;
+
+    color: #cbd0d5;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+
+    pointer-events: none;
+
+    transition:
+        opacity .6s;
+
+}
+
+#hint.hide {
+
+    opacity: 0;
+
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .room {
+
+        width: 86vw;
+
+    }
+
+    .card {
+
+        padding: 22px;
+
+        min-height: 330px;
+
+    }
+
+}
+
+</style>
 
 </head>
 
+
 <body>
 
-<div class="lounge-page">
 
-    <!-- ======================================================
-         TOP BRANDING
+<div id="lounge">
+
+
+    <!-- TOP BAR -->
+
+    <div id="topbar">
+
+        <b>
+            TRAINSFOREVER • SOCIETY LOUNGE
+        </b>
+
+        <button id="home">
+            HOME
+        </button>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         CONTINUOUS LOUNGE
     ====================================================== -->
 
-    <header class="lounge-header">
+    <main id="track">
 
-        <div class="lounge-brand">
-            🚂
-        </div>
 
-        <div>
-            <div class="lounge-eyebrow">
-                TRAINSFOREVER SOCIETY
+
+        <!-- WELCOME -->
+
+        <section class="room">
+
+            <div class="sign">
+                WELCOME
             </div>
 
-            <h1>
-                VIP LOUNGE
-            </h1>
+            <div class="card">
 
-            <p>
-                Welcome to the Society.
-            </p>
-        </div>
-
-        <div class="member-status">
-
-            <span class="status-dot"></span>
-
-            <span>
-                Society Connected
-            </span>
-
-        </div>
-
-    </header>
-
-
-    <!-- ======================================================
-         360 LOUNGE
-    ====================================================== -->
-
-    <main class="lounge-world">
-
-        <div class="lounge-orbit">
-
-
-            <!-- ==================================================
-                 CENTER
-            ================================================== -->
-
-            <section class="center-hub">
-
-                <div class="hub-ring">
-
+                <div class="center-icon">
                     🚂
-
                 </div>
+
+                <div class="center-title">
+                    TRAINSFOREVER
+                </div>
+
+                <p style="text-align:center">
+                    Society Lounge
+                </p>
+
+                <p style="text-align:center">
+
+                    This is one continuous room.
+
+                    Swipe left or right
+                    to move through it.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CHAT -->
+
+        <section class="room">
+
+            <div class="sign">
+                MEMBER CHAT
+            </div>
+
+            <div class="card">
 
                 <h2>
-                    TrainsForever
+                    💬 Society Chat
                 </h2>
 
-                <span>
-                    Digital Society Lounge
-                </span>
+                <div class="chat">
 
-                <div class="hub-stats">
+                    <div class="msg">
 
-                    <div>
-                        <strong>17</strong>
-                        <small>ONLINE</small>
-                    </div>
-
-                    <div>
-                        <strong>486</strong>
-                        <small>MEMBERS</small>
-                    </div>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- ==================================================
-                 CHAT
-            ================================================== -->
-
-            <section class="lounge-card chat-card">
-
-                <div class="card-header">
-
-                    <div>
-                        <span class="card-icon">💬</span>
-
-                        <div>
-                            <h2>Society Chat</h2>
-                            <small>Members Lounge</small>
-                        </div>
-                    </div>
-
-                    <span class="live-pill">
-                        LIVE
-                    </span>
-
-                </div>
-
-
-                <div class="chat-messages">
-
-                    <div class="chat-message">
-
-                        <div class="avatar">
-                            G
-                        </div>
-
-                        <div class="message-body">
-
-                            <strong>
-                                Grey
-                            </strong>
-
-                            <p>
-                                Anybody catch anything good today?
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="chat-message executive">
-
-                        <div class="avatar gold">
-                            A
-                        </div>
-
-                        <div class="message-body">
-
-                            <strong>
-                                ✨ AlexRailfan4014-Executive
-                            </strong>
-
-                            <p>
-                                Saw a really nice consist earlier!
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="chat-message">
-
-                        <div class="avatar">
-                            J
-                        </div>
-
-                        <div class="message-body">
-
-                            <strong>
-                                Jacob
-                            </strong>
-
-                            <p>
-                                That sounds awesome.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="chat-compose">
-
-                    <input
-                        type="text"
-                        placeholder="Say something..."
-                        disabled
-                    >
-
-                    <label class="image-button">
-
-                        📷
-
-                        <input
-                            type="file"
-                            accept="image/*"
-                            hidden
-                        >
-
-                    </label>
-
-                    <button disabled>
-                        ➤
-                    </button>
-
-                </div>
-
-
-                <div class="chat-note">
-
-                    📷 One small image per message •
-                    No videos • Keep it appropriate
-
-                </div>
-
-            </section>
-
-
-
-            <!-- ==================================================
-                 HERITAGE REPORTS
-            ================================================== -->
-
-            <section class="lounge-card heritage-card">
-
-                <div class="card-header">
-
-                    <div>
-
-                        <span class="card-icon">
-                            🚂
-                        </span>
-
-                        <div>
-
-                            <h2>
-                                Heritage Unit Reports
-                            </h2>
-
-                            <small>
-                                Recent reports
-                            </small>
-
-                        </div>
-
-                    </div>
-
-                    <span class="live-pill">
-                        LIVE
-                    </span>
-
-                </div>
-
-
-                <div class="report-list">
-
-                    <article class="train-report">
-
-                        <div class="train-number">
-                            CSX 911
-                        </div>
-
-                        <div>
-                            <strong>
-                                Spirit of Our First Responders
-                            </strong>
-
-                            <p>
-                                Recent report • Main Line
-                            </p>
-                        </div>
-
-                        <span>
-                            2m
-                        </span>
-
-                    </article>
-
-
-                    <article class="train-report">
-
-                        <div class="train-number">
-                            NS 8098
-                        </div>
-
-                        <div>
-                            <strong>
-                                Conrail
-                            </strong>
-
-                            <p>
-                                Recent report • Northeast
-                            </p>
-                        </div>
-
-                        <span>
-                            8m
-                        </span>
-
-                    </article>
-
-
-                    <article class="train-report">
-
-                        <div class="train-number">
-                            NS 1067
-                        </div>
-
-                        <div>
-                            <strong>
-                                Reading Lines
-                            </strong>
-
-                            <p>
-                                Recent report • Illinois
-                            </p>
-                        </div>
-
-                        <span>
-                            15m
-                        </span>
-
-                    </article>
-
-                </div>
-
-                <div class="card-footer">
-                    Reports will update automatically.
-                </div>
-
-            </section>
-
-
-
-            <!-- ==================================================
-                 ACTIVE MEMBERS
-            ================================================== -->
-
-            <section class="lounge-card members-card">
-
-                <div class="card-header">
-
-                    <div>
-
-                        <span class="card-icon">
-                            👥
-                        </span>
-
-                        <div>
-
-                            <h2>
-                                Who's Around
-                            </h2>
-
-                            <small>
-                                Society members
-                            </small>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="member-count">
-
-                    <strong>
-                        17
-                    </strong>
-
-                    <span>
-                        members online
-                    </span>
-
-                </div>
-
-
-                <div class="online-members">
-
-                    <div class="online-person">
-                        <span class="online-avatar">G</span>
-                        Grey
-                        <i></i>
-                    </div>
-
-                    <div class="online-person executive-name">
-                        <span class="online-avatar gold">A</span>
-                        Alex-Executive
-                        <i></i>
-                    </div>
-
-                    <div class="online-person">
-                        <span class="online-avatar">J</span>
-                        Jacob
-                        <i></i>
-                    </div>
-
-                    <div class="online-person">
-                        <span class="online-avatar">I</span>
-                        Ian
-                        <i></i>
-                    </div>
-
-                </div>
-
-                <div class="total-members">
-
-                    <strong>
-                        486
-                    </strong>
-
-                    total Society members
-
-                </div>
-
-            </section>
-
-
-
-            <!-- ==================================================
-                 FRIENDS
-            ================================================== -->
-
-            <section class="lounge-card friends-card">
-
-                <div class="card-header">
-
-                    <div>
-
-                        <span class="card-icon">
-                            🤝
-                        </span>
-
-                        <div>
-
-                            <h2>
-                                Friends
-                            </h2>
-
-                            <small>
-                                Your Society connections
-                            </small>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="friend-row">
-
-                    <div class="friend-avatar">
-                        A
-                    </div>
-
-                    <div>
-                        <strong>
-                            Alex-Executive
-                        </strong>
-
-                        <small class="online-text">
-                            ● Online
-                        </small>
-                    </div>
-
-                    <button disabled>
-                        💬
-                    </button>
-
-                </div>
-
-
-                <div class="friend-row">
-
-                    <div class="friend-avatar">
-                        G
-                    </div>
-
-                    <div>
-                        <strong>
+                        <b>
                             Grey
-                        </strong>
-
-                        <small class="online-text">
-                            ● Online
-                        </small>
-                    </div>
-
-                    <button disabled>
-                        💬
-                    </button>
-
-                </div>
-
-
-                <div class="friend-row">
-
-                    <div class="friend-avatar">
-                        J
-                    </div>
-
-                    <div>
-                        <strong>
-                            Jacob
-                        </strong>
-
-                        <small>
-                            Offline
-                        </small>
-                    </div>
-
-                    <button disabled>
-                        💬
-                    </button>
-
-                </div>
-
-
-                <div class="friend-add">
-
-                    + Add Society Friend
-
-                </div>
-
-            </section>
-
-
-
-            <!-- ==================================================
-                 CONSTRUCTION BOX
-            ================================================== -->
-
-            <section class="lounge-card construction-card">
-
-                <div class="construction-top">
-
-                    <span class="construction-icon">
-                        🚧
-                    </span>
-
-                    <span class="construction-label">
-                        UNDER CONSTRUCTION
-                    </span>
-
-                </div>
-
-
-                <h2>
-                    What's Coming Next
-                </h2>
-
-                <p class="construction-intro">
-
-                    The museum is always being built.
-                    Here's what's currently being worked on.
-
-                </p>
-
-
-                <div class="construction-item">
-
-                    <span>
-                        🚂
-                    </span>
-
-                    <div>
-
-                        <strong>
-                            Heritage Unit Reporting
-                        </strong>
-
-                        <small>
-                            In development
-                        </small>
-
-                    </div>
-
-                </div>
-
-
-                <div class="construction-item">
-
-                    <span>
-                        🏆
-                    </span>
-
-                    <div>
-
-                        <strong>
-                            Respect Trophy Case
-                        </strong>
-
-                        <small>
-                            Coming soon
-                        </small>
-
-                    </div>
-
-                </div>
-
-
-                <div class="construction-item">
-
-                    <span>
-                        🎥
-                    </span>
-
-                    <div>
-
-                        <strong>
-                            Executive Video Exhibits
-                        </strong>
-
-                        <small>
-                            Being considered
-                        </small>
-
-                    </div>
-
-                </div>
-
-
-                <!-- OWNER-ONLY FUTURE EDITOR -->
-
-                <div class="owner-note">
-
-                    👑
-                    Only the Museum Owner can publish
-                    Construction Box updates.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- ==================================================
-                 TRAINSFOREVER DESK
-            ================================================== -->
-
-            <section class="lounge-card owner-card">
-
-                <div class="desk-sign">
-
-                    🏛️
-
-                    <span>
-                        TRAINSFOREVER DESK
-                    </span>
-
-                </div>
-
-
-                <div class="owner-avatar">
-                    🚂
-                </div>
-
-
-                <h2>
-                    TrainsForever
-                </h2>
-
-                <p>
-                    Museum Owner
-                </p>
-
-
-                <div class="owner-status">
-
-                    👑 Full Society Access
-
-                </div>
-
-
-                <div class="owner-note">
-
-                    Owner controls stay private.
-                    Members only see the public desk.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- ==================================================
-                 TROPHY CASE
-            ================================================== -->
-
-            <section class="lounge-card trophy-card">
-
-                <div class="card-header">
-
-                    <div>
-
-                        <span class="card-icon">
-                            🏆
-                        </span>
-
-                        <div>
-
-                            <h2>
-                                Society Trophy Case
-                            </h2>
-
-                            <small>
-                                Respect & achievements
-                            </small>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="trophy">
-
-                    <div class="trophy-icon">
-                        🏆
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            50 Respect Points
-                        </strong>
+                        </b>
 
                         <p>
-                            Respect Society Member
+                            Anybody catch anything good today?
+                        </p>
+
+                    </div>
+
+
+                    <div class="msg">
+
+                        <b>
+                            ✨ Alex-Executive
+                        </b>
+
+                        <p>
+                            Saw a great consist earlier!
+                        </p>
+
+                    </div>
+
+
+                    <div class="msg">
+
+                        <b>
+                            Jacob
+                        </b>
+
+                        <p>
+                            That sounds awesome.
                         </p>
 
                     </div>
@@ -751,241 +769,849 @@
                 </div>
 
 
-                <div class="trophy-member">
+                <input
+                    placeholder="Say something..."
+                >
 
-                    <strong>
-                        AlexRailfan4014-Executive
-                    </strong>
+                <br>
+                <br>
 
-                    <span>
-                        73 Respect Points
-                    </span>
+                <button class="btn">
+                    Send Message
+                </button>
 
-                </div>
+                <small
+                    style="display:block;margin-top:10px"
+                >
 
+                    One image at a time
+                    • No videos in chat
 
-                <div class="trophy-member">
+                </small>
 
-                    <strong>
-                        Grey-Executive
-                    </strong>
+            </div>
 
-                    <span>
-                        51 Respect Points
-                    </span>
+        </section>
 
-                </div>
 
-            </section>
 
+        <!-- ACTIVE MEMBERS -->
 
+        <section class="room">
 
-            <!-- ==================================================
-                 MEMBER REPORTS
-            ================================================== -->
+            <div class="sign">
+                ACTIVE MEMBERS
+            </div>
 
-            <section class="lounge-card member-report-card">
-
-                <div class="card-header">
-
-                    <div>
-
-                        <span class="card-icon">
-                            📝
-                        </span>
-
-                        <div>
-
-                            <h2>
-                                Museum Member Reports
-                            </h2>
-
-                            <small>
-                                Report a train sighting
-                            </small>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="report-form">
-
-                    <input
-                        type="text"
-                        placeholder="Railroad"
-                        disabled
-                    >
-
-                    <input
-                        type="text"
-                        placeholder="Locomotive Number"
-                        disabled
-                    >
-
-                    <input
-                        type="text"
-                        placeholder="Location"
-                        disabled
-                    >
-
-                    <textarea
-                        placeholder="Tell us what you saw..."
-                        disabled
-                    ></textarea>
-
-                    <button disabled>
-                        🚂 SUBMIT TRAIN REPORT
-                    </button>
-
-                </div>
-
-                <div class="card-footer">
-
-                    Keep reports accurate and respectful.
-                    These reports become part of the museum archive.
-
-                </div>
-
-            </section>
-
-
-
-            <!-- ==================================================
-                 EXHIBIT MEDIA
-            ================================================== -->
-
-            <section class="lounge-card exhibit-card">
-
-                <div class="card-header">
-
-                    <div>
-
-                        <span class="card-icon">
-                            🖼️
-                        </span>
-
-                        <div>
-
-                            <h2>
-                                Museum Exhibits
-                            </h2>
-
-                            <small>
-                                Railroad media belongs here
-                            </small>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="exhibit-preview">
-
-                    <div class="fake-photo">
-                        🚂
-                    </div>
-
-                    <div class="photo-count">
-                        1 / 10
-                    </div>
-
-                </div>
-
-
-                <h3>
-                    Up to 10 photos per locomotive
-                </h3>
-
-                <p>
-                    Photos stay organized inside the locomotive's
-                    permanent exhibit and can be swiped one at a time.
-                </p>
-
-
-                <div class="executive-feature">
-
-                    ✨ EXECUTIVE FEATURE
-
-                    <strong>
-                        Video exhibits may be available
-                        to VIP Executives.
-                    </strong>
-
-                </div>
-
-            </section>
-
-
-
-            <!-- ==================================================
-                 LOUNGE SAFETY
-            ================================================== -->
-
-            <section class="lounge-card safety-card">
-
-                <div class="safety-icon">
-                    🛡️
-                </div>
+            <div class="card">
 
                 <h2>
-                    Keep the Lounge Good
+                    👥 Who's Active
                 </h2>
+
+                <div class="big">
+                    17
+                </div>
+
+                <small>
+                    online now
+                </small>
+
+
+                <div class="row">
+
+                    🟢 Grey
+
+                    <small>
+                        Society Member
+                    </small>
+
+                </div>
+
+
+                <div class="row gold">
+
+                    🟢 ✨ Alex-Executive
+
+                    <small>
+                        Executive
+                    </small>
+
+                </div>
+
+
+                <div class="row">
+
+                    🟢 Jacob
+
+                    <small>
+                        Society Member
+                    </small>
+
+                </div>
+
+
+                <div class="row">
+
+                    🟢 Ian
+
+                    <small>
+                        Society Member
+                    </small>
+
+                </div>
+
+
+                <div class="row">
+
+                    <b>
+                        486
+                    </b>
+
+                    total Society members
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- FRIENDS -->
+
+        <section class="room">
+
+            <div class="sign">
+                FRIENDS
+            </div>
+
+            <div class="card">
+
+                <h2>
+                    🤝 Society Friends
+                </h2>
+
+
+                <div class="row">
+
+                    🟢 Grey
+
+                </div>
+
+
+                <div class="row gold">
+
+                    🟢 ✨ Alex-Executive
+
+                </div>
+
+
+                <div class="row">
+
+                    ○ Jacob
+
+                </div>
+
+
+                <button class="btn">
+
+                    ＋ Add Society Friend
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- HERITAGE -->
+
+        <section class="room">
+
+            <div class="sign">
+                HERITAGE UNITS
+            </div>
+
+            <div class="card">
+
+                <h2>
+                    🚂 Most Recent Reports
+                </h2>
+
+
+                <div class="row">
+
+                    <b class="gold">
+                        CSX 911
+                    </b>
+
+                    <br>
+
+                    <small>
+                        Spirit of Our First Responders
+                        • 2m ago
+                    </small>
+
+                </div>
+
+
+                <div class="row">
+
+                    <b class="gold">
+                        NS 8098
+                    </b>
+
+                    <br>
+
+                    <small>
+                        Conrail
+                        • 8m ago
+                    </small>
+
+                </div>
+
+
+                <div class="row">
+
+                    <b class="gold">
+                        NS 1067
+                    </b>
+
+                    <br>
+
+                    <small>
+                        Reading Lines
+                        • 15m ago
+                    </small>
+
+                </div>
+
+
+                <small>
+
+                    Live backend data can be connected here.
+
+                </small>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- EXHIBITS -->
+
+        <section class="room">
+
+            <div class="sign">
+                EXHIBITS
+            </div>
+
+            <div class="card">
+
+                <h2>
+                    🖼️ Locomotive Exhibits
+                </h2>
+
+
+                <div class="exhibit">
+                    🚂
+                </div>
+
 
                 <p>
 
-                    Basic respect is the way.
+                    Up to
+                    <b>
+                        10 photos per engine
+                    </b>
 
-                    Train pictures, cars, bikes, hobbies,
-                    and normal conversation are welcome.
-
-                    Keep the Lounge appropriate for everyone.
+                    viewed one at a time.
 
                 </p>
 
 
-                <div class="safety-rules">
+                <div class="row gold">
 
-                    <span>📷 One image at a time</span>
-
-                    <span>🚫 No videos in chat</span>
-
-                    <span>🔞 No explicit content</span>
-
-                    <span>🤝 Respect others</span>
+                    ✨ Executive video exhibits
+                    can be added here.
 
                 </div>
 
-            </section>
+            </div>
+
+        </section>
 
 
-        </div>
+
+        <!-- REPORTS -->
+
+        <section class="room">
+
+            <div class="sign">
+                MEMBER REPORTS
+            </div>
+
+            <div class="card">
+
+                <h2>
+                    📝 Report a Train
+                </h2>
+
+
+                <input
+                    placeholder="Railroad"
+                >
+
+                <br>
+                <br>
+
+                <input
+                    placeholder="Locomotive number"
+                >
+
+                <br>
+                <br>
+
+                <input
+                    placeholder="Location"
+                >
+
+                <br>
+                <br>
+
+                <textarea
+                    placeholder="What did you see?"
+                ></textarea>
+
+                <br>
+                <br>
+
+                <button class="btn">
+
+                    🚂 Submit Train Report
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- TROPHY -->
+
+        <section class="room">
+
+            <div class="sign">
+                TROPHY ROOM
+            </div>
+
+            <div class="card">
+
+                <h2>
+                    🏆 Society Trophies
+                </h2>
+
+
+                <div class="row">
+
+                    🏆
+                    <b>
+                        Grey
+                    </b>
+
+                    —
+                    Society Member
+
+                </div>
+
+
+                <div class="row gold">
+
+                    🏆
+                    <b>
+                        ✨ AlexRailfan4014-Executive
+                    </b>
+
+                    —
+                    Executive
+
+                </div>
+
+
+                <div class="row">
+
+                    🏆
+                    <b>
+                        Jacob
+                    </b>
+
+                    —
+                    Society Member
+
+                </div>
+
+
+                <p>
+
+                    Member trophies and achievements
+                    appear here.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- BADGES -->
+
+        <section class="room">
+
+            <div class="sign">
+                BADGE ROOM
+            </div>
+
+            <div class="card">
+
+                <h2>
+                    🎖️ Possible Badges
+                </h2>
+
+
+                <div class="badges">
+
+                    <span>
+                        🚂 First Sighting
+                    </span>
+
+                    <span>
+                        📋 First Report
+                    </span>
+
+                    <span>
+                        ⭐ 10 Respect
+                    </span>
+
+                    <span>
+                        🏆 25 Respect
+                    </span>
+
+                    <span>
+                        📸 Exhibit Contributor
+                    </span>
+
+                    <span>
+                        🛤️ Heritage Hunter
+                    </span>
+
+                    <span>
+                        🤝 Helpful Member
+                    </span>
+
+                    <span>
+                        🏛️ Society Veteran
+                    </span>
+
+                    <span>
+                        ✨ Executive
+                    </span>
+
+                    <span>
+                        🛡️ Society Director
+                    </span>
+
+                    <span>
+                        🚂 Heritage Reporter
+                    </span>
+
+                    <span>
+                        🏛️ Museum Contributor
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CONSTRUCTION -->
+
+        <section class="room">
+
+            <div class="sign">
+                CONSTRUCTION
+            </div>
+
+            <div class="card">
+
+                <h2>
+                    🚧 What's Being Built
+                </h2>
+
+
+                <p>
+                    Heritage Unit reporting
+                </p>
+
+                <p>
+                    Society Lounge improvements
+                </p>
+
+                <p>
+                    Exhibit upgrades
+                </p>
+
+                <p>
+                    Executive features
+                </p>
+
+
+                <small>
+
+                    This area is reserved
+                    for the Museum Owner's
+                    construction updates.
+
+                </small>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- OWNER DESK -->
+
+        <section class="room">
+
+            <div class="sign">
+                TRAINSFORVER DESK
+            </div>
+
+            <div class="card">
+
+                <div class="center-icon">
+                    🚂
+                </div>
+
+
+                <h2
+                    style="text-align:center"
+                >
+
+                    TrainsForver Desk
+
+                </h2>
+
+
+                <p
+                    style="text-align:center"
+                >
+
+                    Museum Owner
+
+                </p>
+
+
+                <div
+                    class="row gold"
+                    style="text-align:center"
+                >
+
+                    👑 Owner Access
+
+                </div>
+
+
+                <textarea
+                    placeholder="Private message to the Museum Owner..."
+                ></textarea>
+
+
+                <br>
+                <br>
+
+
+                <button class="btn">
+
+                    📱 Send Private Message
+
+                </button>
+
+
+                <small
+                    style="display:block;margin-top:10px"
+                >
+
+                    Your phone number is
+                    never displayed publicly.
+
+                </small>
+
+            </div>
+
+        </section>
+
 
     </main>
 
 
-    <!-- ======================================================
-         FOOTER
-    ====================================================== -->
+    <div id="hint">
 
-    <footer class="lounge-footer">
+        SWIPE ← LEFT OR RIGHT →
+        TO MOVE AROUND THE LOUNGE
 
-        <div>
-            🚂 TrainsForever Society
-        </div>
+    </div>
 
-        <span>
-            Preserving Railroad History • Building Community
-        </span>
-
-    </footer>
 
 </div>
 
-</body>
 
+
+<script>
+
+/*
+=========================================================
+TRAILSFOREVER LOUNGE NAVIGATION
+=========================================================
+
+This uses the browser's native horizontal scrolling.
+
+That means:
+
+• iPhone touch scrolling works naturally
+• Android touch scrolling works naturally
+• Mouse dragging works
+• No 3D JavaScript camera is required
+• No Supabase connection is required
+• No external libraries are required
+
+=========================================================
+*/
+
+
+const track =
+    document.getElementById("track");
+
+
+const hint =
+    document.getElementById("hint");
+
+
+const home =
+    document.getElementById("home");
+
+
+/*
+---------------------------------------------------------
+TOUCH / SWIPE
+---------------------------------------------------------
+*/
+
+let startX = 0;
+
+let startScroll = 0;
+
+let touching = false;
+
+
+track.addEventListener(
+    "touchstart",
+
+    function(event) {
+
+        if (
+            event.touches.length !== 1
+        ) {
+
+            return;
+
+        }
+
+
+        touching = true;
+
+
+        startX =
+            event.touches[0].clientX;
+
+
+        startScroll =
+            track.scrollLeft;
+
+    },
+
+    {
+        passive: true
+    }
+
+);
+
+
+track.addEventListener(
+    "touchmove",
+
+    function(event) {
+
+        if (
+            !touching ||
+            event.touches.length !== 1
+        ) {
+
+            return;
+
+        }
+
+
+        const currentX =
+            event.touches[0].clientX;
+
+
+        const distance =
+            currentX - startX;
+
+
+        track.scrollLeft =
+            startScroll - distance;
+
+    },
+
+    {
+        passive: true
+    }
+
+);
+
+
+track.addEventListener(
+    "touchend",
+
+    function() {
+
+        touching = false;
+
+    },
+
+    {
+        passive: true
+    }
+
+);
+
+
+/*
+---------------------------------------------------------
+MOUSE DRAG
+---------------------------------------------------------
+*/
+
+let mouseDown = false;
+
+track.addEventListener(
+    "mousedown",
+
+    function(event) {
+
+        mouseDown = true;
+
+        startX =
+            event.clientX;
+
+        startScroll =
+            track.scrollLeft;
+
+    }
+
+);
+
+
+window.addEventListener(
+    "mousemove",
+
+    function(event) {
+
+        if (!mouseDown) {
+
+            return;
+
+        }
+
+
+        const distance =
+            event.clientX - startX;
+
+
+        track.scrollLeft =
+            startScroll - distance;
+
+    }
+
+);
+
+
+window.addEventListener(
+    "mouseup",
+
+    function() {
+
+        mouseDown = false;
+
+    }
+
+);
+
+
+/*
+---------------------------------------------------------
+HOME BUTTON
+---------------------------------------------------------
+*/
+
+home.addEventListener(
+    "click",
+
+    function() {
+
+        track.scrollTo({
+
+            left: 0,
+
+            behavior: "smooth"
+
+        });
+
+    }
+
+);
+
+
+/*
+---------------------------------------------------------
+HIDE INSTRUCTION
+---------------------------------------------------------
+*/
+
+setTimeout(
+
+    function() {
+
+        hint.classList.add("hide");
+
+    },
+
+    5000
+
+);
+
+</script>
+
+
+</body>
 </html>
