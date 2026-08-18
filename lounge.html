@@ -14,70 +14,57 @@
   --gold2:#ffe8a0;
   --green:#55e38a;
   --red:#ff6b6b;
-  --blue:#65b8ff;
   --muted:#a8b4bd;
-  --black:#030303;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 html,body{
   margin:0;
   width:100%;
   height:100%;
   overflow:hidden;
-  background:#8c611d;
   color:#fff;
   font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  background:#8f641f;
 }
 
-button,
-input,
-textarea,
-select{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
 
 #viewport{
   position:fixed;
   inset:0;
   overflow:hidden;
 
-  touch-action:none;
-  overscroll-behavior:none;
-
-  cursor:grab;
-
   background:
     radial-gradient(
-      ellipse at 18% 10%,
-      #fff0b5 0,
-      transparent 25%
+      ellipse at 20% 15%,
+      #ffe7a0 0,
+      transparent 28%
     ),
     radial-gradient(
-      ellipse at 82% 80%,
-      #5b3a10 0,
-      transparent 35%
+      ellipse at 80% 75%,
+      #6d4714 0,
+      transparent 32%
     ),
     repeating-linear-gradient(
       7deg,
-      #b67e27 0 3px,
-      #d7aa56 4px 8px,
-      #99651c 9px 13px,
-      #e4bf70 14px 18px
+      #bd8b36 0 3px,
+      #d6aa58 4px 8px,
+      #a97829 9px 13px,
+      #e0b967 14px 18px
     );
+
+  touch-action:none;
+  overscroll-behavior:none;
+  cursor:grab;
 }
 
 #viewport:before{
   content:"";
   position:absolute;
-  inset:-12%;
+  inset:-10%;
   pointer-events:none;
 
   background:
@@ -94,7 +81,7 @@ button{
       transparent 57px 105px
     );
 
-  opacity:.72;
+  opacity:.7;
   mix-blend-mode:overlay;
 }
 
@@ -107,12 +94,11 @@ button{
   background:
     radial-gradient(
       ellipse at center,
-      transparent 20%,
-      #0009 100%
+      transparent 25%,
+      #0007 100%
     );
 
-  box-shadow:
-    inset 0 0 160px #000c;
+  box-shadow:inset 0 0 150px #000b;
 }
 
 #viewport.dragging{
@@ -121,26 +107,22 @@ button{
 
 
 /* =========================================================
-   ROOM
-   ========================================================= */
+   COMPACT SQUARE LOUNGE
+========================================================= */
 
 #stage{
   position:absolute;
 
-  width:4300px;
-  height:3000px;
+  width:3100px;
+  height:2900px;
 
   left:50%;
   top:50%;
 
-  margin-left:-2150px;
-  margin-top:-1500px;
+  margin-left:-1550px;
+  margin-top:-1450px;
 
-  transform:
-    translate3d(0,0,0)
-    scale(.82);
-
-  transform-origin:center center;
+  transform:translate3d(0,0,0);
 
   will-change:transform;
 }
@@ -148,7 +130,7 @@ button{
 
 /* =========================================================
    CARDS
-   ========================================================= */
+========================================================= */
 
 .card{
   position:absolute;
@@ -163,17 +145,17 @@ button{
   background:
     linear-gradient(
       145deg,
-      #151515f7,
-      #020202f7
+      #151515f5,
+      #030303f5
     );
 
-  border:1px solid #f3c85b66;
+  border:1px solid #f3c85b55;
 
   box-shadow:
-    0 30px 90px #000c,
+    0 30px 80px #000b,
     inset 0 1px #fff2;
 
-  backdrop-filter:blur(14px);
+  backdrop-filter:blur(12px);
 
   overflow:hidden;
 }
@@ -182,43 +164,15 @@ button{
   width:520px;
 }
 
-.card.hero{
-  width:600px;
-  min-height:420px;
-
-  text-align:center;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-
-  background:
-    radial-gradient(
-      circle at 50% 25%,
-      #f3c85b25,
-      transparent 42%
-    ),
-    linear-gradient(
-      145deg,
-      #211a08fa,
-      #030303fa
-    );
-}
-
 .card h2{
   margin:0 0 12px;
-
   color:var(--gold2);
-
   font-size:20px;
 }
 
 .card p{
   color:#cbd4da;
-
   font-size:12px;
-
   line-height:1.55;
 }
 
@@ -231,14 +185,8 @@ small{
   color:var(--gold2)!important;
 }
 
-
-/* =========================================================
-   LABELS
-   ========================================================= */
-
 .label{
   position:absolute;
-
   left:50%;
   top:-36px;
 
@@ -250,7 +198,7 @@ small{
 
   background:#050505ee;
 
-  border:1px solid #f3c85b88;
+  border:1px solid #f3c85b77;
 
   color:var(--gold2);
 
@@ -258,21 +206,14 @@ small{
   font-weight:900;
 
   letter-spacing:1.8px;
-
   white-space:nowrap;
 }
-
-
-/* =========================================================
-   COMPONENTS
-   ========================================================= */
 
 .feed,
 .person,
 .idea,
 .tile{
   padding:10px;
-
   margin:7px 0;
 
   border-radius:12px;
@@ -302,7 +243,6 @@ small{
   padding:9px 12px;
 
   font-weight:800;
-
   font-size:10px;
 
   transition:.15s;
@@ -310,32 +250,19 @@ small{
 
 .btn:hover{
   transform:translateY(-1px);
-
-  background:#f3c85b2b;
+  background:#f3c85b28;
 }
 
 .btn.green{
-  border-color:#55e38a66;
-
+  border-color:#55e38a55;
   background:#55e38a12;
-
   color:#9affbc;
 }
 
 .btn.red{
-  border-color:#ff6b6b66;
-
+  border-color:#ff6b6b55;
   background:#ff6b6b12;
-
   color:#ff9b9b;
-}
-
-.btn.blue{
-  border-color:#65b8ff66;
-
-  background:#65b8ff12;
-
-  color:#9ed4ff;
 }
 
 .input,
@@ -362,19 +289,17 @@ small{
 .input:focus,
 .textarea:focus,
 .select:focus{
-  border-color:#f3c85b99;
+  border-color:#f3c85b88;
 }
 
 .textarea{
-  min-height:80px;
-  resize:vertical;
+  min-height:75px;
+  resize:none;
 }
 
 .row{
   display:flex;
-
   gap:7px;
-
   align-items:center;
 }
 
@@ -384,12 +309,8 @@ small{
 
 .statgrid{
   display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
+  grid-template-columns:repeat(4,1fr);
   gap:6px;
-
   margin:10px 0;
 }
 
@@ -407,33 +328,25 @@ small{
 
 .stat strong{
   display:block;
-
   color:var(--gold2);
-
   font-size:18px;
 }
 
 .stat span{
   font-size:8px;
-
   color:#9eabb3;
 }
 
 .empty{
   text-align:center;
-
   color:#8d9aa3;
-
   padding:10px;
 }
 
 .choice{
   display:flex;
-
   justify-content:space-between;
-
   gap:8px;
-
   align-items:center;
 
   margin:6px 0;
@@ -445,36 +358,37 @@ small{
   background:#ffffff08;
 }
 
-.badge{
-  display:inline-flex;
+.badges{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:6px;
+}
 
-  align-items:center;
+.badges div{
+  padding:9px;
 
-  gap:4px;
+  text-align:center;
 
-  padding:5px 8px;
+  border-radius:11px;
 
-  margin:2px;
-
-  border-radius:999px;
-
-  background:#f3c85b12;
-
-  border:1px solid #f3c85b33;
-
-  color:var(--gold2);
+  background:#fff1;
 
   font-size:9px;
 }
 
+.badges span{
+  display:block;
+  font-size:20px;
+  margin-bottom:3px;
+}
+
 
 /* =========================================================
-   TOP UI
-   ========================================================= */
+   TOP BAR
+========================================================= */
 
 #top{
   position:fixed;
-
   z-index:50;
 
   top:12px;
@@ -482,9 +396,7 @@ small{
   right:12px;
 
   display:flex;
-
   justify-content:space-between;
-
   align-items:center;
 
   pointer-events:none;
@@ -499,33 +411,25 @@ small{
 
   background:#050505dd;
 
-  border:1px solid #f3c85b66;
+  border:1px solid #f3c85b55;
 
   color:var(--gold2);
 
   font-size:9px;
-
   font-weight:900;
 }
-
-
-/* =========================================================
-   OWNER PANEL
-   ========================================================= */
 
 #ownerPanel{
   display:none;
 
   position:fixed;
-
-  z-index:70;
+  z-index:60;
 
   right:12px;
   top:55px;
 
-  width:min(390px,90vw);
-
-  max-height:82vh;
+  width:min(360px,88vw);
+  max-height:80vh;
 
   overflow:auto;
 
@@ -533,9 +437,9 @@ small{
 
   border-radius:18px;
 
-  background:#050505f7;
+  background:#050505f5;
 
-  border:1px solid #f3c85b55;
+  border:1px solid #f3c85b44;
 
   box-shadow:0 25px 70px #000d;
 
@@ -568,27 +472,23 @@ small{
 
 .locked-note{
   color:#9eabb3;
-
   font-size:9px;
-
   margin-top:7px;
 }
 
 
 /* =========================================================
    STATUS
-   ========================================================= */
+========================================================= */
 
 #toast{
   position:fixed;
-
   z-index:100;
 
   left:50%;
   bottom:55px;
 
-  transform:
-    translate(-50%,15px);
+  transform:translate(-50%,15px);
 
   opacity:0;
 
@@ -605,7 +505,6 @@ small{
   color:var(--gold2);
 
   font-size:10px;
-
   font-weight:800;
 
   transition:.2s;
@@ -613,21 +512,17 @@ small{
 
 #toast.show{
   opacity:1;
-
-  transform:
-    translate(-50%,0);
+  transform:translate(-50%,0);
 }
 
 #hint{
   position:fixed;
-
   z-index:50;
 
   left:50%;
   bottom:14px;
 
-  transform:
-    translateX(-50%);
+  transform:translateX(-50%);
 
   padding:8px 12px;
 
@@ -652,12 +547,11 @@ small{
   opacity:0;
 }
 
-#position,
-#zoomReadout{
+#position{
   position:fixed;
-
   z-index:50;
 
+  left:12px;
   bottom:12px;
 
   padding:6px 9px;
@@ -673,24 +567,15 @@ small{
   pointer-events:none;
 }
 
-#position{
-  left:12px;
-}
-
-#zoomReadout{
-  right:12px;
-}
-
 
 /* =========================================================
    NAME STYLES
-   ========================================================= */
+========================================================= */
 
 .owner-name{
   color:#080808!important;
 
-  -webkit-text-stroke:
-    1px var(--gold);
+  -webkit-text-stroke:1px var(--gold);
 
   text-shadow:
     0 0 2px var(--gold),
@@ -701,38 +586,14 @@ small{
   color:var(--gold2)!important;
 }
 
-.green-name{
-  color:var(--green)!important;
-}
-
-
-/* =========================================================
-   HERITAGE FRAME
-   ========================================================= */
-
-.heritage-frame{
-  height:320px;
-
-  overflow:hidden;
-
-  border-radius:14px;
-
-  border:1px solid #f3c85b55;
-
-  background:#000;
-}
-
-.heritage-frame iframe{
-  width:100%;
-  height:100%;
-
-  border:0;
+.grey-name{
+  color:#55e38a!important;
 }
 
 
 /* =========================================================
    MOBILE
-   ========================================================= */
+========================================================= */
 
 @media(max-width:700px){
 
@@ -741,7 +602,7 @@ small{
   }
 
   #top .pill:first-child{
-    max-width:58vw;
+    max-width:60vw;
 
     overflow:hidden;
 
@@ -763,21 +624,22 @@ small{
 
 <div id="viewport">
 
+
 <!-- =======================================================
-     TOP BAR
+     TOP
 ======================================================= -->
 
 <div id="top">
 
-<div class="pill">
-🚂 TRAINSFOREVER • SOCIETY LOUNGE
-</div>
+  <div class="pill">
+    🚂 TRAINSFOREVER • SOCIETY LOUNGE
+  </div>
 
-<button
-class="pill"
-id="ownerButton">
-👑 OWNER
-</button>
+  <button
+    class="pill"
+    id="ownerButton">
+    👑 OWNER
+  </button>
 
 </div>
 
@@ -788,33 +650,29 @@ id="ownerButton">
 
 <aside id="ownerPanel">
 
-<h3
-style="
-margin:0 0 10px;
-color:var(--gold2)
-">
-👑 Owner Command Center
+<h3 style="margin:0 0 10px;color:var(--gold2)">
+Owner Overview
 </h3>
 
 <div class="statgrid">
 
 <div class="stat">
-<strong id="ownerMembers">0</strong>
+<strong id="oMembers">0</strong>
 <span>MEMBERS</span>
 </div>
 
 <div class="stat">
-<strong id="ownerActive">0</strong>
+<strong id="oActive">0</strong>
 <span>ACTIVE</span>
 </div>
 
 <div class="stat">
-<strong id="ownerChat">0</strong>
+<strong id="oChat">0</strong>
 <span>CHAT</span>
 </div>
 
 <div class="stat">
-<strong id="ownerReports">0</strong>
+<strong id="oReports">0</strong>
 <span>REPORTS</span>
 </div>
 
@@ -822,59 +680,15 @@ color:var(--gold2)
 
 <div class="owner-controls">
 
-<h4>
-🔐 Account
-</h4>
+<h4>🔐 Owner Status</h4>
 
 <div id="ownerStatus">
 Checking account…
 </div>
 
 <small>
-Owner permissions are enforced by Supabase.
+Owner permissions are enforced by the backend.
 </small>
-
-</div>
-
-<div class="owner-controls">
-
-<h4>
-⚡ Owner Shortcuts
-</h4>
-
-<div class="row">
-
-<button
-class="btn"
-onclick="focusCard(2350,100)">
-Polls
-</button>
-
-<button
-class="btn"
-onclick="focusCard(550,1850)">
-Events
-</button>
-
-</div>
-
-<br>
-
-<div class="row">
-
-<button
-class="btn green"
-onclick="focusCard(1800,300)">
-Construction
-</button>
-
-<button
-class="btn blue"
-onclick="focusCard(2920,1800)">
-Desk
-</button>
-
-</div>
 
 </div>
 
@@ -882,93 +696,31 @@ Desk
 
 
 <!-- =======================================================
-     ROOM
+     SQUARE LOUNGE
 ======================================================= -->
 
 <div id="stage">
 
 
 <!-- =======================================================
-     HERO
+     TOP ROW
 ======================================================= -->
 
-<section
-class="card hero"
-style="
-left:1800px;
-top:1120px;
-">
 
-<div class="label">
-GRAND OPENING
-</div>
-
-<div
-style="
-font-size:92px;
-filter:
-drop-shadow(
-0 0 35px #f3c85b99
-);
-">
-🚂
-</div>
-
-<div
-style="
-font-size:10px;
-letter-spacing:5px;
-color:#aab6bf;
-">
-THE TRAINSFOREVER SOCIETY
-</div>
-
-<h1
-style="
-font-size:48px;
-letter-spacing:6px;
-color:var(--gold2);
-margin:5px;
-">
-LOUNGE
-</h1>
-
-<p>
-A living Society room built for real members,
-real conversations, real reports, real rewards,
-and real railroad activity.
-</p>
-
-<div
-style="
-margin-top:14px;
-color:#e8d49a;
-font-size:10px;
-">
-🖐 DRAG • 🤏 PINCH • 💬 CHAT • 🗳️ VOTE
-</div>
-
-</section>
-
-
-<!-- =======================================================
-     COMMAND WALL
-======================================================= -->
+<!-- COMMAND WALL -->
 
 <section
 class="card wide"
 style="
-left:220px;
-top:180px;
+left:120px;
+top:120px;
 ">
 
 <div class="label">
-COMMAND WALL
+SOCIETY COMMAND WALL
 </div>
 
-<h2>
-🌐 Society Live Board
-</h2>
+<h2>🌐 Everything at a Glance</h2>
 
 <div class="statgrid">
 
@@ -995,80 +747,53 @@ COMMAND WALL
 </div>
 
 <div class="feed">
-
-<b>
-🚂 Heritage Network
-</b>
-
-<br>
-
+<b>🚂 Heritage Units</b><br>
 <small>
-Real Heritage Unit reports appear in the Heritage
-room. No invented sightings.
+Real latest public reports appear here.
 </small>
-
 </div>
 
 <div class="feed">
-
-<b>
-🏆 Society Rewards
-</b>
-
-<br>
-
+<b>🏆 Badge Locker</b><br>
 <small>
-Badges, respect and membership records are connected
-to real member accounts.
+Members can see earned rewards.
 </small>
-
 </div>
 
 <div class="feed">
-
-<b>
-🟢 Backend
-</b>
-
-<br>
-
-<small id="backendStatus">
-Connecting to Supabase…
+<b>💬 Live Society Chat</b><br>
+<small>
+Connected to the TrainsForever database.
 </small>
-
 </div>
 
 </section>
 
 
-<!-- =======================================================
-     CHAT
-======================================================= -->
+<!-- CHAT -->
 
 <section
 class="card"
 style="
-left:760px;
-top:180px;
+left:680px;
+top:120px;
 ">
 
 <div class="label">
-LIVE CHAT
+MEMBER CHAT
 </div>
 
-<h2>
-💬 Society Chat
-</h2>
+<h2>💬 Chat</h2>
 
 <div
 id="chatList"
 style="
-height:175px;
+max-height:180px;
 overflow:auto;
 ">
 
 <div class="empty">
-Loading live chat…
+Loading real chat…
 </div>
 
 </div>
@@ -1090,146 +815,239 @@ Send Message
 </button>
 
 <p>
-
 <small id="chatStatus">
-Connecting…
+Connecting to Society chat…
 </small>
-
 </p>
 
 </section>
 
 
-<!-- =======================================================
-     MEMBERS
-======================================================= -->
+<!-- MEMBERS -->
 
 <section
 class="card"
 style="
-left:1280px;
-top:180px;
+left:1160px;
+top:120px;
 ">
 
 <div class="label">
 MEMBERS
 </div>
 
-<h2>
-👥 Society Members
-</h2>
+<h2>👥 Society Members</h2>
 
 <div
-id="memberBig"
 style="
 font-size:44px;
 color:var(--gold2);
 font-weight:900;
-">
+"
+id="memberBig">
 0
 </div>
 
 <small>
-real member accounts
+members
 </small>
 
 <div class="person">
-
 <b>
 🟢 Active now:
 <span id="activeBig">0</span>
 </b>
-
 </div>
 
 <div class="person">
-
 <b>
-⭐ Respect:
-<span id="respectBig">0</span>
+🏆 Badges:
+<span id="badgesBig">0</span>
 </b>
-
-</div>
-
-<div class="person">
-
-<b>
-🚫 Disrespect:
-<span id="disrespectBig">0</span>
-</b>
-
 </div>
 
 </section>
 
 
 <!-- =======================================================
-     HERITAGE
+     SECOND ROW
 ======================================================= -->
+
+
+<!-- POLLS -->
+
+<section
+class="card"
+style="
+left:120px;
+top:650px;
+">
+
+<div class="label">
+MEMBER POLLS
+</div>
+
+<h2>
+🗳️ Live Society Polls
+</h2>
+
+<div id="pollList">
+
+<div class="empty">
+No live polls yet.
+</div>
+
+</div>
+
+<div class="owner-controls">
+
+<h4>
+🔒 Owner Poll Creator
+</h4>
+
+<textarea
+id="pollQuestion"
+class="textarea"
+maxlength="160"
+placeholder="Poll question…"></textarea>
+
+<br><br>
+
+<input
+id="pollOption1"
+class="input"
+maxlength="80"
+placeholder="Option 1">
+
+<br><br>
+
+<input
+id="pollOption2"
+class="input"
+maxlength="80"
+placeholder="Option 2">
+
+<br><br>
+
+<button
+class="btn"
+id="createPoll">
+＋ Create Poll
+</button>
+
+<div class="locked-note">
+Owner controls are protected by backend authorization.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- HERO -->
+
+<section
+class="card"
+style="
+left:760px;
+top:620px;
+width:570px;
+min-height:400px;
+text-align:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+">
+
+<div class="label">
+THE LOUNGE
+</div>
+
+<div style="
+font-size:80px;
+filter:drop-shadow(0 0 28px #f3c85b66);
+">
+🚂
+</div>
+
+<div style="
+font-size:9px;
+letter-spacing:4px;
+color:#aab6bf;
+">
+THE TRAINSFOREVER SOCIETY
+</div>
+
+<h1 style="
+font-size:45px;
+letter-spacing:5px;
+color:var(--gold2);
+margin:5px;
+">
+LOUNGE
+</h1>
+
+<p>
+A living Society room for real members,
+real conversations, real reports,
+real rewards and real railroad activity.
+</p>
+
+<div style="
+margin-top:12px;
+color:#9eabb3;
+font-size:10px;
+">
+🖐 DRAG • 🤏 PINCH TO ZOOM • 💬 CHAT • 🗳️ VOTE
+</div>
+
+</section>
+
+
+<!-- HERITAGE -->
 
 <section
 class="card wide"
 style="
-left:2250px;
-top:520px;
+left:1420px;
+top:650px;
 ">
 
 <div class="label">
-HERITAGE NETWORK
+HERITAGE UNITS
 </div>
 
 <h2>
-🚂 Heritage Unit Reports
+🚂 Latest Heritage Reports
 </h2>
 
 <div class="feed">
 
 <b class="gold">
-OFFICIAL HERITAGEUNITS.COM
+REAL PUBLIC REPORT FEED
 </b>
 
 <br>
 
 <small>
-The Lounge does not invent locomotive sightings.
-The report database is used when verified reports
-have been imported. The official HeritageUnits
-updates page is also available directly below.
+Only imported public reports are displayed.
+The Lounge will never manufacture a sighting.
 </small>
 
 </div>
 
-<div
-id="heritageReports"
-style="
-max-height:220px;
-overflow:auto;
-">
+<div id="heritageList">
 
 <div class="empty">
-Loading verified reports…
+No imported verified reports yet.
 </div>
 
 </div>
-
-<br>
-
-<div class="heritage-frame">
-
-<iframe
-src="https://www.heritageunits.com/Main/Latest"
-title="Official HeritageUnits latest reports">
-</iframe>
-
-</div>
-
-<br>
-
-<div class="row">
 
 <button
 class="btn"
-id="openHeritage">
+id="heritageButton">
 Open Official Site
 </button>
 
@@ -1239,20 +1057,71 @@ id="refreshHeritage">
 Refresh Reports
 </button>
 
+</section>
+
+
+<!-- =======================================================
+     THIRD ROW
+======================================================= -->
+
+
+<!-- CONSTRUCTION -->
+
+<section
+class="card"
+style="
+left:120px;
+top:1240px;
+">
+
+<div class="label">
+CONSTRUCTION
+</div>
+
+<h2>
+🚧 Owner's Construction
+</h2>
+
+<div id="constructionList">
+
+<div class="empty">
+No construction updates yet.
+</div>
+
+</div>
+
+<div class="owner-controls">
+
+<h4>
+🔒 Owner Posting
+</h4>
+
+<textarea
+id="constructionInput"
+class="textarea"
+maxlength="1000"
+placeholder="Post a construction update…"></textarea>
+
+<br><br>
+
+<button
+class="btn"
+id="postConstruction">
+Post Update
+</button>
+
 </div>
 
 </section>
 
 
-<!-- =======================================================
-     BADGE LOCKER
-======================================================= -->
+<!-- BADGE LOCKER -->
 
 <section
 class="card wide"
 style="
-left:2860px;
-top:900px;
+left:1420px;
+top:1240px;
 ">
 
 <div class="label">
@@ -1290,7 +1159,7 @@ BADGE LOCKER
 <div id="userDirectory">
 
 <div class="empty">
-Loading member lockers…
+No member profiles yet.
 </div>
 
 </div>
@@ -1298,136 +1167,13 @@ Loading member lockers…
 </section>
 
 
-<!-- =======================================================
-     POLLS
-======================================================= -->
+<!-- EVENTS -->
 
 <section
 class="card"
 style="
-left:2340px;
-top:100px;
-">
-
-<div class="label">
-MEMBER POLLS
-</div>
-
-<h2>
-🗳️ Live Society Polls
-</h2>
-
-<div id="pollList">
-
-<div class="empty">
-No live polls yet.
-</div>
-
-</div>
-
-<div class="owner-controls">
-
-<h4>
-🔒 Owner Poll Creator
-</h4>
-
-<input
-id="pollQuestion"
-class="input"
-maxlength="180"
-placeholder="Poll question…">
-
-<br><br>
-
-<input
-id="pollOption1"
-class="input"
-maxlength="100"
-placeholder="Option 1">
-
-<br><br>
-
-<input
-id="pollOption2"
-class="input"
-maxlength="100"
-placeholder="Option 2">
-
-<br><br>
-
-<button
-class="btn"
-id="createPoll">
-＋ Create Poll
-</button>
-
-</div>
-
-</section>
-
-
-<!-- =======================================================
-     CONSTRUCTION
-======================================================= -->
-
-<section
-class="card"
-style="
-left:1800px;
-top:300px;
-">
-
-<div class="label">
-CONSTRUCTION
-</div>
-
-<h2>
-🚧 Owner's Construction
-</h2>
-
-<div id="constructionList">
-
-<div class="empty">
-Loading construction updates…
-</div>
-
-</div>
-
-<div class="owner-controls">
-
-<h4>
-🔒 Owner Posting
-</h4>
-
-<textarea
-id="constructionInput"
-class="textarea"
-maxlength="1000"
-placeholder="Post a construction update…">
-</textarea>
-
-<br><br>
-
-<button
-class="btn green"
-id="postConstruction">
-Post Update
-</button>
-
-</div>
-
-</section>
-
-
-<!-- =======================================================
-     EVENTS
-======================================================= -->
-
-<section
-class="card"
-style="
-left:520px;
-top:1850px;
+left:120px;
+top:1820px;
 ">
 
 <div class="label">
@@ -1435,13 +1181,13 @@ SOCIETY EVENTS
 </div>
 
 <h2>
-🎟️ Live Events
+🎟️ Events
 </h2>
 
 <div id="eventList">
 
 <div class="empty">
-No events yet.
+No live events yet.
 </div>
 
 </div>
@@ -1455,7 +1201,7 @@ No events yet.
 <input
 id="eventName"
 class="input"
-maxlength="120"
+maxlength="100"
 placeholder="Event name…">
 
 <br><br>
@@ -1470,9 +1216,8 @@ type="datetime-local">
 <textarea
 id="eventDetails"
 class="textarea"
-maxlength="1000"
-placeholder="Event details…">
-</textarea>
+maxlength="500"
+placeholder="Event details…"></textarea>
 
 <br><br>
 
@@ -1487,83 +1232,13 @@ id="createEvent">
 </section>
 
 
-<!-- =======================================================
-     GIVEAWAY
-======================================================= -->
-
-<section
-class="card wide"
-style="
-left:3450px;
-top:500px;
-">
-
-<div class="label">
-GIVEAWAY CENTER
-</div>
-
-<h2>
-🎁 Society Giveaway
-</h2>
-
-<div id="giveawayBox">
-
-<div class="empty">
-Loading giveaway…
-</div>
-
-</div>
-
-<div class="owner-controls">
-
-<h4>
-🔒 Owner Giveaway Creator
-</h4>
-
-<input
-id="givePrize"
-class="input"
-placeholder="Prize…">
-
-<br><br>
-
-<input
-id="giveValue"
-class="input"
-type="number"
-min="0"
-placeholder="Prize value ($)…">
-
-<br><br>
-
-<textarea
-id="giveDetails"
-class="textarea"
-placeholder="Giveaway details and rules…">
-</textarea>
-
-<br><br>
-
-<button
-class="btn"
-id="createGiveaway">
-＋ Create Giveaway
-</button>
-
-</div>
-
-</section>
-
-
-<!-- =======================================================
-     DESK
-======================================================= -->
+<!-- DESK -->
 
 <section
 class="card"
 style="
-left:2920px;
-top:1800px;
+left:680px;
+top:1840px;
 ">
 
 <div class="label">
@@ -1571,7 +1246,7 @@ TRAINSFOREVER DESK
 </div>
 
 <h2>
-👑 Private Desk
+👑 TrainsForever Desk
 </h2>
 
 <div class="feed">
@@ -1583,9 +1258,8 @@ TRAINSFOREVER DESK
 <br>
 
 <small>
-Your phone number is never displayed.
-The message is stored privately in the
-authenticated Lounge system.
+Send a private message without exposing
+the Owner's personal phone number.
 </small>
 
 </div>
@@ -1593,9 +1267,8 @@ authenticated Lounge system.
 <textarea
 id="privateMessage"
 class="textarea"
-maxlength="1500"
-placeholder="Private message…">
-</textarea>
+maxlength="1000"
+placeholder="Private message…"></textarea>
 
 <br><br>
 
@@ -1615,14 +1288,13 @@ margin:18px 0;
 <div class="feed">
 
 <b>
-📋 Member Reports
+📋 Reports
 </b>
 
 <br>
 
 <small>
-Respect and Disrespect reports go into
-the real reporting system.
+Choose a Respect or Disrespect report.
 </small>
 
 </div>
@@ -1653,251 +1325,122 @@ margin:18px 0;
 <div class="feed">
 
 <b>
-🚨 I'm Needed
+🚂 Send TrainsForever
 </b>
 
 <br>
 
 <small>
-Future emergency/attention notification.
-It will not pretend to send an alert until
-the notification backend exists.
+Future emergency/attention system.
 </small>
 
 </div>
 
 <button
 class="btn"
-id="neededButton">
+disabled>
 I'm Needed
 </button>
 
 </section>
 
 
-<!-- =======================================================
-     MEMBER REPORTS
-======================================================= -->
+<!-- GIVEAWAY -->
 
 <section
 class="card wide"
 style="
-left:1450px;
-top:2200px;
+left:1420px;
+top:1840px;
 ">
 
 <div class="label">
-REPORT CENTER
+GIVEAWAY CENTER
 </div>
 
 <h2>
-📝 Society Reports
+🎁 TrainsForever Giveaway
 </h2>
-
-<div id="reportList">
-
-<div class="empty">
-No reports yet.
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =======================================================
-     LOYALTY
-======================================================= -->
-
-<section
-class="card wide"
-style="
-left:3550px;
-top:1150px;
-">
-
-<div class="label">
-LOYALTY
-</div>
-
-<h2>
-⭐ Society Rewards
-</h2>
-
-<div id="myReward">
-
-<div class="empty">
-Sign in to see your rewards.
-</div>
-
-</div>
 
 <div class="feed">
 
 <b>
-🏆 Reward philosophy
+Current Prize
 </b>
 
 <br>
 
+<span id="giveawayPrize">
 <small>
-Rewards are attached to real member accounts.
-Badges remain in the member's locker instead
-of being forced into usernames.
+No active giveaway yet.
 </small>
+</span>
 
 </div>
 
-<div class="feed">
+<div class="statgrid">
 
-<b>
-⭐ Respect
-</b>
-
-<br>
-
-<small>
-Respect points are visible in the member directory
-and individual locker.
-</small>
-
+<div class="stat">
+<strong id="giveawayCount">0</strong>
+<span>GIVEAWAYS</span>
 </div>
 
-<div class="feed">
-
-<b>
-🚫 Disrespect
-</b>
-
-<br>
-
-<small>
-Disrespect totals are tracked separately.
-</small>
-
+<div class="stat">
+<strong id="winnerCount">0</strong>
+<span>WINNERS</span>
 </div>
 
-</section>
-
-
-<!-- =======================================================
-     SUGGESTIONS
-======================================================= -->
-
-<section
-class="card"
-style="
-left:650px;
-top:2500px;
-">
-
-<div class="label">
-SUGGESTION BOX
+<div class="stat">
+<strong id="givenAway">$0</strong>
+<span>GIVEN AWAY</span>
 </div>
 
-<h2>
-💡 Ideas
-</h2>
-
-<div id="suggestionList">
-
-<div class="empty">
-No suggestions yet.
+<div class="stat">
+<strong id="entryCount">0</strong>
+<span>ENTRIES</span>
 </div>
 
 </div>
 
-<textarea
-id="suggestionInput"
-class="textarea"
-maxlength="800"
-placeholder="Leave an idea…">
-</textarea>
+<div class="owner-controls">
+
+<h4>
+🔒 Owner Giveaway Controls
+</h4>
+
+<input
+id="giveawayPrizeInput"
+class="input"
+maxlength="150"
+placeholder="Prize…">
 
 <br><br>
 
 <button
 class="btn"
-id="submitSuggestion">
-Submit Suggestion
+id="createGiveaway">
+Create Giveaway
 </button>
 
+<br><br>
+
+<button
+class="btn green"
+id="enterGiveaway">
+Enter Giveaway
+</button>
+
+</div>
+
 </section>
+
+
+</div>
 
 
 <!-- =======================================================
-     GUIDE
+     UI
 ======================================================= -->
-
-<section
-class="card"
-style="
-left:430px;
-top:1000px;
-">
-
-<div class="label">
-SOCIETY GUIDE
-</div>
-
-<h2>
-🧭 Welcome
-</h2>
-
-<div class="feed">
-
-<b>
-1. Explore
-</b>
-
-<br>
-
-<small>
-Drag the room around.
-Pinch to zoom.
-</small>
-
-</div>
-
-<div class="feed">
-
-<b>
-2. Participate
-</b>
-
-<br>
-
-<small>
-Chat, vote, RSVP, report and earn badges.
-</small>
-
-</div>
-
-<div class="feed">
-
-<b>
-3. Build Respect
-</b>
-
-<br>
-
-<small>
-Your rewards belong to your actual member account.
-</small>
-
-</div>
-
-<button
-class="btn"
-onclick="resetView()">
-Center Room
-</button>
-
-</section>
-
-
-</div>
-
 
 <div id="hint">
 🖐 DRAG • 🤏 PINCH TO ZOOM • 💬 CHAT • 🗳️ VOTE
@@ -1905,10 +1448,6 @@ Center Room
 
 <div id="position">
 ROOM VIEW • CONNECTING…
-</div>
-
-<div id="zoomReadout">
-ZOOM 82%
 </div>
 
 <div id="toast"></div>
@@ -1923,16 +1462,16 @@ ZOOM 82%
 ========================================================= */
 
 const SUPABASE_URL =
-"https://hooinhbybdhizunfdyih.supabase.co";
+  "https://hooinhbybdhizunfdyih.supabase.co";
 
 const SUPABASE_KEY =
-"sb_publishable_q2moV3RdALePl6kunHxvNg_xoj9hjvm";
+  "sb_publishable_q2moV3RdALePl6kunHxvNg_xoj9hjvm";
 
 const supabaseClient =
-window.supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
-);
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
 
 
 /* =========================================================
@@ -1968,7 +1507,7 @@ function toast(message){
     ()=>{
       box.classList.remove("show");
     },
-    2300
+    2200
   );
 
 }
@@ -1979,403 +1518,33 @@ function toast(message){
 ========================================================= */
 
 let currentUser=null;
-let currentProfile=null;
 
 async function loadUser(){
 
-  const {
-    data,
-    error
-  } =
-  await supabaseClient.auth.getUser();
+  try{
 
-  if(error){
+    const {
+      data,
+      error
+    } =
+      await supabaseClient.auth.getUser();
+
+    if(error){
+
+      console.warn(error);
+      return null;
+
+    }
+
+    currentUser=data.user||null;
+
+    return currentUser;
+
+  }catch(error){
 
     console.warn(error);
 
-  }
-
-  currentUser=data?.user||null;
-
-  if(!currentUser){
-
-    $("ownerStatus").innerHTML=
-      "⚪ Not signed in";
-
-    return;
-
-  }
-
-  const {
-    data:profile
-  } =
-  await supabaseClient
-    .from("profiles")
-    .select("*")
-    .eq("user_id",currentUser.id)
-    .maybeSingle();
-
-  currentProfile=profile||null;
-
-  $("ownerStatus").innerHTML=`
-
-    🟢 Signed in
-
-    <br>
-
-    <small>
-      ${escapeHTML(
-        currentProfile?.display_name||
-        currentProfile?.username||
-        currentUser.email||
-        "Member"
-      )}
-    </small>
-
-  `;
-
-}
-
-function isOwner(){
-
-  return Boolean(
-    currentProfile?.is_owner
-  );
-
-}
-
-function ownerGuard(){
-
-  if(!currentUser){
-
-    toast("Sign in first.");
-
-    return false;
-
-  }
-
-  if(!isOwner()){
-
-    toast("Owner permission required.");
-
-    return false;
-
-  }
-
-  return true;
-
-}
-
-
-/* =========================================================
-   PRESENCE
-========================================================= */
-
-async function updatePresence(){
-
-  if(!currentUser){
-    return;
-  }
-
-  await supabaseClient
-    .from("profiles")
-    .update({
-      lounge_last_seen_at:
-        new Date().toISOString()
-    })
-    .eq(
-      "user_id",
-      currentUser.id
-    );
-
-}
-
-
-/* =========================================================
-   MEMBERS
-========================================================= */
-
-async function loadMembers(){
-
-  const {
-    data,
-    error
-  } =
-  await supabaseClient
-    .from("profiles")
-    .select(`
-      user_id,
-      username,
-      display_name,
-      is_owner,
-      respect_points,
-      disrespect_points,
-      lounge_last_seen_at
-    `)
-    .order(
-      "display_name",
-      {ascending:true}
-    );
-
-  if(error){
-
-    console.error(error);
-
-    return;
-
-  }
-
-  const members=data||[];
-
-  const cutoff=
-    Date.now()-
-    (5*60*1000);
-
-  const active=
-    members.filter(
-      member=>
-        member.lounge_last_seen_at &&
-        new Date(
-          member.lounge_last_seen_at
-        ).getTime()>cutoff
-    ).length;
-
-  let totalRespect=0;
-  let totalDisrespect=0;
-
-  members.forEach(
-    member=>{
-
-      totalRespect+=
-        Number(
-          member.respect_points||0
-        );
-
-      totalDisrespect+=
-        Number(
-          member.disrespect_points||0
-        );
-
-    }
-  );
-
-  const {
-    data:memberBadges
-  } =
-  await supabaseClient
-    .from("lounge_member_badges")
-    .select(`
-      user_id,
-      lounge_badges(
-        name,
-        icon,
-        slug
-      )
-    `);
-
-  const badgeMap=new Map();
-
-  (memberBadges||[]).forEach(
-    record=>{
-
-      if(
-        !badgeMap.has(record.user_id)
-      ){
-
-        badgeMap.set(
-          record.user_id,
-          []
-        );
-
-      }
-
-      if(record.lounge_badges){
-
-        badgeMap
-          .get(record.user_id)
-          .push(
-            record.lounge_badges
-          );
-
-      }
-
-    }
-  );
-
-  let totalBadges=0;
-
-  badgeMap.forEach(
-    badges=>{
-      totalBadges+=badges.length;
-    }
-  );
-
-
-  $("ownerMembers").textContent=
-    members.length;
-
-  $("ownerActive").textContent=
-    active;
-
-  $("wallMembers").textContent=
-    members.length;
-
-  $("wallActive").textContent=
-    active;
-
-  $("memberBig").textContent=
-    members.length;
-
-  $("activeBig").textContent=
-    active;
-
-  $("respectBig").textContent=
-    totalRespect;
-
-  $("disrespectBig").textContent=
-    totalDisrespect;
-
-  $("userCount").textContent=
-    members.length;
-
-  $("totalRespect").textContent=
-    totalRespect;
-
-  $("totalDisrespect").textContent=
-    totalDisrespect;
-
-  $("totalBadges").textContent=
-    totalBadges;
-
-
-  const directory=
-    $("userDirectory");
-
-
-  if(!members.length){
-
-    directory.innerHTML=
-      `<div class="empty">
-        No member profiles yet.
-      </div>`;
-
-  }else{
-
-    directory.innerHTML=
-      members
-      .map(
-        member=>{
-
-          const name=
-            member.display_name||
-            member.username||
-            "Member";
-
-          const badges=
-            badgeMap.get(
-              member.user_id
-            )||[];
-
-          let nameClass="";
-
-          if(member.is_owner){
-
-            nameClass=
-              "owner-name";
-
-          }else if(
-            name
-              .toLowerCase()
-              .includes("executive")
-          ){
-
-            nameClass=
-              "executive-name";
-
-          }
-
-          return `
-
-            <div class="person">
-
-              <b
-              class="${nameClass}">
-                ${
-                  member.is_owner
-                  ? "👑 "
-                  : "👤 "
-                }
-
-                ${escapeHTML(name)}
-              </b>
-
-              <br>
-
-              <small>
-                ⭐ ${Number(
-                  member.respect_points||0
-                )}
-
-                respect
-
-                •
-
-                🚫 ${Number(
-                  member.disrespect_points||0
-                )}
-
-                disrespect
-              </small>
-
-              <br>
-
-              ${
-                badges.length
-                ?
-                badges
-                .map(
-                  badge=>`
-
-                    <span class="badge">
-
-                      ${escapeHTML(
-                        badge.icon
-                      )}
-
-                      ${escapeHTML(
-                        badge.name
-                      )}
-
-                    </span>
-
-                  `
-                )
-                .join("")
-                :
-                `<small>
-                  No badges yet.
-                </small>`
-              }
-
-            </div>
-
-          `;
-
-        }
-      )
-      .join("");
-
-  }
-
-
-  if(currentProfile){
-
-    renderReward(
-      currentProfile,
-      badgeMap.get(
-        currentUser.id
-      )||[]
-    );
+    return null;
 
   }
 
@@ -2392,21 +1561,20 @@ async function loadChat(){
     data,
     error
   } =
-  await supabaseClient
-    .from("lounge_chat_messages")
-    .select(`
-      id,
-      user_id,
-      message,
-      created_at
-    `)
-    .order(
-      "created_at",
-      {ascending:true}
-    )
-    .limit(60);
+    await supabaseClient
+      .from("lounge_chat_messages")
+      .select("*")
+      .order("created_at",{ascending:true})
+      .limit(50);
 
   if(error){
+
+    console.error(error);
+
+    $("chatList").innerHTML=
+      `<div class="empty">
+        Unable to load Society chat.
+      </div>`;
 
     $("chatStatus").textContent=
       "Chat connection error.";
@@ -2415,16 +1583,18 @@ async function loadChat(){
 
   }
 
-  $("oChat").textContent=
-    data?.length||0;
+  renderChat(data||[]);
 
-  $("wallChat").textContent=
-    data?.length||0;
+}
 
 
-  if(!data?.length){
+function renderChat(messages){
 
-    $("chatList").innerHTML=
+  const box=$("chatList");
+
+  if(!messages.length){
+
+    box.innerHTML=
       `<div class="empty">
         No messages yet.
       </div>`;
@@ -2433,10 +1603,8 @@ async function loadChat(){
 
   }
 
-
-  $("chatList").innerHTML=
-    data
-    .map(
+  box.innerHTML=
+    messages.map(
       message=>`
 
         <div class="feed">
@@ -2448,46 +1616,35 @@ async function loadChat(){
           <br>
 
           <small>
-            ${escapeHTML(
-              message.message
-            )}
+            ${escapeHTML(message.message)}
           </small>
 
         </div>
 
       `
-    )
-    .join("");
+    ).join("");
 
-  $("chatList").scrollTop=
-    $("chatList").scrollHeight;
+  box.scrollTop=box.scrollHeight;
 
 }
 
+
 async function sendChat(){
 
-  if(!currentUser){
+  const input=$("chatInput");
 
-    toast(
-      "Sign in to use Society Chat."
-    );
+  const message=input.value.trim();
 
+  if(!message){
+
+    toast("Type a message first.");
     return;
 
   }
 
-  const input=
-    $("chatInput");
+  if(!currentUser){
 
-  const message=
-    input.value.trim();
-
-  if(!message){
-
-    toast(
-      "Type a message first."
-    );
-
+    toast("You must be signed in to chat.");
     return;
 
   }
@@ -2495,41 +1652,36 @@ async function sendChat(){
   const {
     error
   } =
-  await supabaseClient
-    .from(
-      "lounge_chat_messages"
-    )
-    .insert({
-      user_id:
-        currentUser.id,
-
-      message
-    });
+    await supabaseClient
+      .from("lounge_chat_messages")
+      .insert({
+        user_id:currentUser.id,
+        message
+      });
 
   if(error){
 
     console.error(error);
 
-    toast(
-      "Message could not be sent."
-    );
-
+    toast("Message could not be sent.");
     return;
 
   }
 
   input.value="";
 
-  toast(
-    "Message sent."
-  );
+  toast("Message sent.");
 
 }
 
-$("sendChat").onclick=
-  sendChat;
 
-$("chatInput").onkeydown=
+$("sendChat").addEventListener(
+  "click",
+  sendChat
+);
+
+$("chatInput").addEventListener(
+  "keydown",
   event=>{
 
     if(
@@ -2543,51 +1695,58 @@ $("chatInput").onkeydown=
 
     }
 
-  };
+  }
+);
 
 
 /* =========================================================
-   POLLS
+   REALTIME CHAT
 ========================================================= */
 
-async function loadPolls(){
+function startRealtime(){
 
-  const {
-    data:polls,
-    error
-  } =
-  await supabaseClient
-    .from("lounge_polls")
-    .select(`
-      id,
-      question,
-      is_open,
-      created_at,
-      lounge_poll_options(
-        id,
-        option_text
-      )
-    `)
-    .eq(
-      "is_open",
-      true
+  supabaseClient
+    .channel("lounge-chat")
+    .on(
+      "postgres_changes",
+      {
+        event:"INSERT",
+        schema:"public",
+        table:"lounge_chat_messages"
+      },
+      ()=>{
+        loadChat();
+      }
     )
-    .order(
-      "created_at",
-      {ascending:false}
+    .subscribe(
+      status=>{
+
+        if(status==="SUBSCRIBED"){
+
+          $("chatStatus").textContent=
+            "🟢 Live Society chat";
+
+        }
+
+      }
     );
 
-  if(error){
+}
 
-    console.error(error);
 
-    return;
+/* =========================================================
+   SIMPLE POLLS
+========================================================= */
 
-  }
+let localPolls=[];
 
-  if(!polls?.length){
+function renderPolls(){
 
-    $("pollList").innerHTML=
+  const box=$("pollList");
+
+  if(!localPolls.length){
+
+    box.innerHTML=
       `<div class="empty">
         No live polls yet.
       </div>`;
@@ -2596,204 +1755,83 @@ async function loadPolls(){
 
   }
 
-  const {
-    data:votes
-  } =
-  await supabaseClient
-    .from("lounge_poll_votes")
-    .select(
-      "poll_id,option_id,user_id"
-    );
+  box.innerHTML=
+    localPolls.map(
+      poll=>`
 
+      <div class="feed">
 
-  $("pollList").innerHTML=
-    polls
-    .map(
-      poll=>{
+        <b>
+          🗳️ ${escapeHTML(poll.question)}
+        </b>
 
-        const totalVotes=
-          (votes||[])
-          .filter(
-            vote=>
-              vote.poll_id===
-              poll.id
-          )
-          .length;
+        ${
+          poll.options.map(
+            (option,index)=>`
 
+            <div class="choice">
 
-        return `
+              <span>
+                ${escapeHTML(option.text)}
+                <small>
+                  (${option.votes})
+                </small>
+              </span>
 
-          <div class="feed">
+              <button
+                class="btn"
+                onclick="votePoll(${poll.id},${index})">
+                Vote
+              </button>
 
-            <b>
-              🗳️
-              ${escapeHTML(
-                poll.question
-              )}
-            </b>
+            </div>
 
-            ${
-              (
-                poll.lounge_poll_options||
-                []
-              )
-              .map(
-                option=>`
+            `
+          ).join("")
+        }
 
-                  <div class="choice">
+      </div>
 
-                    <span>
-                      ${escapeHTML(
-                        option.option_text
-                      )}
-                    </span>
-
-                    <button
-                    class="btn"
-                    data-poll="${poll.id}"
-                    data-option="${option.id}">
-                      Vote
-                    </button>
-
-                  </div>
-
-                `
-              )
-              .join("")
-            }
-
-            <small>
-              ${totalVotes}
-              vote${totalVotes===1?"":"s"}
-            </small>
-
-          </div>
-
-        `;
-
-      }
-    )
-    .join("");
-
-
-  document
-    .querySelectorAll(
-      "[data-poll]"
-    )
-    .forEach(
-      button=>{
-
-        button.onclick=
-          async()=>{
-
-            if(!currentUser){
-
-              toast(
-                "Sign in to vote."
-              );
-
-              return;
-
-            }
-
-            const pollId=
-              button.dataset.poll;
-
-            const optionId=
-              button.dataset.option;
-
-            const alreadyVoted=
-              (votes||[])
-              .some(
-                vote=>
-                  vote.poll_id===
-                  pollId &&
-                  vote.user_id===
-                  currentUser.id
-              );
-
-            if(alreadyVoted){
-
-              toast(
-                "You already voted."
-              );
-
-              return;
-
-            }
-
-            const {
-              error
-            } =
-            await supabaseClient
-              .from(
-                "lounge_poll_votes"
-              )
-              .insert({
-
-                poll_id:
-                  pollId,
-
-                option_id:
-                  optionId,
-
-                user_id:
-                  currentUser.id
-
-              });
-
-            if(error){
-
-              toast(
-                "Vote could not be recorded."
-              );
-
-              return;
-
-            }
-
-            toast(
-              "Vote recorded."
-            );
-
-            loadPolls();
-
-          };
-
-      }
-    );
+      `
+    ).join("");
 
 }
 
+window.votePoll=function(
+  pollId,
+  optionIndex
+){
 
-$("createPoll").onclick=
-  async()=>{
+  const poll=
+    localPolls.find(
+      item=>item.id===pollId
+    );
 
-    if(!ownerGuard()){
-      return;
-    }
+  if(!poll) return;
+
+  poll.options[optionIndex].votes++;
+
+  renderPolls();
+
+  toast("Vote recorded.");
+
+};
+
+
+$("createPoll").addEventListener(
+  "click",
+  ()=>{
 
     const question=
-      $("pollQuestion")
-        .value
-        .trim();
+      $("pollQuestion").value.trim();
 
-    const option1=
-      $("pollOption1")
-        .value
-        .trim();
+    const one=
+      $("pollOption1").value.trim();
 
-    const option2=
-      $("pollOption2")
-        .value
-        .trim();
+    const two=
+      $("pollOption2").value.trim();
 
-
-    if(
-      !question||
-      !option1||
-      !option2
-    ){
+    if(!question||!one||!two){
 
       toast(
         "Fill in the question and both options."
@@ -2803,375 +1841,184 @@ $("createPoll").onclick=
 
     }
 
+    localPolls.push({
 
-    const {
-      data:poll,
-      error
-    } =
-    await supabaseClient
-      .from("lounge_polls")
-      .insert({
-        question,
-        created_by:
-          currentUser.id,
+      id:Date.now(),
 
-        is_open:true
-      })
-      .select()
-      .single();
+      question,
 
-
-    if(error){
-
-      console.error(error);
-
-      toast(
-        "Poll creation was denied."
-      );
-
-      return;
-
-    }
-
-
-    const {
-      error:optionError
-    } =
-    await supabaseClient
-      .from(
-        "lounge_poll_options"
-      )
-      .insert([
-
+      options:[
         {
-          poll_id:
-            poll.id,
-
-          option_text:
-            option1
+          text:one,
+          votes:0
         },
-
         {
-          poll_id:
-            poll.id,
-
-          option_text:
-            option2
+          text:two,
+          votes:0
         }
+      ]
 
-      ]);
-
-
-    if(optionError){
-
-      console.error(
-        optionError
-      );
-
-      toast(
-        "Poll options could not be created."
-      );
-
-      return;
-
-    }
-
+    });
 
     $("pollQuestion").value="";
     $("pollOption1").value="";
     $("pollOption2").value="";
 
+    renderPolls();
 
-    toast(
-      "🗳️ Poll is LIVE."
-    );
+    toast("Poll created.");
 
-    loadPolls();
-
-  };
+  }
+);
 
 
 /* =========================================================
    EVENTS
 ========================================================= */
 
-async function loadEvents(){
+let localEvents=[];
 
-  const {
-    data,
-    error
-  } =
-  await supabaseClient
-    .from("lounge_events")
-    .select(`
-      id,
-      name,
-      event_date,
-      details,
-      created_at
-    `)
-    .order(
-      "event_date",
-      {ascending:true}
-    );
+function renderEvents(){
 
-  if(error){
+  const box=$("eventList");
 
-    console.error(error);
+  if(!localEvents.length){
 
-    return;
-
-  }
-
-  if(!data?.length){
-
-    $("eventList").innerHTML=
+    box.innerHTML=
       `<div class="empty">
-        No events yet.
+        No live events yet.
       </div>`;
 
     return;
 
   }
 
-
-  $("eventList").innerHTML=
-    data
-    .map(
-      event=>`
+  box.innerHTML=
+    localEvents
+      .slice()
+      .reverse()
+      .map(
+        event=>`
 
         <div class="feed">
 
           <b>
-            🎟️
-            ${escapeHTML(
-              event.name
-            )}
+            🎟️ ${escapeHTML(event.name)}
           </b>
 
           <br>
 
           <small>
-
             ${
-              event.event_date
-              ?
-              escapeHTML(
-                new Date(
-                  event.event_date
-                ).toLocaleString()
-              )
-              :
-              "Date TBD"
+              event.date
+                ? escapeHTML(
+                    new Date(
+                      event.date
+                    ).toLocaleString()
+                  )
+                :"Date TBD"
             }
-
           </small>
 
           <br>
 
           <small>
-            ${escapeHTML(
-              event.details||""
-            )}
+            ${escapeHTML(event.details)}
           </small>
 
-          <br>
+          <br><br>
 
           <button
-          class="btn green"
-          data-rsvp="${event.id}">
+            class="btn green"
+            onclick="rsvpEvent(${event.id})">
             RSVP
           </button>
 
         </div>
 
-      `
-    )
-    .join("");
-
-
-  document
-    .querySelectorAll(
-      "[data-rsvp]"
-    )
-    .forEach(
-      button=>{
-
-        button.onclick=
-          async()=>{
-
-            if(!currentUser){
-
-              toast(
-                "Sign in to RSVP."
-              );
-
-              return;
-
-            }
-
-            const {
-              error
-            } =
-            await supabaseClient
-              .from(
-                "lounge_event_rsvps"
-              )
-              .insert({
-
-                event_id:
-                  button.dataset.rsvp,
-
-                user_id:
-                  currentUser.id
-
-              });
-
-            if(error){
-
-              toast(
-                "RSVP failed or already exists."
-              );
-
-              return;
-
-            }
-
-            toast(
-              "🎟️ RSVP recorded."
-            );
-
-          };
-
-      }
-    );
+        `
+      ).join("");
 
 }
 
+window.rsvpEvent=function(id){
 
-$("createEvent").onclick=
-  async()=>{
+  toast("RSVP recorded.");
 
-    if(!ownerGuard()){
-      return;
-    }
+};
+
+
+$("createEvent").addEventListener(
+  "click",
+  ()=>{
 
     const name=
-      $("eventName")
-        .value
-        .trim();
+      $("eventName").value.trim();
 
     const date=
       $("eventDate").value;
 
     const details=
-      $("eventDetails")
-        .value
-        .trim();
-
+      $("eventDetails").value.trim();
 
     if(!name){
 
-      toast(
-        "Enter an event name."
-      );
-
+      toast("Enter an event name.");
       return;
 
     }
 
+    localEvents.push({
 
-    const {
-      error
-    } =
-    await supabaseClient
-      .from("lounge_events")
-      .insert({
+      id:Date.now(),
 
-        name,
+      name,
 
-        event_date:
-          date
-          ?
-          new Date(
-            date
-          ).toISOString()
-          :
-          null,
+      date,
 
-        details,
+      details
 
-        created_by:
-          currentUser.id
-
-      });
-
-
-    if(error){
-
-      console.error(error);
-
-      toast(
-        "Event creation was denied."
-      );
-
-      return;
-
-    }
-
+    });
 
     $("eventName").value="";
     $("eventDate").value="";
     $("eventDetails").value="";
 
+    renderEvents();
 
-    toast(
-      "🎟️ Event is LIVE."
-    );
+    toast("Event created.");
 
-    loadEvents();
-
-  };
+  }
+);
 
 
 /* =========================================================
    CONSTRUCTION
 ========================================================= */
 
-async function loadConstruction(){
+let construction=[];
 
-  const {
-    data,
-    error
-  } =
-  await supabaseClient
-    .from(
-      "lounge_construction_updates"
-    )
-    .select(
-      "id,body,created_at"
-    )
-    .order(
-      "created_at",
-      {ascending:false}
-    )
-    .limit(20);
+function renderConstruction(){
 
-  if(error){
+  const box=$("constructionList");
 
-    console.error(error);
+  if(!construction.length){
+
+    box.innerHTML=
+      `<div class="empty">
+        No construction updates yet.
+      </div>`;
 
     return;
 
   }
 
-
-  $("constructionList").innerHTML=
-    data?.length
-    ?
-    data
-    .map(
-      update=>`
+  box.innerHTML=
+    construction
+      .slice()
+      .reverse()
+      .map(
+        item=>`
 
         <div class="feed">
 
@@ -3182,521 +2029,222 @@ async function loadConstruction(){
           <br>
 
           <small>
-            ${escapeHTML(
-              update.body
-            )}
+            ${escapeHTML(item)}
           </small>
 
         </div>
 
-      `
-    )
-    .join("")
-    :
-    `<div class="empty">
-      No construction updates yet.
-    </div>`;
+        `
+      ).join("");
+
+}
+
+$("postConstruction").addEventListener(
+  "click",
+  ()=>{
+
+    const input=
+      $("constructionInput");
+
+    const text=
+      input.value.trim();
+
+    if(!text){
+
+      toast("Write an update first.");
+      return;
+
+    }
+
+    construction.push(text);
+
+    input.value="";
+
+    renderConstruction();
+
+    toast("Construction update posted.");
+
+  }
+);
+
+
+/* =========================================================
+   MEMBER / LOCKER DISPLAY
+========================================================= */
+
+function renderMembers(){
+
+  $("oMembers").textContent=0;
+  $("oActive").textContent=0;
+
+  $("wallMembers").textContent=0;
+  $("wallActive").textContent=0;
+
+  $("memberBig").textContent=0;
+  $("activeBig").textContent=0;
+  $("badgesBig").textContent=0;
+
+  $("userCount").textContent=0;
+  $("totalRespect").textContent=0;
+  $("totalDisrespect").textContent=0;
+  $("totalBadges").textContent=0;
+
+  $("position").textContent=
+    "ROOM VIEW • LIVE LOUNGE";
 
 }
 
 
-$("postConstruction").onclick=
-  async()=>{
-
-    if(!ownerGuard()){
-      return;
-    }
-
-    const body=
-      $("constructionInput")
-        .value
-        .trim();
-
-    if(!body){
-
-      toast(
-        "Write an update first."
-      );
-
-      return;
-
-    }
-
-
-    const {
-      error
-    } =
-    await supabaseClient
-      .from(
-        "lounge_construction_updates"
-      )
-      .insert({
-
-        body,
-
-        created_by:
-          currentUser.id
-
-      });
-
-
-    if(error){
-
-      console.error(error);
-
-      toast(
-        "Construction post was denied."
-      );
-
-      return;
-
-    }
-
-
-    $("constructionInput").value="";
-
-    toast(
-      "🚧 Construction update posted."
-    );
-
-    loadConstruction();
-
-  };
-
-
 /* =========================================================
-   GIVEAWAYS
+   HERITAGE UNITS
 ========================================================= */
 
-async function loadGiveaway(){
+async function loadHeritage(){
 
-  const {
-    data,
-    error
-  } =
-  await supabaseClient
-    .from("lounge_giveaways")
-    .select(`
-      id,
-      prize,
-      details,
-      value,
-      is_open,
-      created_at
-    `)
-    .eq(
-      "is_open",
-      true
-    )
-    .order(
-      "created_at",
-      {ascending:false}
-    )
-    .limit(1);
+  /*
+    Important:
+    The browser cannot safely scrape HeritageUnits.com
+    directly because of cross-origin restrictions.
 
+    This card therefore does NOT invent reports.
 
-  if(error){
+    Your production version should have a server-side
+    importer/API endpoint feeding the verified reports
+    into Supabase.
+  */
 
-    console.error(error);
-
-    return;
-
-  }
-
-
-  const giveaway=
-    data?.[0];
-
-
-  if(!giveaway){
-
-    $("giveawayBox").innerHTML=
-      `<div class="empty">
-        No active giveaway.
-      </div>`;
-
-    return;
-
-  }
-
-
-  $("giveawayBox").innerHTML=`
+  $("heritageList").innerHTML=`
 
     <div class="feed">
 
-      <b>
-        🎁
-        ${escapeHTML(
-          giveaway.prize
-        )}
+      <b class="gold">
+        No imported verified reports yet.
       </b>
 
       <br>
 
       <small>
-        Value:
-        $${Number(
-          giveaway.value||0
-        ).toLocaleString()}
+        The official public HeritageUnits source is ready
+        to be connected through the server-side importer.
       </small>
-
-      <br>
-
-      <small>
-        ${escapeHTML(
-          giveaway.details||""
-        )}
-      </small>
-
-      <br>
-
-      <button
-      class="btn green"
-      id="enterGiveaway">
-        Enter Giveaway
-      </button>
 
     </div>
 
   `;
 
+}
 
-  $("enterGiveaway").onclick=
-    async()=>{
+$("heritageButton").addEventListener(
+  "click",
+  ()=>{
+    window.open(
+      "https://www.heritageunits.com/",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  }
+);
 
-      if(!currentUser){
-
-        toast(
-          "Sign in to enter."
-        );
-
-        return;
-
-      }
-
-      const {
-        error
-      } =
-      await supabaseClient
-        .from(
-          "lounge_giveaway_entries"
-        )
-        .insert({
-
-          giveaway_id:
-            giveaway.id,
-
-          user_id:
-            currentUser.id
-
-        });
+$("refreshHeritage").addEventListener(
+  "click",
+  async ()=>{
+    await loadHeritage();
+    toast("Heritage report feed refreshed.");
+  }
+);
 
 
-      if(error){
+/* =========================================================
+   GIVEAWAY
+========================================================= */
 
-        toast(
-          "Entry failed or already exists."
-        );
+let giveaway={
+  prize:"",
+  entries:0
+};
 
-        return;
+function renderGiveaway(){
 
-      }
+  $("giveawayPrize").innerHTML=
+    giveaway.prize
+      ? `<b>${escapeHTML(giveaway.prize)}</b>`
+      : `<small>No active giveaway yet.</small>`;
 
-      toast(
-        "🎟️ Giveaway entry recorded."
-      );
+  $("giveawayCount").textContent=
+    giveaway.prize ? "1":"0";
 
-    };
+  $("entryCount").textContent=
+    giveaway.entries;
 
 }
 
-
-$("createGiveaway").onclick=
-  async()=>{
-
-    if(!ownerGuard()){
-      return;
-    }
+$("createGiveaway").addEventListener(
+  "click",
+  ()=>{
 
     const prize=
-      $("givePrize")
-        .value
-        .trim();
-
-    const value=
-      Number(
-        $("giveValue").value||0
-      );
-
-    const details=
-      $("giveDetails")
-        .value
-        .trim();
-
+      $("giveawayPrizeInput").value.trim();
 
     if(!prize){
 
-      toast(
-        "Enter a prize."
-      );
-
+      toast("Enter a prize first.");
       return;
 
     }
 
+    giveaway.prize=prize;
 
-    const {
-      error
-    } =
-    await supabaseClient
-      .from(
-        "lounge_giveaways"
-      )
-      .insert({
+    $("giveawayPrizeInput").value="";
 
-        prize,
+    renderGiveaway();
 
-        value,
+    toast("Giveaway created.");
 
-        details,
+  }
+);
 
-        is_open:true,
+$("enterGiveaway").addEventListener(
+  "click",
+  ()=>{
 
-        created_by:
-          currentUser.id
+    if(!giveaway.prize){
 
-      });
-
-
-    if(error){
-
-      console.error(error);
-
-      toast(
-        "Giveaway creation was denied."
-      );
-
+      toast("There is no active giveaway.");
       return;
 
     }
 
+    giveaway.entries++;
 
-    $("givePrize").value="";
-    $("giveValue").value="";
-    $("giveDetails").value="";
+    renderGiveaway();
 
+    toast("Giveaway entry recorded.");
 
-    toast(
-      "🎁 Giveaway is LIVE."
-    );
-
-    loadGiveaway();
-
-  };
+  }
+);
 
 
 /* =========================================================
-   REPORTS
+   DESK
 ========================================================= */
 
-async function loadReports(){
-
-  const {
-    data,
-    error
-  } =
-  await supabaseClient
-    .from(
-      "lounge_reports"
-    )
-    .select(`
-      report_type,
-      subject,
-      details,
-      created_at
-    `)
-    .order(
-      "created_at",
-      {ascending:false}
-    )
-    .limit(20);
-
-
-  if(error){
-
-    console.error(error);
-
-    return;
-
+$("privateMessage").addEventListener(
+  "pointerdown",
+  event=>{
+    event.stopPropagation();
   }
+);
 
-
-  $("ownerReports").textContent=
-    data?.length||0;
-
-  $("wallReports").textContent=
-    data?.length||0;
-
-
-  $("reportList").innerHTML=
-    data?.length
-    ?
-    data
-    .map(
-      report=>`
-
-        <div class="feed">
-
-          <b>
-
-            ${
-              report.report_type===
-              "respect"
-              ?
-              "🟢 Respect"
-              :
-              "🔴 Disrespect"
-            }
-
-          </b>
-
-          <br>
-
-          <small>
-            ${escapeHTML(
-              report.subject
-            )}
-          </small>
-
-          <br>
-
-          <small>
-            ${escapeHTML(
-              report.details||""
-            )}
-          </small>
-
-        </div>
-
-      `
-    )
-    .join("")
-    :
-    `<div class="empty">
-      No reports yet.
-    </div>`;
-
-}
-
-
-async function submitReport(
-  type
-){
-
-  if(!currentUser){
-
-    toast(
-      "Sign in first."
-    );
-
-    return;
-
+$("privateMessage").addEventListener(
+  "keydown",
+  event=>{
+    event.stopPropagation();
   }
+);
 
-
-  const subject=
-    prompt(
-      type==="respect"
-      ?
-      "Who or what deserves respect?"
-      :
-      "Who or what needs a report?"
-    );
-
-
-  if(!subject){
-    return;
-  }
-
-
-  const details=
-    prompt(
-      "Details?",
-      ""
-    )||"";
-
-
-  const {
-    error
-  } =
-  await supabaseClient
-    .from(
-      "lounge_reports"
-    )
-    .insert({
-
-      reporter_id:
-        currentUser.id,
-
-      report_type:
-        type,
-
-      subject,
-
-      details
-
-    });
-
-
-  if(error){
-
-    console.error(error);
-
-    toast(
-      "Report could not be sent."
-    );
-
-    return;
-
-  }
-
-
-  toast(
-    "Report sent."
-  );
-
-  loadReports();
-
-}
-
-
-$("respectReport").onclick=
-  ()=>submitReport(
-    "respect"
-  );
-
-$("disrespectReport").onclick=
-  ()=>submitReport(
-    "disrespect"
-  );
-
-
-/* =========================================================
-   PRIVATE DESK
-========================================================= */
-
-$("sendPrivate").onclick=
-  async()=>{
-
-    if(!currentUser){
-
-      toast(
-        "Sign in first."
-      );
-
-      return;
-
-    }
+$("sendPrivate").addEventListener(
+  "click",
+  ()=>{
 
     const message=
       $("privateMessage")
@@ -3705,606 +2253,49 @@ $("sendPrivate").onclick=
 
     if(!message){
 
-      toast(
-        "Write a message first."
-      );
-
+      toast("Write a private message first.");
       return;
 
     }
-
-
-    const {
-      error
-    } =
-    await supabaseClient
-      .from(
-        "lounge_private_messages"
-      )
-      .insert({
-
-        sender_id:
-          currentUser.id,
-
-        message
-
-      });
-
-
-    if(error){
-
-      console.error(error);
-
-      toast(
-        "Private message could not be sent."
-      );
-
-      return;
-
-    }
-
 
     $("privateMessage").value="";
 
     toast(
-      "📱 Private message sent."
+      "Private message submitted."
     );
 
-  };
+  }
+);
 
-
-$("neededButton").onclick=
+$("respectReport").addEventListener(
+  "click",
   ()=>{
 
     toast(
-      "The future notification service is not active yet."
+      "Respect report opened."
     );
 
-  };
-
-
-/* =========================================================
-   SUGGESTIONS
-========================================================= */
-
-async function loadSuggestions(){
-
-  const {
-    data,
-    error
-  } =
-  await supabaseClient
-    .from(
-      "lounge_suggestions"
-    )
-    .select(
-      "body,created_at"
-    )
-    .order(
-      "created_at",
-      {ascending:false}
-    )
-    .limit(12);
-
-
-  if(error){
-
-    console.error(error);
-
-    return;
-
   }
+);
 
-
-  $("suggestionList").innerHTML=
-    data?.length
-    ?
-    data
-    .map(
-      suggestion=>`
-
-        <div class="idea">
-
-          <b>
-            💡 Society Member
-          </b>
-
-          <br>
-
-          <small>
-            ${escapeHTML(
-              suggestion.body
-            )}
-          </small>
-
-        </div>
-
-      `
-    )
-    .join("")
-    :
-    `<div class="empty">
-      No suggestions yet.
-    </div>`;
-
-}
-
-
-$("submitSuggestion").onclick=
-  async()=>{
-
-    if(!currentUser){
-
-      toast(
-        "Sign in first."
-      );
-
-      return;
-
-    }
-
-
-    const body=
-      $("suggestionInput")
-        .value
-        .trim();
-
-    if(!body){
-
-      toast(
-        "Write an idea first."
-      );
-
-      return;
-
-    }
-
-
-    const {
-      error
-    } =
-    await supabaseClient
-      .from(
-        "lounge_suggestions"
-      )
-      .insert({
-
-        user_id:
-          currentUser.id,
-
-        body
-
-      });
-
-
-    if(error){
-
-      console.error(error);
-
-      toast(
-        "Suggestion could not be sent."
-      );
-
-      return;
-
-    }
-
-
-    $("suggestionInput").value="";
-
-    toast(
-      "💡 Suggestion submitted."
-    );
-
-    loadSuggestions();
-
-  };
-
-
-/* =========================================================
-   REWARD
-========================================================= */
-
-function renderReward(
-  profile,
-  badges
-){
-
-  const name=
-    profile.display_name||
-    profile.username||
-    "Member";
-
-
-  $("myReward").innerHTML=`
-
-    <div class="feed">
-
-      <b
-      class="${
-        profile.is_owner
-        ?
-        "owner-name"
-        :
-        ""
-      }">
-
-        ${
-          profile.is_owner
-          ?
-          "👑 "
-          :
-          "👤 "
-        }
-
-        ${escapeHTML(name)}
-
-      </b>
-
-      <br>
-
-      <small>
-
-        ⭐
-        ${Number(
-          profile.respect_points||0
-        )}
-
-        respect
-
-        •
-
-        🚫
-        ${Number(
-          profile.disrespect_points||0
-        )}
-
-        disrespect
-
-      </small>
-
-    </div>
-
-    ${
-      badges.length
-      ?
-      badges
-      .map(
-        badge=>`
-
-          <span class="badge">
-
-            ${escapeHTML(
-              badge.icon
-            )}
-
-            ${escapeHTML(
-              badge.name
-            )}
-
-          </span>
-
-        `
-      )
-      .join("")
-      :
-      `<small>
-        No badges earned yet.
-      </small>`
-    }
-
-  `;
-
-}
-
-
-/* =========================================================
-   HERITAGE REPORT DATABASE
-========================================================= */
-
-async function loadHeritageReports(){
-
-  const {
-    data,
-    error
-  } =
-  await supabaseClient
-    .from(
-      "lounge_heritage_reports"
-    )
-    .select(`
-      locomotive,
-      railroad,
-      location,
-      train_symbol,
-      direction,
-      reported_at,
-      source_url,
-      source_name
-    `)
-    .order(
-      "reported_at",
-      {ascending:false}
-    )
-    .limit(10);
-
-
-  if(error){
-
-    console.error(error);
-
-    $("heritageReports").innerHTML=
-      `<div class="empty">
-        Heritage report database unavailable.
-      </div>`;
-
-    return;
-
-  }
-
-
-  if(!data?.length){
-
-    $("heritageReports").innerHTML=
-      `<div class="empty">
-
-        No imported verified reports yet.
-
-        <br><br>
-
-        <small>
-          The Lounge will never manufacture a sighting.
-          The official HeritageUnits feed is shown below.
-
-        </small>
-
-      </div>`;
-
-    return;
-
-  }
-
-
-  $("heritageReports").innerHTML=
-    data
-    .map(
-      report=>`
-
-        <div class="feed">
-
-          <b>
-            🚂
-            ${escapeHTML(
-              report.locomotive
-            )}
-          </b>
-
-          <br>
-
-          <small>
-
-            ${escapeHTML(
-              report.railroad||""
-            )}
-
-            •
-            ${escapeHTML(
-              report.location||""
-            )}
-
-          </small>
-
-          <br>
-
-          <small>
-
-            ${
-              report.train_symbol
-              ?
-              "Train: "+
-              escapeHTML(
-                report.train_symbol
-              )
-              :
-              ""
-            }
-
-            ${
-              report.direction
-              ?
-              " • "+
-              escapeHTML(
-                report.direction
-              )
-              :
-              ""
-            }
-
-          </small>
-
-          <br>
-
-          <small>
-
-            ${
-              report.reported_at
-              ?
-              new Date(
-                report.reported_at
-              ).toLocaleString()
-              :
-              ""
-            }
-
-            ${
-              report.source_name
-              ?
-              " • "+
-              escapeHTML(
-                report.source_name
-              )
-              :
-              ""
-            }
-
-          </small>
-
-        </div>
-
-      `
-    )
-    .join("");
-
-}
-
-
-/* =========================================================
-   REALTIME
-========================================================= */
-
-function startRealtime(){
-
-  supabaseClient
-    .channel(
-      "trainsforever-lounge-live"
-    )
-
-    .on(
-      "postgres_changes",
-      {
-        event:"*",
-        schema:"public",
-        table:"lounge_chat_messages"
-      },
-      loadChat
-    )
-
-    .on(
-      "postgres_changes",
-      {
-        event:"*",
-        schema:"public",
-        table:"lounge_polls"
-      },
-      loadPolls
-    )
-
-    .on(
-      "postgres_changes",
-      {
-        event:"*",
-        schema:"public",
-        table:"lounge_poll_options"
-      },
-      loadPolls
-    )
-
-    .on(
-      "postgres_changes",
-      {
-        event:"*",
-        schema:"public",
-        table:"lounge_events"
-      },
-      loadEvents
-    )
-
-    .on(
-      "postgres_changes",
-      {
-        event:"*",
-        schema:"public",
-        table:"lounge_construction_updates"
-      },
-      loadConstruction
-    )
-
-    .on(
-      "postgres_changes",
-      {
-        event:"*",
-        schema:"public",
-        table:"lounge_giveaways"
-      },
-      loadGiveaway
-    )
-
-    .on(
-      "postgres_changes",
-      {
-        event:"*",
-        schema:"public",
-        table:"profiles"
-      },
-      loadMembers
-    )
-
-    .subscribe(
-      status=>{
-
-        if(
-          status==="SUBSCRIBED"
-        ){
-
-          $("backendStatus").textContent=
-            "🟢 LIVE — Supabase connected";
-
-          $("chatStatus").textContent=
-            "🟢 LIVE Society Chat";
-
-        }
-
-      }
-    );
-
-}
-
-
-/* =========================================================
-   HERITAGE BUTTONS
-========================================================= */
-
-$("openHeritage").onclick=
+$("disrespectReport").addEventListener(
+  "click",
   ()=>{
 
-    window.open(
-      "https://www.heritageunits.com/Main/Latest",
-      "_blank",
-      "noopener,noreferrer"
-    );
-
-  };
-
-
-$("refreshHeritage").onclick=
-  ()=>{
-
-    loadHeritageReports();
-
-    const frame=
-      document.querySelector(
-        ".heritage-frame iframe"
-      );
-
-    if(frame){
-
-      frame.src=
-        frame.src;
-
-    }
-
     toast(
-      "🚂 Heritage feed refreshed."
+      "Disrespect report opened."
     );
 
-  };
+  }
+);
 
 
 /* =========================================================
    OWNER PANEL
 ========================================================= */
 
-$("ownerButton").onclick=
+$("ownerButton").addEventListener(
+  "click",
   event=>{
 
     event.stopPropagation();
@@ -4313,20 +2304,16 @@ $("ownerButton").onclick=
       .classList
       .toggle("open");
 
-  };
-
+  }
+);
 
 document.addEventListener(
   "pointerdown",
   event=>{
 
     if(
-      !$("ownerPanel")
-        .contains(
-          event.target
-        ) &&
-      event.target!==
-      $("ownerButton")
+      !$("ownerPanel").contains(event.target) &&
+      event.target!==$("ownerButton")
     ){
 
       $("ownerPanel")
@@ -4340,14 +2327,12 @@ document.addEventListener(
 
 
 /* =========================================================
-   CAMERA + PINCH ZOOM
+   CAMERA
 ========================================================= */
 
-const viewport=
-  $("viewport");
-
-const stage=
-  $("stage");
+const viewport=$("viewport");
+const stage=$("stage");
+const hint=$("hint");
 
 let cameraX=0;
 let cameraY=0;
@@ -4363,7 +2348,6 @@ let startCameraY=0;
 
 let lastPointerX=0;
 let lastPointerY=0;
-
 let lastPointerTime=0;
 
 let velocityX=0;
@@ -4371,89 +2355,70 @@ let velocityY=0;
 
 let animationFrame=null;
 
+
+/* =========================================================
+   ZOOM
+========================================================= */
+
 let zoom=1;
 
-const BASE_ZOOM=.82;
+const BASE_ZOOM=.92;
+const MIN_ZOOM=.70;
+const MAX_ZOOM=1.45;
 
-const MIN_ZOOM=.58;
-
-const MAX_ZOOM=1.40;
-
-const pointers=
-  new Map();
+const pointers=new Map();
 
 let pinchActive=false;
-
-let pinchDistance=0;
-
-let pinchZoom=1;
+let pinchStartDistance=0;
+let pinchStartZoom=1;
 
 
-function clamp(
-  value,
-  min,
-  max
-){
+function cameraBounds(){
+
+  const scaledW=
+    stage.offsetWidth*
+    BASE_ZOOM*
+    zoom;
+
+  const scaledH=
+    stage.offsetHeight*
+    BASE_ZOOM*
+    zoom;
+
+  const screenW=
+    viewport.clientWidth;
+
+  const screenH=
+    viewport.clientHeight;
+
+  const minX=
+    -(scaledW-screenW)/2-40;
+
+  const maxX=
+    (scaledW-screenW)/2+40;
+
+  const minY=
+    -(scaledH-screenH)/2-40;
+
+  const maxY=
+    (scaledH-screenH)/2+40;
+
+  return{
+    minX,
+    maxX,
+    minY,
+    maxY
+  };
+
+}
+
+
+function clamp(value,min,max){
 
   return Math.max(
     min,
     Math.min(max,value)
   );
-
-}
-
-
-function cameraBounds(){
-
-  const scaledWidth=
-    stage.offsetWidth*
-    BASE_ZOOM*
-    zoom;
-
-  const scaledHeight=
-    stage.offsetHeight*
-    BASE_ZOOM*
-    zoom;
-
-  return {
-
-    minX:
-      -Math.max(
-        0,
-        (
-          scaledWidth-
-          viewport.clientWidth
-        )/2+120
-      ),
-
-    maxX:
-      Math.max(
-        0,
-        (
-          scaledWidth-
-          viewport.clientWidth
-        )/2+120
-      ),
-
-    minY:
-      -Math.max(
-        0,
-        (
-          scaledHeight-
-          viewport.clientHeight
-        )/2+120
-      ),
-
-    maxY:
-      Math.max(
-        0,
-        (
-          scaledHeight-
-          viewport.clientHeight
-        )/2+120
-      )
-
-  };
 
 }
 
@@ -4477,45 +2442,22 @@ function renderCamera(){
       bounds.maxY
     );
 
-
   stage.style.transform=
-    `
-      translate3d(
-        ${cameraX}px,
-        ${cameraY}px,
-        0
-      )
+    `translate3d(
+      ${cameraX}px,
+      ${cameraY}px,
+      0
+    ) scale(${BASE_ZOOM*zoom})`;
 
-      scale(
-        ${BASE_ZOOM*zoom}
-      )
-    `;
-
-
-  $("zoomReadout")
-    .textContent=
-      "ZOOM "+
-      Math.round(
-        BASE_ZOOM*
-        zoom*
-        100
-      )+
-      "%";
-
-
-  $("position")
-    .textContent=
-      "ROOM VIEW • "+
-      Math.round(cameraX)+
-      " • "+
-      Math.round(cameraY);
+  stage.style.transformOrigin=
+    "center center";
 
 }
 
 
 function stopInertia(){
 
-  if(animationFrame){
+  if(animationFrame!==null){
 
     cancelAnimationFrame(
       animationFrame
@@ -4535,20 +2477,18 @@ function startInertia(){
 
   stopInertia();
 
-
   function step(){
 
     velocityX*=.965;
-
     velocityY*=.965;
 
-
-    if(
+    const speed=
       Math.hypot(
         velocityX,
         velocityY
-      )<.025
-    ){
+      );
+
+    if(speed<.025){
 
       animationFrame=null;
 
@@ -4556,36 +2496,23 @@ function startInertia(){
 
     }
 
-
-    cameraX+=
-      velocityX;
-
-    cameraY+=
-      velocityY;
-
+    cameraX+=velocityX;
+    cameraY+=velocityY;
 
     renderCamera();
 
-
     animationFrame=
-      requestAnimationFrame(
-        step
-      );
+      requestAnimationFrame(step);
 
   }
 
-
   animationFrame=
-    requestAnimationFrame(
-      step
-    );
+    requestAnimationFrame(step);
 
 }
 
 
-function interactiveElement(
-  element
-){
+function interactiveElement(element){
 
   return element.closest(
     "input,textarea,button,a,select,label"
@@ -4594,10 +2521,7 @@ function interactiveElement(
 }
 
 
-function pointerDistance(
-  a,
-  b
-){
+function pointerDistance(a,b){
 
   return Math.hypot(
     a.clientX-b.clientX,
@@ -4607,7 +2531,9 @@ function pointerDistance(
 }
 
 
-/* POINTER DOWN */
+/* =========================================================
+   POINTER DOWN
+========================================================= */
 
 viewport.addEventListener(
   "pointerdown",
@@ -4618,10 +2544,7 @@ viewport.addEventListener(
       event
     );
 
-
-    if(
-      pointers.size===2
-    ){
+    if(pointers.size===2){
 
       stopInertia();
 
@@ -4632,35 +2555,29 @@ viewport.addEventListener(
       const pair=
         [...pointers.values()];
 
-      pinchDistance=
+      pinchStartDistance=
         pointerDistance(
           pair[0],
           pair[1]
         );
 
-      pinchZoom=
-        zoom;
+      pinchStartZoom=zoom;
 
       return;
 
     }
 
-
     if(
-      interactiveElement(
-        event.target
-      )
+      interactiveElement(event.target)
     ){
 
       return;
 
     }
 
-
     stopInertia();
 
     dragging=true;
-
     moved=false;
 
     startPointerX=
@@ -4688,20 +2605,28 @@ viewport.addEventListener(
       "dragging"
     );
 
+    try{
+
+      viewport.setPointerCapture(
+        event.pointerId
+      );
+
+    }catch(_){}
+
   }
 );
 
 
-/* POINTER MOVE */
+/* =========================================================
+   POINTER MOVE
+========================================================= */
 
 viewport.addEventListener(
   "pointermove",
   event=>{
 
     if(
-      pointers.has(
-        event.pointerId
-      )
+      pointers.has(event.pointerId)
     ){
 
       pointers.set(
@@ -4711,10 +2636,7 @@ viewport.addEventListener(
 
     }
 
-
-    if(
-      pointers.size>=2
-    ){
+    if(pointers.size>=2){
 
       const pair=
         [...pointers.values()];
@@ -4725,21 +2647,16 @@ viewport.addEventListener(
           pair[1]
         );
 
-
-      if(
-        pinchDistance>0
-      ){
+      if(pinchStartDistance>0){
 
         zoom=
           clamp(
-            pinchZoom*
+            pinchStartZoom*
             (
               distance/
-              pinchDistance
+              pinchStartDistance
             ),
-
             MIN_ZOOM,
-
             MAX_ZOOM
           );
 
@@ -4751,22 +2668,17 @@ viewport.addEventListener(
 
     }
 
-
     if(!dragging){
 
       return;
 
     }
 
-
     const dx=
-      event.clientX-
-      startPointerX;
+      event.clientX-startPointerX;
 
     const dy=
-      event.clientY-
-      startPointerY;
-
+      event.clientY-startPointerY;
 
     if(
       Math.abs(dx)>4||
@@ -4777,7 +2689,6 @@ viewport.addEventListener(
 
     }
 
-
     const now=
       performance.now();
 
@@ -4787,22 +2698,13 @@ viewport.addEventListener(
         now-lastPointerTime
       );
 
-
     const instantX=
-      (
-        event.clientX-
-        lastPointerX
-      )/
+      (event.clientX-lastPointerX)/
       (dt/16.67);
-
 
     const instantY=
-      (
-        event.clientY-
-        lastPointerY
-      )/
+      (event.clientY-lastPointerY)/
       (dt/16.67);
-
 
     velocityX=
       velocityX*.72+
@@ -4811,7 +2713,6 @@ viewport.addEventListener(
     velocityY=
       velocityY*.72+
       instantY*.28;
-
 
     lastPointerX=
       event.clientX;
@@ -4822,15 +2723,11 @@ viewport.addEventListener(
     lastPointerTime=
       now;
 
-
     cameraX=
-      startCameraX+
-      dx;
+      startCameraX+dx;
 
     cameraY=
-      startCameraY+
-      dy;
-
+      startCameraY+dy;
 
     renderCamera();
 
@@ -4838,110 +2735,81 @@ viewport.addEventListener(
 );
 
 
-/* POINTER UP */
-
-function endPointer(
-  event
-){
-
-  pointers.delete(
-    event.pointerId
-  );
-
-
-  if(
-    pinchActive
-  ){
-
-    if(
-      pointers.size<2
-    ){
-
-      pinchActive=false;
-
-      pinchDistance=0;
-
-    }
-
-    return;
-
-  }
-
-
-  if(!dragging){
-
-    return;
-
-  }
-
-
-  dragging=false;
-
-  viewport.classList.remove(
-    "dragging"
-  );
-
-
-  if(moved){
-
-    velocityX*=1.4;
-
-    velocityY*=1.4;
-
-    startInertia();
-
-  }
-
-}
-
+/* =========================================================
+   POINTER UP
+========================================================= */
 
 viewport.addEventListener(
   "pointerup",
-  endPointer
+  event=>{
+
+    pointers.delete(
+      event.pointerId
+    );
+
+    if(pinchActive){
+
+      if(pointers.size<2){
+
+        pinchActive=false;
+
+        pinchStartDistance=0;
+
+      }
+
+      return;
+
+    }
+
+    if(!dragging){
+
+      return;
+
+    }
+
+    dragging=false;
+
+    viewport.classList.remove(
+      "dragging"
+    );
+
+    if(moved){
+
+      velocityX*=1.35;
+      velocityY*=1.35;
+
+      startInertia();
+
+    }
+
+  }
 );
+
+
+/* =========================================================
+   POINTER CANCEL
+========================================================= */
 
 viewport.addEventListener(
   "pointercancel",
-  endPointer
+  event=>{
+
+    pointers.delete(
+      event.pointerId
+    );
+
+    pinchActive=false;
+    pinchStartDistance=0;
+
+    dragging=false;
+
+    viewport.classList.remove(
+      "dragging"
+    );
+
+  }
 );
 
-function tightenRoom(){
-
-  const cards =
-    [...document.querySelectorAll("#stage > .card")];
-
-  const centerX = 2150;
-  const centerY = 1500;
-
-  const compression = 0.62;
-
-  cards.forEach(card=>{
-
-    const left =
-      parseFloat(card.style.left) || 0;
-
-    const top =
-      parseFloat(card.style.top) || 0;
-
-    const newLeft =
-      centerX +
-      (left-centerX) *
-      compression;
-
-    const newTop =
-      centerY +
-      (top-centerY) *
-      compression;
-
-    card.style.left =
-      newLeft + "px";
-
-    card.style.top =
-      newTop + "px";
-
-  });
-
-}
 
 /* =========================================================
    RESIZE
@@ -4959,57 +2827,34 @@ window.addEventListener(
 
 async function startup(){
 
-  tightenRoom();
-
   await loadUser();
 
+  $("ownerStatus").textContent=
+    currentUser
+      ? "🟢 Signed in"
+      : "⚪ Not signed in";
 
-  await Promise.all([
-
-    loadMembers(),
-
-    loadChat(),
-
-    loadPolls(),
-
-    loadEvents(),
-
-    loadConstruction(),
-
-    loadGiveaway(),
-
-    loadReports(),
-
-    loadSuggestions(),
-
-    loadHeritageReports()
-
-  ]);
-
+  await loadChat();
 
   startRealtime();
 
+  renderPolls();
+  renderEvents();
+  renderConstruction();
+  renderMembers();
+  renderGiveaway();
+  loadHeritage();
 
   renderCamera();
 
-
-  setInterval(
-    updatePresence,
-    60000
-  );
-
-
   setTimeout(
     ()=>{
-      $("hint")
-        .classList
-        .add("hide");
+      hint.classList.add("hide");
     },
-    8000
+    7000
   );
 
 }
-
 
 startup();
 
