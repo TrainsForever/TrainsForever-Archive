@@ -4905,7 +4905,58 @@ viewport.addEventListener(
   endPointer
 );
 
+/* =========================================================
+   TIGHT ROOM LAYOUT
+   Compresses every card toward the center without
+   changing the cards themselves or their functionality.
+========================================================= */
 
+function tightenRoom(){
+
+  const cards =
+    [...document.querySelectorAll("#stage > .card")];
+
+  const centerX = 2150;
+  const centerY = 1500;
+
+  /*
+    0.62 = much tighter room
+    0.70 = moderately tighter
+    0.55 = very compact
+
+    0.62 gives us a good "lounge" feeling without
+    making everything overlap.
+  */
+
+  const compression = 0.62;
+
+  cards.forEach(card=>{
+
+    const left =
+      parseFloat(card.style.left) || 0;
+
+    const top =
+      parseFloat(card.style.top) || 0;
+
+    const newLeft =
+      centerX +
+      (left-centerX) *
+      compression;
+
+    const newTop =
+      centerY +
+      (top-centerY) *
+      compression;
+
+    card.style.left =
+      newLeft + "px";
+
+    card.style.top =
+      newTop + "px";
+
+  });
+
+}
 /* =========================================================
    ROOM NAVIGATION
 ========================================================= */
@@ -4977,9 +5028,9 @@ window.addEventListener(
 
 async function startup(){
 
-  await loadUser();
+  tightenRoom();
 
-  await updatePresence();
+  await loadUser();
 
 
   await Promise.all([
