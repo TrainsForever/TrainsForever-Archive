@@ -265,6 +265,19 @@ small{
   color:#ff9b9b;
 }
 
+.poll-voted{
+  opacity:.72;
+}
+
+.poll-vote-btn:disabled{
+  cursor:not-allowed;
+  opacity:.55;
+}
+
+.poll-delete{
+  margin-top:8px;
+}
+
 .input,
 .textarea,
 .select{
@@ -1167,7 +1180,9 @@ No member profiles yet.
 </section>
 
 
-<!-- EVENTS -->
+<!-- =======================================================
+     EVENTS
+======================================================= -->
 
 <section
 class="card"
@@ -1543,7 +1558,6 @@ async function loadUser(){
   }catch(error){
 
     console.warn(error);
-
     return null;
 
   }
@@ -1680,6 +1694,7 @@ $("sendChat").addEventListener(
   sendChat
 );
 
+
 $("chatInput").addEventListener(
   "keydown",
   event=>{
@@ -1732,13 +1747,146 @@ function startRealtime(){
     );
 
 }
-
-
-/* =========================================================
-   SIMPLE POLLS
+  /* =========================================================
+   REAL SUPABASE POLLS
 ========================================================= */
 
 let localPolls=[];
+let isLoungeOwner=false;
+
+
+async function checkLoungeOwner(){
+
+  try{
+
+    const {data,error} =
+      await supabaseClient.rpc("is_lounge_owner");
+
+    if(error){
+
+      console.warn(error);
+      isLoungeOwner=false;
+
+    }else{
+
+      isLoungeOwner=Boolean(data);
+
+    }
+
+  }catch(error){
+
+    console.warn(error);
+    isLoungeOwner=false;
+
+  }
+
+  const creator=$("createPoll").closest(".owner-controls");
+
+  if(creator){
+    creator.style.display=
+      isLoungeOwner ? "" : "none";
+  }
+
+}
+
+
+async function loadPolls(){
+
+  const box=$("pollList");
+
+  box.innerHTML=
+    `<div class="empty">
+      Loading live polls…
+    </div>`;
+
+  const {
+    data,
+    error
+  } =
+    await supabaseClient
+      .from("lounge_polls")
+      .select(`
+        id,
+        question,
+        created_at,
+        is_open,
+        lounge_poll_options(
+          id,
+          option_text,
+          vote_count
+        )
+      `)
+      .eq("is_open",true)
+      .order("created_at",{ascending:false});
+
+  if(error){
+
+    console.error(error);
+
+    box.innerHTML=
+      `<div class="empty">
+        Unable to load live polls.
+      </div>`;
+
+    return;
+
+  }
+
+  let myVotes=[];
+
+  if(currentUser){
+
+    const {
+      data:votes,
+      error:voteError
+    } =
+      await supabaseClient
+        .from("lounge_poll_votes")
+        .select("poll_id,option_id")
+        .eq("user_id",currentUser.id);
+
+    if(!voteError){
+      myVotes=votes||[];
+    }
+
+  }
+
+  localPolls=(data||[]).map(
+    poll=>({
+
+      id:poll.id,
+
+      question:poll.question,
+
+      options:
+        (poll.lounge_poll_options||[])
+          .map(
+            option=>({
+
+              id:option.id,
+
+              text:option.option_text,
+
+              votes:
+                Number(
+                  option.vote_count||0
+                )
+
+            })
+          ),
+
+      myVote:
+        myVotes.find(
+          vote=>vote.poll_id===poll.id
+        )?.option_id||null
+
+    })
+  );
+
+  renderPolls();
+
+}
+
 
 function renderPolls(){
 
@@ -1757,81 +1905,279 @@ function renderPolls(){
 
   box.innerHTML=
     localPolls.map(
-      poll=>`
+      poll=>{
 
-      <div class="feed">
+        const voted=
+          Boolean(poll.myVote);
 
-        <b>
-          🗳️ ${escapeHTML(poll.question)}
-        </b>
+        return `
 
-        ${
-          poll.options.map(
-            (option,index)=>`
+          <div class="feed ${voted ? "poll-voted":""}">
 
-            <div class="choice">
+            <b>
+              🗳️
+              ${escapeHTML(poll.question)}
+            </b>
 
-              <span>
-                ${escapeHTML(option.text)}
-                <small>
-                  (${option.votes})
-                </small>
-              </span>
+            <br>
 
-              <button
-                class="btn"
-                onclick="votePoll(${poll.id},${index})">
-                Vote
-              </button>
+            <small>
 
-            </div>
+              ${
+                voted
 
-            `
-          ).join("")
-        }
+                  ? "You already voted — one vote per person."
 
-      </div>
+                  : currentUser
 
-      `
+                    ? "Choose one answer."
+
+                    : "Sign in to vote."
+
+              }
+
+            </small>
+
+            ${
+              poll.options.map(
+                option=>`
+
+                  <div class="choice">
+
+                    <span>
+
+                      ${escapeHTML(option.text)}
+
+                      <small>
+                        (${option.votes})
+                      </small>
+
+                    </span>
+
+                    <button
+                      class="btn poll-vote-btn"
+                      ${
+                        voted||!currentUser
+                          ? "disabled"
+                          : ""
+                      }
+                      onclick="
+                        votePoll(
+                          '${poll.id}',
+                          '${option.id}'
+                        )
+                      ">
+
+                      ${
+                        poll.myVote===option.id
+                          ? "✓ Voted"
+                          : "Vote"
+                      }
+
+                    </button>
+
+                  </div>
+
+                `
+              ).join("")
+            }
+
+            ${
+              isLoungeOwner
+
+                ? `
+
+                  <button
+                    class="btn red poll-delete"
+                    onclick="
+                      deletePoll('${poll.id}')
+                    ">
+
+                    🗑️ Delete Poll
+
+                  </button>
+
+                `
+
+                : ""
+
+            }
+
+          </div>
+
+        `;
+
+      }
     ).join("");
 
 }
 
-window.votePoll=function(
+
+window.votePoll=async function(
   pollId,
-  optionIndex
+  optionId
 ){
+
+  if(!currentUser){
+
+    toast(
+      "You must be signed in to vote."
+    );
+
+    return;
+
+  }
 
   const poll=
     localPolls.find(
       item=>item.id===pollId
     );
 
-  if(!poll) return;
+  if(!poll||poll.myVote){
 
-  poll.options[optionIndex].votes++;
+    toast(
+      "You already voted in this poll."
+    );
 
-  renderPolls();
+    return;
 
-  toast("Vote recorded.");
+  }
+
+  const {
+    error
+  } =
+    await supabaseClient
+      .from("lounge_poll_votes")
+      .insert({
+
+        poll_id:pollId,
+
+        option_id:optionId,
+
+        user_id:currentUser.id
+
+      });
+
+  if(error){
+
+    console.error(error);
+
+    if(error.code==="23505"){
+
+      toast(
+        "You already voted in this poll."
+      );
+
+    }else{
+
+      toast(
+        "Vote could not be recorded."
+      );
+
+    }
+
+    await loadPolls();
+
+    return;
+
+  }
+
+  toast(
+    "Vote recorded."
+  );
+
+  await loadPolls();
+
+};
+
+
+window.deletePoll=async function(
+  pollId
+){
+
+  if(!isLoungeOwner){
+
+    toast(
+      "Owner access required."
+    );
+
+    return;
+
+  }
+
+  if(
+    !confirm(
+      "Delete this poll for everyone?"
+    )
+  ){
+
+    return;
+
+  }
+
+  const {
+    error
+  } =
+    await supabaseClient
+      .from("lounge_polls")
+      .delete()
+      .eq("id",pollId);
+
+  if(error){
+
+    console.error(error);
+
+    toast(
+      "Poll could not be deleted."
+    );
+
+    return;
+
+  }
+
+  toast(
+    "Poll deleted."
+  );
+
+  await loadPolls();
 
 };
 
 
 $("createPoll").addEventListener(
   "click",
-  ()=>{
+  async ()=>{
+
+    if(!isLoungeOwner){
+
+      toast(
+        "Owner access required."
+      );
+
+      return;
+
+    }
 
     const question=
-      $("pollQuestion").value.trim();
+      $("pollQuestion")
+        .value
+        .trim();
 
     const one=
-      $("pollOption1").value.trim();
+      $("pollOption1")
+        .value
+        .trim();
 
     const two=
-      $("pollOption2").value.trim();
+      $("pollOption2")
+        .value
+        .trim();
 
-    if(!question||!one||!two){
+    if(
+      !question||
+      !one||
+      !two
+    ){
 
       toast(
         "Fill in the question and both options."
@@ -1841,32 +2187,95 @@ $("createPoll").addEventListener(
 
     }
 
-    localPolls.push({
+    if(!currentUser){
 
-      id:Date.now(),
+      toast(
+        "You must be signed in as Owner."
+      );
 
-      question,
+      return;
 
-      options:[
-        {
-          text:one,
-          votes:0
-        },
-        {
-          text:two,
-          votes:0
-        }
-      ]
+    }
 
-    });
+    const {
+      data:poll,
+      error:pollError
+    } =
+      await supabaseClient
+        .from("lounge_polls")
+        .insert({
+
+          question,
+
+          created_by:
+            currentUser.id
+
+        })
+        .select("id")
+        .single();
+
+    if(pollError){
+
+      console.error(pollError);
+
+      toast(
+        "Poll could not be created."
+      );
+
+      return;
+
+    }
+
+    const {
+      error:optionError
+    } =
+      await supabaseClient
+        .from("lounge_poll_options")
+        .insert([
+
+          {
+            poll_id:poll.id,
+
+            option_text:one
+          },
+
+          {
+            poll_id:poll.id,
+
+            option_text:two
+          }
+
+        ]);
+
+    if(optionError){
+
+      console.error(optionError);
+
+      await supabaseClient
+        .from("lounge_polls")
+        .delete()
+        .eq(
+          "id",
+          poll.id
+        );
+
+      toast(
+        "Poll options could not be created."
+      );
+
+      return;
+
+    }
 
     $("pollQuestion").value="";
     $("pollOption1").value="";
     $("pollOption2").value="";
 
-    renderPolls();
+    toast(
+      "Poll created."
+    );
 
-    toast("Poll created.");
+    await loadPolls();
 
   }
 );
@@ -1877,6 +2286,7 @@ $("createPoll").addEventListener(
 ========================================================= */
 
 let localEvents=[];
+
 
 function renderEvents(){
 
@@ -1900,50 +2310,65 @@ function renderEvents(){
       .map(
         event=>`
 
-        <div class="feed">
+          <div class="feed">
 
-          <b>
-            🎟️ ${escapeHTML(event.name)}
-          </b>
+            <b>
+              🎟️
+              ${escapeHTML(event.name)}
+            </b>
 
-          <br>
+            <br>
 
-          <small>
-            ${
-              event.date
-                ? escapeHTML(
-                    new Date(
-                      event.date
-                    ).toLocaleString()
-                  )
-                :"Date TBD"
-            }
-          </small>
+            <small>
 
-          <br>
+              ${
+                event.date
 
-          <small>
-            ${escapeHTML(event.details)}
-          </small>
+                  ? escapeHTML(
+                      new Date(
+                        event.date
+                      ).toLocaleString()
+                    )
 
-          <br><br>
+                  : "Date TBD"
 
-          <button
-            class="btn green"
-            onclick="rsvpEvent(${event.id})">
-            RSVP
-          </button>
+              }
 
-        </div>
+            </small>
+
+            <br>
+
+            <small>
+              ${escapeHTML(event.details)}
+            </small>
+
+            <br><br>
+
+            <button
+              class="btn green"
+              onclick="
+                rsvpEvent(${event.id})
+              ">
+
+              RSVP
+
+            </button>
+
+          </div>
 
         `
       ).join("");
 
 }
 
-window.rsvpEvent=function(id){
 
-  toast("RSVP recorded.");
+window.rsvpEvent=function(
+  id
+){
+
+  toast(
+    "RSVP recorded."
+  );
 
 };
 
@@ -1953,17 +2378,25 @@ $("createEvent").addEventListener(
   ()=>{
 
     const name=
-      $("eventName").value.trim();
+      $("eventName")
+        .value
+        .trim();
 
     const date=
-      $("eventDate").value;
+      $("eventDate")
+        .value;
 
     const details=
-      $("eventDetails").value.trim();
+      $("eventDetails")
+        .value
+        .trim();
 
     if(!name){
 
-      toast("Enter an event name.");
+      toast(
+        "Enter an event name."
+      );
+
       return;
 
     }
@@ -1986,7 +2419,9 @@ $("createEvent").addEventListener(
 
     renderEvents();
 
-    toast("Event created.");
+    toast(
+      "Event created."
+    );
 
   }
 );
@@ -1998,9 +2433,11 @@ $("createEvent").addEventListener(
 
 let construction=[];
 
+
 function renderConstruction(){
 
-  const box=$("constructionList");
+  const box=
+    $("constructionList");
 
   if(!construction.length){
 
@@ -2020,24 +2457,25 @@ function renderConstruction(){
       .map(
         item=>`
 
-        <div class="feed">
+          <div class="feed">
 
-          <b>
-            🚧 Owner Update
-          </b>
+            <b>
+              🚧 Owner Update
+            </b>
 
-          <br>
+            <br>
 
-          <small>
-            ${escapeHTML(item)}
-          </small>
+            <small>
+              ${escapeHTML(item)}
+            </small>
 
-        </div>
+          </div>
 
         `
       ).join("");
 
 }
+
 
 $("postConstruction").addEventListener(
   "click",
@@ -2051,7 +2489,10 @@ $("postConstruction").addEventListener(
 
     if(!text){
 
-      toast("Write an update first.");
+      toast(
+        "Write an update first."
+      );
+
       return;
 
     }
@@ -2062,7 +2503,9 @@ $("postConstruction").addEventListener(
 
     renderConstruction();
 
-    toast("Construction update posted.");
+    toast(
+      "Construction update posted."
+    );
 
   }
 );
@@ -2103,6 +2546,7 @@ async function loadHeritage(){
 
   /*
     Important:
+
     The browser cannot safely scrape HeritageUnits.com
     directly because of cross-origin restrictions.
 
@@ -2134,22 +2578,31 @@ async function loadHeritage(){
 
 }
 
+
 $("heritageButton").addEventListener(
   "click",
   ()=>{
+
     window.open(
       "https://www.heritageunits.com/",
       "_blank",
       "noopener,noreferrer"
     );
+
   }
 );
+
 
 $("refreshHeritage").addEventListener(
   "click",
   async ()=>{
+
     await loadHeritage();
-    toast("Heritage report feed refreshed.");
+
+    toast(
+      "Heritage report feed refreshed."
+    );
+
   }
 );
 
@@ -2163,31 +2616,48 @@ let giveaway={
   entries:0
 };
 
+
 function renderGiveaway(){
 
   $("giveawayPrize").innerHTML=
     giveaway.prize
-      ? `<b>${escapeHTML(giveaway.prize)}</b>`
-      : `<small>No active giveaway yet.</small>`;
+
+      ? `<b>
+          ${escapeHTML(
+            giveaway.prize
+          )}
+        </b>`
+
+      : `<small>
+          No active giveaway yet.
+        </small>`;
 
   $("giveawayCount").textContent=
-    giveaway.prize ? "1":"0";
+    giveaway.prize
+      ? "1"
+      : "0";
 
   $("entryCount").textContent=
     giveaway.entries;
 
 }
 
+
 $("createGiveaway").addEventListener(
   "click",
   ()=>{
 
     const prize=
-      $("giveawayPrizeInput").value.trim();
+      $("giveawayPrizeInput")
+        .value
+        .trim();
 
     if(!prize){
 
-      toast("Enter a prize first.");
+      toast(
+        "Enter a prize first."
+      );
+
       return;
 
     }
@@ -2198,10 +2668,13 @@ $("createGiveaway").addEventListener(
 
     renderGiveaway();
 
-    toast("Giveaway created.");
+    toast(
+      "Giveaway created."
+    );
 
   }
 );
+
 
 $("enterGiveaway").addEventListener(
   "click",
@@ -2209,7 +2682,10 @@ $("enterGiveaway").addEventListener(
 
     if(!giveaway.prize){
 
-      toast("There is no active giveaway.");
+      toast(
+        "There is no active giveaway."
+      );
+
       return;
 
     }
@@ -2218,7 +2694,9 @@ $("enterGiveaway").addEventListener(
 
     renderGiveaway();
 
-    toast("Giveaway entry recorded.");
+    toast(
+      "Giveaway entry recorded."
+    );
 
   }
 );
@@ -2235,12 +2713,14 @@ $("privateMessage").addEventListener(
   }
 );
 
+
 $("privateMessage").addEventListener(
   "keydown",
   event=>{
     event.stopPropagation();
   }
 );
+
 
 $("sendPrivate").addEventListener(
   "click",
@@ -2253,7 +2733,10 @@ $("sendPrivate").addEventListener(
 
     if(!message){
 
-      toast("Write a private message first.");
+      toast(
+        "Write a private message first."
+      );
+
       return;
 
     }
@@ -2267,6 +2750,7 @@ $("sendPrivate").addEventListener(
   }
 );
 
+
 $("respectReport").addEventListener(
   "click",
   ()=>{
@@ -2277,6 +2761,7 @@ $("respectReport").addEventListener(
 
   }
 );
+
 
 $("disrespectReport").addEventListener(
   "click",
@@ -2307,12 +2792,14 @@ $("ownerButton").addEventListener(
   }
 );
 
+
 document.addEventListener(
   "pointerdown",
   event=>{
 
     if(
-      !$("ownerPanel").contains(event.target) &&
+      !$("ownerPanel")
+        .contains(event.target) &&
       event.target!==$("ownerButton")
     ){
 
@@ -2324,9 +2811,7 @@ document.addEventListener(
 
   }
 );
-
-
-/* =========================================================
+  /* =========================================================
    CAMERA
 ========================================================= */
 
@@ -2413,11 +2898,18 @@ function cameraBounds(){
 }
 
 
-function clamp(value,min,max){
+function clamp(
+  value,
+  min,
+  max
+){
 
   return Math.max(
     min,
-    Math.min(max,value)
+    Math.min(
+      max,
+      value
+    )
   );
 
 }
@@ -2512,7 +3004,9 @@ function startInertia(){
 }
 
 
-function interactiveElement(element){
+function interactiveElement(
+  element
+){
 
   return element.closest(
     "input,textarea,button,a,select,label"
@@ -2521,7 +3015,10 @@ function interactiveElement(element){
 }
 
 
-function pointerDistance(a,b){
+function pointerDistance(
+  a,
+  b
+){
 
   return Math.hypot(
     a.clientX-b.clientX,
@@ -2568,7 +3065,9 @@ viewport.addEventListener(
     }
 
     if(
-      interactiveElement(event.target)
+      interactiveElement(
+        event.target
+      )
     ){
 
       return;
@@ -2626,7 +3125,9 @@ viewport.addEventListener(
   event=>{
 
     if(
-      pointers.has(event.pointerId)
+      pointers.has(
+        event.pointerId
+      )
     ){
 
       pointers.set(
@@ -2647,7 +3148,9 @@ viewport.addEventListener(
           pair[1]
         );
 
-      if(pinchStartDistance>0){
+      if(
+        pinchStartDistance>0
+      ){
 
         zoom=
           clamp(
@@ -2675,10 +3178,12 @@ viewport.addEventListener(
     }
 
     const dx=
-      event.clientX-startPointerX;
+      event.clientX-
+      startPointerX;
 
     const dy=
-      event.clientY-startPointerY;
+      event.clientY-
+      startPointerY;
 
     if(
       Math.abs(dx)>4||
@@ -2699,11 +3204,17 @@ viewport.addEventListener(
       );
 
     const instantX=
-      (event.clientX-lastPointerX)/
+      (
+        event.clientX-
+        lastPointerX
+      )/
       (dt/16.67);
 
     const instantY=
-      (event.clientY-lastPointerY)/
+      (
+        event.clientY-
+        lastPointerY
+      )/
       (dt/16.67);
 
     velocityX=
@@ -2834,27 +3345,37 @@ async function startup(){
       ? "🟢 Signed in"
       : "⚪ Not signed in";
 
+  await checkLoungeOwner();
+
   await loadChat();
 
   startRealtime();
 
-  renderPolls();
+  await loadPolls();
+
   renderEvents();
+
   renderConstruction();
+
   renderMembers();
+
   renderGiveaway();
+
   loadHeritage();
 
   renderCamera();
 
   setTimeout(
     ()=>{
-      hint.classList.add("hide");
+      hint.classList.add(
+        "hide"
+      );
     },
     7000
   );
 
 }
+
 
 startup();
 
