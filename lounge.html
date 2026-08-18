@@ -3,9 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-
 <title>TrainsForever Society Lounge</title>
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
@@ -14,7 +12,7 @@
   --gold2:#ffe8a0;
   --green:#55e38a;
   --red:#ff6b6b;
-  --muted:#a8b4bd;
+  --muted:#a8b4bd
 }
 
 *{box-sizing:border-box}
@@ -26,7 +24,7 @@ html,body{
   overflow:hidden;
   color:#fff;
   font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;
-  background:#8f641f;
+  background:#8f641f
 }
 
 button,input,textarea,select{font:inherit}
@@ -58,7 +56,7 @@ button{cursor:pointer}
 
   touch-action:none;
   overscroll-behavior:none;
-  cursor:grab;
+  cursor:grab
 }
 
 #viewport:before{
@@ -82,7 +80,7 @@ button{cursor:pointer}
     );
 
   opacity:.7;
-  mix-blend-mode:overlay;
+  mix-blend-mode:overlay
 }
 
 #viewport:after{
@@ -98,11 +96,11 @@ button{cursor:pointer}
       #0007 100%
     );
 
-  box-shadow:inset 0 0 150px #000b;
+  box-shadow:inset 0 0 150px #000b
 }
 
 #viewport.dragging{
-  cursor:grabbing;
+  cursor:grabbing
 }
 
 #stage{
@@ -117,9 +115,10 @@ button{cursor:pointer}
   margin-left:-2200px;
   margin-top:-1500px;
 
-  transform:translate3d(0,0,0);
+  transform:translate3d(0,0,0) scale(.85);
+  transform-origin:center center;
 
-  will-change:transform;
+  will-change:transform
 }
 
 .card{
@@ -147,32 +146,32 @@ button{cursor:pointer}
 
   backdrop-filter:blur(12px);
 
-  overflow:hidden;
+  overflow:hidden
 }
 
 .card.wide{
-  width:520px;
+  width:520px
 }
 
 .card h2{
   margin:0 0 12px;
   color:var(--gold2);
-  font-size:20px;
+  font-size:20px
 }
 
 .card p{
   color:#cbd4da;
   font-size:12px;
-  line-height:1.55;
+  line-height:1.55
 }
 
 small{
   color:var(--muted);
-  font-size:10px;
+  font-size:10px
 }
 
 .gold{
-  color:var(--gold2)!important;
+  color:var(--gold2)!important
 }
 
 .label{
@@ -196,7 +195,7 @@ small{
   font-weight:900;
 
   letter-spacing:1.8px;
-  white-space:nowrap;
+  white-space:nowrap
 }
 
 .feed,
@@ -212,13 +211,13 @@ small{
 
   border:1px solid #ffffff12;
 
-  font-size:11px;
+  font-size:11px
 }
 
 .feed b,
 .person b,
 .idea b{
-  color:var(--gold2);
+  color:var(--gold2)
 }
 
 .btn{
@@ -235,24 +234,29 @@ small{
   font-weight:800;
   font-size:10px;
 
-  transition:.15s;
+  transition:.15s
 }
 
 .btn:hover{
   transform:translateY(-1px);
-  background:#f3c85b28;
+  background:#f3c85b28
+}
+
+.btn:disabled{
+  opacity:.4;
+  cursor:not-allowed
 }
 
 .btn.green{
   border-color:#55e38a55;
   background:#55e38a12;
-  color:#9affbc;
+  color:#9affbc
 }
 
 .btn.red{
   border-color:#ff6b6b55;
   background:#ff6b6b12;
-  color:#ff9b9b;
+  color:#ff9b9b
 }
 
 .input,
@@ -273,35 +277,35 @@ small{
   outline:none;
 
   -webkit-user-select:text;
-  user-select:text;
+  user-select:text
 }
 
 .input:focus,
 .textarea:focus,
 .select:focus{
-  border-color:#f3c85b88;
+  border-color:#f3c85b88
 }
 
 .textarea{
   min-height:75px;
-  resize:none;
+  resize:none
 }
 
 .row{
   display:flex;
   gap:7px;
-  align-items:center;
+  align-items:center
 }
 
 .row>*{
-  flex:1;
+  flex:1
 }
 
 .statgrid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:6px;
-  margin:10px 0;
+  margin:10px 0
 }
 
 .stat{
@@ -313,24 +317,24 @@ small{
 
   background:#ffffff08;
 
-  border:1px solid #ffffff0d;
+  border:1px solid #ffffff0d
 }
 
 .stat strong{
   display:block;
   color:var(--gold2);
-  font-size:18px;
+  font-size:18px
 }
 
 .stat span{
   font-size:8px;
-  color:#9eabb3;
+  color:#9eabb3
 }
 
 .empty{
   text-align:center;
   color:#8d9aa3;
-  padding:10px;
+  padding:10px
 }
 
 .choice{
@@ -345,31 +349,7 @@ small{
 
   border-radius:9px;
 
-  background:#ffffff08;
-}
-
-.badges{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:6px;
-}
-
-.badges div{
-  padding:9px;
-
-  text-align:center;
-
-  border-radius:11px;
-
-  background:#fff1;
-
-  font-size:9px;
-}
-
-.badges span{
-  display:block;
-  font-size:20px;
-  margin-bottom:3px;
+  background:#ffffff08
 }
 
 #top{
@@ -384,7 +364,7 @@ small{
   justify-content:space-between;
   align-items:center;
 
-  pointer-events:none;
+  pointer-events:none
 }
 
 .pill{
@@ -401,7 +381,7 @@ small{
   color:var(--gold2);
 
   font-size:9px;
-  font-weight:900;
+  font-weight:900
 }
 
 #ownerPanel{
@@ -413,8 +393,8 @@ small{
   right:12px;
   top:55px;
 
-  width:min(360px,88vw);
-  max-height:80vh;
+  width:min(380px,90vw);
+  max-height:82vh;
 
   overflow:auto;
 
@@ -428,11 +408,11 @@ small{
 
   box-shadow:0 25px 70px #000d;
 
-  backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px)
 }
 
 #ownerPanel.open{
-  display:block;
+  display:block
 }
 
 .owner-controls{
@@ -444,7 +424,7 @@ small{
 
   background:#f3c85b0d;
 
-  border:1px solid #f3c85b33;
+  border:1px solid #f3c85b33
 }
 
 .owner-controls h4{
@@ -452,13 +432,13 @@ small{
 
   color:var(--gold2);
 
-  font-size:11px;
+  font-size:11px
 }
 
 .locked-note{
   color:#9eabb3;
   font-size:9px;
-  margin-top:7px;
+  margin-top:7px
 }
 
 #toast{
@@ -487,12 +467,12 @@ small{
   font-size:10px;
   font-weight:800;
 
-  transition:.2s;
+  transition:.2s
 }
 
 #toast.show{
   opacity:1;
-  transform:translate(-50%,0);
+  transform:translate(-50%,0)
 }
 
 #hint{
@@ -520,11 +500,11 @@ small{
 
   pointer-events:none;
 
-  transition:opacity .6s;
+  transition:opacity .6s
 }
 
 #hint.hide{
-  opacity:0;
+  opacity:0
 }
 
 #position{
@@ -544,7 +524,7 @@ small{
 
   font-size:8px;
 
-  pointer-events:none;
+  pointer-events:none
 }
 
 .owner-name{
@@ -554,21 +534,73 @@ small{
 
   text-shadow:
     0 0 2px var(--gold),
-    0 0 5px #f3c85b99;
+    0 0 5px #f3c85b99
 }
 
 .executive-name{
-  color:var(--gold2)!important;
+  color:var(--gold2)!important
 }
 
 .grey-name{
-  color:#55e38a!important;
+  color:#55e38a!important
+}
+
+.badge{
+  display:inline-flex;
+  gap:4px;
+  align-items:center;
+
+  padding:4px 7px;
+  margin:2px;
+
+  border-radius:999px;
+
+  background:#f3c85b12;
+  border:1px solid #f3c85b33;
+
+  color:var(--gold2);
+
+  font-size:8px
+}
+
+.live{
+  color:#8dffb2
+}
+
+.offline{
+  color:#a8b4bd
+}
+
+.section-note{
+  font-size:9px;
+  color:#a8b4bd
+}
+
+.scrollbox{
+  max-height:180px;
+  overflow:auto
+}
+
+.plan{
+  padding:9px;
+
+  border-radius:11px;
+
+  border:1px solid #f3c85b22;
+
+  background:#f3c85b08;
+
+  margin:6px 0
+}
+
+.plan strong{
+  color:var(--gold2)
 }
 
 @media(max-width:700px){
 
   .card{
-    border-radius:20px;
+    border-radius:20px
   }
 
   #top .pill:first-child{
@@ -576,7 +608,7 @@ small{
 
     overflow:hidden;
 
-    text-overflow:ellipsis;
+    text-overflow:ellipsis
   }
 
   #hint{
@@ -584,7 +616,7 @@ small{
 
     overflow:hidden;
 
-    text-overflow:ellipsis;
+    text-overflow:ellipsis
   }
 }
 </style>
@@ -596,17 +628,18 @@ small{
 
 <div id="top">
 
-  <div class="pill">
-    🚂 TRAINSFOREVER • SOCIETY LOUNGE
-  </div>
+<div class="pill">
+🚂 TRAINSFOREVER • SOCIETY LOUNGE
+</div>
 
-  <button
-    class="pill"
-    id="ownerButton">
-    OWNER OVERVIEW
-  </button>
+<button
+class="pill"
+id="ownerButton">
+OWNER OVERVIEW
+</button>
 
 </div>
+
 
 <aside id="ownerPanel">
 
@@ -640,21 +673,71 @@ Owner Overview
 
 <div class="owner-controls">
 
-<h4>🔐 Owner Status</h4>
+<h4>
+🔐 Owner Status
+</h4>
 
 <div id="ownerStatus">
 Checking account…
 </div>
 
-<small>
-Owner permissions will be enforced by the real backend.
+<small id="ownerHelp">
+Owner-only controls are enforced by Supabase RLS.
 </small>
+
+</div>
+
+<div class="owner-controls">
+
+<h4>
+⭐ Member Points
+</h4>
+
+<input
+id="pointsUser"
+class="input"
+placeholder="Member username">
+
+<br><br>
+
+<select
+id="pointsType"
+class="select">
+
+<option value="respect">
+Respect
+</option>
+
+<option value="disrespect">
+Disrespect
+</option>
+
+</select>
+
+<br><br>
+
+<input
+id="pointsAmount"
+class="input"
+type="number"
+min="1"
+placeholder="Points">
+
+<br><br>
+
+<button
+class="btn"
+id="awardPoints">
+Apply Points
+</button>
 
 </div>
 
 </aside>
 
+
 <div id="stage">
+
 
 <!-- HERO -->
 
@@ -669,7 +752,7 @@ text-align:center;
 display:flex;
 flex-direction:column;
 justify-content:center;
-align-items:center;
+align-items:center
 ">
 
 <div class="label">
@@ -678,7 +761,7 @@ THE LOUNGE
 
 <div style="
 font-size:80px;
-filter:drop-shadow(0 0 28px #f3c85b66);
+filter:drop-shadow(0 0 28px #f3c85b66)
 ">
 🚂
 </div>
@@ -686,7 +769,7 @@ filter:drop-shadow(0 0 28px #f3c85b66);
 <div style="
 font-size:9px;
 letter-spacing:4px;
-color:#aab6bf;
+color:#aab6bf
 ">
 THE TRAINSFOREVER SOCIETY
 </div>
@@ -695,7 +778,7 @@ THE TRAINSFOREVER SOCIETY
 font-size:45px;
 letter-spacing:5px;
 color:var(--gold2);
-margin:5px;
+margin:5px
 ">
 LOUNGE
 </h1>
@@ -708,12 +791,20 @@ Explore the Society.
 <div style="
 margin-top:12px;
 color:#9eabb3;
-font-size:10px;
+font-size:10px
 ">
-SWIPE ANYWHERE • LEFT • RIGHT • UP • DOWN
+SWIPE ANYWHERE • PINCH TO ZOOM
+</div>
+
+<div
+id="authBanner"
+class="section-note"
+style="margin-top:10px">
+Connecting…
 </div>
 
 </section>
+
 
 <!-- COMMAND WALL -->
 
@@ -725,7 +816,9 @@ style="left:250px;top:200px">
 SOCIETY COMMAND WALL
 </div>
 
-<h2>🌐 Everything at a Glance</h2>
+<h2>
+🌐 Everything at a Glance
+</h2>
 
 <div class="statgrid">
 
@@ -752,27 +845,31 @@ SOCIETY COMMAND WALL
 </div>
 
 <div class="feed">
-<b>🚂 Heritage Units</b><br>
-<small>
-Real latest reports will appear here.
+<b>🚂 Heritage Units</b>
+<br>
+<small id="wallHeritage">
+Waiting for the public source…
 </small>
 </div>
 
 <div class="feed">
-<b>🏆 Badge Locker</b><br>
+<b>🏆 Badge Locker</b>
+<br>
 <small>
-Members will see earned rewards.
+Every member's earned badges and point totals.
 </small>
 </div>
 
 <div class="feed">
-<b>💬 Live Society Chat</b><br>
+<b>💬 Live Society Chat</b>
+<br>
 <small>
-Connected to the TrainsForever database.
+Connected to the TrainsForever database when signed in.
 </small>
 </div>
 
 </section>
+
 
 <!-- CHAT -->
 
@@ -784,17 +881,16 @@ style="left:750px;top:200px">
 MEMBER CHAT
 </div>
 
-<h2>💬 Chat</h2>
+<h2>
+💬 Chat
+</h2>
 
 <div
 id="chatList"
-style="
-max-height:180px;
-overflow:auto;
-">
+class="scrollbox">
 
 <div class="empty">
-Loading real chat…
+Loading live chat…
 </div>
 
 </div>
@@ -817,11 +913,12 @@ Send Message
 
 <p>
 <small id="chatStatus">
-Connecting to Society chat…
+Connecting…
 </small>
 </p>
 
 </section>
+
 
 <!-- MEMBERS -->
 
@@ -833,13 +930,15 @@ style="left:1300px;top:200px">
 MEMBERS
 </div>
 
-<h2>👥 Society Members</h2>
+<h2>
+👥 Society Members
+</h2>
 
 <div
 style="
 font-size:44px;
 color:var(--gold2);
-font-weight:900;
+font-weight:900
 "
 id="memberBig">
 0
@@ -863,9 +962,24 @@ members
 </b>
 </div>
 
+<div class="person">
+<b>
+⭐ Respect:
+<span id="respectBig">0</span>
+</b>
+</div>
+
+<div class="person">
+<b>
+⚠️ Disrespect:
+<span id="disrespectBig">0</span>
+</b>
+</div>
+
 </section>
 
-<!-- HERITAGE UNITS -->
+
+<!-- HERITAGE -->
 
 <section
 class="card wide"
@@ -882,15 +996,13 @@ HERITAGE UNITS
 <div class="feed">
 
 <b class="gold">
-REAL PUBLIC REPORT FEED
+LIVE PUBLIC SOURCE
 </b>
 
 <br>
 
-<small>
-This section will only display verified data
-from the permitted HeritageUnits connection.
-No reports are invented.
+<small id="heritageStatus">
+Checking HeritageUnits.com…
 </small>
 
 </div>
@@ -898,10 +1010,18 @@ No reports are invented.
 <div id="heritageList">
 
 <div class="empty">
-Waiting for the live HeritageUnits connection…
+Loading…
 </div>
 
 </div>
+
+<div class="row">
+
+<button
+class="btn"
+id="heritageRefresh">
+Refresh
+</button>
 
 <button
 class="btn"
@@ -909,7 +1029,10 @@ id="heritageButton">
 Open HeritageUnits.com
 </button>
 
+</div>
+
 </section>
+
 
 <!-- BADGE LOCKER -->
 
@@ -949,15 +1072,18 @@ BADGE LOCKER
 
 </div>
 
-<div id="userDirectory">
+<div
+id="userDirectory"
+class="scrollbox">
 
 <div class="empty">
-Member lockers will appear here.
+Loading member lockers…
 </div>
 
 </div>
 
 </section>
+
 
 <!-- DESK -->
 
@@ -983,7 +1109,7 @@ TRAINSFOREVER DESK
 
 <small>
 Send a private message without exposing
-the Owner's personal phone number.
+the Owner's phone number.
 </small>
 
 </div>
@@ -1007,7 +1133,7 @@ Send Private Message
 style="
 border:0;
 border-top:1px solid #fff2;
-margin:18px 0;
+margin:18px 0
 ">
 
 <div class="feed">
@@ -1019,10 +1145,28 @@ margin:18px 0;
 <br>
 
 <small>
-Choose a Respect or Disrespect report.
+Send a respectful or disrespect report
+directly into the Owner's report queue.
 </small>
 
 </div>
+
+<input
+id="reportSubject"
+class="input"
+maxlength="160"
+placeholder="Member / subject">
+
+<br><br>
+
+<textarea
+id="reportDetails"
+class="textarea"
+maxlength="1000"
+placeholder="What happened?">
+</textarea>
+
+<br><br>
 
 <div class="row">
 
@@ -1044,7 +1188,7 @@ Disrespect Report
 style="
 border:0;
 border-top:1px solid #fff2;
-margin:18px 0;
+margin:18px 0
 ">
 
 <div class="feed">
@@ -1056,19 +1200,20 @@ margin:18px 0;
 <br>
 
 <small>
-Future emergency/attention system.
-Reserved for the full-time TrainsForever era.
+Opening-day version keeps this ready for
+the future full-time emergency/attention system.
 </small>
 
 </div>
 
 <button
 class="btn"
-disabled>
+id="neededButton">
 I'm Needed
 </button>
 
 </section>
+
 
 <!-- POLLS -->
 
@@ -1087,39 +1232,57 @@ MEMBER POLLS
 <div id="pollList">
 
 <div class="empty">
-No live polls yet.
+Loading live polls…
 </div>
 
 </div>
 
-<div class="owner-controls">
+<div
+class="owner-controls"
+id="pollOwnerBox">
 
 <h4>
 🔒 Owner Poll Creator
 </h4>
 
-<textarea
-class="textarea"
-placeholder="Poll question…"
-disabled>
-</textarea>
+<input
+id="pollQuestion"
+class="input"
+maxlength="160"
+placeholder="Poll question">
+
+<br><br>
+
+<input
+id="pollOption1"
+class="input"
+maxlength="80"
+placeholder="Option 1">
+
+<br><br>
+
+<input
+id="pollOption2"
+class="input"
+maxlength="80"
+placeholder="Option 2">
 
 <br><br>
 
 <button
 class="btn"
-disabled>
-Create Poll
+id="createPoll">
+＋ Create Poll
 </button>
 
 <div class="locked-note">
-Real Owner authorization will be connected
-before these controls become active.
+Members vote. Owner creates and manages polls.
 </div>
 
 </div>
 
 </section>
+
 
 <!-- CONSTRUCTION -->
 
@@ -1137,30 +1300,8 @@ CONSTRUCTION
 
 <div id="constructionList">
 
-<div class="feed">
-<b>
-Current project
-</b>
-
-<br>
-
-<small>
-Real Society Lounge backend.
-</small>
-
-</div>
-
-<div class="feed">
-<b>
-Next project
-</b>
-
-<br>
-
-<small>
-Live Heritage Unit source connection.
-</small>
-
+<div class="empty">
+Loading…
 </div>
 
 </div>
@@ -1172,26 +1313,24 @@ Live Heritage Unit source connection.
 </h4>
 
 <textarea
+id="constructionInput"
 class="textarea"
-placeholder="Only the Owner can post here…"
-disabled>
+maxlength="1000"
+placeholder="Only the Owner can post here…">
 </textarea>
 
 <br><br>
 
 <button
 class="btn"
-disabled>
+id="postConstruction">
 Post Construction Update
 </button>
-
-<div class="locked-note">
-Backend authorization coming next.
-</div>
 
 </div>
 
 </section>
+
 
 <!-- EVENTS -->
 
@@ -1210,7 +1349,7 @@ SOCIETY EVENTS
 <div id="eventList">
 
 <div class="empty">
-No live events yet.
+Loading live events…
 </div>
 
 </div>
@@ -1222,21 +1361,39 @@ No live events yet.
 </h4>
 
 <input
+id="eventName"
 class="input"
-placeholder="Event name…"
-disabled>
+maxlength="100"
+placeholder="Event name">
+
+<br><br>
+
+<input
+id="eventDate"
+class="input"
+type="datetime-local">
+
+<br><br>
+
+<textarea
+id="eventDetails"
+class="textarea"
+maxlength="500"
+placeholder="Event details…">
+</textarea>
 
 <br><br>
 
 <button
 class="btn"
-disabled>
-Create Event
+id="createEvent">
+＋ Create Event
 </button>
 
 </div>
 
 </section>
+
 
 <!-- GIVEAWAY -->
 
@@ -1252,43 +1409,45 @@ GIVEAWAY CENTER
 🎁 TrainsForever Giveaway
 </h2>
 
-<div class="feed">
+<div
+id="giveawayCurrent"
+class="feed">
 
 <b>
-Current Prize
+Loading live giveaway…
 </b>
-
-<br>
-
-<small>
-No active giveaway yet.
-</small>
 
 </div>
 
 <div class="statgrid">
 
 <div class="stat">
-<strong>0</strong>
+<strong id="giveawayCount">0</strong>
 <span>GIVEAWAYS</span>
 </div>
 
 <div class="stat">
-<strong>0</strong>
+<strong id="winnerCount">0</strong>
 <span>WINNERS</span>
 </div>
 
 <div class="stat">
-<strong>$0</strong>
+<strong id="givenAway">$0</strong>
 <span>GIVEN AWAY</span>
 </div>
 
 <div class="stat">
-<strong>0</strong>
+<strong id="entryCount">0</strong>
 <span>ENTRIES</span>
 </div>
 
 </div>
+
+<button
+class="btn"
+id="enterGiveaway">
+Enter Giveaway
+</button>
 
 <div class="owner-controls">
 
@@ -1296,9 +1455,34 @@ No active giveaway yet.
 🔒 Owner Giveaway Controls
 </h4>
 
+<input
+id="giveawayPrize"
+class="input"
+placeholder="Prize">
+
+<br><br>
+
+<input
+id="giveawayValue"
+class="input"
+type="number"
+min="0"
+step=".01"
+placeholder="Prize value">
+
+<br><br>
+
+<textarea
+id="giveawayDetails"
+class="textarea"
+placeholder="Giveaway details / rules">
+</textarea>
+
+<br><br>
+
 <button
 class="btn"
-disabled>
+id="createGiveaway">
 Create Giveaway
 </button>
 
@@ -1306,10 +1490,290 @@ Create Giveaway
 
 </section>
 
+
+<!-- LOYALTY -->
+
+<section
+class="card wide"
+style="left:1500px;top:2350px">
+
+<div class="label">
+LOYALTY REWARDS
 </div>
 
+<h2>
+⭐ Society Loyalty Program
+</h2>
+
+<p>
+Rewards are calculated from the member's actual
+membership level, points and account history.
+</p>
+
+<div class="plan">
+<strong>
+Executive
+</strong>
+<br>
+<small>
+Premium monthly membership • loyalty credit
+after qualifying activity.
+</small>
+</div>
+
+<div class="plan">
+<strong>
+Director
+</strong>
+<br>
+<small>
+Monthly membership • loyalty credit
+after qualifying activity.
+</small>
+</div>
+
+<div class="plan">
+<strong>
+Annual
+</strong>
+<br>
+<small>
+One-time annual membership • annual
+loyalty recognition.
+</small>
+</div>
+
+<div class="plan">
+<strong>
+Standard
+</strong>
+<br>
+<small>
+Earn badges and points through participation.
+</small>
+</div>
+
+<div class="reward-box">
+
+<b id="myRewardTier">
+Member
+</b>
+
+<br>
+
+<small id="myRewardText">
+Sign in to see your live rewards.
+</small>
+
+<div class="statgrid">
+
+<div class="stat">
+<strong id="myRespect">0</strong>
+<span>RESPECT</span>
+</div>
+
+<div class="stat">
+<strong id="myDisrespect">0</strong>
+<span>DISRESPECT</span>
+</div>
+
+<div class="stat">
+<strong id="myBadges">0</strong>
+<span>BADGES</span>
+</div>
+
+<div class="stat">
+<strong id="myMonths">0</strong>
+<span>MEMBERSHIP</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ENGINE HOUSE -->
+
+<section
+class="card"
+style="left:4300px;top:1550px">
+
+<div class="label">
+ENGINE HOUSE
+</div>
+
+<h2>
+🚂 Model Railroad Engine House
+</h2>
+
+<p>
+A live community space for members to show
+model locomotives, rolling stock, layouts,
+scenery and custom builds.
+</p>
+
+<div id="projectList">
+
+<div class="empty">
+Loading projects…
+</div>
+
+</div>
+
+<input
+id="projectTitle"
+class="input"
+placeholder="Project title">
+
+<br><br>
+
+<textarea
+id="projectDescription"
+class="textarea"
+placeholder="Describe the project…">
+</textarea>
+
+<br><br>
+
+<button
+class="btn"
+id="addProject">
+Add Project
+</button>
+
+</section>
+
+
+<!-- LIBRARY -->
+
+<section
+class="card"
+style="left:4300px;top:900px">
+
+<div class="label">
+SOCIETY LIBRARY
+</div>
+
+<h2>
+📚 Society Library
+</h2>
+
+<div class="feed">
+
+<b>
+Verified railroad knowledge
+</b>
+
+<br>
+
+<small>
+Opening-day library framework is live and
+ready for curated material.
+</small>
+
+</div>
+
+<div class="feed">
+
+<b>
+Member knowledge
+</b>
+
+<br>
+
+<small>
+Project and report content can be referenced
+by the community.
+</small>
+
+</div>
+
+</section>
+
+
+<!-- SUGGESTIONS -->
+
+<section
+class="card"
+style="left:900px;top:900px">
+
+<div class="label">
+SOCIETY SUGGESTIONS
+</div>
+
+<h2>
+💡 Suggestion Box
+</h2>
+
+<div
+id="suggestionList"
+class="scrollbox">
+
+<div class="empty">
+Loading…
+</div>
+
+</div>
+
+<textarea
+id="suggestionInput"
+class="textarea"
+maxlength="500"
+placeholder="Leave a suggestion…">
+</textarea>
+
+<br><br>
+
+<button
+class="btn"
+id="submitSuggestion">
+Submit Suggestion
+</button>
+
+</section>
+
+
+<!-- HISTORY -->
+
+<section
+class="card"
+style="left:900px;top:1400px">
+
+<div class="label">
+TODAY IN HISTORY
+</div>
+
+<h2>
+🕰️ Railroad History
+</h2>
+
+<div
+id="historyBox"
+class="feed">
+
+<b>
+Opening-day history
+</b>
+
+<br>
+
+<small>
+This card is live; verified daily history entries
+can be added by the Owner.
+</small>
+
+</div>
+
+</section>
+
+
+</div>
+
+
 <div id="hint">
-SWIPE ANYWHERE — ← → TURN • ↑ ↓ LOOK AROUND
+SWIPE ANYWHERE — ← → TURN • ↑ ↓ LOOK AROUND • PINCH TO ZOOM
 </div>
 
 <div id="position">
@@ -1320,43 +1784,35 @@ ROOM VIEW • CONNECTING…
 
 </div>
 
+
 <script>
 
-/* =========================================================
-   REAL SUPABASE CONNECTION
-   ========================================================= */
+const SUPABASE_URL=
+"https://hooinhbybdhizunfdyih.supabase.co";
 
-const SUPABASE_URL =
-  "https://hooinhbybdhizunfdyih.supabase.co";
+const SUPABASE_KEY=
+"sb_publishable_q2moV3RdALePl6kunHxvNg_xoj9hjvm";
 
-const SUPABASE_KEY =
-  "sb_publishable_q2moV3RdALePl6kunHxvNg_xoj9hjvm";
-
-const supabaseClient =
-  window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
+const supabaseClient=
+window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
 
 
-/* =========================================================
-   HELPERS
-   ========================================================= */
+const $=
+id=>document.getElementById(id);
 
-function $(id){
-  return document.getElementById(id);
-}
 
-function escapeHTML(value){
+const esc=
+v=>
+String(v??"")
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
 
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-
-}
 
 function toast(message){
 
@@ -1368,47 +1824,497 @@ function toast(message){
 
   clearTimeout(toast.timer);
 
-  toast.timer=setTimeout(
-    ()=>{
-      box.classList.remove("show");
-    },
-    2200
-  );
+  toast.timer=
+    setTimeout(
+      ()=>box.classList.remove("show"),
+      2400
+    );
 
 }
 
 
+let currentUser=null;
+let isOwner=false;
+
+let profiles=[];
+let memberships=[];
+
+
 /* =========================================================
-   AUTH
+   USER
    ========================================================= */
 
-let currentUser=null;
+async function getUser(){
 
-async function loadUser(){
-
-  const {
-    data,
-    error
-  } =
+  const {data}=
     await supabaseClient.auth.getUser();
 
-  if(error){
-
-    console.warn(error);
-
-    return null;
-
-  }
-
-  currentUser=data.user||null;
+  currentUser=
+    data?.user||null;
 
   return currentUser;
 
 }
 
 
+async function isOwnerNow(){
+
+  if(!currentUser){
+
+    return false;
+
+  }
+
+  const {data}=
+    await supabaseClient
+      .from("profiles")
+      .select("is_owner")
+      .eq("user_id",currentUser.id)
+      .maybeSingle();
+
+  return !!data?.is_owner;
+
+}
+
+
+async function touchPresence(){
+
+  if(!currentUser){
+
+    return;
+
+  }
+
+  await supabaseClient
+    .from("profiles")
+    .update({
+      lounge_last_seen_at:
+        new Date().toISOString()
+    })
+    .eq(
+      "user_id",
+      currentUser.id
+    );
+
+}
+
+
 /* =========================================================
-   REAL CHAT
+   MEMBER HELPERS
+   ========================================================= */
+
+function profileName(id){
+
+  const p=
+    profiles.find(
+      x=>x.user_id===id
+    );
+
+  return(
+    p?.display_name||
+    p?.username||
+    "Member"
+  );
+
+}
+
+
+function profileClass(id){
+
+  const p=
+    profiles.find(
+      x=>x.user_id===id
+    );
+
+  if(p?.is_owner){
+
+    return "owner-name";
+
+  }
+
+  const m=
+    memberships.find(
+      x=>x.user_id===id
+    );
+
+  const level=
+    (m?.membership_level||"")
+      .toLowerCase();
+
+  if(level.includes("executive")){
+
+    return "executive-name";
+
+  }
+
+  if(level.includes("director")){
+
+    return "grey-name";
+
+  }
+
+  return "";
+
+}
+
+
+/* =========================================================
+   MEMBERS
+   ========================================================= */
+
+async function loadMembers(){
+
+  const [
+    {data:p},
+    {data:m}
+  ]=
+    await Promise.all([
+
+      supabaseClient
+        .from("profiles")
+        .select(
+          "user_id,username,display_name,is_owner,respect_points,disrespect_points,lounge_last_seen_at"
+        )
+        .not(
+          "user_id",
+          "is",
+          null
+        ),
+
+      supabaseClient
+        .from("memberships")
+        .select(
+          "user_id,membership_level,is_active,created_at"
+        )
+
+    ]);
+
+
+  profiles=
+    p||[];
+
+  memberships=
+    m||[];
+
+
+  const activeCut=
+    Date.now()-
+    5*60*1000;
+
+
+  const active=
+    profiles.filter(
+      x=>
+        x.lounge_last_seen_at &&
+        new Date(
+          x.lounge_last_seen_at
+        ).getTime()>activeCut
+    ).length;
+
+
+  const respect=
+    profiles.reduce(
+      (sum,x)=>
+        sum+(x.respect_points||0),
+      0
+    );
+
+
+  const disrespect=
+    profiles.reduce(
+      (sum,x)=>
+        sum+(x.disrespect_points||0),
+      0
+    );
+
+
+  $("memberBig").textContent=
+    profiles.length;
+
+  $("activeBig").textContent=
+    active;
+
+  $("respectBig").textContent=
+    respect;
+
+  $("disrespectBig").textContent=
+    disrespect;
+
+
+  $("wallMembers").textContent=
+    profiles.length;
+
+  $("wallActive").textContent=
+    active;
+
+  $("oMembers").textContent=
+    profiles.length;
+
+  $("oActive").textContent=
+    active;
+
+
+  $("userCount").textContent=
+    profiles.length;
+
+  $("totalRespect").textContent=
+    respect;
+
+  $("totalDisrespect").textContent=
+    disrespect;
+
+
+  await renderDirectory();
+
+  await renderMyRewards();
+
+}
+
+
+/* =========================================================
+   DIRECTORY
+   ========================================================= */
+
+async function renderDirectory(){
+
+  const {data:badges}=
+    await supabaseClient
+      .from("lounge_member_badges")
+      .select(
+        "user_id,badge_id,lounge_badges(name,icon,slug)"
+      );
+
+
+  const map={};
+
+  (badges||[])
+    .forEach(
+      b=>
+        (map[b.user_id]??=[])
+          .push(b.lounge_badges)
+    );
+
+
+  let total=0;
+
+
+  profiles.forEach(
+    p=>
+      total+=
+        (map[p.user_id]||[]).length
+  );
+
+
+  $("totalBadges").textContent=
+    total;
+
+  $("badgesBig").textContent=
+    total;
+
+
+  $("userDirectory").innerHTML=
+    profiles.length
+    ?
+    profiles.map(
+      p=>{
+
+        const active=
+          p.lounge_last_seen_at &&
+          Date.now()-
+          new Date(
+            p.lounge_last_seen_at
+          ).getTime()
+          <
+          5*60*1000;
+
+
+        const bs=
+          map[p.user_id]||[];
+
+
+        return `
+
+<div class="person">
+
+<b class="${profileClass(p.user_id)}">
+
+${p.is_owner?"👑 ":""}
+
+${esc(profileName(p.user_id))}
+
+</b>
+
+<br>
+
+<small>
+
+${esc(
+  memberships.find(
+    m=>m.user_id===p.user_id
+  )?.membership_level||
+  "Member"
+)}
+
+•
+
+⭐ ${p.respect_points||0}
+respect
+
+•
+
+⚠️ ${p.disrespect_points||0}
+disrespect
+
+</small>
+
+<br>
+
+${
+  bs.map(
+    b=>
+      `<span class="badge">
+        ${b?.icon||"🏆"}
+        ${esc(b?.name||"Badge")}
+      </span>`
+  ).join("")
+  ||
+  "<small>No badges yet.</small>"
+}
+
+<br>
+
+<small class="${active?"live":"offline"}">
+
+${active?
+"🟢 Active now":
+"⚪ Offline"}
+
+</small>
+
+</div>
+
+`;
+
+      }
+    ).join("")
+    :
+    `<div class="empty">
+      No members yet.
+    </div>`;
+
+}
+
+
+/* =========================================================
+   MY REWARDS
+   ========================================================= */
+
+async function renderMyRewards(){
+
+  if(!currentUser){
+
+    $("myRewardTier").textContent=
+      "Guest";
+
+    $("myRewardText").textContent=
+      "Sign in to see live rewards.";
+
+    return;
+
+  }
+
+
+  const p=
+    profiles.find(
+      x=>x.user_id===currentUser.id
+    );
+
+
+  const m=
+    memberships.find(
+      x=>x.user_id===currentUser.id
+    );
+
+
+  const level=
+    m?.membership_level||
+    "Standard";
+
+
+  $("myRewardTier").textContent=
+    level;
+
+  $("myRespect").textContent=
+    p?.respect_points||0;
+
+  $("myDisrespect").textContent=
+    p?.disrespect_points||0;
+
+
+  const {data:b}=
+    await supabaseClient
+      .from("lounge_member_badges")
+      .select("badge_id")
+      .eq(
+        "user_id",
+        currentUser.id
+      );
+
+
+  $("myBadges").textContent=
+    (b||[]).length;
+
+
+  const months=
+    m?.created_at
+    ?
+    Math.max(
+      0,
+      Math.floor(
+        (
+          Date.now()-
+          new Date(
+            m.created_at
+          )
+        )/
+        2592000000
+      )
+    )
+    :
+    0;
+
+
+  $("myMonths").textContent=
+    months;
+
+
+  $("myRewardText").textContent=
+
+    level==="Executive"
+    ?
+    "Executive loyalty track is active."
+
+    :
+
+    level==="Director"
+    ?
+    "Director loyalty track is active."
+
+    :
+
+    level==="Annual"
+    ?
+    "Annual loyalty recognition is active."
+
+    :
+
+    "Earn badges and points through participation.";
+
+}
+
+
+/* =========================================================
+   CHAT
    ========================================================= */
 
 async function loadChat(){
@@ -1416,269 +2322,1831 @@ async function loadChat(){
   const {
     data,
     error
-  } =
+  }=
     await supabaseClient
       .from("lounge_chat_messages")
-      .select("*")
-      .order("created_at",{ascending:true})
+      .select(
+        "id,user_id,message,created_at"
+      )
+      .order(
+        "created_at",
+        {ascending:true}
+      )
       .limit(50);
+
 
   if(error){
 
-    console.error(error);
-
     $("chatList").innerHTML=
       `<div class="empty">
-        Unable to load Society chat.
-      </div>`;
-
-    $("chatStatus").textContent=
-      "Chat connection error.";
-
-    return;
-
-  }
-
-  renderChat(data||[]);
-
-}
-
-
-function renderChat(messages){
-
-  const box=$("chatList");
-
-  if(!messages.length){
-
-    box.innerHTML=
-      `<div class="empty">
-        No messages yet.
+        Chat unavailable.
       </div>`;
 
     return;
 
   }
 
-  box.innerHTML=
-    messages.map(
-      message=>`
 
-        <div class="feed">
+  $("chatList").innerHTML=
+    data?.length
+    ?
 
-          <b>
-            💬 Member
-          </b>
-
-          <br>
-
-          <small>
-            ${escapeHTML(message.message)}
-          </small>
-
-        </div>
-
+    data.map(
+      x=>
       `
-    ).join("");
 
-  box.scrollTop=box.scrollHeight;
+<div class="feed">
+
+<b class="${profileClass(x.user_id)}">
+
+💬 ${esc(
+  profileName(x.user_id)
+)}
+
+</b>
+
+<br>
+
+<small>
+${esc(x.message)}
+</small>
+
+</div>
+
+`
+    ).join("")
+
+    :
+
+    `<div class="empty">
+      No messages yet.
+    </div>`;
+
+
+  $("chatList").scrollTop=
+    $("chatList").scrollHeight;
+
+
+  $("oChat").textContent=
+    data?.length||0;
+
+  $("wallChat").textContent=
+    data?.length||0;
 
 }
 
 
 async function sendChat(){
 
-  const input=$("chatInput");
-
-  const message=input.value.trim();
-
-  if(!message){
-
-    toast("Type a message first.");
-
-    return;
-
-  }
-
   if(!currentUser){
 
-    toast("You must be signed in to chat.");
+    toast(
+      "Sign in to chat."
+    );
 
     return;
 
   }
 
-  const {
-    error
-  } =
+
+  const v=
+    $("chatInput")
+      .value
+      .trim();
+
+
+  if(!v){
+
+    return;
+
+  }
+
+
+  const {error}=
     await supabaseClient
       .from("lounge_chat_messages")
       .insert({
-        user_id:currentUser.id,
-        message
+        user_id:
+          currentUser.id,
+        message:v
       });
+
 
   if(error){
 
-    console.error(error);
-
-    toast("Message could not be sent.");
+    toast(
+      "Chat message failed."
+    );
 
     return;
 
   }
 
-  input.value="";
 
-  toast("Message sent.");
+  $("chatInput").value="";
+
+  toast(
+    "Message sent."
+  );
 
 }
 
 
-$("sendChat").addEventListener(
-  "click",
-  sendChat
-);
+$("sendChat").onclick=
+  sendChat;
 
-$("chatInput").addEventListener(
-  "keydown",
-  event=>{
+
+$("chatInput").onkeydown=
+  e=>{
 
     if(
-      event.key==="Enter" &&
-      !event.shiftKey
+      e.key==="Enter" &&
+      !e.shiftKey
     ){
 
-      event.preventDefault();
+      e.preventDefault();
 
       sendChat();
 
     }
 
-  }
-);
+  };
 
 
 /* =========================================================
-   REALTIME CHAT
+   POLLS
    ========================================================= */
 
-function startRealtime(){
+async function loadPolls(){
 
-  supabaseClient
-    .channel("lounge-chat")
-    .on(
-      "postgres_changes",
-      {
-        event:"INSERT",
-        schema:"public",
-        table:"lounge_chat_messages"
-      },
-      ()=>{
-        loadChat();
+  const {data:polls}=
+    await supabaseClient
+      .from("lounge_polls")
+      .select(
+        "id,question,is_open,created_at"
+      )
+      .order(
+        "created_at",
+        {ascending:false}
+      );
+
+
+  const {data:opts}=
+    await supabaseClient
+      .from("lounge_poll_options")
+      .select(
+        "id,poll_id,option_text"
+      );
+
+
+  const {data:votes}=
+    await supabaseClient
+      .from("lounge_poll_votes")
+      .select(
+        "poll_id,option_id,user_id"
+      );
+
+
+  $("pollList").innerHTML=
+    polls?.length
+    ?
+
+    polls.map(
+      p=>{
+
+        const os=
+          (opts||[])
+            .filter(
+              o=>o.poll_id===p.id
+            );
+
+
+        const total=
+          (votes||[])
+            .filter(
+              v=>v.poll_id===p.id
+            ).length;
+
+
+        return `
+
+<div class="feed">
+
+<b>
+🗳️ ${esc(p.question)}
+</b>
+
+${
+  os.map(
+    o=>{
+
+      const n=
+        (votes||[])
+          .filter(
+            v=>v.option_id===o.id
+          ).length;
+
+
+      return `
+
+<div class="choice">
+
+<span>
+
+${esc(o.option_text)}
+
+<small>
+(${n})
+</small>
+
+</span>
+
+<button
+class="btn vote"
+data-poll="${p.id}"
+data-option="${o.id}"
+${!currentUser||!p.is_open?"disabled":""}>
+
+Vote
+
+</button>
+
+</div>
+
+`;
+
+    }
+  ).join("")
+}
+
+<small>
+
+${total}
+total vote${total===1?"":"s"}
+
+</small>
+
+</div>
+
+`;
+
       }
-    )
-    .subscribe(
-      status=>{
+    ).join("")
 
-        if(status==="SUBSCRIBED"){
+    :
 
-          $("chatStatus").textContent=
-            "🟢 Live Society chat";
+    `<div class="empty">
+      No live polls yet.
+    </div>`;
 
-        }
 
-      }
+  document
+    .querySelectorAll(".vote")
+    .forEach(
+      b=>
+        b.onclick=
+          ()=>vote(
+            b.dataset.poll,
+            b.dataset.option
+          )
     );
 
 }
+
+
+async function vote(
+  poll,
+  option
+){
+
+  if(!currentUser){
+
+    toast(
+      "Sign in to vote."
+    );
+
+    return;
+
+  }
+
+
+  const {error}=
+    await supabaseClient
+      .from("lounge_poll_votes")
+      .insert({
+        poll_id:poll,
+        option_id:option,
+        user_id:currentUser.id
+      });
+
+
+  if(error){
+
+    toast(
+      error.code==="23505"
+      ?
+      "You already voted."
+      :
+      "Vote failed."
+    );
+
+    return;
+
+  }
+
+
+  toast(
+    "Vote recorded."
+  );
+
+  loadPolls();
+
+}
+
+
+$("createPoll").onclick=
+async()=>{
+
+  if(!isOwner){
+
+    toast(
+      "Owner only."
+    );
+
+    return;
+
+  }
+
+
+  const q=
+    $("pollQuestion")
+      .value
+      .trim();
+
+  const a=
+    $("pollOption1")
+      .value
+      .trim();
+
+  const b=
+    $("pollOption2")
+      .value
+      .trim();
+
+
+  if(!q||!a||!b){
+
+    toast(
+      "Fill all poll fields."
+    );
+
+    return;
+
+  }
+
+
+  const {
+    data,
+    error
+  }=
+    await supabaseClient
+      .from("lounge_polls")
+      .insert({
+        question:q,
+        created_by:
+          currentUser.id
+      })
+      .select()
+      .single();
+
+
+  if(error){
+
+    toast(
+      "Poll creation failed."
+    );
+
+    return;
+
+  }
+
+
+  await supabaseClient
+    .from("lounge_poll_options")
+    .insert([
+
+      {
+        poll_id:data.id,
+        option_text:a
+      },
+
+      {
+        poll_id:data.id,
+        option_text:b
+      }
+
+    ]);
+
+
+  $("pollQuestion").value="";
+  $("pollOption1").value="";
+  $("pollOption2").value="";
+
+
+  toast(
+    "Poll created."
+  );
+
+
+  loadPolls();
+
+};
+
+
+/* =========================================================
+   EVENTS
+   ========================================================= */
+
+async function loadEvents(){
+
+  const {data:events}=
+    await supabaseClient
+      .from("lounge_events")
+      .select("*")
+      .order(
+        "event_date",
+        {ascending:true}
+      );
+
+
+  const {data:r}=
+    await supabaseClient
+      .from("lounge_event_rsvps")
+      .select(
+        "event_id,user_id"
+      );
+
+
+  $("eventList").innerHTML=
+    events?.length
+    ?
+
+    events.map(
+      e=>{
+
+        const count=
+          (r||[])
+            .filter(
+              x=>x.event_id===e.id
+            ).length;
+
+
+        const mine=
+          (r||[])
+            .some(
+              x=>
+                x.event_id===e.id &&
+                x.user_id===currentUser?.id
+            );
+
+
+        return `
+
+<div class="feed">
+
+<b>
+🎟️ ${esc(e.name)}
+</b>
+
+<br>
+
+<small>
+
+${
+  e.event_date
+  ?
+  esc(
+    new Date(
+      e.event_date
+    ).toLocaleString()
+  )
+  :
+  "Date TBD"
+}
+
+•
+
+${count} RSVP
+
+</small>
+
+<br>
+
+<small>
+${esc(e.details||"")}
+</small>
+
+<br>
+
+<button
+class="btn green rsvp"
+data-id="${e.id}"
+${!currentUser||mine?"disabled":""}>
+
+${mine?"RSVP'd":"RSVP"}
+
+</button>
+
+</div>
+
+`;
+
+      }
+    ).join("")
+
+    :
+
+    `<div class="empty">
+      No live events yet.
+    </div>`;
+
+
+  document
+    .querySelectorAll(".rsvp")
+    .forEach(
+      b=>
+        b.onclick=
+          async()=>{
+
+            const {error}=
+              await supabaseClient
+                .from(
+                  "lounge_event_rsvps"
+                )
+                .insert({
+                  event_id:
+                    b.dataset.id,
+                  user_id:
+                    currentUser.id
+                });
+
+
+            if(error){
+
+              toast(
+                "RSVP failed."
+              );
+
+            }else{
+
+              toast(
+                "RSVP recorded."
+              );
+
+              loadEvents();
+
+            }
+
+          }
+    );
+
+}
+
+
+$("createEvent").onclick=
+async()=>{
+
+  if(!isOwner){
+
+    toast(
+      "Owner only."
+    );
+
+    return;
+
+  }
+
+
+  const name=
+    $("eventName")
+      .value
+      .trim();
+
+
+  if(!name){
+
+    toast(
+      "Enter an event name."
+    );
+
+    return;
+
+  }
+
+
+  const {error}=
+    await supabaseClient
+      .from("lounge_events")
+      .insert({
+        name,
+        event_date:
+          $("eventDate").value||null,
+        details:
+          $("eventDetails")
+            .value
+            .trim(),
+        created_by:
+          currentUser.id
+      });
+
+
+  if(error){
+
+    toast(
+      "Event creation failed."
+    );
+
+  }else{
+
+    toast(
+      "Event created."
+    );
+
+    $("eventName").value="";
+    $("eventDate").value="";
+    $("eventDetails").value="";
+
+    loadEvents();
+
+  }
+
+};
+
+
+/* =========================================================
+   CONSTRUCTION
+   ========================================================= */
+
+async function loadConstruction(){
+
+  const {data}=
+    await supabaseClient
+      .from(
+        "lounge_construction_updates"
+      )
+      .select("*")
+      .order(
+        "created_at",
+        {ascending:false}
+      );
+
+
+  $("constructionList").innerHTML=
+    data?.length
+    ?
+
+    data.map(
+      x=>
+      `
+
+<div class="feed">
+
+<b>
+🚧 Owner Update
+</b>
+
+<br>
+
+<small>
+${esc(x.body)}
+</small>
+
+</div>
+
+`
+    ).join("")
+
+    :
+
+    `<div class="empty">
+      No construction updates yet.
+    </div>`;
+
+}
+
+
+$("postConstruction").onclick=
+async()=>{
+
+  if(!isOwner){
+
+    toast(
+      "Owner only."
+    );
+
+    return;
+
+  }
+
+
+  const v=
+    $("constructionInput")
+      .value
+      .trim();
+
+
+  if(!v){
+
+    return;
+
+  }
+
+
+  const {error}=
+    await supabaseClient
+      .from(
+        "lounge_construction_updates"
+      )
+      .insert({
+        body:v,
+        created_by:
+          currentUser.id
+      });
+
+
+  if(error){
+
+    toast(
+      "Post failed."
+    );
+
+  }else{
+
+    $("constructionInput")
+      .value="";
+
+    toast(
+      "Construction update posted."
+    );
+
+    loadConstruction();
+
+  }
+
+};
+
+
+/* =========================================================
+   GIVEAWAYS
+   ========================================================= */
+
+async function loadGiveaway(){
+
+  const {data:g}=
+    await supabaseClient
+      .from("lounge_giveaways")
+      .select("*")
+      .order(
+        "created_at",
+        {ascending:false}
+      );
+
+
+  const current=
+    g?.find(
+      x=>x.is_open
+    );
+
+
+  const {data:e}=
+    current
+    ?
+    await supabaseClient
+      .from(
+        "lounge_giveaway_entries"
+      )
+      .select(
+        "id,user_id"
+      )
+      .eq(
+        "giveaway_id",
+        current.id
+      )
+
+    :
+    {data:[]};
+
+
+  $("giveawayCount").textContent=
+    g?.length||0;
+
+  $("winnerCount").textContent=
+    0;
+
+  $("givenAway").textContent=
+    "$"+
+    (
+      (g||[])
+        .reduce(
+          (sum,x)=>
+            sum+
+            Number(x.value||0),
+          0
+        )
+    ).toFixed(2);
+
+  $("entryCount").textContent=
+    e?.length||0;
+
+
+  $("giveawayCurrent").innerHTML=
+    current
+
+    ?
+
+    `
+
+<b>
+🎁 ${esc(current.prize)}
+</b>
+
+<br>
+
+<small>
+
+${esc(current.details||"")}
+
+•
+
+$${Number(current.value||0).toFixed(2)}
+
+</small>
+
+`
+
+    :
+
+    `
+
+<b>
+No active giveaway.
+</b>
+
+<br>
+
+<small>
+The Owner can open one when ready.
+</small>
+
+`;
+
+
+  $("enterGiveaway").disabled=
+    !currentUser||
+    !current;
+
+
+  $("enterGiveaway").onclick=
+    async()=>{
+
+      const {error}=
+        await supabaseClient
+          .from(
+            "lounge_giveaway_entries"
+          )
+          .insert({
+            giveaway_id:
+              current.id,
+            user_id:
+              currentUser.id
+          });
+
+
+      toast(
+        error
+        ?
+        "Already entered or entry failed."
+        :
+        "Entry recorded."
+      );
+
+
+      loadGiveaway();
+
+    };
+
+}
+
+
+$("createGiveaway").onclick=
+async()=>{
+
+  if(!isOwner){
+
+    toast(
+      "Owner only."
+    );
+
+    return;
+
+  }
+
+
+  const prize=
+    $("giveawayPrize")
+      .value
+      .trim();
+
+
+  if(!prize){
+
+    toast(
+      "Enter a prize."
+    );
+
+    return;
+
+  }
+
+
+  const {error}=
+    await supabaseClient
+      .from(
+        "lounge_giveaways"
+      )
+      .insert({
+        prize,
+        value:
+          Number(
+            $("giveawayValue")
+              .value||0
+          ),
+        details:
+          $("giveawayDetails")
+            .value
+            .trim(),
+        created_by:
+          currentUser.id
+      });
+
+
+  if(error){
+
+    toast(
+      "Giveaway creation failed."
+    );
+
+  }else{
+
+    toast(
+      "Giveaway opened."
+    );
+
+    $("giveawayPrize").value="";
+    $("giveawayValue").value="";
+    $("giveawayDetails").value="";
+
+    loadGiveaway();
+
+  }
+
+};
+
+
+/* =========================================================
+   PROJECTS
+   ========================================================= */
+
+async function loadProjects(){
+
+  const {data}=
+    await supabaseClient
+      .from("lounge_projects")
+      .select("*")
+      .order(
+        "created_at",
+        {ascending:false}
+      );
+
+
+  $("projectList").innerHTML=
+    data?.length
+
+    ?
+
+    data.map(
+      x=>
+      `
+
+<div class="feed">
+
+<b>
+🛤️ ${esc(x.title)}
+</b>
+
+<br>
+
+<small>
+
+${esc(x.description||"")}
+
+•
+
+${esc(
+  profileName(x.user_id)
+)}
+
+</small>
+
+</div>
+
+`
+    ).join("")
+
+    :
+
+    `<div class="empty">
+      No projects yet.
+    </div>`;
+
+}
+
+
+$("addProject").onclick=
+async()=>{
+
+  if(!currentUser){
+
+    toast(
+      "Sign in to add a project."
+    );
+
+    return;
+
+  }
+
+
+  const t=
+    $("projectTitle")
+      .value
+      .trim();
+
+
+  if(!t){
+
+    toast(
+      "Enter a title."
+    );
+
+    return;
+
+  }
+
+
+  const {error}=
+    await supabaseClient
+      .from("lounge_projects")
+      .insert({
+        user_id:
+          currentUser.id,
+        title:t,
+        description:
+          $("projectDescription")
+            .value
+            .trim()
+      });
+
+
+  if(error){
+
+    toast(
+      "Project failed."
+    );
+
+  }else{
+
+    $("projectTitle").value="";
+    $("projectDescription").value="";
+
+    toast(
+      "Project added."
+    );
+
+    loadProjects();
+
+  }
+
+};
+
+
+/* =========================================================
+   SUGGESTIONS
+   ========================================================= */
+
+async function loadSuggestions(){
+
+  const {data}=
+    await supabaseClient
+      .from("lounge_suggestions")
+      .select("*")
+      .order(
+        "created_at",
+        {ascending:false}
+      )
+      .limit(20);
+
+
+  $("suggestionList").innerHTML=
+    data?.length
+
+    ?
+
+    data.map(
+      x=>
+      `
+
+<div class="idea">
+
+<b>
+💡 ${esc(
+  profileName(x.user_id)
+)}
+</b>
+
+<br>
+
+<small>
+${esc(x.body)}
+</small>
+
+</div>
+
+`
+    ).join("")
+
+    :
+
+    `<div class="empty">
+      No suggestions yet.
+    </div>`;
+
+}
+
+
+$("submitSuggestion").onclick=
+async()=>{
+
+  if(!currentUser){
+
+    toast(
+      "Sign in first."
+    );
+
+    return;
+
+  }
+
+
+  const v=
+    $("suggestionInput")
+      .value
+      .trim();
+
+
+  if(!v){
+
+    return;
+
+  }
+
+
+  const {error}=
+    await supabaseClient
+      .from(
+        "lounge_suggestions"
+      )
+      .insert({
+        user_id:
+          currentUser.id,
+        body:v
+      });
+
+
+  if(error){
+
+    toast(
+      "Suggestion failed."
+    );
+
+  }else{
+
+    $("suggestionInput").value="";
+
+    toast(
+      "Suggestion submitted."
+    );
+
+    loadSuggestions();
+
+  }
+
+};
+
+
+/* =========================================================
+   PRIVATE MESSAGES
+   ========================================================= */
+
+async function sendPrivate(){
+
+  if(!currentUser){
+
+    toast(
+      "Sign in first."
+    );
+
+    return;
+
+  }
+
+
+  const v=
+    $("privateMessage")
+      .value
+      .trim();
+
+
+  if(!v){
+
+    return;
+
+  }
+
+
+  const {error}=
+    await supabaseClient
+      .from(
+        "lounge_private_messages"
+      )
+      .insert({
+        sender_id:
+          currentUser.id,
+        message:v
+      });
+
+
+  if(error){
+
+    toast(
+      "Private message failed."
+    );
+
+  }else{
+
+    $("privateMessage").value="";
+
+    toast(
+      "Private message sent to the Desk."
+    );
+
+  }
+
+}
+
+
+$("sendPrivate").onclick=
+  sendPrivate;
+
+
+/* =========================================================
+   REPORTS
+   ========================================================= */
+
+async function sendReport(type){
+
+  if(!currentUser){
+
+    toast(
+      "Sign in first."
+    );
+
+    return;
+
+  }
+
+
+  const subject=
+    $("reportSubject")
+      .value
+      .trim();
+
+
+  const details=
+    $("reportDetails")
+      .value
+      .trim();
+
+
+  if(!subject){
+
+    toast(
+      "Enter a subject."
+    );
+
+    return;
+
+  }
+
+
+  const {error}=
+    await supabaseClient
+      .from("lounge_reports")
+      .insert({
+        reporter_id:
+          currentUser.id,
+        report_type:type,
+        subject,
+        details
+      });
+
+
+  if(error){
+
+    toast(
+      "Report failed."
+    );
+
+  }else{
+
+    $("reportSubject").value="";
+    $("reportDetails").value="";
+
+    toast(
+      (
+        type==="respect"
+        ?
+        "Respect"
+        :
+        "Disrespect"
+      )+
+      " report sent."
+    );
+
+  }
+
+}
+
+
+$("respectReport").onclick=
+  ()=>sendReport("respect");
+
+$("disrespectReport").onclick=
+  ()=>sendReport("disrespect");
+
+
+$("neededButton").onclick=
+  ()=>{
+    toast(
+      "The full-time TrainsForever alert system is reserved for the future."
+    );
+  };
+
+
+/* =========================================================
+   OWNER POINTS
+   ========================================================= */
+
+$("awardPoints").onclick=
+async()=>{
+
+  if(!isOwner){
+
+    toast(
+      "Owner only."
+    );
+
+    return;
+
+  }
+
+
+  const name=
+    $("pointsUser")
+      .value
+      .trim()
+      .toLowerCase();
+
+
+  const type=
+    $("pointsType").value;
+
+
+  const amount=
+    Math.abs(
+      Number(
+        $("pointsAmount")
+          .value
+      )
+    );
+
+
+  const p=
+    profiles.find(
+      x=>
+        (x.username||"")
+          .toLowerCase()===name
+        ||
+        (x.display_name||"")
+          .toLowerCase()===name
+    );
+
+
+  if(!p||!amount){
+
+    toast(
+      "Check member name and points."
+    );
+
+    return;
+
+  }
+
+
+  const field=
+    type==="respect"
+    ?
+    "respect_points"
+    :
+    "disrespect_points";
+
+
+  const next=
+    (p[field]||0)+amount;
+
+
+  const {error}=
+    await supabaseClient
+      .from("profiles")
+      .update({
+        [field]:next
+      })
+      .eq(
+        "user_id",
+        p.user_id
+      );
+
+
+  if(error){
+
+    toast(
+      "Point update failed."
+    );
+
+  }else{
+
+    toast(
+      "Points updated."
+    );
+
+    loadMembers();
+
+  }
+
+};
 
 
 /* =========================================================
    HERITAGE UNITS
    ========================================================= */
 
-$("heritageButton").addEventListener(
-  "click",
-  ()=>{
-    window.open(
-      "https://www.heritageunits.com/",
-      "_blank",
-      "noopener,noreferrer"
-    );
+$("heritageButton").onclick=
+()=>{
+
+  window.open(
+    "https://www.heritageunits.com/",
+    "_blank",
+    "noopener,noreferrer"
+  );
+
+};
+
+
+async function loadHeritage(){
+
+  $("heritageStatus").textContent=
+    "Checking the public HeritageUnits feed…";
+
+
+  const {data,error}=
+    await supabaseClient
+      .from(
+        "lounge_heritage_reports"
+      )
+      .select("*")
+      .order(
+        "reported_at",
+        {ascending:false}
+      )
+      .limit(10);
+
+
+  if(error){
+
+    $("heritageList").innerHTML=
+      `<div class="empty">
+        Heritage feed unavailable.
+      </div>`;
+
+    return;
+
   }
-);
+
+
+  if(!data?.length){
+
+    $("heritageStatus").textContent=
+      "No imported public reports are available yet. Nothing is being invented.";
+
+    $("wallHeritage").textContent=
+      "No imported public reports yet.";
+
+    $("heritageList").innerHTML=
+      `<div class="empty">
+        Waiting for the live public-source importer.
+      </div>`;
+
+    return;
+
+  }
+
+
+  $("heritageStatus").textContent=
+    "🟢 Live database feed • latest 10 imported public reports";
+
+  $("wallHeritage").textContent=
+    "Latest imported public reports are live.";
+
+
+  $("heritageList").innerHTML=
+    data.map(
+      x=>
+      `
+
+<div class="feed">
+
+<b>
+🚂 ${esc(
+  x.locomotive||
+  "Unknown locomotive"
+)}
+</b>
+
+<br>
+
+<small>
+
+${esc(x.railroad||"")}
+
+•
+
+${esc(x.location||"")}
+
+•
+
+${esc(x.direction||"")}
+
+</small>
+
+<br>
+
+<small>
+
+${
+  x.reported_at
+  ?
+  esc(
+    new Date(
+      x.reported_at
+    ).toLocaleString()
+  )
+  :
+  "Time unavailable"
+}
+
+${
+  x.train_symbol
+  ?
+  " • "+
+  esc(x.train_symbol)
+  :
+  ""
+}
+
+</small>
+
+${
+  x.source_url
+  ?
+
+  `<br>
+  <a
+  href="${esc(x.source_url)}"
+  target="_blank"
+  rel="noopener noreferrer"
+  style="color:var(--gold2)">
+  Open source report
+  </a>`
+
+  :
+
+  ""
+}
+
+</div>
+
+`
+    ).join("");
+
+}
+
+
+$("heritageRefresh").onclick=
+  loadHeritage;
 
 
 /* =========================================================
-   DESK BUTTONS
+   REALTIME
    ========================================================= */
 
-$("privateMessage").addEventListener(
-  "keydown",
-  event=>{
-    event.stopPropagation();
-  }
-);
+function setupRealtime(){
 
-$("privateMessage").addEventListener(
-  "pointerdown",
-  event=>{
-    event.stopPropagation();
-  }
-);
+  supabaseClient
 
-$("respectReport").addEventListener(
-  "click",
-  ()=>{
-    toast(
-      "Respect reporting will connect to the real member system next."
+    .channel(
+      "lounge-live"
+    )
+
+    .on(
+      "postgres_changes",
+      {
+        event:"*",
+        schema:"public",
+        table:"lounge_chat_messages"
+      },
+      loadChat
+    )
+
+    .on(
+      "postgres_changes",
+      {
+        event:"*",
+        schema:"public",
+        table:"lounge_polls"
+      },
+      loadPolls
+    )
+
+    .on(
+      "postgres_changes",
+      {
+        event:"*",
+        schema:"public",
+        table:"lounge_poll_options"
+      },
+      loadPolls
+    )
+
+    .on(
+      "postgres_changes",
+      {
+        event:"*",
+        schema:"public",
+        table:"lounge_poll_votes"
+      },
+      loadPolls
+    )
+
+    .on(
+      "postgres_changes",
+      {
+        event:"*",
+        schema:"public",
+        table:"lounge_events"
+      },
+      loadEvents
+    )
+
+    .on(
+      "postgres_changes",
+      {
+        event:"*",
+        schema:"public",
+        table:"lounge_event_rsvps"
+      },
+      loadEvents
+    )
+
+    .on(
+      "postgres_changes",
+      {
+        event:"*",
+        schema:"public",
+        table:"lounge_construction_updates"
+      },
+      loadConstruction
+    )
+
+    .on(
+      "postgres_changes",
+      {
+        event:"*",
+        schema:"public",
+        table:"lounge_giveaways"
+      },
+      loadGiveaway
+    )
+
+    .on(
+      "postgres_changes",
+      {
+        event:"*",
+        schema:"public",
+        table:"lounge_giveaway_entries"
+      },
+      loadGiveaway
+    )
+
+    .on(
+      "postgres_changes",
+      {
+        event:"*",
+        schema:"public",
+        table:"lounge_projects"
+      },
+      loadProjects
+    )
+
+    .on(
+      "postgres_changes",
+      {
+        event:"*",
+        schema:"public",
+        table:"lounge_suggestions"
+      },
+      loadSuggestions
+    )
+
+    .on(
+      "postgres_changes",
+      {
+        event:"*",
+        schema:"public",
+        table:"lounge_heritage_reports"
+      },
+      loadHeritage
+    )
+
+    .subscribe(
+      status=>{
+
+        $("chatStatus").textContent=
+          status==="SUBSCRIBED"
+          ?
+          "🟢 Live Society connection"
+          :
+          "Connecting…";
+
+      }
     );
-  }
-);
 
-$("disrespectReport").addEventListener(
-  "click",
-  ()=>{
-    toast(
-      "Disrespect reporting will connect to the real member system next."
-    );
-  }
-);
-
-$("sendPrivate").addEventListener(
-  "click",
-  ()=>{
-    toast(
-      "Private Desk messaging will use the authenticated backend."
-    );
-  }
-);
+}
 
 
 /* =========================================================
    OWNER PANEL
    ========================================================= */
 
-$("ownerButton").addEventListener(
-  "click",
-  event=>{
+$("ownerButton").onclick=
+e=>{
 
-    event.stopPropagation();
+  e.stopPropagation();
 
-    $("ownerPanel")
-      .classList
-      .toggle("open");
+  $("ownerPanel")
+    .classList
+    .toggle("open");
 
-  }
-);
+};
+
 
 document.addEventListener(
   "pointerdown",
-  event=>{
+  e=>{
 
     if(
-      !$("ownerPanel").contains(event.target) &&
-      event.target!==$("ownerButton")
+      !$("ownerPanel")
+        .contains(e.target)
+      &&
+      e.target!==$("ownerButton")
     ){
 
       $("ownerPanel")
@@ -1692,97 +4160,48 @@ document.addEventListener(
 
 
 /* =========================================================
-   SMOOTH CAMERA + PINCH ZOOM
+   CAMERA + PINCH ZOOM
    ========================================================= */
 
-const viewport=$("viewport");
-const stage=$("stage");
-const hint=$("hint");
+const viewport=
+  $("viewport");
+
+const stage=
+  $("stage");
+
+const hint=
+  $("hint");
+
 
 let cameraX=0;
 let cameraY=0;
 
+let zoom=.85;
+
 let dragging=false;
 let moved=false;
 
-let startPointerX=0;
-let startPointerY=0;
+let startX=0;
+let startY=0;
 
-let startCameraX=0;
-let startCameraY=0;
+let startCX=0;
+let startCY=0;
 
-let lastPointerX=0;
-let lastPointerY=0;
-let lastPointerTime=0;
+let lastX=0;
+let lastY=0;
+let lastT=0;
 
-let velocityX=0;
-let velocityY=0;
+let vx=0;
+let vy=0;
 
-let animationFrame=null;
+let raf=null;
 
+const pointers=
+  new Map();
 
-/*
-  STARTING ZOOM
-  --------------
-  The room starts at 85%, making the cards easier
-  to see together without changing their actual sizes.
-*/
-
-let zoom=1;
-
-const BASE_ZOOM=0.85;
-
-const MIN_ZOOM=0.60;
-
-const MAX_ZOOM=1.35;
-
-
-/*
-  PINCH STATE
-*/
-
-const pointers=new Map();
-
-let pinchActive=false;
-
-let pinchStartDistance=0;
-
-let pinchStartZoom=1;
-
-
-function cameraBounds(){
-
-  const stageHalfW=
-    stage.offsetWidth/2;
-
-  const stageHalfH=
-    stage.offsetHeight/2;
-
-  const screenHalfW=
-    viewport.clientWidth/2;
-
-  const screenHalfH=
-    viewport.clientHeight/2;
-
-  const padding=40;
-
-  return {
-
-    minX:
-      -(stageHalfW-screenHalfW+padding),
-
-    maxX:
-      stageHalfW-screenHalfW+padding,
-
-    minY:
-      -(stageHalfH-screenHalfH+padding),
-
-    maxY:
-      stageHalfH-screenHalfH+padding
-
-  };
-
-}
+let pinch=false;
+let pinchDist=0;
+let pinchZoom=.85;
 
 
 function clamp(
@@ -1799,110 +4218,86 @@ function clamp(
 }
 
 
+function bounds(){
+
+  const w=
+    stage.offsetWidth*
+    zoom/
+    2;
+
+  const h=
+    stage.offsetHeight*
+    zoom/
+    2;
+
+  const sw=
+    viewport.clientWidth/
+    2;
+
+  const sh=
+    viewport.clientHeight/
+    2;
+
+
+  return {
+
+    minX:
+      -(w-sw+80),
+
+    maxX:
+      w-sw+80,
+
+    minY:
+      -(h-sh+80),
+
+    maxY:
+      h-sh+80
+
+  };
+
+}
+
+
 function renderCamera(){
 
-  const bounds=cameraBounds();
+  const b=
+    bounds();
+
 
   cameraX=
     clamp(
       cameraX,
-      bounds.minX,
-      bounds.maxX
+      b.minX,
+      b.maxX
     );
+
 
   cameraY=
     clamp(
       cameraY,
-      bounds.minY,
-      bounds.maxY
+      b.minY,
+      b.maxY
     );
 
+
   stage.style.transform=
-    `translate3d(
+    `
+    translate3d(
       ${cameraX}px,
       ${cameraY}px,
       0
-    ) scale(${BASE_ZOOM*zoom})`;
-
-  stage.style.transformOrigin=
-    "center center";
-
-}
+    )
+    scale(${zoom})
+    `;
 
 
-function stopInertia(){
-
-  if(animationFrame!==null){
-
-    cancelAnimationFrame(
-      animationFrame
-    );
-
-    animationFrame=null;
-
-  }
-
-  velocityX=0;
-  velocityY=0;
+  $("position").textContent=
+    `ROOM VIEW • ${profiles.length} MEMBERS • ${zoom.toFixed(2)}×`;
 
 }
 
 
-function startInertia(){
-
-  stopInertia();
-
-  function step(){
-
-    velocityX*=0.965;
-
-    velocityY*=0.965;
-
-    const speed=
-      Math.hypot(
-        velocityX,
-        velocityY
-      );
-
-    if(speed<0.025){
-
-      velocityX=0;
-
-      velocityY=0;
-
-      animationFrame=null;
-
-      return;
-
-    }
-
-    cameraX+=velocityX;
-
-    cameraY+=velocityY;
-
-    renderCamera();
-
-    animationFrame=
-      requestAnimationFrame(step);
-
-  }
-
-  animationFrame=
-    requestAnimationFrame(step);
-
-}
-
-
-function interactiveElement(element){
-
-  return element.closest(
-    "input,textarea,button,a,select,label"
-  );
-
-}
-
-
-function pointerDistance(a,b){
+function dist(a,b){
 
   return Math.hypot(
     a.clientX-b.clientX,
@@ -1912,128 +4307,181 @@ function pointerDistance(a,b){
 }
 
 
-/* =========================================================
-   POINTER DOWN
-   ========================================================= */
+function stopInertia(){
+
+  if(raf){
+
+    cancelAnimationFrame(
+      raf
+    );
+
+    raf=null;
+
+  }
+
+  vx=0;
+  vy=0;
+
+}
+
+
+function inertia(){
+
+  stopInertia();
+
+
+  const step=
+    ()=>{
+
+      vx*=.965;
+      vy*=.965;
+
+
+      if(
+        Math.hypot(vx,vy)<.025
+      ){
+
+        raf=null;
+
+        return;
+
+      }
+
+
+      cameraX+=vx;
+      cameraY+=vy;
+
+
+      renderCamera();
+
+
+      raf=
+        requestAnimationFrame(
+          step
+        );
+
+    };
+
+
+  raf=
+    requestAnimationFrame(
+      step
+    );
+
+}
+
+
+function interactive(element){
+
+  return element.closest(
+    "input,textarea,button,a,select,label"
+  );
+
+}
+
+
+/* POINTER DOWN */
 
 viewport.addEventListener(
   "pointerdown",
   event=>{
-
-    /*
-      Store the pointer first.
-      When a second finger arrives, the room switches
-      from camera movement to pinch zoom.
-    */
 
     pointers.set(
       event.pointerId,
       event
     );
 
-    if(pointers.size===2){
+
+    if(
+      pointers.size===2
+    ){
 
       stopInertia();
 
       dragging=false;
 
-      pinchActive=true;
+      pinch=true;
 
       moved=true;
+
 
       const pair=
         [...pointers.values()];
 
-      pinchStartDistance=
-        pointerDistance(
+
+      pinchDist=
+        dist(
           pair[0],
           pair[1]
         );
 
-      pinchStartZoom=
+
+      pinchZoom=
         zoom;
 
-      viewport.classList.add(
-        "dragging"
-      );
-
-      try{
-
-        viewport.setPointerCapture(
-          event.pointerId
-        );
-
-      }catch(_){}
 
       return;
 
     }
 
+
     if(
-      interactiveElement(event.target)
+      interactive(event.target)
     ){
 
       return;
 
     }
 
+
     stopInertia();
 
     dragging=true;
-
     moved=false;
 
-    startPointerX=
+
+    startX=
       event.clientX;
 
-    startPointerY=
+    startY=
       event.clientY;
 
-    startCameraX=
+
+    startCX=
       cameraX;
 
-    startCameraY=
+    startCY=
       cameraY;
 
-    lastPointerX=
+
+    lastX=
       event.clientX;
 
-    lastPointerY=
+    lastY=
       event.clientY;
 
-    lastPointerTime=
+
+    lastT=
       performance.now();
 
-    velocityX=0;
 
-    velocityY=0;
-
-    viewport.classList.add(
-      "dragging"
-    );
-
-    try{
-
-      viewport.setPointerCapture(
-        event.pointerId
-      );
-
-    }catch(_){}
+    vx=0;
+    vy=0;
 
   }
 );
 
 
-/* =========================================================
-   POINTER MOVE
-   ========================================================= */
+/* POINTER MOVE */
 
 viewport.addEventListener(
   "pointermove",
   event=>{
 
     if(
-      pointers.has(event.pointerId)
+      pointers.has(
+        event.pointerId
+      )
     ){
 
       pointers.set(
@@ -2043,48 +4491,36 @@ viewport.addEventListener(
 
     }
 
-    /*
-      TWO FINGERS = PINCH ZOOM
-    */
 
-    if(pointers.size>=2){
+    if(
+      pointers.size>=2
+    ){
 
       const pair=
         [...pointers.values()];
 
-      const distance=
-        pointerDistance(
-          pair[0],
-          pair[1]
+
+      zoom=
+        clamp(
+          pinchZoom*
+          (
+            dist(
+              pair[0],
+              pair[1]
+            )/
+            pinchDist
+          ),
+          .60,
+          1.35
         );
 
-      if(
-        pinchStartDistance>0
-      ){
 
-        zoom=
-          clamp(
-            pinchStartZoom*
-            (
-              distance/
-              pinchStartDistance
-            ),
-            MIN_ZOOM,
-            MAX_ZOOM
-          );
-
-        renderCamera();
-
-      }
+      renderCamera();
 
       return;
 
     }
 
-
-    /*
-      ONE FINGER = MOVE ROOM
-    */
 
     if(!dragging){
 
@@ -2092,14 +4528,16 @@ viewport.addEventListener(
 
     }
 
+
     const dx=
-      event.clientX-startPointerX;
+      event.clientX-startX;
 
     const dy=
-      event.clientY-startPointerY;
+      event.clientY-startY;
+
 
     if(
-      Math.abs(dx)>4 ||
+      Math.abs(dx)>4||
       Math.abs(dy)>4
     ){
 
@@ -2107,45 +4545,58 @@ viewport.addEventListener(
 
     }
 
+
     const now=
       performance.now();
+
 
     const dt=
       Math.max(
         8,
-        now-lastPointerTime
+        now-lastT
       );
 
-    const instantX=
-      (event.clientX-lastPointerX) /
+
+    const ix=
+      (
+        event.clientX-lastX
+      )/
       (dt/16.67);
 
-    const instantY=
-      (event.clientY-lastPointerY) /
+
+    const iy=
+      (
+        event.clientY-lastY
+      )/
       (dt/16.67);
 
-    velocityX=
-      velocityX*0.72+
-      instantX*0.28;
 
-    velocityY=
-      velocityY*0.72+
-      instantY*0.28;
+    vx=
+      vx*.72+
+      ix*.28;
 
-    lastPointerX=
+
+    vy=
+      vy*.72+
+      iy*.28;
+
+
+    lastX=
       event.clientX;
 
-    lastPointerY=
+    lastY=
       event.clientY;
 
-    lastPointerTime=
+    lastT=
       now;
 
+
     cameraX=
-      startCameraX+dx;
+      startCX+dx;
 
     cameraY=
-      startCameraY+dy;
+      startCY+dy;
+
 
     renderCamera();
 
@@ -2153,11 +4604,31 @@ viewport.addEventListener(
 );
 
 
-/* =========================================================
-   END DRAG
-   ========================================================= */
+/* POINTER END */
 
-function endDrag(){
+function end(event){
+
+  pointers.delete(
+    event.pointerId
+  );
+
+
+  if(pinch){
+
+    if(
+      pointers.size<2
+    ){
+
+      pinch=false;
+
+      pinchDist=0;
+
+    }
+
+    return;
+
+  }
+
 
   if(!dragging){
 
@@ -2165,96 +4636,33 @@ function endDrag(){
 
   }
 
+
   dragging=false;
 
-  viewport.classList.remove(
-    "dragging"
-  );
 
   if(moved){
 
-    velocityX*=1.35;
+    vx*=1.35;
+    vy*=1.35;
 
-    velocityY*=1.35;
-
-    startInertia();
+    inertia();
 
   }
 
 }
 
 
-/* =========================================================
-   POINTER UP
-   ========================================================= */
-
 viewport.addEventListener(
   "pointerup",
-  event=>{
-
-    pointers.delete(
-      event.pointerId
-    );
-
-    if(pinchActive){
-
-      if(pointers.size<2){
-
-        pinchActive=false;
-
-        pinchStartDistance=0;
-
-        pinchStartZoom=
-          zoom;
-
-        viewport.classList.remove(
-          "dragging"
-        );
-
-      }
-
-      return;
-
-    }
-
-    endDrag();
-
-  }
+  end
 );
 
-
-/* =========================================================
-   POINTER CANCEL
-   ========================================================= */
 
 viewport.addEventListener(
   "pointercancel",
-  event=>{
-
-    pointers.delete(
-      event.pointerId
-    );
-
-    if(pointers.size<2){
-
-      pinchActive=false;
-
-      pinchStartDistance=0;
-
-      pinchStartZoom=
-        zoom;
-
-    }
-
-    endDrag();
-
-  }
+  end
 );
 
-
-/* =========================================================
-   RESIZE
-   ========================================================= */
 
 window.addEventListener(
   "resize",
@@ -2268,27 +4676,134 @@ window.addEventListener(
 
 async function startup(){
 
-  await loadUser();
+  await getUser();
 
-  $("ownerStatus").textContent=
+  isOwner=
+    await isOwnerNow();
+
+
+  $("ownerStatus").innerHTML=
     currentUser
-      ? "🟢 Signed in"
-      : "⚪ Not signed in";
 
-  await loadChat();
+    ?
 
-  startRealtime();
+    (
+      isOwner
+      ?
+      "🟢 Signed in • OWNER"
+      :
+      "🟢 Signed in • MEMBER"
+    )
+
+    :
+
+    "⚪ Not signed in";
+
+
+  $("authBanner").textContent=
+    currentUser
+
+    ?
+
+    (
+      isOwner
+      ?
+      "👑 Owner access enabled"
+      :
+      "👤 Member access enabled"
+    )
+
+    :
+
+    "👋 Sign in to use member features";
+
+
+  /*
+    Hide every Owner-only creation/control area
+    for regular members.
+  */
+
+  document
+    .querySelectorAll(
+      ".owner-controls"
+    )
+    .forEach(
+      box=>{
+        box.style.display=
+          isOwner
+          ?
+          "block"
+          :
+          "none";
+      }
+    );
+
+
+  if(!isOwner){
+
+    $("ownerHelp").textContent=
+      "Owner controls are hidden until the authenticated account is authorized.";
+
+  }
+
+
+  await Promise.all([
+
+    loadMembers(),
+
+    loadChat(),
+
+    loadPolls(),
+
+    loadEvents(),
+
+    loadConstruction(),
+
+    loadGiveaway(),
+
+    loadProjects(),
+
+    loadSuggestions(),
+
+    loadHeritage()
+
+  ]);
+
+
+  setupRealtime();
+
+
+  await touchPresence();
+
+
+  setInterval(
+    touchPresence,
+    60000
+  );
+
+
+  setInterval(
+    loadMembers,
+    60000
+  );
+
+
+  setInterval(
+    loadHeritage,
+    120000
+  );
+
 
   renderCamera();
 
+
   setTimeout(
-    ()=>{
-      hint.classList.add("hide");
-    },
+    ()=>hint.classList.add("hide"),
     7000
   );
 
 }
+
 
 startup();
 
