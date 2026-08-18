@@ -15,7 +15,6 @@
   --green:#55e38a;
   --red:#ff6b6b;
   --muted:#a8b4bd;
-  --ink:#070707;
 }
 
 *{box-sizing:border-box}
@@ -38,7 +37,6 @@ button{cursor:pointer}
   inset:0;
   overflow:hidden;
 
-  /* WRINKLED GOLD PAPER */
   background:
     radial-gradient(
       ellipse at 20% 15%,
@@ -100,30 +98,39 @@ button{cursor:pointer}
       #0007 100%
     );
 
-  box-shadow:
-    inset 0 0 150px #000b;
+  box-shadow:inset 0 0 150px #000b;
 }
 
 #viewport.dragging{
   cursor:grabbing;
 }
 
+
+/* =========================================================
+   TIGHTER ROOM
+   ========================================================= */
+
 #stage{
   position:absolute;
 
-  width:5200px;
-  height:3600px;
+  width:4400px;
+  height:3000px;
 
   left:50%;
   top:50%;
 
-  margin-left:-2600px;
-  margin-top:-1800px;
+  margin-left:-2200px;
+  margin-top:-1500px;
 
   transform:translate3d(0,0,0);
 
   will-change:transform;
 }
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
 
 .card{
   position:absolute;
@@ -667,8 +674,8 @@ Owner permissions will be enforced by the real backend.
 <section
 class="card"
 style="
-left:2250px;
-top:1450px;
+left:1900px;
+top:1200px;
 width:570px;
 min-height:400px;
 text-align:center;
@@ -726,7 +733,7 @@ SWIPE ANYWHERE • LEFT • RIGHT • UP • DOWN
 
 <section
 class="card wide"
-style="left:300px;top:300px">
+style="left:250px;top:200px">
 
 <div class="label">
 SOCIETY COMMAND WALL
@@ -782,11 +789,11 @@ Connected to the TrainsForever database.
 </section>
 
 
-<!-- REAL CHAT -->
+<!-- CHAT -->
 
 <section
 class="card"
-style="left:900px;top:300px">
+style="left:750px;top:200px">
 
 <div class="label">
 MEMBER CHAT
@@ -836,7 +843,7 @@ Connecting to Society chat…
 
 <section
 class="card"
-style="left:1500px;top:300px">
+style="left:1300px;top:200px">
 
 <div class="label">
 MEMBERS
@@ -879,7 +886,7 @@ members
 
 <section
 class="card wide"
-style="left:2850px;top:650px">
+style="left:2400px;top:500px">
 
 <div class="label">
 HERITAGE UNITS
@@ -926,7 +933,7 @@ Open HeritageUnits.com
 
 <section
 class="card wide"
-style="left:3400px;top:1050px">
+style="left:2900px;top:900px">
 
 <div class="label">
 BADGE LOCKER
@@ -975,7 +982,7 @@ Member lockers will appear here.
 
 <section
 class="card"
-style="left:3500px;top:2200px">
+style="left:3000px;top:1900px">
 
 <div class="label">
 TRAINSFOREVER DESK
@@ -1087,7 +1094,7 @@ I'm Needed
 
 <section
 class="card"
-style="left:2800px;top:100px">
+style="left:2350px;top:100px">
 
 <div class="label">
 MEMBER POLLS
@@ -1139,7 +1146,7 @@ before these controls become active.
 
 <section
 class="card"
-style="left:2200px;top:300px">
+style="left:1900px;top:250px">
 
 <div class="label">
 CONSTRUCTION
@@ -1212,7 +1219,7 @@ Backend authorization coming next.
 
 <section
 class="card"
-style="left:650px;top:2200px">
+style="left:550px;top:1900px">
 
 <div class="label">
 SOCIETY EVENTS
@@ -1258,7 +1265,7 @@ Create Event
 
 <section
 class="card wide"
-style="left:4300px;top:650px">
+style="left:3500px;top:500px">
 
 <div class="label">
 GIVEAWAY CENTER
@@ -1629,42 +1636,6 @@ $("heritageButton").addEventListener(
 
 
 /* =========================================================
-   OWNER PANEL
-   ========================================================= */
-
-$("ownerButton").addEventListener(
-  "click",
-  event=>{
-
-    event.stopPropagation();
-
-    $("ownerPanel")
-      .classList
-      .toggle("open");
-
-  }
-);
-
-document.addEventListener(
-  "pointerdown",
-  event=>{
-
-    if(
-      !$("ownerPanel").contains(event.target) &&
-      event.target!==$("ownerButton")
-    ){
-
-      $("ownerPanel")
-        .classList
-        .remove("open");
-
-    }
-
-  }
-);
-
-
-/* =========================================================
    DESK BUTTONS
    ========================================================= */
 
@@ -1706,6 +1677,42 @@ $("sendPrivate").addEventListener(
     toast(
       "Private Desk messaging will use the authenticated backend."
     );
+  }
+);
+
+
+/* =========================================================
+   OWNER PANEL
+   ========================================================= */
+
+$("ownerButton").addEventListener(
+  "click",
+  event=>{
+
+    event.stopPropagation();
+
+    $("ownerPanel")
+      .classList
+      .toggle("open");
+
+  }
+);
+
+document.addEventListener(
+  "pointerdown",
+  event=>{
+
+    if(
+      !$("ownerPanel").contains(event.target) &&
+      event.target!==$("ownerButton")
+    ){
+
+      $("ownerPanel")
+        .classList
+        .remove("open");
+
+    }
+
   }
 );
 
@@ -1754,7 +1761,7 @@ function cameraBounds(){
   const screenHalfH=
     viewport.clientHeight/2;
 
-  const padding=180;
+  const padding=40;
 
   return {
 
@@ -1837,8 +1844,6 @@ function startInertia(){
   stopInertia();
 
   function step(){
-
-    /* MUCH SLOWER DECELERATION */
 
     velocityX*=0.965;
     velocityY*=0.965;
@@ -2028,8 +2033,6 @@ function endDrag(){
   );
 
   if(moved){
-
-    /* Give the swipe a real glide */
 
     velocityX*=1.35;
     velocityY*=1.35;
