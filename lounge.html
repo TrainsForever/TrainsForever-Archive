@@ -668,7 +668,6 @@ Owner permissions will be enforced by the real backend.
 
 <div id="stage">
 
-
 <!-- HERO -->
 
 <section
@@ -727,7 +726,6 @@ SWIPE ANYWHERE • LEFT • RIGHT • UP • DOWN
 </div>
 
 </section>
-
 
 <!-- COMMAND WALL -->
 
@@ -788,7 +786,6 @@ Connected to the TrainsForever database.
 
 </section>
 
-
 <!-- CHAT -->
 
 <section
@@ -838,7 +835,6 @@ Connecting to Society chat…
 
 </section>
 
-
 <!-- MEMBERS -->
 
 <section
@@ -880,7 +876,6 @@ members
 </div>
 
 </section>
-
 
 <!-- HERITAGE UNITS -->
 
@@ -927,7 +922,6 @@ Open HeritageUnits.com
 </button>
 
 </section>
-
 
 <!-- BADGE LOCKER -->
 
@@ -976,7 +970,6 @@ Member lockers will appear here.
 </div>
 
 </section>
-
 
 <!-- DESK -->
 
@@ -1088,8 +1081,6 @@ I'm Needed
 </button>
 
 </section>
-
-
 <!-- POLLS -->
 
 <section
@@ -1327,7 +1318,7 @@ Create Giveaway
 
 </div>
 
-</section>
+</div>
 
 
 </div>
@@ -1718,7 +1709,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   SMOOTH CAMERA
+   SMOOTH CAMERA + PINCH ZOOM
    ========================================================= */
 
 const viewport=$("viewport");
@@ -1745,6 +1736,35 @@ let velocityX=0;
 let velocityY=0;
 
 let animationFrame=null;
+
+
+/*
+  STARTING ZOOM
+  --------------
+  The room starts at 85%, making the cards easier
+  to see together without changing their actual sizes.
+*/
+
+let zoom=1;
+
+const BASE_ZOOM=0.85;
+
+const MIN_ZOOM=0.60;
+
+const MAX_ZOOM=1.35;
+
+
+/*
+  PINCH STATE
+*/
+
+const pointers=new Map();
+
+let pinchActive=false;
+
+let pinchStartDistance=0;
+
+let pinchStartZoom=1;
 
 
 function cameraBounds(){
@@ -1819,7 +1839,10 @@ function renderCamera(){
       ${cameraX}px,
       ${cameraY}px,
       0
-    )`;
+    ) scale(${BASE_ZOOM*zoom})`;
+
+  stage.style.transformOrigin=
+    "center center";
 
 }
 
@@ -1836,6 +1859,9 @@ function stopInertia(){
 
   }
 
+  velocityX=0;
+  velocityY=0;
+
 }
 
 
@@ -1846,6 +1872,7 @@ function startInertia(){
   function step(){
 
     velocityX*=0.965;
+
     velocityY*=0.965;
 
     const speed=
@@ -1857,6 +1884,7 @@ function startInertia(){
     if(speed<0.025){
 
       velocityX=0;
+
       velocityY=0;
 
       animationFrame=null;
@@ -1866,6 +1894,7 @@ function startInertia(){
     }
 
     cameraX+=velocityX;
+
     cameraY+=velocityY;
 
     renderCamera();
@@ -1890,9 +1919,72 @@ function interactiveElement(element){
 }
 
 
+function pointerDistance(a,b){
+
+  return Math.hypot(
+    a.clientX-b.clientX,
+    a.clientY-b.clientY
+  );
+
+}
+
+
+/* =========================================================
+   POINTER DOWN
+   ========================================================= */
+
 viewport.addEventListener(
   "pointerdown",
   event=>{
+
+    /*
+      Store the pointer first.
+      When a second finger arrives, the room switches
+      from camera movement to pinch zoom.
+    */
+
+    pointers.set(
+      event.pointerId,
+      event
+    );
+
+    if(pointers.size===2){
+
+      stopInertia();
+
+      dragging=false;
+
+      pinchActive=true;
+
+      moved=true;
+
+      const pair=
+        [...pointers.values()];
+
+      pinchStartDistance=
+        pointerDistance(
+          pair[0],
+          pair[1]
+        );
+
+      pinchStartZoom=
+        zoom;
+
+      viewport.classList.add(
+        "dragging"
+      );
+
+      try{
+
+        viewport.setPointerCapture(
+          event.pointerId
+        );
+
+      }catch(_){}
+
+      return;
+
+    }
 
     if(
       interactiveElement(event.target)
@@ -1905,6 +1997,7 @@ viewport.addEventListener(
     stopInertia();
 
     dragging=true;
+
     moved=false;
 
     startPointerX=
@@ -1929,6 +2022,7 @@ viewport.addEventListener(
       performance.now();
 
     velocityX=0;
+
     velocityY=0;
 
     viewport.classList.add(
@@ -1947,9 +2041,67 @@ viewport.addEventListener(
 );
 
 
+/* =========================================================
+   POINTER MOVE
+   ========================================================= */
+
 viewport.addEventListener(
   "pointermove",
   event=>{
+
+    if(
+      pointers.has(event.pointerId)
+    ){
+
+      pointers.set(
+        event.pointerId,
+        event
+      );
+
+    }
+
+    /*
+      TWO FINGERS = PINCH ZOOM
+    */
+
+    if(pointers.size>=2){
+
+      const pair=
+        [...pointers.values()];
+
+      const distance=
+        pointerDistance(
+          pair[0],
+          pair[1]
+        );
+
+      if(
+        pinchStartDistance>0
+      ){
+
+        zoom=
+          clamp(
+            pinchStartZoom*
+            (
+              distance/
+              pinchStartDistance
+            ),
+            MIN_ZOOM,
+            MAX_ZOOM
+          );
+
+        renderCamera();
+
+      }
+
+      return;
+
+    }
+
+
+    /*
+      ONE FINGER = MOVE ROOM
+    */
 
     if(!dragging){
 
@@ -2018,6 +2170,10 @@ viewport.addEventListener(
 );
 
 
+/* =========================================================
+   END DRAG
+   ========================================================= */
+
 function endDrag(){
 
   if(!dragging){
@@ -2035,6 +2191,7 @@ function endDrag(){
   if(moved){
 
     velocityX*=1.35;
+
     velocityY*=1.35;
 
     startInertia();
@@ -2044,15 +2201,77 @@ function endDrag(){
 }
 
 
+/* =========================================================
+   POINTER UP
+   ========================================================= */
+
 viewport.addEventListener(
   "pointerup",
-  endDrag
+  event=>{
+
+    pointers.delete(
+      event.pointerId
+    );
+
+    if(pinchActive){
+
+      if(pointers.size<2){
+
+        pinchActive=false;
+
+        pinchStartDistance=0;
+
+        pinchStartZoom=
+          zoom;
+
+        viewport.classList.remove(
+          "dragging"
+        );
+
+      }
+
+      return;
+
+    }
+
+    endDrag();
+
+  }
 );
+
+
+/* =========================================================
+   POINTER CANCEL
+   ========================================================= */
 
 viewport.addEventListener(
   "pointercancel",
-  endDrag
+  event=>{
+
+    pointers.delete(
+      event.pointerId
+    );
+
+    if(pointers.size<2){
+
+      pinchActive=false;
+
+      pinchStartDistance=0;
+
+      pinchStartZoom=
+        zoom;
+
+    }
+
+    endDrag();
+
+  }
 );
+
+
+/* =========================================================
+   RESIZE
+   ========================================================= */
 
 window.addEventListener(
   "resize",
