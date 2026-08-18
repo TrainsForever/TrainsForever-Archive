@@ -3,17 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
 <title>TrainsForever Society Lounge</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 :root{
   --gold:#f3c85b;
   --gold2:#ffe8a0;
-  --bg:#05080d;
-  --muted:#a8b4bd;
   --green:#55e38a;
   --red:#ff6b6b;
-  --blue:#65b8ff;
+  --muted:#a8b4bd;
+  --ink:#070707;
 }
 
 *{box-sizing:border-box}
@@ -23,92 +25,137 @@ html,body{
   width:100%;
   height:100%;
   overflow:hidden;
-  background:var(--bg);
   color:#fff;
   font-family:system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  background:#8f641f;
 }
 
 button,input,textarea,select{font:inherit}
 button{cursor:pointer}
-button:disabled{opacity:.45;cursor:not-allowed}
 
 #viewport{
   position:fixed;
   inset:0;
   overflow:hidden;
+
+  /* WRINKLED GOLD PAPER */
   background:
-    radial-gradient(circle at 50% 38%,#536673 0,#25333d 27%,#0b1117 62%,#020407 100%);
+    radial-gradient(
+      ellipse at 20% 15%,
+      #ffe7a0 0,
+      transparent 28%
+    ),
+    radial-gradient(
+      ellipse at 80% 75%,
+      #6d4714 0,
+      transparent 32%
+    ),
+    repeating-linear-gradient(
+      7deg,
+      #bd8b36 0 3px,
+      #d6aa58 4px 8px,
+      #a97829 9px 13px,
+      #e0b967 14px 18px
+    );
+
   touch-action:none;
   overscroll-behavior:none;
   cursor:grab;
 }
 
-#viewport.dragging{cursor:grabbing}
-
-#ceiling{
+#viewport:before{
+  content:"";
   position:absolute;
-  inset:0 0 60% 0;
-  background:linear-gradient(#071019,#1b2832);
-  opacity:.9;
+  inset:-10%;
   pointer-events:none;
+
+  background:
+    repeating-linear-gradient(
+      157deg,
+      transparent 0 35px,
+      #fff4 36px 38px,
+      transparent 39px 78px
+    ),
+    repeating-linear-gradient(
+      23deg,
+      transparent 0 52px,
+      #0002 53px 56px,
+      transparent 57px 105px
+    );
+
+  opacity:.7;
+  mix-blend-mode:overlay;
 }
 
-#floor{
-  position:absolute;
-  left:-20%;
-  right:-20%;
-  bottom:-35%;
-  height:70%;
-  background:linear-gradient(#1a252d,#060a0f);
-  transform:perspective(700px) rotateX(55deg);
-  border-top:1px solid #fff2;
-  pointer-events:none;
-}
-
-#floor:after{
+#viewport:after{
   content:"";
   position:absolute;
   inset:0;
-  background:repeating-linear-gradient(90deg,transparent 0 110px,#fff1 111px 113px);
+  pointer-events:none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 25%,
+      #0007 100%
+    );
+
+  box-shadow:
+    inset 0 0 150px #000b;
 }
 
-#glow{
-  position:absolute;
-  left:8%;
-  right:8%;
-  bottom:29%;
-  height:2px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  box-shadow:0 0 35px #f3c85b88;
-  pointer-events:none;
+#viewport.dragging{
+  cursor:grabbing;
 }
 
 #stage{
   position:absolute;
+
   width:5200px;
   height:3600px;
+
   left:50%;
   top:50%;
+
   margin-left:-2600px;
   margin-top:-1800px;
+
   transform:translate3d(0,0,0);
+
   will-change:transform;
 }
 
 .card{
   position:absolute;
+
   width:390px;
   min-height:270px;
+
   padding:22px;
+
   border-radius:25px;
-  background:linear-gradient(145deg,#1d2b36f5,#05090df2);
-  border:1px solid #ffffff1a;
-  box-shadow:0 30px 80px #000b,inset 0 1px #fff1;
+
+  background:
+    linear-gradient(
+      145deg,
+      #151515f5,
+      #030303f5
+    );
+
+  border:1px solid #f3c85b55;
+
+  box-shadow:
+    0 30px 80px #000b,
+    inset 0 1px #fff2;
+
   backdrop-filter:blur(12px);
+
   overflow:hidden;
 }
 
-.card.wide{width:520px}
+.card.wide{
+  width:520px;
+}
 
 .card h2{
   margin:0 0 12px;
@@ -127,75 +174,76 @@ small{
   font-size:10px;
 }
 
-.gold{color:var(--gold2)!important}
+.gold{
+  color:var(--gold2)!important;
+}
 
 .label{
   position:absolute;
   left:50%;
   top:-36px;
+
   transform:translateX(-50%);
+
   padding:7px 12px;
+
   border-radius:999px;
-  background:#02060add;
-  border:1px solid #f3c85b55;
+
+  background:#050505ee;
+
+  border:1px solid #f3c85b77;
+
   color:var(--gold2);
+
   font-size:9px;
   font-weight:900;
+
   letter-spacing:1.8px;
   white-space:nowrap;
 }
 
-.feed,.person,.idea,.tile{
+.feed,
+.person,
+.idea,
+.tile{
   padding:10px;
   margin:7px 0;
+
   border-radius:12px;
+
   background:#ffffff09;
-  border:1px solid #ffffff10;
+
+  border:1px solid #ffffff12;
+
   font-size:11px;
 }
 
-.feed b,.person b,.idea b{color:var(--gold2)}
-
-.statgrid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:6px;
-  margin:10px 0;
-}
-
-.stat{
-  padding:9px;
-  text-align:center;
-  border-radius:11px;
-  background:#ffffff08;
-  border:1px solid #ffffff0d;
-}
-
-.stat strong{
-  display:block;
+.feed b,
+.person b,
+.idea b{
   color:var(--gold2);
-  font-size:18px;
-}
-
-.stat span{
-  font-size:8px;
-  color:#9eabb3;
 }
 
 .btn{
-  border:1px solid #f3c85b55;
-  background:#f3c85b14;
+  border:1px solid #f3c85b66;
+
+  background:#f3c85b15;
+
   color:var(--gold2);
+
   border-radius:10px;
+
   padding:9px 12px;
+
   font-weight:800;
   font-size:10px;
+
   transition:.15s;
 }
 
 .btn:hover{
   transform:translateY(-1px);
-  background:#f3c85b25;
+  background:#f3c85b28;
 }
 
 .btn.green{
@@ -210,20 +258,31 @@ small{
   color:#ff9b9b;
 }
 
-.input,.textarea,.select{
+.input,
+.textarea,
+.select{
   width:100%;
+
   padding:10px;
+
   border-radius:10px;
+
   border:1px solid #fff2;
-  background:#02070b;
+
+  background:#020202;
+
   color:#fff;
+
   outline:none;
+
   -webkit-user-select:text;
   user-select:text;
 }
 
-.input:focus,.textarea:focus,.select:focus{
-  border-color:#f3c85b66;
+.input:focus,
+.textarea:focus,
+.select:focus{
+  border-color:#f3c85b88;
 }
 
 .textarea{
@@ -237,300 +296,38 @@ small{
   align-items:center;
 }
 
-.row>*{flex:1}
-
-.progress{
-  height:9px;
-  margin:8px 0;
-  overflow:hidden;
-  border-radius:999px;
-  background:#ffffff0d;
+.row>*{
+  flex:1;
 }
 
-.progress div{
-  height:100%;
-  width:0;
-  background:linear-gradient(90deg,#f3c85b,#ffe8a0);
-  transition:width .3s;
-}
-
-.badges{
+.statgrid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:6px;
+  margin:10px 0;
 }
 
-.badges div{
+.stat{
   padding:9px;
+
   text-align:center;
+
   border-radius:11px;
-  background:#fff1;
-  font-size:9px;
+
+  background:#ffffff08;
+
+  border:1px solid #ffffff0d;
 }
 
-.badges span{
+.stat strong{
   display:block;
-  font-size:20px;
-  margin-bottom:3px;
-}
-
-.hero{
-  width:570px!important;
-  min-height:400px!important;
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  background:
-    radial-gradient(circle at 50% 30%,#f3c85b1c,transparent 40%),
-    linear-gradient(145deg,#172733f5,#04080df5);
-}
-
-.hero .logo{
-  font-size:80px;
-  filter:drop-shadow(0 0 28px #f3c85b66);
-}
-
-.hero h1{
-  font-size:45px;
-  letter-spacing:5px;
   color:var(--gold2);
-  margin:5px;
+  font-size:18px;
 }
 
-.hero .kicker{
-  font-size:9px;
-  letter-spacing:4px;
-  color:#aab6bf;
-}
-
-#top{
-  position:fixed;
-  z-index:50;
-  top:12px;
-  left:12px;
-  right:12px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  pointer-events:none;
-}
-
-.pill{
-  pointer-events:auto;
-  padding:8px 11px;
-  border-radius:999px;
-  background:#000c;
-  border:1px solid #fff2;
-  color:var(--gold2);
-  font-size:9px;
-  font-weight:900;
-}
-
-#ownerPanel{
-  display:none;
-  position:fixed;
-  z-index:60;
-  right:12px;
-  top:55px;
-  width:min(360px,88vw);
-  max-height:80vh;
-  overflow:auto;
-  padding:15px;
-  border-radius:18px;
-  background:#050a0ff5;
-  border:1px solid #fff2;
-  box-shadow:0 25px 70px #000d;
-  backdrop-filter:blur(14px);
-}
-
-#ownerPanel.open{display:block}
-
-.owner-controls{
-  margin-top:10px;
-  padding:10px;
-  border-radius:12px;
-  background:#f3c85b0d;
-  border:1px solid #f3c85b33;
-}
-
-.owner-controls h4{
-  margin:0 0 8px;
-  color:var(--gold2);
-  font-size:11px;
-}
-
-.points-row{
-  display:flex;
-  gap:6px;
-  align-items:center;
-}
-
-.points-row input{flex:1}
-
-.locked-note{
-  color:#9eabb3;
-  font-size:9px;
-  margin-top:7px;
-}
-
-#toast{
-  position:fixed;
-  z-index:100;
-  left:50%;
-  bottom:55px;
-  transform:translate(-50%,15px);
-  opacity:0;
-  pointer-events:none;
-  padding:10px 14px;
-  border-radius:999px;
-  background:#02060eee;
-  border:1px solid #f3c85b55;
-  color:var(--gold2);
-  font-size:10px;
-  font-weight:800;
-  transition:.2s;
-}
-
-#toast.show{
-  opacity:1;
-  transform:translate(-50%,0);
-}
-
-#hint{
-  position:fixed;
-  z-index:50;
-  left:50%;
-  bottom:14px;
-  transform:translateX(-50%);
-  padding:8px 12px;
-  border-radius:999px;
-  background:#000c;
-  border:1px solid #fff2;
-  color:#cbd4da;
-  font-size:9px;
-  white-space:nowrap;
-  pointer-events:none;
-  transition:opacity .6s;
-}
-
-#hint.hide{opacity:0}
-
-#position{
-  position:fixed;
-  z-index:50;
-  left:12px;
-  bottom:12px;
-  padding:6px 9px;
-  border-radius:999px;
-  background:#0008;
-  color:#94a1aa;
+.stat span{
   font-size:8px;
-  pointer-events:none;
-}
-
-#viewport:before{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  opacity:.95;
-  background:
-    radial-gradient(ellipse at 50% 48%,transparent 0 25%,#02060bcc 75%),
-    linear-gradient(180deg,#07131d 0 38%,#111b21 38% 48%,#080d12 48% 100%);
-}
-
-#viewport:after{
-  content:"";
-  position:absolute;
-  left:-10%;
-  right:-10%;
-  bottom:8%;
-  height:28%;
-  pointer-events:none;
-  opacity:.5;
-  background:
-    repeating-linear-gradient(90deg,transparent 0 140px,#a8783220 141px 148px),
-    linear-gradient(7deg,transparent 0 46%,#d7b15c22 47% 48%,transparent 49% 54%,#d7b15c22 55% 56%,transparent 57%);
-  transform:perspective(900px) rotateX(50deg);
-}
-
-#trainBackdrop{
-  position:absolute;
-  left:50%;
-  top:29%;
-  width:520px;
-  height:170px;
-  transform:translateX(-50%);
-  opacity:.16;
-  pointer-events:none;
-}
-
-#trainBackdrop .engine{
-  position:absolute;
-  left:95px;
-  bottom:30px;
-  width:270px;
-  height:72px;
-  border-radius:8px 20px 8px 8px;
-  background:linear-gradient(#d9e0e2,#6f7d85 55%,#303b42);
-}
-
-#trainBackdrop .cab{
-  position:absolute;
-  right:22px;
-  bottom:102px;
-  width:86px;
-  height:90px;
-  border:8px solid #65747d;
-  border-bottom:0;
-  background:#17232b;
-}
-
-#trainBackdrop .stack{
-  position:absolute;
-  left:50px;
-  bottom:102px;
-  width:42px;
-  height:70px;
-  border-radius:12px 12px 5px 5px;
-  background:#4b5960;
-}
-
-#trainBackdrop .smoke{
-  position:absolute;
-  left:32px;
-  bottom:160px;
-  width:150px;
-  height:70px;
-  border-radius:50%;
-  background:radial-gradient(circle,#cbd2d51c 0 35%,transparent 70%);
-}
-
-#trainBackdrop .wheel{
-  position:absolute;
-  bottom:4px;
-  width:48px;
-  height:48px;
-  border-radius:50%;
-  border:7px solid #73818a;
-  background:#0b1116;
-}
-
-#trainBackdrop .w1{left:120px}
-#trainBackdrop .w2{left:195px}
-#trainBackdrop .w3{left:270px}
-
-#trainBackdrop .light{
-  position:absolute;
-  left:78px;
-  bottom:68px;
-  width:18px;
-  height:18px;
-  border-radius:50%;
-  background:#f3c85b;
-  box-shadow:0 0 35px #f3c85b;
+  color:#9eabb3;
 }
 
 .empty{
@@ -544,49 +341,252 @@ small{
   justify-content:space-between;
   gap:8px;
   align-items:center;
+
   margin:6px 0;
+
   padding:8px;
+
   border-radius:9px;
+
   background:#ffffff08;
 }
 
-.member-line{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  align-items:center;
+.badges{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:6px;
 }
 
-.member-meta{
-  text-align:right;
-  color:#9eabb3;
+.badges div{
+  padding:9px;
+
+  text-align:center;
+
+  border-radius:11px;
+
+  background:#fff1;
+
   font-size:9px;
 }
 
-.reward-box{
-  border:1px solid #f3c85b33;
-  background:#f3c85b0a;
-  padding:10px;
-  border-radius:12px;
-  margin-top:10px;
+.badges span{
+  display:block;
+  font-size:20px;
+  margin-bottom:3px;
 }
 
-.reward-price{
+#top{
+  position:fixed;
+  z-index:50;
+
+  top:12px;
+  left:12px;
+  right:12px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  pointer-events:none;
+}
+
+.pill{
+  pointer-events:auto;
+
+  padding:8px 11px;
+
+  border-radius:999px;
+
+  background:#050505dd;
+
+  border:1px solid #f3c85b55;
+
   color:var(--gold2);
-  font-size:22px;
+
+  font-size:9px;
   font-weight:900;
 }
 
+#ownerPanel{
+  display:none;
+
+  position:fixed;
+  z-index:60;
+
+  right:12px;
+  top:55px;
+
+  width:min(360px,88vw);
+  max-height:80vh;
+
+  overflow:auto;
+
+  padding:15px;
+
+  border-radius:18px;
+
+  background:#050505f5;
+
+  border:1px solid #f3c85b44;
+
+  box-shadow:0 25px 70px #000d;
+
+  backdrop-filter:blur(14px);
+}
+
+#ownerPanel.open{
+  display:block;
+}
+
+.owner-controls{
+  margin-top:10px;
+
+  padding:10px;
+
+  border-radius:12px;
+
+  background:#f3c85b0d;
+
+  border:1px solid #f3c85b33;
+}
+
+.owner-controls h4{
+  margin:0 0 8px;
+
+  color:var(--gold2);
+
+  font-size:11px;
+}
+
+.locked-note{
+  color:#9eabb3;
+  font-size:9px;
+  margin-top:7px;
+}
+
+#toast{
+  position:fixed;
+  z-index:100;
+
+  left:50%;
+  bottom:55px;
+
+  transform:translate(-50%,15px);
+
+  opacity:0;
+
+  pointer-events:none;
+
+  padding:10px 14px;
+
+  border-radius:999px;
+
+  background:#020202ee;
+
+  border:1px solid #f3c85b66;
+
+  color:var(--gold2);
+
+  font-size:10px;
+  font-weight:800;
+
+  transition:.2s;
+}
+
+#toast.show{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+#hint{
+  position:fixed;
+  z-index:50;
+
+  left:50%;
+  bottom:14px;
+
+  transform:translateX(-50%);
+
+  padding:8px 12px;
+
+  border-radius:999px;
+
+  background:#000c;
+
+  border:1px solid #fff2;
+
+  color:#fff;
+
+  font-size:9px;
+
+  white-space:nowrap;
+
+  pointer-events:none;
+
+  transition:opacity .6s;
+}
+
+#hint.hide{
+  opacity:0;
+}
+
+#position{
+  position:fixed;
+  z-index:50;
+
+  left:12px;
+  bottom:12px;
+
+  padding:6px 9px;
+
+  border-radius:999px;
+
+  background:#0008;
+
+  color:#e8d49a;
+
+  font-size:8px;
+
+  pointer-events:none;
+}
+
+.owner-name{
+  color:#080808!important;
+
+  -webkit-text-stroke:1px var(--gold);
+
+  text-shadow:
+    0 0 2px var(--gold),
+    0 0 5px #f3c85b99;
+}
+
+.executive-name{
+  color:var(--gold2)!important;
+}
+
+.grey-name{
+  color:#55e38a!important;
+}
+
 @media(max-width:700px){
-  .hero{width:520px!important}
+
+  .card{
+    border-radius:20px;
+  }
+
   #top .pill:first-child{
     max-width:60vw;
+
     overflow:hidden;
+
     text-overflow:ellipsis;
   }
+
   #hint{
     max-width:90vw;
+
     overflow:hidden;
+
     text-overflow:ellipsis;
   }
 }
@@ -597,155 +597,140 @@ small{
 
 <div id="viewport">
 
-<div id="ceiling"></div>
-<div id="floor"></div>
-<div id="glow"></div>
-
-<div id="trainBackdrop" aria-hidden="true">
-  <div class="smoke"></div>
-  <div class="engine"></div>
-  <div class="cab"></div>
-  <div class="stack"></div>
-  <div class="light"></div>
-  <div class="wheel w1"></div>
-  <div class="wheel w2"></div>
-  <div class="wheel w3"></div>
-</div>
-
 <div id="top">
-  <div class="pill">🚂 TRAINSFOREVER • SOCIETY LOUNGE</div>
-  <button class="pill" id="ownerButton">OWNER OVERVIEW</button>
+
+  <div class="pill">
+    🚂 TRAINSFOREVER • SOCIETY LOUNGE
+  </div>
+
+  <button
+    class="pill"
+    id="ownerButton">
+    OWNER OVERVIEW
+  </button>
+
 </div>
+
 
 <aside id="ownerPanel">
 
 <h3 style="margin:0 0 10px;color:var(--gold2)">
-  Owner Overview
+Owner Overview
 </h3>
 
 <div class="statgrid">
-  <div class="stat">
-    <strong id="oMembers">0</strong>
-    <span>MEMBERS</span>
-  </div>
-  <div class="stat">
-    <strong id="oActive">0</strong>
-    <span>ACTIVE</span>
-  </div>
-  <div class="stat">
-    <strong id="oViews">0</strong>
-    <span>VIEWS</span>
-  </div>
-  <div class="stat">
-    <strong id="oReports">0</strong>
-    <span>REPORTS</span>
-  </div>
+
+<div class="stat">
+<strong id="oMembers">0</strong>
+<span>MEMBERS</span>
 </div>
 
-<div class="feed">
-  💡 <b>Suggestions:</b> <span id="oSuggestions">0</span>
+<div class="stat">
+<strong id="oActive">0</strong>
+<span>ACTIVE</span>
 </div>
 
-<div class="feed">
-  🤝 <b>Friend requests:</b> <span id="oFriendRequests">0</span>
+<div class="stat">
+<strong id="oChat">0</strong>
+<span>CHAT</span>
 </div>
 
-<div class="feed">
-  💬 <b>Chat activity:</b> <span id="oChat">0</span>
-</div>
-
-<div class="owner-controls">
-
-<h4>⭐ Respect Points — Owner Only</h4>
-
-<input id="pointMember"
-       class="input"
-       placeholder="Member name">
-
-<br><br>
-
-<div class="points-row">
-
-<input id="pointAmount"
-       class="input"
-       type="number"
-       min="1"
-       placeholder="Points">
-
-<button class="btn" id="addPoints">＋ Add</button>
-<button class="btn red" id="removePoints">− Remove</button>
-
-</div>
-
-<div class="locked-note">
-This browser demo stores points locally. Real owner authorization must be server-side.
+<div class="stat">
+<strong id="oReports">0</strong>
+<span>REPORTS</span>
 </div>
 
 </div>
 
 <div class="owner-controls">
 
-<h4>👑 Add Demo Member</h4>
+<h4>🔐 Owner Status</h4>
 
-<input id="newMemberName"
-       class="input"
-       placeholder="Display name">
-
-<br><br>
-
-<select id="newMemberTier" class="select">
-<option value="Standard">Standard</option>
-<option value="Executive">Executive — $20/mo</option>
-<option value="Director">Director — $10/mo</option>
-<option value="Annual">Annual — $30 one-time</option>
-</select>
-
-<br><br>
-
-<button class="btn green" id="createMember">
-＋ Add Member
-</button>
-
+<div id="ownerStatus">
+Checking account…
 </div>
 
-<p>
 <small>
-Demo data is saved in this browser. Production data needs your real database.
+Owner permissions will be enforced by the real backend.
 </small>
-</p>
+
+</div>
 
 </aside>
 
+
 <div id="stage">
+
 
 <!-- HERO -->
 
-<section class="card hero" style="left:2250px;top:1450px">
+<section
+class="card"
+style="
+left:2250px;
+top:1450px;
+width:570px;
+min-height:400px;
+text-align:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+">
 
-<div class="label">THE LOUNGE</div>
+<div class="label">
+THE LOUNGE
+</div>
 
-<div class="logo">🚂</div>
+<div style="
+font-size:80px;
+filter:drop-shadow(0 0 28px #f3c85b66);
+">
+🚂
+</div>
 
-<div class="kicker">THE TRAINSFOREVER SOCIETY</div>
+<div style="
+font-size:9px;
+letter-spacing:4px;
+color:#aab6bf;
+">
+THE TRAINSFOREVER SOCIETY
+</div>
 
-<h1>LOUNGE</h1>
+<h1 style="
+font-size:45px;
+letter-spacing:5px;
+color:var(--gold2);
+margin:5px;
+">
+LOUNGE
+</h1>
 
 <p>
 Turn around. Look up. Look down.
 Explore the Society.
 </p>
 
-<div style="margin-top:12px;color:#9eabb3;font-size:10px">
+<div style="
+margin-top:12px;
+color:#9eabb3;
+font-size:10px;
+">
 SWIPE ANYWHERE • LEFT • RIGHT • UP • DOWN
 </div>
 
 </section>
 
+
 <!-- COMMAND WALL -->
 
-<section class="card wide" style="left:300px;top:300px">
+<section
+class="card wide"
+style="left:300px;top:300px">
 
-<div class="label">SOCIETY COMMAND WALL</div>
+<div class="label">
+SOCIETY COMMAND WALL
+</div>
 
 <h2>🌐 Everything at a Glance</h2>
 
@@ -762,8 +747,8 @@ SWIPE ANYWHERE • LEFT • RIGHT • UP • DOWN
 </div>
 
 <div class="stat">
-<strong id="wallViews">0</strong>
-<span>VIEWS</span>
+<strong id="wallChat">0</strong>
+<span>CHAT</span>
 </div>
 
 <div class="stat">
@@ -775,404 +760,187 @@ SWIPE ANYWHERE • LEFT • RIGHT • UP • DOWN
 
 <div class="feed">
 <b>🚂 Heritage Units</b><br>
-<small>Latest permitted HeritageUnits.com reports.</small>
+<small>
+Real latest reports will appear here.
+</small>
 </div>
 
 <div class="feed">
-<b>📝 Member Reports</b><br>
-<small>TrainsForever member sightings.</small>
+<b>🏆 Badge Locker</b><br>
+<small>
+Members will see earned rewards.
+</small>
 </div>
 
 <div class="feed">
-<b>🏆 Hall of Fame</b><br>
-<small>Featured Society members.</small>
-</div>
-
-<div class="feed">
-<b>💡 Suggestion Box</b><br>
-<small>Ideas waiting for the Owner.</small>
+<b>💬 Live Society Chat</b><br>
+<small>
+Connected to the TrainsForever database.
+</small>
 </div>
 
 </section>
 
-<!-- CHAT -->
 
-<section class="card" style="left:900px;top:300px">
+<!-- REAL CHAT -->
 
-<div class="label">MEMBER CHAT</div>
+<section
+class="card"
+style="left:900px;top:300px">
+
+<div class="label">
+MEMBER CHAT
+</div>
 
 <h2>💬 Chat</h2>
 
-<div id="chatList" style="max-height:150px;overflow:auto">
-<div class="empty">No messages yet.</div>
+<div
+id="chatList"
+style="
+max-height:180px;
+overflow:auto;
+">
+
+<div class="empty">
+Loading real chat…
+</div>
+
 </div>
 
 <br>
 
-<input id="chatInput"
-       class="input"
-       maxlength="300"
-       placeholder="Say something…">
+<input
+id="chatInput"
+class="input"
+maxlength="300"
+placeholder="Say something…">
 
 <br><br>
 
-<button class="btn" id="sendChat">
+<button
+class="btn"
+id="sendChat">
 Send Message
 </button>
 
 <p>
-<small>
-Prototype chat is local to this browser.
+<small id="chatStatus">
+Connecting to Society chat…
 </small>
 </p>
 
 </section>
 
+
 <!-- MEMBERS -->
 
-<section class="card" style="left:1500px;top:300px">
+<section
+class="card"
+style="left:1500px;top:300px">
 
-<div class="label">MEMBERS</div>
+<div class="label">
+MEMBERS
+</div>
 
 <h2>👥 Society Members</h2>
 
-<div id="memberBig"
-     style="font-size:44px;color:var(--gold2);font-weight:900">
+<div
+style="
+font-size:44px;
+color:var(--gold2);
+font-weight:900;
+"
+id="memberBig">
 0
 </div>
 
-<small>members</small>
+<small>
+members
+</small>
 
 <div class="person">
-<b>🟢 Active now: <span id="activeBig">0</span></b>
+<b>
+🟢 Active now:
+<span id="activeBig">0</span>
+</b>
 </div>
 
 <div class="person">
-<b>🤝 Friends: <span id="friendsBig">0</span></b>
+<b>
+🏆 Badges:
+<span id="badgesBig">0</span>
+</b>
 </div>
-
-<div class="person">
-<b>🎖️ Badges earned: <span id="badgesBig">0</span></b>
-</div>
-
-<button class="btn" id="findFriends">
-Find Friends
-</button>
 
 </section>
 
-<!-- PROJECTS -->
 
-<section class="card" style="left:250px;top:700px">
+<!-- HERITAGE UNITS -->
 
-<div class="label">MEMBER PROJECTS</div>
+<section
+class="card wide"
+style="left:2850px;top:650px">
 
-<h2>🛠️ Member Projects</h2>
-
-<div id="projectList">
-<div class="empty">No projects yet.</div>
+<div class="label">
+HERITAGE UNITS
 </div>
 
-<button class="btn" id="addProject">
-Show a Project
-</button>
+<h2>
+🚂 Latest Heritage Reports
+</h2>
 
-</section>
+<div class="feed">
 
-<!-- TRAIN OF DAY -->
-
-<section class="card" style="left:250px;top:1050px">
-
-<div class="label">TRAIN OF THE DAY</div>
-
-<h2>🚆 Featured Train</h2>
-
-<div style="font-size:70px;text-align:center">
-🚂
-</div>
-
-<p style="text-align:center">
-
-<b class="gold" id="featuredTrain">
-Coming Soon
+<b class="gold">
+REAL PUBLIC REPORT FEED
 </b>
 
-<br><br>
-
-The Owner can select a featured locomotive.
-
-</p>
-
-<button class="btn" id="setFeaturedTrain">
-Set Featured Train
-</button>
-
-</section>
-
-<!-- HISTORY -->
-
-<section class="card" style="left:700px;top:1500px">
-
-<div class="label">TODAY IN RAILROAD HISTORY</div>
-
-<h2>🕰️ Today in History</h2>
-
-<p>
-<b class="gold">Railroad History</b>
-</p>
-
-<p>
-Add a verified railroad-history note for today's date.
-</p>
-
-<button class="btn" id="historyButton">
-Add History Note
-</button>
-
-</section>
-
-<!-- LIBRARY -->
-
-<section class="card" style="left:750px;top:900px">
-
-<div class="label">RAILROAD LIBRARY</div>
-
-<h2>📚 Society Library</h2>
-
-<div id="libraryList">
-
-<div class="feed">
-<b>Locomotive Histories</b><br>
-<small>Articles and reference material.</small>
-</div>
-
-<div class="feed">
-<b>Railroad History</b><br>
-<small>Stories, facts, and archives.</small>
-</div>
-
-<div class="feed">
-<b>Member Knowledge</b><br>
-<small>Things members want to share.</small>
-</div>
-
-</div>
-
-<button class="btn" id="addLibrary">
-Add Library Item
-</button>
-
-</section>
-
-<!-- REPORTS -->
-
-<section class="card wide" style="left:1450px;top:1700px">
-
-<div class="label">MEMBER REPORTS</div>
-
-<h2>📝 TrainsForever Member Reports</h2>
-
-<div id="reportList">
-<div class="empty">No member reports yet.</div>
-</div>
-
-<button class="btn" id="submitReport">
-＋ Submit Train Report
-</button>
-
-</section>
-
-<!-- SUGGESTIONS -->
-
-<section class="card" style="left:2200px;top:2350px">
-
-<div class="label">SUGGESTION BOX</div>
-
-<h2>💡 Ideas</h2>
-
-<div id="suggestionList">
-<div class="empty">No suggestions yet.</div>
-</div>
-
-<textarea
-id="suggestionInput"
-class="textarea"
-maxlength="500"
-placeholder="Leave a suggestion…"></textarea>
-
-<br><br>
-
-<button class="btn" id="submitSuggestion">
-Submit Suggestion
-</button>
-
-</section>
-
-<!-- HERITAGE -->
-
-<section class="card wide" style="left:2850px;top:650px">
-
-<div class="label">HERITAGE UNITS</div>
-
-<h2>🚂 HeritageUnits.com — Latest Reports</h2>
-
-<div class="feed">
-
-<b>Official-source panel</b><br>
+<br>
 
 <small>
-This panel is ready for an authorized source/API connection.
+This section will only display verified data
+from the permitted HeritageUnits connection.
+No reports are invented.
 </small>
 
 </div>
 
 <div id="heritageList">
 
-<div class="feed">
-<b class="gold">
-No reports loaded yet
-</b>
-<br>
-<small>
-No sightings are invented.
-</small>
+<div class="empty">
+Waiting for the live HeritageUnits connection…
 </div>
 
 </div>
 
-<button class="btn" id="heritageButton">
+<button
+class="btn"
+id="heritageButton">
 Open HeritageUnits.com
 </button>
 
 </section>
 
-<!-- POLLS -->
 
-<section class="card" style="left:2800px;top:100px">
+<!-- BADGE LOCKER -->
 
-<div class="label">MEMBER POLLS</div>
+<section
+class="card wide"
+style="left:3400px;top:1050px">
 
-<h2>🗳️ Polls</h2>
-
-<div id="pollList">
-<div class="empty">No polls yet.</div>
+<div class="label">
+BADGE LOCKER
 </div>
 
-<div class="owner-controls">
-
-<h4>🔒 Owner Poll Creator</h4>
-
-<input id="pollQuestion"
-       class="input"
-       maxlength="160"
-       placeholder="Poll question">
-
-<br><br>
-
-<input id="pollOption1"
-       class="input"
-       maxlength="80"
-       placeholder="Option 1">
-
-<br><br>
-
-<input id="pollOption2"
-       class="input"
-       maxlength="80"
-       placeholder="Option 2">
-
-<br><br>
-
-<button class="btn" id="createPoll">
-＋ Create Poll
-</button>
-
-</div>
-
-<div class="locked-note">
-Members can vote. Owner creates polls.
-</div>
-
-</section>
-
-<!-- CONSTRUCTION -->
-
-<section class="card" style="left:2200px;top:300px">
-
-<div class="label">CONSTRUCTION</div>
-
-<h2>🚧 Owner's Construction</h2>
-
-<div id="constructionList">
-
-<div class="feed">
-<b>Current project</b><br>
-<small>The Society Lounge.</small>
-</div>
-
-<div class="feed">
-<b>Next project</b><br>
-<small>Live Heritage Unit source connection.</small>
-</div>
-
-</div>
-
-<div class="owner-controls">
-
-<h4>🔒 Owner Construction Posting</h4>
-
-<textarea
-id="constructionInput"
-class="textarea"
-placeholder="Only the Owner can post here…"></textarea>
-
-<br><br>
-
-<button class="btn" id="postConstruction">
-Post Construction Update
-</button>
-
-</div>
-
-</section>
-
-<!-- BADGES -->
-
-<section class="card" style="left:3400px;top:300px">
-
-<div class="label">BADGE ROOM</div>
-
-<h2>🎖️ Badges</h2>
-
-<div class="badges">
-
-<div><span>🚂</span>First Sighting</div>
-<div><span>📋</span>First Report</div>
-<div><span>📸</span>Contributor</div>
-<div><span>🛤️</span>Heritage Hunter</div>
-<div><span>🤝</span>Helpful Member</div>
-<div><span>🏆</span>Hall of Fame</div>
-<div><span>✨</span>Executive</div>
-<div><span>🛡️</span>Director</div>
-<div><span>🏛️</span>Veteran</div>
-
-</div>
-
-</section>
-
-<!-- DIRECTORY -->
-
-<section class="card wide" style="left:3400px;top:1050px">
-
-<div class="label">ALL USERS</div>
-
-<h2>👥 Society User Directory</h2>
+<h2>
+🏆 Member Badge Lockers
+</h2>
 
 <div class="statgrid">
 
 <div class="stat">
 <strong id="userCount">0</strong>
-<span>USERS</span>
+<span>MEMBERS</span>
 </div>
 
 <div class="stat">
@@ -1181,375 +949,421 @@ Post Construction Update
 </div>
 
 <div class="stat">
-<strong id="totalBadges">0</strong>
-<span>BADGES</span>
+<strong id="totalDisrespect">0</strong>
+<span>DISRESPECT</span>
 </div>
 
 <div class="stat">
-<strong id="directoryActive">0</strong>
-<span>ACTIVE</span>
+<strong id="totalBadges">0</strong>
+<span>BADGES</span>
 </div>
 
 </div>
 
 <div id="userDirectory">
-<div class="empty">No members yet.</div>
+
+<div class="empty">
+Member lockers will appear here.
+</div>
+
 </div>
 
 </section>
 
-<!-- FRIENDS -->
 
-<section class="card" style="left:3900px;top:1050px">
+<!-- DESK -->
 
-<div class="label">FRIENDS</div>
+<section
+class="card"
+style="left:3500px;top:2200px">
 
-<h2>🤝 Society Friends</h2>
-
-<div id="friendList">
-<div class="empty">No friends yet.</div>
+<div class="label">
+TRAINSFOREVER DESK
 </div>
 
-<button class="btn" id="findFriends2">
-Find Members
+<h2>
+👑 TrainsForever Desk
+</h2>
+
+<div class="feed">
+
+<b>
+📱 Contact TrainsForever
+</b>
+
+<br>
+
+<small>
+Send a private message without exposing
+the Owner's personal phone number.
+</small>
+
+</div>
+
+<textarea
+id="privateMessage"
+class="textarea"
+maxlength="1000"
+placeholder="Private message…">
+</textarea>
+
+<br><br>
+
+<button
+class="btn"
+id="sendPrivate">
+Send Private Message
+</button>
+
+<hr
+style="
+border:0;
+border-top:1px solid #fff2;
+margin:18px 0;
+">
+
+<div class="feed">
+
+<b>
+📋 Reports
+</b>
+
+<br>
+
+<small>
+Choose a Respect or Disrespect report.
+</small>
+
+</div>
+
+<div class="row">
+
+<button
+class="btn green"
+id="respectReport">
+Respect Report
+</button>
+
+<button
+class="btn red"
+id="disrespectReport">
+Disrespect Report
+</button>
+
+</div>
+
+<hr
+style="
+border:0;
+border-top:1px solid #fff2;
+margin:18px 0;
+">
+
+<div class="feed">
+
+<b>
+🚂 Send TrainsForever
+</b>
+
+<br>
+
+<small>
+Future emergency/attention system.
+Reserved for the full-time TrainsForever era.
+</small>
+
+</div>
+
+<button
+class="btn"
+disabled>
+I'm Needed
 </button>
 
 </section>
 
-<!-- PROFILE -->
 
-<section class="card" style="left:3500px;top:650px">
+<!-- POLLS -->
 
-<div class="label">YOUR PROFILE</div>
+<section
+class="card"
+style="left:2800px;top:100px">
 
-<h2>👤 Member Profile</h2>
+<div class="label">
+MEMBER POLLS
+</div>
 
-<div id="profileBox"></div>
+<h2>
+🗳️ Polls
+</h2>
 
-</section>
+<div id="pollList">
 
-<!-- EVENTS -->
+<div class="empty">
+No live polls yet.
+</div>
 
-<section class="card" style="left:650px;top:2200px">
-
-<div class="label">SOCIETY EVENTS</div>
-
-<h2>🎟️ Events</h2>
-
-<div id="eventList">
-<div class="empty">No events yet.</div>
 </div>
 
 <div class="owner-controls">
 
-<h4>🔒 Owner Event Creator</h4>
+<h4>
+🔒 Owner Poll Creator
+</h4>
 
-<input id="eventName"
-       class="input"
-       maxlength="100"
-       placeholder="Event name">
-
-<br><br>
-
-<input id="eventDate"
-       class="input"
-       type="datetime-local">
+<textarea
+class="textarea"
+placeholder="Poll question…"
+disabled>
+</textarea>
 
 <br><br>
 
-<textarea id="eventDetails"
-          class="textarea"
-          maxlength="500"
-          placeholder="Event details…"></textarea>
-
-<br><br>
-
-<button class="btn" id="createEvent">
-＋ Create Event
+<button
+class="btn"
+disabled>
+Create Poll
 </button>
+
+<div class="locked-note">
+Real Owner authorization will be connected
+before these controls become active.
+</div>
 
 </div>
 
 </section>
 
-<!-- ENGINE HOUSE -->
 
-<section class="card wide" style="left:4300px;top:1550px">
+<!-- CONSTRUCTION -->
 
-<div class="label">ENGINE HOUSE</div>
+<section
+class="card"
+style="left:2200px;top:300px">
 
-<h2>🚂 Model Railroad Engine House</h2>
+<div class="label">
+CONSTRUCTION
+</div>
 
-<p>
-A dedicated place for members to show off model locomotives,
-rolling stock, layouts, scenery, custom builds and projects.
-</p>
+<h2>
+🚧 Owner's Construction
+</h2>
 
-<div id="engineList">
+<div id="constructionList">
 
 <div class="feed">
-<b>🛤️ Member Model Railroad Displays</b><br>
+<b>
+Current project
+</b>
+
+<br>
+
 <small>
-This space is specifically for model railroading.
+Real Society Lounge backend.
 </small>
-</div>
 
 </div>
 
-<button class="btn" id="enterEngine">
-Enter Engine House
+<div class="feed">
+<b>
+Next project
+</b>
+
+<br>
+
+<small>
+Live Heritage Unit source connection.
+</small>
+
+</div>
+
+</div>
+
+<div class="owner-controls">
+
+<h4>
+🔒 Owner Construction Posting
+</h4>
+
+<textarea
+class="textarea"
+placeholder="Only the Owner can post here…"
+disabled>
+</textarea>
+
+<br><br>
+
+<button
+class="btn"
+disabled>
+Post Construction Update
 </button>
 
+<div class="locked-note">
+Backend authorization coming next.
+</div>
+
+</div>
+
 </section>
+
+
+<!-- EVENTS -->
+
+<section
+class="card"
+style="left:650px;top:2200px">
+
+<div class="label">
+SOCIETY EVENTS
+</div>
+
+<h2>
+🎟️ Events
+</h2>
+
+<div id="eventList">
+
+<div class="empty">
+No live events yet.
+</div>
+
+</div>
+
+<div class="owner-controls">
+
+<h4>
+🔒 Owner Event Creator
+</h4>
+
+<input
+class="input"
+placeholder="Event name…"
+disabled>
+
+<br><br>
+
+<button
+class="btn"
+disabled>
+Create Event
+</button>
+
+</div>
+
+</section>
+
 
 <!-- GIVEAWAY -->
 
-<section class="card wide" style="left:4300px;top:650px">
+<section
+class="card wide"
+style="left:4300px;top:650px">
 
-<div class="label">GIVEAWAY CENTER</div>
+<div class="label">
+GIVEAWAY CENTER
+</div>
 
-<h2>🎁 TrainsForever Giveaway</h2>
+<h2>
+🎁 TrainsForever Giveaway
+</h2>
 
 <div class="feed">
 
-<b>🚂 Current Prize</b><br>
+<b>
+Current Prize
+</b>
 
-<span id="giveawayPrize">
-<small>No active giveaway yet.</small>
-</span>
+<br>
+
+<small>
+No active giveaway yet.
+</small>
 
 </div>
 
 <div class="statgrid">
 
 <div class="stat">
-<strong id="giveawayCount">0</strong>
+<strong>0</strong>
 <span>GIVEAWAYS</span>
 </div>
 
 <div class="stat">
-<strong id="winnerCount">0</strong>
+<strong>0</strong>
 <span>WINNERS</span>
 </div>
 
 <div class="stat">
-<strong id="givenAway">$0</strong>
+<strong>$0</strong>
 <span>GIVEN AWAY</span>
 </div>
 
 <div class="stat">
-<strong id="entryCount">0</strong>
+<strong>0</strong>
 <span>ENTRIES</span>
 </div>
 
 </div>
 
-<div class="feed">
+<div class="owner-controls">
 
-<b>🎟️ Free Entry</b><br>
+<h4>
+🔒 Owner Giveaway Controls
+</h4>
 
-<small>
-Official giveaway rules and applicable free-entry method
-will appear here.
-</small>
-
-</div>
-
-<button class="btn" id="rulesButton">
-Official Rules
+<button
+class="btn"
+disabled>
+Create Giveaway
 </button>
-
-<button class="btn" id="enterGiveaway">
-Enter Giveaway
-</button>
-
-</section>
-
-<!-- REWARDS -->
-
-<section class="card wide" style="left:1550px;top:2350px">
-
-<div class="label">LOYALTY REWARDS</div>
-
-<h2>⭐ Society Loyalty Program</h2>
-
-<p>
-Reward long-term members who are respectful,
-active and helpful to the community.
-</p>
-
-<div class="reward-box">
-
-<div>
-<small>CURRENT MEMBER</small>
-</div>
-
-<div id="rewardTier" class="reward-price">
-Standard
-</div>
-
-<div style="margin-top:6px">
-<small id="rewardText">
-Add a member to begin tracking rewards.
-</small>
-</div>
-
-<div class="progress">
-<div id="rewardProgress"></div>
-</div>
-
-<small id="rewardPoints">
-0 respect points
-</small>
-
-</div>
-
-<div class="feed">
-
-<b>Example reward path</b><br>
-
-<small>
-$20/month → qualifying year → $5 renewal credit.
-Further discounts can be capped so the membership never
-automatically becomes an unlimited free membership.
-</small>
-
-</div>
-
-<div class="feed">
-
-<b>Production rule</b><br>
-
-<small>
-Eligibility should be calculated by the server from verified
-subscription history, payment records, activity and account status.
-</small>
 
 </div>
 
 </section>
 
-<!-- OWNER DESK -->
-
-<section class="card" style="left:3500px;top:2200px">
-
-<div class="label">TRAINSFOREVER DESK</div>
-
-<h2>👑 TrainsForever Desk</h2>
-
-<p>
-Private contact with the Museum Owner.
-</p>
-
-<textarea
-id="privateMessage"
-class="textarea"
-placeholder="Private message…"></textarea>
-
-<br><br>
-
-<button class="btn" id="sendPrivate">
-Send Private Message
-</button>
-
-<p>
-<small>
-Your phone number is never shown publicly.
-</small>
-</p>
-
-</section>
 
 </div>
+
 
 <div id="hint">
 SWIPE ANYWHERE — ← → TURN • ↑ ↓ LOOK AROUND
 </div>
 
 <div id="position">
-ROOM VIEW • 0 MEMBERS • 0 ACTIVE
+ROOM VIEW • CONNECTING…
 </div>
 
 <div id="toast"></div>
 
 </div>
 
+
 <script>
+
 /* =========================================================
-   TRAINSFOREVER SOCIETY LOUNGE
+   REAL SUPABASE CONNECTION
    ========================================================= */
 
-const STORAGE_KEY="trainsforever_lounge_v3";
+const SUPABASE_URL =
+  "https://hooinhbybdhizunfdyih.supabase.co";
 
-const DEFAULT_STATE={
-  members:[],
-  chat:[],
-  suggestions:[],
-  reports:[],
-  polls:[],
-  events:[],
-  friends:[],
-  construction:[],
-  projects:[],
-  library:[],
-  engine:[],
-  views:0,
-  featuredTrain:"",
-  history:"",
-  giveaway:{
-    prize:"",
-    giveaways:0,
-    winners:0,
-    givenAway:0,
-    entries:[]
-  }
-};
+const SUPABASE_KEY =
+  "sb_publishable_q2moV3RdALePl6kunHxvNg_xoj9hjvm";
 
-let state;
+const supabaseClient =
+  window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+  );
+
+
+/* =========================================================
+   HELPERS
+   ========================================================= */
 
 function $(id){
   return document.getElementById(id);
-}
-
-function clone(value){
-  return JSON.parse(JSON.stringify(value));
-}
-
-function loadState(){
-
-  try{
-
-    const saved=localStorage.getItem(STORAGE_KEY);
-
-    if(saved){
-
-      state={
-        ...clone(DEFAULT_STATE),
-        ...JSON.parse(saved)
-      };
-
-      return;
-    }
-
-  }catch(error){
-
-    console.warn("Lounge storage error:",error);
-
-  }
-
-  state=clone(DEFAULT_STATE);
-}
-
-function saveState(){
-
-  try{
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify(state)
-    );
-  }catch(error){
-    console.warn("Could not save Lounge state:",error);
-  }
 }
 
 function escapeHTML(value){
@@ -1560,6 +1374,7 @@ function escapeHTML(value){
     .replaceAll(">","&gt;")
     .replaceAll('"',"&quot;")
     .replaceAll("'","&#039;");
+
 }
 
 function toast(message){
@@ -1567,1354 +1382,232 @@ function toast(message){
   const box=$("toast");
 
   box.textContent=message;
+
   box.classList.add("show");
 
   clearTimeout(toast.timer);
 
   toast.timer=setTimeout(
-    ()=>box.classList.remove("show"),
+    ()=>{
+      box.classList.remove("show");
+    },
     2200
   );
-}
 
-function makeId(prefix){
-
-  return prefix+"_"+Date.now()+"_"+Math.random()
-    .toString(36)
-    .slice(2,8);
 }
 
 
 /* =========================================================
-   MEMBER DATA
+   AUTH
    ========================================================= */
 
-function makeMember(name,tier){
+let currentUser=null;
 
-  return {
-    id:makeId("member"),
-    name,
-    tier,
-    respect:0,
-    badges:[],
-    active:true,
-    joinedAt:new Date().toISOString(),
-    monthsActive:0,
-    gifts:0,
-    giveawayEntries:0
-  };
-}
+async function loadUser(){
 
-function rewardInfo(member){
+  const {
+    data,
+    error
+  } =
+    await supabaseClient.auth.getUser();
 
-  if(!member){
-    return {
-      tier:"Standard",
-      text:"Add a member to begin tracking rewards.",
-      progress:0
-    };
+  if(error){
+
+    console.warn(error);
+
+    return null;
+
   }
 
-  const points=Number(member.respect)||0;
-  const months=Number(member.monthsActive)||0;
+  currentUser=data.user||null;
 
-  let discount=0;
+  return currentUser;
 
-  if(
-    member.tier==="Executive" &&
-    months>=12 &&
-    points>=60
-  ){
-    discount=5;
-  }
-
-  if(
-    member.tier==="Director" &&
-    months>=12 &&
-    points>=60
-  ){
-    discount=5;
-  }
-
-  const progress=Math.min(
-    100,
-    Math.round(
-      ((Math.min(months,12)/12)*70)+
-      ((Math.min(points,60)/60)*30)
-    )
-  );
-
-  return {
-    tier:member.tier,
-    text:
-      discount>0
-      ? `$${discount} loyalty credit earned for the next qualifying renewal.`
-      : `Keep building toward 12 months and 60 respect points.`,
-    progress
-  };
 }
 
 
 /* =========================================================
-   RENDER MEMBERS
+   REAL CHAT
    ========================================================= */
 
-function renderMembers(){
+async function loadChat(){
 
-  const count=state.members.length;
+  const {
+    data,
+    error
+  } =
+    await supabaseClient
+      .from("lounge_chat_messages")
+      .select("*")
+      .order("created_at",{ascending:true})
+      .limit(50);
 
-  const active=state.members.filter(
-    member=>member.active
-  ).length;
+  if(error){
 
-  const respect=state.members.reduce(
-    (sum,member)=>sum+(Number(member.respect)||0),
-    0
-  );
+    console.error(error);
 
-  const badges=state.members.reduce(
-    (sum,member)=>sum+(member.badges?.length||0),
-    0
-  );
+    $("chatList").innerHTML=
+      `<div class="empty">
+        Unable to load Society chat.
+      </div>`;
 
-  $("oMembers").textContent=count;
-  $("oActive").textContent=active;
-  $("oViews").textContent=state.views;
-  $("oReports").textContent=state.reports.length;
-
-  $("wallMembers").textContent=count;
-  $("wallActive").textContent=active;
-  $("wallViews").textContent=state.views;
-  $("wallReports").textContent=state.reports.length;
-
-  $("memberBig").textContent=count;
-  $("activeBig").textContent=active;
-  $("friendsBig").textContent=state.friends.length;
-  $("badgesBig").textContent=badges;
-
-  $("userCount").textContent=count;
-  $("totalRespect").textContent=respect;
-  $("totalBadges").textContent=badges;
-  $("directoryActive").textContent=active;
-
-  $("position").textContent=
-    `ROOM VIEW • ${count} MEMBERS • ${active} ACTIVE`;
-
-  renderDirectory();
-  renderProfile();
-  renderRewards();
-
-}
-
-function renderDirectory(){
-
-  const box=$("userDirectory");
-
-  if(!state.members.length){
-
-    box.innerHTML=
-      `<div class="empty">No members yet.</div>`;
+    $("chatStatus").textContent=
+      "Chat connection error.";
 
     return;
+
   }
 
-  box.innerHTML=state.members.map(
-    member=>{
-
-      const badges=
-        member.badges?.length
-        ? member.badges.join(", ")
-        : "None";
-
-      return `
-        <div class="person">
-          <div class="member-line">
-            <div>
-              <b>👤 ${escapeHTML(member.name)}</b><br>
-              <small>
-                ${escapeHTML(member.tier)}
-                • ${Number(member.respect)||0} respect
-                • ${escapeHTML(badges)}
-              </small>
-            </div>
-
-            <div class="member-meta">
-              ${member.active?"🟢 Active":"⚪ Away"}
-            </div>
-          </div>
-        </div>
-      `;
-    }
-  ).join("");
-
-}
-
-function renderProfile(){
-
-  const box=$("profileBox");
-
-  if(!state.members.length){
-
-    box.innerHTML=`
-      <div class="person">
-        <b>Not signed in</b><br>
-        <small>
-          Add a demo member from Owner Overview to test the profile.
-        </small>
-      </div>
-    `;
-
-    return;
-  }
-
-  const member=state.members[0];
-  const reward=rewardInfo(member);
-
-  box.innerHTML=`
-
-    <div class="person">
-      <b>👤 ${escapeHTML(member.name)}</b><br>
-      <small>${escapeHTML(member.tier)}</small>
-    </div>
-
-    <div class="tile">
-      ⭐ Respect: ${Number(member.respect)||0}
-    </div>
-
-    <div class="tile">
-      🎖️ Badges: ${member.badges?.length||0}
-    </div>
-
-    <div class="tile">
-      🎁 Giveaway entries: ${member.giveawayEntries||0}
-    </div>
-
-    <div class="tile">
-      📅 Active months: ${member.monthsActive||0}
-    </div>
-
-    <div class="reward-box">
-      <b>${escapeHTML(reward.tier)}</b><br>
-      <small>${escapeHTML(reward.text)}</small>
-    </div>
-  `;
-}
-
-function renderRewards(){
-
-  const member=state.members[0];
-  const reward=rewardInfo(member);
-
-  $("rewardTier").textContent=
-    member
-      ? reward.tier
-      : "Standard";
-
-  $("rewardText").textContent=
-    reward.text;
-
-  $("rewardProgress").style.width=
-    reward.progress+"%";
-
-  $("rewardPoints").textContent=
-    member
-      ? `${member.respect||0} respect • ${member.monthsActive||0} months active`
-      : "0 respect points";
+  renderChat(data||[]);
 
 }
 
 
-/* =========================================================
-   CHAT
-   ========================================================= */
-
-function renderChat(){
+function renderChat(messages){
 
   const box=$("chatList");
 
-  if(!state.chat.length){
+  if(!messages.length){
 
     box.innerHTML=
-      `<div class="empty">No messages yet.</div>`;
+      `<div class="empty">
+        No messages yet.
+      </div>`;
 
-  }else{
+    return;
 
-    box.innerHTML=state.chat
-      .slice(-30)
-      .map(message=>`
+  }
+
+  box.innerHTML=
+    messages.map(
+      message=>`
 
         <div class="feed">
-          <b>💬 ${escapeHTML(message.name)}</b>
+
+          <b>
+            💬 Member
+          </b>
+
           <br>
-          <small>${escapeHTML(message.text)}</small>
-        </div>
-
-      `)
-      .join("");
-  }
-
-  $("oChat").textContent=state.chat.length;
-
-}
-
-$("sendChat").addEventListener(
-  "click",
-  ()=>{
-
-    const input=$("chatInput");
-    const text=input.value.trim();
-
-    if(!text){
-      toast("Type a message first.");
-      return;
-    }
-
-    const name=
-      state.members[0]?.name || "Guest";
-
-    state.chat.push({
-      id:makeId("chat"),
-      name,
-      text,
-      createdAt:new Date().toISOString()
-    });
-
-    input.value="";
-
-    saveState();
-    renderChat();
-
-    toast("Message posted.");
-
-  }
-);
-
-
-/* =========================================================
-   SUGGESTIONS
-   ========================================================= */
-
-function renderSuggestions(){
-
-  const box=$("suggestionList");
-
-  if(!state.suggestions.length){
-
-    box.innerHTML=
-      `<div class="empty">No suggestions yet.</div>`;
-
-  }else{
-
-    box.innerHTML=state.suggestions
-      .slice(-10)
-      .reverse()
-      .map(item=>`
-
-        <div class="idea">
-          <b>💡 ${escapeHTML(item.name)}</b><br>
-          <small>${escapeHTML(item.text)}</small>
-        </div>
-
-      `)
-      .join("");
-  }
-
-  $("oSuggestions").textContent=
-    state.suggestions.length;
-
-}
-
-$("submitSuggestion").addEventListener(
-  "click",
-  ()=>{
-
-    const input=$("suggestionInput");
-    const text=input.value.trim();
-
-    if(!text){
-      toast("Write a suggestion first.");
-      return;
-    }
-
-    state.suggestions.push({
-      id:makeId("suggestion"),
-      name:state.members[0]?.name||"Guest",
-      text,
-      createdAt:new Date().toISOString()
-    });
-
-    input.value="";
-
-    saveState();
-    renderSuggestions();
-
-    toast("Suggestion submitted.");
-
-  }
-);
-
-
-/* =========================================================
-   REPORTS
-   ========================================================= */
-
-function renderReports(){
-
-  const box=$("reportList");
-
-  if(!state.reports.length){
-
-    box.innerHTML=
-      `<div class="empty">No member reports yet.</div>`;
-
-    return;
-  }
-
-  box.innerHTML=state.reports
-    .slice(-10)
-    .reverse()
-    .map(report=>`
-
-      <div class="feed">
-        <b>🚂 ${escapeHTML(report.train)}</b><br>
-        <small>
-          ${escapeHTML(report.location)}
-          • ${escapeHTML(report.name)}
-        </small>
-        <br>
-        <small>${escapeHTML(report.notes||"")}</small>
-      </div>
-
-    `)
-    .join("");
-
-}
-
-$("submitReport").addEventListener(
-  "click",
-  ()=>{
-
-    const train=prompt("What train or locomotive did you see?");
-    if(!train?.trim()) return;
-
-    const location=prompt("Where was it?");
-    if(!location?.trim()) return;
-
-    const notes=prompt("Any notes?","");
-
-    state.reports.push({
-      id:makeId("report"),
-      name:state.members[0]?.name||"Guest",
-      train:train.trim(),
-      location:location.trim(),
-      notes:notes?.trim()||"",
-      createdAt:new Date().toISOString()
-    });
-
-    if(state.members[0]){
-
-      const member=state.members[0];
-
-      if(!member.badges.includes("First Report")){
-        member.badges.push("First Report");
-      }
-
-      member.respect+=5;
-
-    }
-
-    saveState();
-
-    renderReports();
-    renderMembers();
-
-    toast("Train report submitted.");
-
-  }
-);
-
-
-/* =========================================================
-   POLLS
-   ========================================================= */
-
-function renderPolls(){
-
-  const box=$("pollList");
-
-  if(!state.polls.length){
-
-    box.innerHTML=
-      `<div class="empty">No polls yet.</div>`;
-
-    return;
-  }
-
-  box.innerHTML=state.polls
-    .slice()
-    .reverse()
-    .map(poll=>{
-
-      const total=
-        poll.options.reduce(
-          (sum,option)=>sum+option.votes,
-          0
-        );
-
-      return `
-
-        <div class="feed">
-
-          <b>🗳️ ${escapeHTML(poll.question)}</b>
-
-          ${
-            poll.options.map(
-              (option,index)=>`
-
-                <div class="choice">
-
-                  <span>
-                    ${escapeHTML(option.text)}
-                    <small>
-                      (${option.votes} vote${option.votes===1?"":"s"})
-                    </small>
-                  </span>
-
-                  <button
-                    class="btn"
-                    data-vote="${poll.id}"
-                    data-option="${index}">
-                    Vote
-                  </button>
-
-                </div>
-
-              `
-            ).join("")
-          }
 
           <small>
-            ${total} total vote${total===1?"":"s"}
+            ${escapeHTML(message.message)}
           </small>
 
         </div>
-      `;
-    })
-    .join("");
 
-  box.querySelectorAll("[data-vote]")
-    .forEach(button=>{
+      `
+    ).join("");
 
-      button.addEventListener(
-        "click",
-        ()=>{
-
-          const poll=
-            state.polls.find(
-              p=>p.id===button.dataset.vote
-            );
-
-          if(!poll) return;
-
-          const index=
-            Number(button.dataset.option);
-
-          if(
-            !poll.options[index]
-          ) return;
-
-          poll.options[index].votes++;
-
-          saveState();
-          renderPolls();
-
-          toast("Vote recorded.");
-
-        }
-      );
-
-    });
+  box.scrollTop=box.scrollHeight;
 
 }
 
-$("createPoll").addEventListener(
-  "click",
-  ()=>{
 
-    const question=$("pollQuestion").value.trim();
-    const one=$("pollOption1").value.trim();
-    const two=$("pollOption2").value.trim();
+async function sendChat(){
 
-    if(!question||!one||!two){
+  const input=$("chatInput");
 
-      toast("Fill in the question and both options.");
-      return;
+  const message=input.value.trim();
 
-    }
+  if(!message){
 
-    state.polls.push({
-      id:makeId("poll"),
-      question,
-      options:[
-        {text:one,votes:0},
-        {text:two,votes:0}
-      ],
-      createdAt:new Date().toISOString()
-    });
-
-    $("pollQuestion").value="";
-    $("pollOption1").value="";
-    $("pollOption2").value="";
-
-    saveState();
-    renderPolls();
-
-    toast("Poll created.");
-
-  }
-);
-
-
-/* =========================================================
-   EVENTS
-   ========================================================= */
-
-function renderEvents(){
-
-  const box=$("eventList");
-
-  if(!state.events.length){
-
-    box.innerHTML=
-      `<div class="empty">No events yet.</div>`;
-
-    return;
-  }
-
-  box.innerHTML=state.events
-    .slice()
-    .reverse()
-    .map(event=>`
-
-      <div class="feed">
-
-        <b>🎟️ ${escapeHTML(event.name)}</b>
-
-        <br>
-
-        <small>
-          ${event.date
-            ? escapeHTML(
-                new Date(event.date).toLocaleString()
-              )
-            :"Date TBD"}
-        </small>
-
-        <br>
-
-        <small>
-          ${escapeHTML(event.details)}
-        </small>
-
-        <br>
-
-        <button
-          class="btn green"
-          data-rsvp="${event.id}">
-          RSVP
-        </button>
-
-      </div>
-
-    `)
-    .join("");
-
-  box.querySelectorAll("[data-rsvp]")
-    .forEach(button=>{
-
-      button.addEventListener(
-        "click",
-        ()=>{
-
-          const event=
-            state.events.find(
-              e=>e.id===button.dataset.rsvp
-            );
-
-          if(!event) return;
-
-          event.rsvps=
-            event.rsvps||[];
-
-          const name=
-            state.members[0]?.name||"Guest";
-
-          if(!event.rsvps.includes(name)){
-
-            event.rsvps.push(name);
-
-            saveState();
-
-            toast("RSVP recorded.");
-
-          }else{
-
-            toast("You already RSVP'd.");
-
-          }
-
-        }
-      );
-
-    });
-
-}
-
-$("createEvent").addEventListener(
-  "click",
-  ()=>{
-
-    const name=$("eventName").value.trim();
-    const date=$("eventDate").value;
-    const details=$("eventDetails").value.trim();
-
-    if(!name){
-
-      toast("Enter an event name.");
-      return;
-
-    }
-
-    state.events.push({
-      id:makeId("event"),
-      name,
-      date,
-      details,
-      rsvps:[],
-      createdAt:new Date().toISOString()
-    });
-
-    $("eventName").value="";
-    $("eventDate").value="";
-    $("eventDetails").value="";
-
-    saveState();
-    renderEvents();
-
-    toast("Event created.");
-
-  }
-);
-
-
-/* =========================================================
-   CONSTRUCTION
-   ========================================================= */
-
-function renderConstruction(){
-
-  const box=$("constructionList");
-
-  box.innerHTML=`
-
-    <div class="feed">
-      <b>Current project</b><br>
-      <small>The Society Lounge.</small>
-    </div>
-
-    <div class="feed">
-      <b>Next project</b><br>
-      <small>Live Heritage Unit source connection.</small>
-    </div>
-
-    ${
-      state.construction
-        .slice()
-        .reverse()
-        .map(item=>`
-
-          <div class="feed">
-            <b>🚧 Owner Update</b><br>
-            <small>${escapeHTML(item.text)}</small>
-          </div>
-
-        `)
-        .join("")
-    }
-
-  `;
-
-}
-
-$("postConstruction").addEventListener(
-  "click",
-  ()=>{
-
-    const input=$("constructionInput");
-    const text=input.value.trim();
-
-    if(!text){
-
-      toast("Write an update first.");
-      return;
-
-    }
-
-    state.construction.push({
-      id:makeId("construction"),
-      text,
-      createdAt:new Date().toISOString()
-    });
-
-    input.value="";
-
-    saveState();
-    renderConstruction();
-
-    toast("Construction update posted.");
-
-  }
-);
-
-
-/* =========================================================
-   PROJECTS
-   ========================================================= */
-
-function renderProjects(){
-
-  const box=$("projectList");
-
-  if(!state.projects.length){
-
-    box.innerHTML=
-      `<div class="empty">No projects yet.</div>`;
-
-    return;
-  }
-
-  box.innerHTML=state.projects
-    .slice()
-    .reverse()
-    .map(project=>`
-
-      <div class="feed">
-        <b>🛠️ ${escapeHTML(project.name)}</b><br>
-        <small>${escapeHTML(project.description)}</small>
-      </div>
-
-    `)
-    .join("");
-
-}
-
-$("addProject").addEventListener(
-  "click",
-  ()=>{
-
-    const name=prompt("Project name?");
-    if(!name?.trim()) return;
-
-    const description=
-      prompt("Describe the project?","");
-
-    state.projects.push({
-      id:makeId("project"),
-      name:name.trim(),
-      description:description?.trim()||""
-    });
-
-    saveState();
-    renderProjects();
-
-    toast("Project added.");
-
-  }
-);
-
-
-/* =========================================================
-   LIBRARY
-   ========================================================= */
-
-function renderLibrary(){
-
-  const box=$("libraryList");
-
-  const defaults=`
-
-    <div class="feed">
-      <b>Locomotive Histories</b><br>
-      <small>Articles and reference material.</small>
-    </div>
-
-    <div class="feed">
-      <b>Railroad History</b><br>
-      <small>Stories, facts, and archives.</small>
-    </div>
-
-    <div class="feed">
-      <b>Member Knowledge</b><br>
-      <small>Things members want to share.</small>
-    </div>
-
-  `;
-
-  box.innerHTML=
-    defaults+
-    state.library.map(item=>`
-
-      <div class="feed">
-        <b>📚 ${escapeHTML(item.title)}</b><br>
-        <small>${escapeHTML(item.description)}</small>
-      </div>
-
-    `).join("");
-
-}
-
-$("addLibrary").addEventListener(
-  "click",
-  ()=>{
-
-    const title=prompt("Library item title?");
-    if(!title?.trim()) return;
-
-    const description=
-      prompt("Description?","");
-
-    state.library.push({
-      id:makeId("library"),
-      title:title.trim(),
-      description:description?.trim()||""
-    });
-
-    saveState();
-    renderLibrary();
-
-    toast("Library item added.");
-
-  }
-);
-
-
-/* =========================================================
-   FRIENDS
-   ========================================================= */
-
-function addFriend(){
-
-  if(state.members.length<2){
-
-    toast("Add another demo member first.");
-    return;
-
-  }
-
-  const available=
-    state.members
-      .filter(
-        member=>
-          !state.friends.includes(member.id)
-      );
-
-  if(!available.length){
-
-    toast("All available members are already friends.");
-    return;
-
-  }
-
-  const names=
-    available
-      .map(
-        (member,index)=>
-          `${index+1}. ${member.name}`
-      )
-      .join("\n");
-
-  const choice=
-    Number(
-      prompt(
-        "Choose a member:\n\n"+names
-      )
-    );
-
-  const member=available[choice-1];
-
-  if(!member) return;
-
-  state.friends.push(member.id);
-
-  saveState();
-  renderFriends();
-  renderMembers();
-
-  toast(`${member.name} added as a friend.`);
-
-}
-
-function renderFriends(){
-
-  const box=$("friendList");
-
-  if(!state.friends.length){
-
-    box.innerHTML=
-      `<div class="empty">No friends yet.</div>`;
+    toast("Type a message first.");
 
     return;
 
   }
 
-  box.innerHTML=
-    state.friends
-      .map(
-        id=>
-          state.members.find(
-            member=>member.id===id
-          )
-      )
-      .filter(Boolean)
-      .map(member=>`
+  if(!currentUser){
 
-        <div class="person">
-          <b>🤝 ${escapeHTML(member.name)}</b><br>
-          <small>${escapeHTML(member.tier)}</small>
-        </div>
+    toast("You must be signed in to chat.");
 
-      `)
-      .join("");
+    return;
 
-  $("oFriendRequests").textContent=
-    state.friends.length;
+  }
 
-}
+  const {
+    error
+  } =
+    await supabaseClient
+      .from("lounge_chat_messages")
+      .insert({
+        user_id:currentUser.id,
+        message
+      });
 
-$("findFriends").addEventListener(
-  "click",
-  addFriend
-);
+  if(error){
 
-$("findFriends2").addEventListener(
-  "click",
-  addFriend
-);
+    console.error(error);
 
+    toast("Message could not be sent.");
 
-/* =========================================================
-   GIVEAWAY
-   ========================================================= */
+    return;
 
-function renderGiveaway(){
+  }
 
-  const giveaway=state.giveaway;
+  input.value="";
 
-  $("giveawayCount").textContent=
-    giveaway.giveaways||0;
-
-  $("winnerCount").textContent=
-    giveaway.winners||0;
-
-  $("givenAway").textContent=
-    "$"+(Number(giveaway.givenAway)||0);
-
-  $("entryCount").textContent=
-    giveaway.entries?.length||0;
-
-  $("giveawayPrize").innerHTML=
-    giveaway.prize
-      ? `<b>${escapeHTML(giveaway.prize)}</b>`
-      : `<small>No active giveaway yet.</small>`;
+  toast("Message sent.");
 
 }
 
-$("enterGiveaway").addEventListener(
+
+$("sendChat").addEventListener(
   "click",
-  ()=>{
+  sendChat
+);
 
-    const member=state.members[0];
-
-    if(!member){
-
-      toast("Add a member first.");
-      return;
-
-    }
+$("chatInput").addEventListener(
+  "keydown",
+  event=>{
 
     if(
-      state.giveaway.entries.includes(member.id)
+      event.key==="Enter" &&
+      !event.shiftKey
     ){
 
-      toast("You already entered.");
-      return;
+      event.preventDefault();
+
+      sendChat();
 
     }
 
-    state.giveaway.entries.push(member.id);
-
-    member.giveawayEntries=
-      (member.giveawayEntries||0)+1;
-
-    member.respect=
-      (member.respect||0)+1;
-
-    saveState();
-
-    renderGiveaway();
-    renderMembers();
-
-    toast("Giveaway entry recorded.");
-
-  }
-);
-
-$("rulesButton").addEventListener(
-  "click",
-  ()=>{
-    alert(
-      "Official Giveaway Rules\n\n"+
-      "The final giveaway rules, eligibility, "+
-      "free-entry method, drawing method and prize "+
-      "terms must be published here before a real "+
-      "giveaway launches."
-    );
   }
 );
 
 
 /* =========================================================
-   PROFILE / REWARDS
+   REALTIME CHAT
    ========================================================= */
 
-$("createMember").addEventListener(
-  "click",
-  ()=>{
+function startRealtime(){
 
-    const input=$("newMemberName");
-    const tier=$("newMemberTier").value;
+  supabaseClient
+    .channel("lounge-chat")
+    .on(
+      "postgres_changes",
+      {
+        event:"INSERT",
+        schema:"public",
+        table:"lounge_chat_messages"
+      },
+      ()=>{
+        loadChat();
+      }
+    )
+    .subscribe(
+      status=>{
 
-    const name=input.value.trim();
+        if(status==="SUBSCRIBED"){
 
-    if(!name){
+          $("chatStatus").textContent=
+            "🟢 Live Society chat";
 
-      toast("Enter a member name.");
-      return;
+        }
 
-    }
-
-    const member=makeMember(
-      name,
-      tier
+      }
     );
-
-    state.members.push(member);
-
-    input.value="";
-
-    saveState();
-
-    renderMembers();
-    renderFriends();
-
-    toast(`${name} joined the Society.`);
-
-  }
-);
-
-
-/* =========================================================
-   RESPECT POINTS
-   ========================================================= */
-
-function changePoints(add){
-
-  const name=
-    $("pointMember").value.trim();
-
-  const amount=
-    Math.abs(
-      Number(
-        $("pointAmount").value
-      )
-    );
-
-  if(!name){
-
-    toast("Enter a member name.");
-    return;
-
-  }
-
-  if(!Number.isFinite(amount)||amount<=0){
-
-    toast("Enter a valid point amount.");
-    return;
-
-  }
-
-  const member=
-    state.members.find(
-      item=>
-        item.name.toLowerCase()===
-        name.toLowerCase()
-    );
-
-  if(!member){
-
-    toast("Member not found.");
-    return;
-
-  }
-
-  member.respect=
-    Math.max(
-      0,
-      (Number(member.respect)||0)+
-      (add?amount:-amount)
-    );
-
-  saveState();
-
-  renderMembers();
-
-  toast(
-    `${member.name}: ${member.respect} respect points`
-  );
-
-}
-
-$("addPoints").addEventListener(
-  "click",
-  ()=>changePoints(true)
-);
-
-$("removePoints").addEventListener(
-  "click",
-  ()=>changePoints(false)
-);
-
-
-/* =========================================================
-   FEATURED TRAIN
-   ========================================================= */
-
-$("setFeaturedTrain").addEventListener(
-  "click",
-  ()=>{
-
-    const train=
-      prompt(
-        "Featured locomotive?",
-        state.featuredTrain||""
-      );
-
-    if(!train?.trim()) return;
-
-    state.featuredTrain=train.trim();
-
-    saveState();
-
-    renderFeaturedTrain();
-
-    toast("Featured train updated.");
-
-  }
-);
-
-function renderFeaturedTrain(){
-
-  $("featuredTrain").textContent=
-    state.featuredTrain||
-    "Coming Soon";
-
-}
-
-
-/* =========================================================
-   HISTORY
-   ========================================================= */
-
-$("historyButton").addEventListener(
-  "click",
-  ()=>{
-
-    const note=
-      prompt(
-        "Enter a verified railroad-history note for today.",
-        state.history||""
-      );
-
-    if(!note?.trim()) return;
-
-    state.history=note.trim();
-
-    saveState();
-
-    toast("History note saved.");
-
-  }
-);
-
-
-/* =========================================================
-   ENGINE HOUSE
-   ========================================================= */
-
-$("enterEngine").addEventListener(
-  "click",
-  ()=>{
-
-    const title=
-      prompt("Model railroad project?");
-
-    if(!title?.trim()) return;
-
-    const description=
-      prompt(
-        "Describe the locomotive, layout or project.",
-        ""
-      );
-
-    state.engine.push({
-      id:makeId("engine"),
-      title:title.trim(),
-      description:description?.trim()||""
-    });
-
-    saveState();
-    renderEngine();
-
-    toast("Engine House display added.");
-
-  }
-);
-
-function renderEngine(){
-
-  const box=$("engineList");
-
-  box.innerHTML=`
-
-    <div class="feed">
-      <b>🛤️ Member Model Railroad Displays</b><br>
-      <small>
-        This space is specifically for model railroading.
-      </small>
-    </div>
-
-    ${
-      state.engine.map(item=>`
-
-        <div class="feed">
-          <b>🚂 ${escapeHTML(item.title)}</b><br>
-          <small>${escapeHTML(item.description)}</small>
-        </div>
-
-      `).join("")
-    }
-
-  `;
 
 }
 
@@ -2926,55 +1619,11 @@ function renderEngine(){
 $("heritageButton").addEventListener(
   "click",
   ()=>{
-
-    /*
-      Replace this with your authorized source URL
-      when the real HeritageUnits integration is connected.
-    */
-
     window.open(
       "https://www.heritageunits.com/",
       "_blank",
       "noopener,noreferrer"
     );
-
-  }
-);
-
-
-/* =========================================================
-   PRIVATE DESK
-   ========================================================= */
-
-$("sendPrivate").addEventListener(
-  "click",
-  ()=>{
-
-    const input=$("privateMessage");
-
-    const message=input.value.trim();
-
-    if(!message){
-
-      toast("Write a private message first.");
-      return;
-
-    }
-
-    /*
-      This intentionally does NOT pretend to send
-      a real private message yet.
-
-      Production version should POST this to the
-      authenticated backend.
-    */
-
-    input.value="";
-
-    toast(
-      "Message saved for the future private-message system."
-    );
-
   }
 );
 
@@ -3001,7 +1650,7 @@ document.addEventListener(
   event=>{
 
     if(
-      !$("ownerPanel").contains(event.target)&&
+      !$("ownerPanel").contains(event.target) &&
       event.target!==$("ownerButton")
     ){
 
@@ -3016,7 +1665,53 @@ document.addEventListener(
 
 
 /* =========================================================
-   CAMERA
+   DESK BUTTONS
+   ========================================================= */
+
+$("privateMessage").addEventListener(
+  "keydown",
+  event=>{
+    event.stopPropagation();
+  }
+);
+
+$("privateMessage").addEventListener(
+  "pointerdown",
+  event=>{
+    event.stopPropagation();
+  }
+);
+
+$("respectReport").addEventListener(
+  "click",
+  ()=>{
+    toast(
+      "Respect reporting will connect to the real member system next."
+    );
+  }
+);
+
+$("disrespectReport").addEventListener(
+  "click",
+  ()=>{
+    toast(
+      "Disrespect reporting will connect to the real member system next."
+    );
+  }
+);
+
+$("sendPrivate").addEventListener(
+  "click",
+  ()=>{
+    toast(
+      "Private Desk messaging will use the authenticated backend."
+    );
+  }
+);
+
+
+/* =========================================================
+   SMOOTH CAMERA
    ========================================================= */
 
 const viewport=$("viewport");
@@ -3044,6 +1739,7 @@ let velocityY=0;
 
 let animationFrame=null;
 
+
 function cameraBounds(){
 
   const stageHalfW=
@@ -3058,7 +1754,7 @@ function cameraBounds(){
   const screenHalfH=
     viewport.clientHeight/2;
 
-  const padding=80;
+  const padding=180;
 
   return {
 
@@ -3078,7 +1774,12 @@ function cameraBounds(){
 
 }
 
-function clamp(value,min,max){
+
+function clamp(
+  value,
+  min,
+  max
+){
 
   return Math.max(
     min,
@@ -3086,6 +1787,7 @@ function clamp(value,min,max){
   );
 
 }
+
 
 function renderCamera(){
 
@@ -3106,9 +1808,14 @@ function renderCamera(){
     );
 
   stage.style.transform=
-    `translate3d(${cameraX}px,${cameraY}px,0)`;
+    `translate3d(
+      ${cameraX}px,
+      ${cameraY}px,
+      0
+    )`;
 
 }
+
 
 function stopInertia(){
 
@@ -3122,10 +1829,8 @@ function stopInertia(){
 
   }
 
-  velocityX=0;
-  velocityY=0;
-
 }
+
 
 function startInertia(){
 
@@ -3133,34 +1838,30 @@ function startInertia(){
 
   function step(){
 
-    velocityX*=.93;
-    velocityY*=.93;
+    /* MUCH SLOWER DECELERATION */
 
-    if(
-      Math.abs(velocityX)<.08 &&
-      Math.abs(velocityY)<.08
-    ){
+    velocityX*=0.965;
+    velocityY*=0.965;
+
+    const speed=
+      Math.hypot(
+        velocityX,
+        velocityY
+      );
+
+    if(speed<0.025){
+
+      velocityX=0;
+      velocityY=0;
 
       animationFrame=null;
+
       return;
 
     }
 
-    const bounds=cameraBounds();
-
-    cameraX=
-      clamp(
-        cameraX+velocityX,
-        bounds.minX,
-        bounds.maxX
-      );
-
-    cameraY=
-      clamp(
-        cameraY+velocityY,
-        bounds.minY,
-        bounds.maxY
-      );
+    cameraX+=velocityX;
+    cameraY+=velocityY;
 
     renderCamera();
 
@@ -3174,6 +1875,7 @@ function startInertia(){
 
 }
 
+
 function interactiveElement(element){
 
   return element.closest(
@@ -3182,12 +1884,17 @@ function interactiveElement(element){
 
 }
 
+
 viewport.addEventListener(
   "pointerdown",
   event=>{
 
-    if(interactiveElement(event.target)){
+    if(
+      interactiveElement(event.target)
+    ){
+
       return;
+
     }
 
     stopInertia();
@@ -3195,35 +1902,55 @@ viewport.addEventListener(
     dragging=true;
     moved=false;
 
-    startPointerX=event.clientX;
-    startPointerY=event.clientY;
+    startPointerX=
+      event.clientX;
 
-    startCameraX=cameraX;
-    startCameraY=cameraY;
+    startPointerY=
+      event.clientY;
 
-    lastPointerX=event.clientX;
-    lastPointerY=event.clientY;
-    lastPointerTime=performance.now();
+    startCameraX=
+      cameraX;
+
+    startCameraY=
+      cameraY;
+
+    lastPointerX=
+      event.clientX;
+
+    lastPointerY=
+      event.clientY;
+
+    lastPointerTime=
+      performance.now();
 
     velocityX=0;
     velocityY=0;
 
-    viewport.classList.add("dragging");
+    viewport.classList.add(
+      "dragging"
+    );
 
     try{
+
       viewport.setPointerCapture(
         event.pointerId
       );
+
     }catch(_){}
 
   }
 );
 
+
 viewport.addEventListener(
   "pointermove",
   event=>{
 
-    if(!dragging) return;
+    if(!dragging){
+
+      return;
+
+    }
 
     const dx=
       event.clientX-startPointerX;
@@ -3232,7 +1959,7 @@ viewport.addEventListener(
       event.clientY-startPointerY;
 
     if(
-      Math.abs(dx)>4||
+      Math.abs(dx)>4 ||
       Math.abs(dy)>4
     ){
 
@@ -3240,69 +1967,79 @@ viewport.addEventListener(
 
     }
 
-    const currentTime=
+    const now=
       performance.now();
 
     const dt=
       Math.max(
         8,
-        currentTime-lastPointerTime
+        now-lastPointerTime
       );
 
     const instantX=
-      (event.clientX-lastPointerX)/
+      (event.clientX-lastPointerX) /
       (dt/16.67);
 
     const instantY=
-      (event.clientY-lastPointerY)/
+      (event.clientY-lastPointerY) /
       (dt/16.67);
 
     velocityX=
-      velocityX*.55+
-      instantX*.45;
+      velocityX*0.72+
+      instantX*0.28;
 
     velocityY=
-      velocityY*.55+
-      instantY*.45;
+      velocityY*0.72+
+      instantY*0.28;
 
-    lastPointerX=event.clientX;
-    lastPointerY=event.clientY;
-    lastPointerTime=currentTime;
+    lastPointerX=
+      event.clientX;
 
-    const bounds=cameraBounds();
+    lastPointerY=
+      event.clientY;
+
+    lastPointerTime=
+      now;
 
     cameraX=
-      clamp(
-        startCameraX+dx,
-        bounds.minX,
-        bounds.maxX
-      );
+      startCameraX+dx;
 
     cameraY=
-      clamp(
-        startCameraY+dy,
-        bounds.minY,
-        bounds.maxY
-      );
+      startCameraY+dy;
 
     renderCamera();
 
   }
 );
 
+
 function endDrag(){
 
-  if(!dragging) return;
+  if(!dragging){
+
+    return;
+
+  }
 
   dragging=false;
 
-  viewport.classList.remove("dragging");
+  viewport.classList.remove(
+    "dragging"
+  );
 
   if(moved){
+
+    /* Give the swipe a real glide */
+
+    velocityX*=1.35;
+    velocityY*=1.35;
+
     startInertia();
+
   }
 
 }
+
 
 viewport.addEventListener(
   "pointerup",
@@ -3324,40 +2061,31 @@ window.addEventListener(
    STARTUP
    ========================================================= */
 
-function renderAll(){
+async function startup(){
 
-  renderMembers();
-  renderChat();
-  renderSuggestions();
-  renderReports();
-  renderPolls();
-  renderEvents();
-  renderConstruction();
-  renderProjects();
-  renderLibrary();
-  renderFriends();
-  renderGiveaway();
-  renderFeaturedTrain();
-  renderEngine();
+  await loadUser();
+
+  $("ownerStatus").textContent=
+    currentUser
+      ? "🟢 Signed in"
+      : "⚪ Not signed in";
+
+  await loadChat();
+
+  startRealtime();
+
   renderCamera();
+
+  setTimeout(
+    ()=>{
+      hint.classList.add("hide");
+    },
+    7000
+  );
 
 }
 
-loadState();
-
-state.views=
-  (Number(state.views)||0)+1;
-
-saveState();
-
-renderAll();
-
-setTimeout(
-  ()=>{
-    hint.classList.add("hide");
-  },
-  7000
-);
+startup();
 
 </script>
 
