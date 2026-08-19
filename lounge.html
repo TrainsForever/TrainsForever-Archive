@@ -3378,7 +3378,3006 @@ async function startup(){
 
 
 startup();
+/* =========================================================
+   TRAINSFOREVER LOUNGE 2.0
+   24/7 FUN DEPARTMENT + PUBLIC BADGE LOCKERS + POLL UPGRADE
 
+   PASTE THIS BEFORE THE FINAL </script> TAG
+========================================================= */
+
+(function(){
+
+const addonStyle = document.createElement("style");
+
+addonStyle.textContent = `
+.l2-card{
+  position:absolute;
+  width:520px;
+  min-height:300px;
+  padding:22px;
+  border-radius:25px;
+  background:linear-gradient(145deg,#151515f7,#030303f7);
+  border:1px solid #f3c85b55;
+  box-shadow:0 30px 80px #000b,inset 0 1px #fff2;
+  backdrop-filter:blur(12px);
+  overflow:hidden;
+}
+
+.l2-card h2{
+  margin:0 0 12px;
+  color:#ffe8a0;
+  font-size:20px;
+}
+
+.l2-card p{
+  color:#cbd4da;
+  font-size:12px;
+  line-height:1.55;
+}
+
+.l2-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
+.l2-game{
+  padding:12px;
+  border-radius:14px;
+  background:#ffffff09;
+  border:1px solid #ffffff12;
+  cursor:pointer;
+  transition:.15s;
+}
+
+.l2-game:hover{
+  transform:translateY(-2px);
+  background:#f3c85b15;
+  border-color:#f3c85b55;
+}
+
+.l2-game b{
+  color:#ffe8a0;
+}
+
+.l2-game small{
+  display:block;
+  margin-top:4px;
+}
+
+.l2-score-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:7px 9px;
+  margin:5px 0;
+  border-radius:10px;
+  background:#ffffff08;
+  font-size:10px;
+}
+
+.l2-score-row strong{
+  color:#ffe8a0;
+}
+
+.l2-locker{
+  max-height:430px;
+  overflow:auto;
+  padding-right:4px;
+}
+
+.l2-member{
+  margin:7px 0;
+  border:1px solid #ffffff12;
+  border-radius:14px;
+  background:#ffffff08;
+  overflow:hidden;
+}
+
+.l2-member-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 12px;
+}
+
+.l2-member-name{
+  font-weight:900;
+  color:#ffe8a0;
+  font-size:12px;
+}
+
+.l2-member-meta{
+  font-size:9px;
+  color:#9eabb3;
+}
+
+.l2-member-badges{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+  padding:0 12px 11px;
+}
+
+.l2-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  padding:5px 7px;
+  border-radius:999px;
+  background:#f3c85b12;
+  border:1px solid #f3c85b2d;
+  color:#fff;
+  font-size:9px;
+}
+
+.l2-empty{
+  padding:12px;
+  text-align:center;
+  color:#8d9aa3;
+  font-size:10px;
+}
+
+.l2-modal{
+  position:fixed;
+  inset:0;
+  z-index:200;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:16px;
+  background:#000b;
+}
+
+.l2-modal.open{
+  display:flex;
+}
+
+.l2-modal-box{
+  width:min(560px,96vw);
+  max-height:92vh;
+  overflow:auto;
+  padding:20px;
+  border-radius:22px;
+  background:#070707;
+  border:1px solid #f3c85b66;
+  box-shadow:0 30px 100px #000;
+}
+
+.l2-game-wrap{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+#trainSnakeCanvas{
+  width:100%;
+  max-width:460px;
+  aspect-ratio:1;
+  border-radius:16px;
+  background:#101010;
+  border:1px solid #f3c85b33;
+  display:block;
+  margin:auto;
+}
+
+.l2-controls{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:6px;
+  max-width:240px;
+  margin:auto;
+}
+
+.l2-controls button{
+  height:42px;
+  border-radius:10px;
+  border:1px solid #f3c85b55;
+  background:#f3c85b12;
+  color:#ffe8a0;
+  font-weight:900;
+}
+
+.l2-controls .blank{
+  visibility:hidden;
+}
+
+.l2-question{
+  font-size:18px;
+  font-weight:900;
+  color:#ffe8a0;
+  margin:8px 0 14px;
+}
+
+.l2-answer-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
+.l2-answer{
+  padding:12px;
+  border-radius:12px;
+  border:1px solid #ffffff16;
+  background:#ffffff08;
+  color:#fff;
+  text-align:left;
+  font-weight:800;
+}
+
+.l2-answer:hover{
+  background:#f3c85b16;
+  border-color:#f3c85b55;
+}
+
+.l2-answer.correct{
+  border-color:#55e38a99;
+  background:#55e38a18;
+  color:#9affbc;
+}
+
+.l2-answer.wrong{
+  border-color:#ff6b6b88;
+  background:#ff6b6b14;
+  color:#ff9b9b;
+}
+
+.l2-close{
+  float:right;
+}
+
+.l2-pill{
+  display:inline-block;
+  padding:5px 8px;
+  border-radius:999px;
+  background:#ffffff09;
+  border:1px solid #ffffff12;
+  font-size:9px;
+  color:#cbd4da;
+}
+
+@media(max-width:700px){
+
+  .l2-card{
+    width:390px;
+  }
+
+  .l2-grid,
+  .l2-answer-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+`;
+
+document.head.appendChild(addonStyle);
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function l2Escape(value){
+  return escapeHTML(value ?? "");
+}
+
+function l2ProfileName(profile){
+
+  return (
+    profile.display_name ||
+    profile.username ||
+    "Member"
+  ).trim() || "Member";
+
+}
+
+
+/* =========================================================
+   LOCAL SCORE FALLBACK
+========================================================= */
+
+function l2LocalScoreStore(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(
+        "tf_lounge_game_scores"
+      ) || "[]"
+    );
+
+  }catch(_){
+
+    return [];
+
+  }
+
+}
+
+
+/* =========================================================
+   SAVE GAME SCORE
+========================================================= */
+
+async function l2SaveScore(
+  game,
+  score
+){
+
+  if(!currentUser){
+    return;
+  }
+
+  const cleanScore=
+    Math.max(
+      0,
+      Math.floor(
+        Number(score) || 0
+      )
+    );
+
+  const {
+    error
+  } =
+    await supabaseClient
+      .from("lounge_game_scores")
+      .insert({
+
+        user_id:
+          currentUser.id,
+
+        game_key:
+          game,
+
+        score:
+          cleanScore
+
+      });
+
+  if(error){
+
+    const rows=
+      l2LocalScoreStore();
+
+    const name=
+      currentUser.user_metadata?.display_name ||
+      currentUser.user_metadata?.username ||
+      "Member";
+
+    rows.push({
+
+      game,
+      score:cleanScore,
+      user_id:currentUser.id,
+      name,
+      created_at:
+        new Date().toISOString()
+
+    });
+
+    localStorage.setItem(
+      "tf_lounge_game_scores",
+      JSON.stringify(
+        rows.slice(-500)
+      )
+    );
+
+    console.warn(
+      "Shared leaderboard unavailable.",
+      error
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   PERIOD START
+========================================================= */
+
+function l2PeriodStart(period){
+
+  const d=new Date();
+
+  if(period==="day"){
+
+    d.setHours(
+      0,
+      0,
+      0,
+      0
+    );
+
+    return d;
+
+  }
+
+  const day=d.getDay();
+
+  const diff=
+    (day+6)%7;
+
+  d.setDate(
+    d.getDate()-diff
+  );
+
+  d.setHours(
+    0,
+    0,
+    0,
+    0
+  );
+
+  return d;
+
+}
+
+
+/* =========================================================
+   TOP FIVE SCORES
+========================================================= */
+
+async function l2TopScores(
+  game,
+  period
+){
+
+  const start=
+    l2PeriodStart(
+      period
+    ).toISOString();
+
+  const {
+    data,
+    error
+  } =
+    await supabaseClient
+      .from("lounge_game_scores")
+      .select(
+        "user_id,score,created_at"
+      )
+      .eq(
+        "game_key",
+        game
+      )
+      .gte(
+        "created_at",
+        start
+      )
+      .order(
+        "score",
+        {
+          ascending:false
+        }
+      )
+      .limit(100);
+
+  if(error){
+
+    const localStart=
+      new Date(start).getTime();
+
+    const best=
+      new Map();
+
+    for(
+      const row of
+      l2LocalScoreStore()
+    ){
+
+      if(
+        row.game!==game
+      ){
+        continue;
+      }
+
+      const time=
+        new Date(
+          row.created_at
+        ).getTime();
+
+      if(
+        !Number.isFinite(time) ||
+        time<localStart
+      ){
+        continue;
+      }
+
+      const old=
+        best.get(
+          row.user_id
+        );
+
+      if(
+        !old ||
+        row.score>old.score
+      ){
+
+        best.set(
+          row.user_id,
+          row
+        );
+
+      }
+
+    }
+
+    return [
+      ...best.values()
+    ]
+      .sort(
+        (a,b)=>
+          b.score-a.score
+      )
+      .slice(
+        0,
+        5
+      );
+
+  }
+
+  const best=
+    new Map();
+
+  for(
+    const row of
+    (data||[])
+  ){
+
+    const old=
+      best.get(
+        row.user_id
+      );
+
+    if(
+      !old ||
+      Number(row.score)>
+      Number(old.score)
+    ){
+
+      best.set(
+        row.user_id,
+        row
+      );
+
+    }
+
+  }
+
+  const rows=
+    [...best.values()]
+      .sort(
+        (a,b)=>
+          Number(b.score)-
+          Number(a.score)
+      )
+      .slice(
+        0,
+        5
+      );
+
+  const ids=
+    rows.map(
+      row=>row.user_id
+    );
+
+  if(!ids.length){
+    return [];
+  }
+
+  const {
+    data:profiles
+  } =
+    await supabaseClient
+      .from("profiles")
+      .select(
+        "user_id,username,display_name"
+      )
+      .in(
+        "user_id",
+        ids
+      );
+
+  const names=
+    new Map(
+      (profiles||[])
+        .map(
+          profile=>[
+            profile.user_id,
+            l2ProfileName(profile)
+          ]
+        )
+    );
+
+  return rows.map(
+    row=>({
+
+      ...row,
+
+      name:
+        names.get(
+          row.user_id
+        ) || "Member"
+
+    })
+  );
+
+}
+
+
+/* =========================================================
+   GAMES HUB
+========================================================= */
+
+function addGamesHub(){
+
+  if($("l2GamesCard")){
+    return;
+  }
+
+  const card=
+    document.createElement(
+      "section"
+    );
+
+  card.id=
+    "l2GamesCard";
+
+  card.className=
+    "l2-card";
+
+  card.style.left=
+    "680px";
+
+  card.style.top=
+    "1240px";
+
+  card.innerHTML=`
+
+    <div class="label">
+      24/7 LOUNGE GAMES
+    </div>
+
+    <h2>
+      🎮 The Fun Department
+    </h2>
+
+    <p>
+      You're here.
+      Nobody is making you talk.
+      Pick something and become
+      unnecessarily competitive. 😂
+    </p>
+
+    <div class="l2-grid">
+
+      <div
+        class="l2-game"
+        data-game="snake">
+
+        <b>
+          🚂 Train Snake
+        </b>
+
+        <small>
+          Catch cars. Grow the train.
+          Don't hit yourself.
+        </small>
+
+      </div>
+
+
+      <div
+        class="l2-game"
+        data-game="odd">
+
+        <b>
+          🧠 Odd One Out
+        </b>
+
+        <small>
+          Find the one that doesn't belong.
+        </small>
+
+      </div>
+
+
+      <div
+        class="l2-game"
+        data-game="rapid">
+
+        <b>
+          ⚡ Rapid Rail
+        </b>
+
+        <small>
+          Five quick questions.
+          Speed matters.
+        </small>
+
+      </div>
+
+
+      <div
+        class="l2-game"
+        data-game="leader">
+
+        <b>
+          🏆 Leaderboards
+        </b>
+
+        <small>
+          See today's and this week's
+          top five.
+        </small>
+
+      </div>
+
+    </div>
+
+    <div
+      style="margin-top:12px"
+      id="l2GameStatus">
+
+      <span class="l2-pill">
+        Game Points are separate from Respect.
+      </span>
+
+    </div>
+  `;
+
+  stage.appendChild(
+    card
+  );
+
+
+  card
+    .querySelectorAll(
+      ".l2-game"
+    )
+    .forEach(
+      element=>{
+
+        element.addEventListener(
+          "click",
+          ()=>{
+
+            const game=
+              element.dataset.game;
+
+            if(
+              game==="snake"
+            ){
+              openSnake();
+            }
+
+            if(
+              game==="odd"
+            ){
+              openOddOneOut();
+            }
+
+            if(
+              game==="rapid"
+            ){
+              openRapidRail();
+            }
+
+            if(
+              game==="leader"
+            ){
+              openLeaderboards();
+            }
+
+          }
+        );
+
+      }
+    );
+
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+function ensureModal(){
+
+  if($("l2Modal")){
+    return;
+  }
+
+  const modal=
+    document.createElement(
+      "div"
+    );
+
+  modal.id=
+    "l2Modal";
+
+  modal.className=
+    "l2-modal";
+
+  modal.innerHTML=`
+
+    <div
+      class="l2-modal-box"
+      id="l2ModalBox">
+    </div>
+
+  `;
+
+  document.body.appendChild(
+    modal
+  );
+
+  modal.addEventListener(
+    "pointerdown",
+    event=>{
+
+      if(
+        event.target===modal
+      ){
+
+        closeModal();
+
+      }
+
+    }
+  );
+
+}
+
+
+function openModal(html){
+
+  ensureModal();
+
+  $("l2ModalBox")
+    .innerHTML=
+      html;
+
+  $("l2Modal")
+    .classList
+    .add("open");
+
+}
+
+
+function closeModal(){
+
+  const modal=
+    $("l2Modal");
+
+  if(modal){
+
+    modal.classList.remove(
+      "open"
+    );
+
+  }
+
+  if(
+    window.__tfSnakeStop
+  ){
+
+    window.__tfSnakeStop();
+
+  }
+
+}
+
+window.closeL2Modal=
+  closeModal;
+
+
+/* =========================================================
+   TRAIN SNAKE
+========================================================= */
+
+function openSnake(){
+
+  openModal(`
+
+    <button
+      class="btn red l2-close"
+      onclick="closeL2Modal()">
+
+      ✕
+
+    </button>
+
+    <h2>
+      🚂 Train Snake
+    </h2>
+
+    <p>
+      Catch the cars.
+      Grow your train.
+      Try not to eat yourself.
+      That's generally frowned upon.
+    </p>
+
+    <div class="l2-game-wrap">
+
+      <canvas
+        id="trainSnakeCanvas"
+        width="420"
+        height="420">
+      </canvas>
+
+      <div
+        class="l2-pill"
+        id="snakeScore"
+        style="text-align:center">
+
+        Score: 0
+
+      </div>
+
+      <div class="l2-controls">
+
+        <button class="blank"></button>
+
+        <button data-dir="up">
+          ▲
+        </button>
+
+        <button class="blank"></button>
+
+        <button data-dir="left">
+          ◀
+        </button>
+
+        <button data-dir="down">
+          ▼
+        </button>
+
+        <button data-dir="right">
+          ▶
+        </button>
+
+      </div>
+
+      <div style="text-align:center">
+
+        <button
+          class="btn green"
+          id="snakeStart">
+
+          Start / Restart
+
+        </button>
+
+      </div>
+
+    </div>
+
+  `);
+
+
+  const canvas=
+    $("trainSnakeCanvas");
+
+  const ctx=
+    canvas.getContext("2d");
+
+  const size=
+    21;
+
+  const cell=
+    20;
+
+  let snake;
+  let food;
+  let dir;
+  let nextDir;
+  let score;
+  let timer;
+  let playing=false;
+
+
+  function reset(){
+
+    snake=[
+      {x:10,y:10},
+      {x:9,y:10},
+      {x:8,y:10}
+    ];
+
+    food=
+      spawnFood();
+
+    dir={
+      x:1,
+      y:0
+    };
+
+    nextDir=
+      dir;
+
+    score=0;
+
+    playing=false;
+
+    draw();
+
+    $("snakeScore")
+      .textContent=
+        "Score: 0";
+
+  }
+
+
+  function spawnFood(){
+
+    let f;
+
+    do{
+
+      f={
+        x:
+          Math.floor(
+            Math.random()*size
+          ),
+
+        y:
+          Math.floor(
+            Math.random()*size
+          )
+      };
+
+    }while(
+      snake &&
+      snake.some(
+        s=>
+          s.x===f.x &&
+          s.y===f.y
+      )
+    );
+
+    return f;
+
+  }
+
+
+  function setDir(direction){
+
+    const dirs={
+
+      up:{
+        x:0,
+        y:-1
+      },
+
+      down:{
+        x:0,
+        y:1
+      },
+
+      left:{
+        x:-1,
+        y:0
+      },
+
+      right:{
+        x:1,
+        y:0
+      }
+
+    };
+
+    const next=
+      dirs[direction];
+
+    if(!next){
+      return;
+    }
+
+    if(
+      next.x===-dir.x &&
+      next.y===-dir.y
+    ){
+      return;
+    }
+
+    nextDir=
+      next;
+
+  }
+
+
+  function draw(){
+
+    ctx.clearRect(
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+
+    ctx.fillStyle=
+      "#101010";
+
+    ctx.fillRect(
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+
+    ctx.strokeStyle=
+      "#ffffff08";
+
+    for(
+      let i=0;
+      i<=size;
+      i++
+    ){
+
+      ctx.beginPath();
+
+      ctx.moveTo(
+        i*cell,
+        0
+      );
+
+      ctx.lineTo(
+        i*cell,
+        size*cell
+      );
+
+      ctx.stroke();
+
+      ctx.beginPath();
+
+      ctx.moveTo(
+        0,
+        i*cell
+      );
+
+      ctx.lineTo(
+        size*cell,
+        i*cell
+      );
+
+      ctx.stroke();
+
+    }
+
+
+    ctx.fillStyle=
+      "#ff6b6b";
+
+    ctx.fillRect(
+      food.x*cell+3,
+      food.y*cell+3,
+      cell-6,
+      cell-6
+    );
+
+
+    snake.forEach(
+      (segment,index)=>{
+
+        ctx.fillStyle=
+          index===0
+            ? "#ffe8a0"
+            : "#55e38a";
+
+        ctx.fillRect(
+          segment.x*cell+2,
+          segment.y*cell+2,
+          cell-4,
+          cell-4
+        );
+
+      }
+    );
+
+  }
+
+
+  function tick(){
+
+    dir=
+      nextDir;
+
+    const head={
+
+      x:
+        snake[0].x+
+        dir.x,
+
+      y:
+        snake[0].y+
+        dir.y
+
+    };
+
+
+    if(
+
+      head.x<0 ||
+      head.y<0 ||
+      head.x>=size ||
+      head.y>=size ||
+      snake.some(
+        s=>
+          s.x===head.x &&
+          s.y===head.y
+      )
+
+    ){
+
+      clearInterval(
+        timer
+      );
+
+      playing=false;
+
+      l2SaveScore(
+        "Train Snake",
+        score
+      );
+
+      $("snakeScore")
+        .textContent=
+          `Score: ${score} • 💀 Train wreck`;
+
+      toast(
+        score>0
+          ? `Train Snake: ${score} Game Points.`
+          : "Train Snake: spectacular derailment. 😂"
+      );
+
+      return;
+
+    }
+
+
+    snake.unshift(
+      head
+    );
+
+
+    if(
+      head.x===food.x &&
+      head.y===food.y
+    ){
+
+      score+=10;
+
+      food=
+        spawnFood();
+
+    }else{
+
+      snake.pop();
+
+    }
+
+
+    $("snakeScore")
+      .textContent=
+        `Score: ${score}`;
+
+    draw();
+
+  }
+
+
+  function start(){
+
+    clearInterval(
+      timer
+    );
+
+    reset();
+
+    playing=true;
+
+    timer=
+      setInterval(
+        tick,
+        115
+      );
+
+  }
+
+
+  $("snakeStart")
+    .addEventListener(
+      "click",
+      start
+    );
+
+
+  document
+    .querySelectorAll(
+      "#l2Modal [data-dir]"
+    )
+    .forEach(
+      button=>{
+
+        button.addEventListener(
+          "click",
+          ()=>{
+
+            setDir(
+              button.dataset.dir
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+  const key=
+    event=>{
+
+      const map={
+
+        ArrowUp:"up",
+        w:"up",
+
+        ArrowDown:"down",
+        s:"down",
+
+        ArrowLeft:"left",
+        a:"left",
+
+        ArrowRight:"right",
+        d:"right"
+
+      };
+
+      if(
+        map[event.key]
+      ){
+
+        event.preventDefault();
+
+        setDir(
+          map[event.key]
+        );
+
+      }
+
+    };
+
+
+  window.addEventListener(
+    "keydown",
+    key
+  );
+
+
+  window.__tfSnakeStop=
+    ()=>{
+
+      clearInterval(
+        timer
+      );
+
+      window.removeEventListener(
+        "keydown",
+        key
+      );
+
+    };
+
+
+  reset();
+
+}
+
+
+/* =========================================================
+   ODD ONE OUT
+========================================================= */
+
+const oddQuestions=[
+
+  {
+    q:"Which one is NOT a railroad?",
+    a:[
+      "Norfolk Southern",
+      "CSX",
+      "Amtrak",
+      "NASA"
+    ],
+    c:3
+  },
+
+  {
+    q:"Which one is NOT a locomotive?",
+    a:[
+      "SD70ACe",
+      "ES44AC",
+      "Dash 9",
+      "Boxcar"
+    ],
+    c:3
+  },
+
+  {
+    q:"Which one is NOT a color?",
+    a:[
+      "Blue",
+      "Yellow",
+      "Heritage",
+      "Green"
+    ],
+    c:2
+  },
+
+  {
+    q:"Which one is NOT something you'd normally find in a consist?",
+    a:[
+      "Covered hopper",
+      "Gondola",
+      "Refrigerator car",
+      "Traffic light"
+    ],
+    c:3
+  },
+
+  {
+    q:"Which one is NOT a train-related activity?",
+    a:[
+      "Railfanning",
+      "Photography",
+      "Trackside watching",
+      "Underwater basket weaving"
+    ],
+    c:3
+  }
+
+];
+
+
+function openOddOneOut(){
+
+  const q=
+    oddQuestions[
+      Math.floor(
+        Math.random()*
+        oddQuestions.length
+      )
+    ];
+
+
+  openModal(`
+
+    <button
+      class="btn red l2-close"
+      onclick="closeL2Modal()">
+
+      ✕
+
+    </button>
+
+    <h2>
+      🧠 Odd One Out
+    </h2>
+
+    <div class="l2-question">
+
+      ${l2Escape(q.q)}
+
+    </div>
+
+    <div class="l2-answer-grid">
+
+      ${
+        q.a.map(
+          (answer,index)=>
+
+            `<button
+              class="l2-answer"
+              data-i="${index}">
+
+              ${l2Escape(answer)}
+
+            </button>`
+
+        ).join("")
+      }
+
+    </div>
+
+    <div
+      id="oddResult"
+      style="margin-top:12px;text-align:center">
+    </div>
+
+  `);
+
+
+  $("l2Modal")
+    .querySelectorAll(
+      ".l2-answer"
+    )
+    .forEach(
+      button=>{
+
+        button.addEventListener(
+          "click",
+          ()=>{
+
+            const index=
+              Number(
+                button.dataset.i
+              );
+
+            const buttons=
+              [
+                ...$("l2Modal")
+                  .querySelectorAll(
+                    ".l2-answer"
+                  )
+              ];
+
+            buttons.forEach(
+              b=>
+                b.disabled=true
+            );
+
+
+            if(
+              index===q.c
+            ){
+
+              button.classList.add(
+                "correct"
+              );
+
+              l2SaveScore(
+                "Odd One Out",
+                25
+              );
+
+              $("oddResult")
+                .innerHTML=
+                  `
+                    <span class="gold">
+                      🎯 Correct!
+                      +25 Game Points.
+                    </span>
+                  `;
+
+            }else{
+
+              button.classList.add(
+                "wrong"
+              );
+
+              buttons[q.c]
+                .classList
+                .add("correct");
+
+              $("oddResult")
+                .innerHTML=
+                  `
+                    <span
+                      style="color:#ff9b9b">
+
+                      💀 Nope.
+                      The railroad gods
+                      have spoken.
+
+                    </span>
+                  `;
+
+            }
+
+          }
+        );
+
+      }
+    );
+
+}
+
+
+/* =========================================================
+   RAPID RAIL
+========================================================= */
+
+const rapidQuestions=[
+
+  {
+    q:"A locomotive is usually at the ___ of a freight train.",
+    a:[
+      "Front",
+      "Middle",
+      "Kitchen",
+      "Roof"
+    ],
+    c:0
+  },
+
+  {
+    q:"What does a railroad consist refer to?",
+    a:[
+      "The makeup of a train",
+      "A station's lunch menu",
+      "A locomotive's paint",
+      "A weather report"
+    ],
+    c:0
+  },
+
+  {
+    q:"Which is commonly a freight car?",
+    a:[
+      "Gondola",
+      "Submarine",
+      "Helicopter",
+      "School bus"
+    ],
+    c:0
+  },
+
+  {
+    q:"What does 'heritage unit' usually mean?",
+    a:[
+      "A locomotive painted to honor a railroad's history",
+      "A brand-new car",
+      "A track machine",
+      "A station building"
+    ],
+    c:0
+  },
+
+  {
+    q:"What is a railfan most likely doing trackside?",
+    a:[
+      "Watching trains",
+      "Flying a plane",
+      "Running a bakery",
+      "Sailing"
+    ],
+    c:0
+  }
+
+];
+
+
+function openRapidRail(){
+
+  let index=0;
+
+  let score=0;
+
+  let started=
+    performance.now();
+
+
+  function render(){
+
+    const q=
+      rapidQuestions[index];
+
+
+    openModal(`
+
+      <button
+        class="btn red l2-close"
+        onclick="closeL2Modal()">
+
+        ✕
+
+      </button>
+
+      <h2>
+        ⚡ Rapid Rail
+      </h2>
+
+      <div class="l2-pill">
+
+        Question
+        ${index+1}
+        of
+        ${rapidQuestions.length}
+
+        • Game Points
+
+      </div>
+
+      <div class="l2-question">
+
+        ${l2Escape(q.q)}
+
+      </div>
+
+      <div class="l2-answer-grid">
+
+        ${
+          q.a.map(
+            (answer,i)=>
+
+              `<button
+                class="l2-answer"
+                data-i="${i}">
+
+                ${l2Escape(answer)}
+
+              </button>`
+
+          ).join("")
+        }
+
+      </div>
+
+      <div
+        id="rapidResult"
+        style="margin-top:12px;text-align:center">
+      </div>
+
+    `);
+
+
+    $("l2Modal")
+      .querySelectorAll(
+        ".l2-answer"
+      )
+      .forEach(
+        button=>{
+
+          button.addEventListener(
+            "click",
+            ()=>{
+
+              const i=
+                Number(
+                  button.dataset.i
+                );
+
+              const buttons=
+                [
+                  ...$("l2Modal")
+                    .querySelectorAll(
+                      ".l2-answer"
+                    )
+                ];
+
+              buttons.forEach(
+                b=>
+                  b.disabled=true
+              );
+
+
+              if(
+                i===q.c
+              ){
+
+                const speed=
+                  Math.max(
+                    1,
+                    Math.round(
+                      (
+                        performance.now()-
+                        started
+                      )/1000
+                    )
+                  );
+
+                const earned=
+                  Math.max(
+                    5,
+                    30-speed
+                  );
+
+                score+=
+                  earned;
+
+                button.classList.add(
+                  "correct"
+                );
+
+                $("rapidResult")
+                  .innerHTML=
+                    `
+                      <span class="gold">
+
+                        Correct!
+                        +${earned}
+                        Game Points.
+
+                      </span>
+                    `;
+
+              }else{
+
+                button.classList.add(
+                  "wrong"
+                );
+
+                buttons[q.c]
+                  .classList
+                  .add("correct");
+
+                $("rapidResult")
+                  .innerHTML=
+                    `
+                      <span
+                        style="color:#ff9b9b">
+
+                        💀 Incorrect.
+                        +0.
+
+                      </span>
+                    `;
+
+              }
+
+
+              setTimeout(
+                ()=>{
+
+                  index++;
+
+                  if(
+                    index>=
+                    rapidQuestions.length
+                  ){
+
+                    l2SaveScore(
+                      "Rapid Rail",
+                      score
+                    );
+
+                    openModal(`
+
+                      <button
+                        class="btn red l2-close"
+                        onclick="closeL2Modal()">
+
+                        ✕
+
+                      </button>
+
+                      <h2>
+                        🏁 Rapid Rail Complete
+                      </h2>
+
+                      <div
+                        class="l2-question"
+                        style="text-align:center">
+
+                        Final score:
+                        ${score}
+
+                      </div>
+
+                      <p
+                        style="text-align:center">
+
+                        Not bad.
+                        Or extremely bad.
+                        The leaderboard will decide. 😂
+
+                      </p>
+
+                    `);
+
+                  }else{
+
+                    started=
+                      performance.now();
+
+                    render();
+
+                  }
+
+                },
+                650
+              );
+
+            }
+          );
+
+        }
+      );
+
+  }
+
+  render();
+
+}
+
+
+/* =========================================================
+   LEADERBOARDS
+========================================================= */
+
+async function openLeaderboards(){
+
+  const games=[
+
+    "Train Snake",
+    "Odd One Out",
+    "Rapid Rail"
+
+  ];
+
+
+  openModal(`
+
+    <button
+      class="btn red l2-close"
+      onclick="closeL2Modal()">
+
+      ✕
+
+    </button>
+
+    <h2>
+      🏆 Lounge Leaderboards
+    </h2>
+
+    <p>
+      Top five scores.
+      Daily and weekly.
+      Game Points only.
+    </p>
+
+    <div id="l2Boards">
+
+      <div class="l2-empty">
+
+        Loading the bragging rights…
+
+      </div>
+
+    </div>
+
+  `);
+
+
+  const box=
+    $("l2Boards");
+
+
+  const results=
+    await Promise.all(
+
+      games.map(
+        async game=>({
+
+          game,
+
+          day:
+            await l2TopScores(
+              game,
+              "day"
+            ),
+
+          week:
+            await l2TopScores(
+              game,
+              "week"
+            )
+
+        })
+      )
+
+    );
+
+
+  if(
+    !$("l2Boards")
+  ){
+
+    return;
+
+  }
+
+
+  box.innerHTML=
+
+    results.map(
+      ({
+        game,
+        day,
+        week
+      })=>`
+
+        <div class="feed">
+
+          <b>
+            ${game}
+          </b>
+
+          <div
+            style="margin-top:7px">
+
+            <small>
+              TODAY
+            </small>
+
+          </div>
+
+          ${
+            day.length
+
+              ?
+
+                day.map(
+                  (row,index)=>
+                    `
+                      <div
+                        class="l2-score-row">
+
+                        <span>
+
+                          ${index+1}.
+                          ${l2Escape(row.name)}
+
+                        </span>
+
+                        <strong>
+
+                          ${row.score}
+
+                        </strong>
+
+                      </div>
+                    `
+                ).join("")
+
+              :
+
+                `
+                  <div
+                    class="l2-empty">
+
+                    No scores yet today.
+
+                  </div>
+                `
+          }
+
+
+          <div
+            style="margin-top:9px">
+
+            <small>
+              THIS WEEK
+            </small>
+
+          </div>
+
+          ${
+            week.length
+
+              ?
+
+                week.map(
+                  (row,index)=>
+                    `
+                      <div
+                        class="l2-score-row">
+
+                        <span>
+
+                          ${index+1}.
+                          ${l2Escape(row.name)}
+
+                        </span>
+
+                        <strong>
+
+                          ${row.score}
+
+                        </strong>
+
+                      </div>
+                    `
+                ).join("")
+
+              :
+
+                `
+                  <div
+                    class="l2-empty">
+
+                    No scores yet this week.
+
+                  </div>
+                `
+          }
+
+        </div>
+
+      `
+    ).join("");
+
+}
+
+
+/* =========================================================
+   PUBLIC BADGE LOCKER
+========================================================= */
+
+async function loadPublicBadgeLocker(){
+
+  const box=
+    $("userDirectory");
+
+  if(!box){
+    return;
+  }
+
+  box.innerHTML=
+    `
+      <div class="empty">
+        Loading member lockers…
+      </div>
+    `;
+
+
+  const [
+
+    {
+      data:profiles,
+      error:pErr
+    },
+
+    {
+      data:badges,
+      error:bErr
+    },
+
+    {
+      data:awards,
+      error:aErr
+    }
+
+  ] =
+    await Promise.all([
+
+      supabaseClient
+        .from("profiles")
+        .select(
+          "user_id,username,display_name,respect_points,disrespect_points,is_owner"
+        )
+        .order(
+          "display_name",
+          {
+            ascending:true
+          }
+        ),
+
+      supabaseClient
+        .from("lounge_badges")
+        .select(
+          "id,slug,name,icon,description"
+        )
+        .order(
+          "created_at",
+          {
+            ascending:true
+          }
+        ),
+
+      supabaseClient
+        .from("lounge_member_badges")
+        .select(
+          "user_id,badge_id,created_at"
+        )
+
+    ]);
+
+
+  if(
+    pErr ||
+    bErr ||
+    aErr
+  ){
+
+    console.error(
+      pErr ||
+      bErr ||
+      aErr
+    );
+
+    box.innerHTML=
+      `
+        <div class="empty">
+
+          Member lockers could not
+          be loaded yet.
+
+        </div>
+      `;
+
+    return;
+
+  }
+
+
+  const badgeMap=
+    new Map(
+      (badges||[])
+        .map(
+          badge=>[
+            badge.id,
+            badge
+          ]
+        )
+    );
+
+
+  const byUser=
+    new Map();
+
+
+  for(
+    const award of
+    (awards||[])
+  ){
+
+    if(
+      !byUser.has(
+        award.user_id
+      )
+    ){
+
+      byUser.set(
+        award.user_id,
+        []
+      );
+
+    }
+
+    const badge=
+      badgeMap.get(
+        award.badge_id
+      );
+
+    if(badge){
+
+      byUser
+        .get(
+          award.user_id
+        )
+        .push(
+          badge
+        );
+
+    }
+
+  }
+
+
+  const rows=
+    (profiles||[])
+      .map(
+        profile=>{
+
+          const name=
+            l2ProfileName(
+              profile
+            );
+
+          const earned=
+            [
+              ...(byUser.get(
+                profile.user_id
+              ) || [])
+            ];
+
+
+          if(
+            Number(
+              profile.respect_points||0
+            )>=50 &&
+            !earned.some(
+              badge=>
+                badge.slug===
+                "respect_50"
+            )
+          ){
+
+            earned.push({
+
+              slug:
+                "respect_50",
+
+              name:
+                "50 Respect",
+
+              icon:
+                "❤️",
+
+              description:
+                "Reached 50 Respect Points."
+
+            });
+
+          }
+
+
+          return {
+
+            ...profile,
+
+            name,
+
+            badges:
+              earned
+
+          };
+
+        }
+      )
+      .sort(
+        (a,b)=>
+          a.name.localeCompare(
+            b.name,
+            undefined,
+            {
+              sensitivity:
+                "base"
+            }
+          )
+      );
+
+
+  let totalRespect=0;
+
+  let totalDisrespect=0;
+
+  let totalBadges=0;
+
+
+  rows.forEach(
+    row=>{
+
+      totalRespect+=
+        Number(
+          row.respect_points||0
+        );
+
+      totalDisrespect+=
+        Number(
+          row.disrespect_points||0
+        );
+
+      totalBadges+=
+        row.badges.length;
+
+    }
+  );
+
+
+  $("userCount")
+    .textContent=
+      rows.length;
+
+  $("totalRespect")
+    .textContent=
+      totalRespect;
+
+  $("totalDisrespect")
+    .textContent=
+      totalDisrespect;
+
+  $("totalBadges")
+    .textContent=
+      totalBadges;
+
+  $("memberBig")
+    .textContent=
+      rows.length;
+
+  $("badgesBig")
+    .textContent=
+      totalBadges;
+
+
+  box.innerHTML=
+
+    rows.length
+
+      ?
+
+        `
+
+          <div
+            style="margin-bottom:8px">
+
+            <small>
+
+              ${rows.length}
+              lockers • alphabetical order •
+              everybody can browse
+
+            </small>
+
+          </div>
+
+
+          <div class="l2-locker">
+
+            ${
+              rows.map(
+                row=>`
+
+                  <div class="l2-member">
+
+                    <div
+                      class="l2-member-head">
+
+                      <div>
+
+                        <div
+                          class="l2-member-name">
+
+                          ${l2Escape(
+                            row.name
+                          )}
+
+                        </div>
+
+                        <div
+                          class="l2-member-meta">
+
+                          ❤️
+                          ${Number(
+                            row.respect_points||0
+                          )}
+                          Respect
+
+                          • ⚠️
+                          ${Number(
+                            row.disrespect_points||0
+                          )}
+                          Disrespect
+
+                        </div>
+
+                      </div>
+
+
+                      <div
+                        class="l2-pill">
+
+                        ${row.badges.length}
+                        badge${
+                          row.badges.length===1
+                            ? ""
+                            : "s"
+                        }
+
+                      </div>
+
+                    </div>
+
+
+                    <div
+                      class="l2-member-badges">
+
+                      ${
+                        row.badges.length
+
+                          ?
+
+                            row.badges.map(
+                              badge=>`
+
+                                <span
+                                  class="l2-badge"
+                                  title="${l2Escape(
+                                    badge.description
+                                  )}">
+
+                                  ${l2Escape(
+                                    badge.icon
+                                  )}
+
+                                  ${l2Escape(
+                                    badge.name
+                                  )}
+
+                                </span>
+
+                              `
+                            ).join("")
+
+                          :
+
+                            `
+
+                              <span
+                                class="l2-member-meta">
+
+                                No badges yet. 😈
+
+                              </span>
+
+                            `
+
+                      }
+
+                    </div>
+
+                  </div>
+
+                `
+              ).join("")
+
+            }
+
+          </div>
+
+        `
+
+      :
+
+        `
+
+          <div class="empty">
+
+            No member profiles yet.
+
+          </div>
+
+        `;
+
+}
+
+
+/* =========================================================
+   BETTER POLL CREATOR
+========================================================= */
+
+function upgradePollCreator(){
+
+  const button=
+    $("createPoll");
+
+  if(!button){
+    return;
+  }
+
+  const controls=
+    button.closest(
+      ".owner-controls"
+    );
+
+  if(!controls){
+    return;
+  }
+
+
+  const oldOptions=[
+
+    $("pollOption1"),
+    $("pollOption2")
+
+  ];
+
+
+  const existing=
+    controls.querySelector(
+      "#l2PollOptions"
+    );
+
+  if(existing){
+    return;
+  }
+
+
+  const wrap=
+    document.createElement(
+      "div"
+    );
+
+  wrap.id=
+    "l2PollOptions";
+
+
+  wrap.innerHTML=`
+
+    <div
+      style="margin:7px 0 5px">
+
+      <small>
+        Choose 2–6 answers.
+      </small>
+
+    </div>
+
+    ${
+      [1,2,3,4,5,6]
+        .map(
+          i=>`
+
+            <input
+              id="l2PollOption${i}"
+              class="input"
+              maxlength="80"
+              placeholder="Option ${i}"
+              style="
+                margin:5px 0;
+                display:${
+                  i<=2
+                    ? "block"
+                    : "none"
+                }">
+
+          `
+        )
+        .join("")
+    }
+
+    <button
+      type="button"
+      class="btn"
+      id="l2AddPollOption">
+
+      ＋ Add option
+
+    </button>
+
+  `;
+
+
+  oldOptions.forEach(
+    element=>{
+
+      element.style.display=
+        "none";
+
+    }
+  );
+
+
+  controls.insertBefore(
+    wrap,
+    button
+  );
+
+
+  let count=2;
+
+
+  $("l2AddPollOption")
+    .addEventListener(
+      "click",
+      ()=>{
+
+        if(
+          count>=6
+        ){
+
+          return;
+
+        }
+
+        count++;
+
+        $("l2PollOption"+count)
+          .style
+          .display=
+            "block";
+
+
+        if(
+          count>=6
+        ){
+
+          $("l2AddPollOption")
+            .style
+            .display=
+              "none";
+
+        }
+
+      }
+    );
+
+
+  const fresh=
+    button.cloneNode(
+      true
+    );
+
+  button.replaceWith(
+    fresh
+  );
+
+
+  fresh.addEventListener(
+    "click",
+    async ()=>{
+
+      if(
+        !isLoungeOwner
+      ){
+
+        toast(
+          "Owner access required."
+        );
+
+        return;
+
+      }
+
+
+      if(!currentUser){
+
+        toast(
+          "You must be signed in as Owner."
+        );
+
+        return;
+
+      }
+
+
+      const question=
+        $("pollQuestion")
+          .value
+          .trim();
+
+
+      const options=[];
+
+
+      for(
+        let i=1;
+        i<=6;
+        i++
+      ){
+
+        const input=
+          $("l2PollOption"+i);
+
+        if(
+          input &&
+          input.style.display!=="none" &&
+          input.value.trim()
+        ){
+
+          options.push(
+            input.value.trim()
+          );
+
+        }
+
+      }
+
+
+      if(
+        !question ||
+        options.length<2
+      ){
+
+        toast(
+          "Add a question and at least 2 answers."
+        );
+
+        return;
+
+      }
+
+
+      const {
+        data:poll,
+        error:pollError
+      } =
+        await supabaseClient
+          .from("lounge_polls")
+          .insert({
+
+            question,
+
+            created_by:
+              currentUser.id
+
+          })
+          .select("id")
+          .single();
+
+
+      if(pollError){
+
+        console.error(
+          pollError
+        );
+
+        toast(
+          "Poll could not be created."
+        );
+
+        return;
+
+      }
+
+
+      const {
+        error:optionError
+      } =
+        await supabaseClient
+          .from(
+            "lounge_poll_options"
+          )
+          .insert(
+
+            options.map(
+              option_text=>({
+
+                poll_id:
+                  poll.id,
+
+                option_text
+
+              })
+            )
+
+          );
+
+
+      if(optionError){
+
+        console.error(
+          optionError
+        );
+
+
+        await supabaseClient
+          .from("lounge_polls")
+          .delete()
+          .eq(
+            "id",
+            poll.id
+          );
+
+
+        toast(
+          "Poll options could not be created."
+        );
+
+        return;
+
+      }
+
+
+      $("pollQuestion")
+        .value="";
+
+
+      for(
+        let i=1;
+        i<=6;
+        i++
+      ){
+
+        const input=
+          $("l2PollOption"+i);
+
+        if(input){
+
+          input.value="";
+
+        }
+
+      }
+
+
+      toast(
+        "Poll created. Let the arguments begin. 😂"
+      );
+
+
+      await loadPolls();
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   OWNER FALLBACK
+========================================================= */
+
+async function l2EnsureOwnerFromProfile(){
+
+  if(!currentUser){
+    return;
+  }
+
+  const {
+    data,
+    error
+  } =
+    await supabaseClient
+      .from("profiles")
+      .select("is_owner")
+      .eq(
+        "user_id",
+        currentUser.id
+      )
+      .maybeSingle();
+
+
+  if(
+    !error &&
+    data?.is_owner
+  ){
+
+    isLoungeOwner=true;
+
+    const creator=
+      $("createPoll")
+        ?.closest(
+          ".owner-controls"
+        );
+
+    if(creator){
+
+      creator.style.display=
+        "";
+
+    }
+
+  }
+
+}
+
+
+/* =========================================================
+   STARTUP
+========================================================= */
+
+async function lounge2Start(){
+
+  addGamesHub();
+
+  await l2EnsureOwnerFromProfile();
+
+  upgradePollCreator();
+
+  await loadPublicBadgeLocker();
+
+}
+
+
+setTimeout(
+  lounge2Start,
+  900
+);
+
+
+/* Refresh badge lockers whenever
+   the tab becomes visible again. */
+
+document.addEventListener(
+  "visibilitychange",
+  ()=>{
+
+    if(
+      !document.hidden
+    ){
+
+      loadPublicBadgeLocker();
+
+    }
+
+  }
+);
+
+})();
 </script>
 
 </body>
