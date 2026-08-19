@@ -105,41 +105,24 @@ button{cursor:pointer}
   cursor:grabbing;
 }
 
-
-/* =========================================================
-   COMPACT SQUARE LOUNGE
-========================================================= */
-
 #stage{
   position:absolute;
-
   width:3100px;
   height:2900px;
-
   left:50%;
   top:50%;
-
   margin-left:-1550px;
   margin-top:-1450px;
-
-  transform:translate3d(0,0,0);
-
+  transform:translate3d(0,0,0) scale(.92);
+  transform-origin:center center;
   will-change:transform;
 }
 
-
-/* =========================================================
-   CARDS
-========================================================= */
-
 .card{
   position:absolute;
-
   width:390px;
   min-height:270px;
-
   padding:22px;
-
   border-radius:25px;
 
   background:
@@ -156,13 +139,10 @@ button{cursor:pointer}
     inset 0 1px #fff2;
 
   backdrop-filter:blur(12px);
-
   overflow:hidden;
 }
 
-.card.wide{
-  width:520px;
-}
+.card.wide{width:520px}
 
 .card h2{
   margin:0 0 12px;
@@ -181,30 +161,20 @@ small{
   font-size:10px;
 }
 
-.gold{
-  color:var(--gold2)!important;
-}
+.gold{color:var(--gold2)!important}
 
 .label{
   position:absolute;
   left:50%;
   top:-36px;
-
   transform:translateX(-50%);
-
   padding:7px 12px;
-
   border-radius:999px;
-
   background:#050505ee;
-
   border:1px solid #f3c85b77;
-
   color:var(--gold2);
-
   font-size:9px;
   font-weight:900;
-
   letter-spacing:1.8px;
   white-space:nowrap;
 }
@@ -215,13 +185,9 @@ small{
 .tile{
   padding:10px;
   margin:7px 0;
-
   border-radius:12px;
-
   background:#ffffff09;
-
   border:1px solid #ffffff12;
-
   font-size:11px;
 }
 
@@ -233,18 +199,12 @@ small{
 
 .btn{
   border:1px solid #f3c85b66;
-
   background:#f3c85b15;
-
   color:var(--gold2);
-
   border-radius:10px;
-
   padding:9px 12px;
-
   font-weight:800;
   font-size:10px;
-
   transition:.15s;
 }
 
@@ -265,9 +225,13 @@ small{
   color:#ff9b9b;
 }
 
-.poll-voted{
-  opacity:.72;
+.btn:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+  transform:none;
 }
+
+.poll-voted{opacity:.72}
 
 .poll-vote-btn:disabled{
   cursor:not-allowed;
@@ -282,19 +246,12 @@ small{
 .textarea,
 .select{
   width:100%;
-
   padding:10px;
-
   border-radius:10px;
-
   border:1px solid #fff2;
-
   background:#020202;
-
   color:#fff;
-
   outline:none;
-
   -webkit-user-select:text;
   user-select:text;
 }
@@ -316,9 +273,7 @@ small{
   align-items:center;
 }
 
-.row>*{
-  flex:1;
-}
+.row>*{flex:1}
 
 .statgrid{
   display:grid;
@@ -329,13 +284,9 @@ small{
 
 .stat{
   padding:9px;
-
   text-align:center;
-
   border-radius:11px;
-
   background:#ffffff08;
-
   border:1px solid #ffffff0d;
 }
 
@@ -361,13 +312,9 @@ small{
   justify-content:space-between;
   gap:8px;
   align-items:center;
-
   margin:6px 0;
-
   padding:8px;
-
   border-radius:9px;
-
   background:#ffffff08;
 }
 
@@ -379,13 +326,9 @@ small{
 
 .badges div{
   padding:9px;
-
   text-align:center;
-
   border-radius:11px;
-
   background:#fff1;
-
   font-size:9px;
 }
 
@@ -395,91 +338,59 @@ small{
   margin-bottom:3px;
 }
 
-
-/* =========================================================
-   TOP BAR
-========================================================= */
-
 #top{
   position:fixed;
   z-index:50;
-
   top:12px;
   left:12px;
   right:12px;
-
   display:flex;
   justify-content:space-between;
   align-items:center;
-
   pointer-events:none;
 }
 
 .pill{
   pointer-events:auto;
-
   padding:8px 11px;
-
   border-radius:999px;
-
   background:#050505dd;
-
   border:1px solid #f3c85b55;
-
   color:var(--gold2);
-
   font-size:9px;
   font-weight:900;
 }
 
 #ownerPanel{
   display:none;
-
   position:fixed;
   z-index:60;
-
   right:12px;
   top:55px;
-
   width:min(360px,88vw);
   max-height:80vh;
-
   overflow:auto;
-
   padding:15px;
-
   border-radius:18px;
-
   background:#050505f5;
-
   border:1px solid #f3c85b44;
-
   box-shadow:0 25px 70px #000d;
-
   backdrop-filter:blur(14px);
 }
 
-#ownerPanel.open{
-  display:block;
-}
+#ownerPanel.open{display:block}
 
 .owner-controls{
   margin-top:10px;
-
   padding:10px;
-
   border-radius:12px;
-
   background:#f3c85b0d;
-
   border:1px solid #f3c85b33;
 }
 
 .owner-controls h4{
   margin:0 0 8px;
-
   color:var(--gold2);
-
   font-size:11px;
 }
 
@@ -489,37 +400,21 @@ small{
   margin-top:7px;
 }
 
-
-/* =========================================================
-   STATUS
-========================================================= */
-
 #toast{
   position:fixed;
   z-index:100;
-
   left:50%;
   bottom:55px;
-
   transform:translate(-50%,15px);
-
   opacity:0;
-
   pointer-events:none;
-
   padding:10px 14px;
-
   border-radius:999px;
-
   background:#020202ee;
-
   border:1px solid #f3c85b66;
-
   color:var(--gold2);
-
   font-size:10px;
   font-weight:800;
-
   transition:.2s;
 }
 
@@ -531,2865 +426,35 @@ small{
 #hint{
   position:fixed;
   z-index:50;
-
   left:50%;
   bottom:14px;
-
   transform:translateX(-50%);
-
   padding:8px 12px;
-
   border-radius:999px;
-
   background:#000c;
-
   border:1px solid #fff2;
-
   color:#fff;
-
   font-size:9px;
-
   white-space:nowrap;
-
   pointer-events:none;
-
   transition:opacity .6s;
 }
 
-#hint.hide{
-  opacity:0;
-}
+#hint.hide{opacity:0}
 
 #position{
   position:fixed;
   z-index:50;
-
   left:12px;
   bottom:12px;
-
   padding:6px 9px;
-
   border-radius:999px;
-
   background:#0008;
-
   color:#e8d49a;
-
   font-size:8px;
-
   pointer-events:none;
 }
 
-
-/* =========================================================
-   NAME STYLES
-========================================================= */
-
-.owner-name{
-  color:#080808!important;
-
-  -webkit-text-stroke:1px var(--gold);
-
-  text-shadow:
-    0 0 2px var(--gold),
-    0 0 5px #f3c85b99;
-}
-
-.executive-name{
-  color:var(--gold2)!important;
-}
-
-.grey-name{
-  color:#55e38a!important;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:700px){
-
-  .card{
-    border-radius:20px;
-  }
-
-  #top .pill:first-child{
-    max-width:60vw;
-
-    overflow:hidden;
-
-    text-overflow:ellipsis;
-  }
-
-  #hint{
-    max-width:90vw;
-
-    overflow:hidden;
-
-    text-overflow:ellipsis;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<div id="viewport">
-
-
-<!-- =======================================================
-     TOP
-======================================================= -->
-
-<div id="top">
-
-  <div class="pill">
-    🚂 TRAINSFOREVER • SOCIETY LOUNGE
-  </div>
-
-  <button
-    class="pill"
-    id="ownerButton">
-    👑 OWNER
-  </button>
-
-</div>
-
-
-<!-- =======================================================
-     OWNER PANEL
-======================================================= -->
-
-<aside id="ownerPanel">
-
-<h3 style="margin:0 0 10px;color:var(--gold2)">
-Owner Overview
-</h3>
-
-<div class="statgrid">
-
-<div class="stat">
-<strong id="oMembers">0</strong>
-<span>MEMBERS</span>
-</div>
-
-<div class="stat">
-<strong id="oActive">0</strong>
-<span>ACTIVE</span>
-</div>
-
-<div class="stat">
-<strong id="oChat">0</strong>
-<span>CHAT</span>
-</div>
-
-<div class="stat">
-<strong id="oReports">0</strong>
-<span>REPORTS</span>
-</div>
-
-</div>
-
-<div class="owner-controls">
-
-<h4>🔐 Owner Status</h4>
-
-<div id="ownerStatus">
-Checking account…
-</div>
-
-<small>
-Owner permissions are enforced by the backend.
-</small>
-
-</div>
-
-</aside>
-
-
-<!-- =======================================================
-     SQUARE LOUNGE
-======================================================= -->
-
-<div id="stage">
-
-
-<!-- =======================================================
-     TOP ROW
-======================================================= -->
-
-
-<!-- COMMAND WALL -->
-
-<section
-class="card wide"
-style="
-left:120px;
-top:120px;
-">
-
-<div class="label">
-SOCIETY COMMAND WALL
-</div>
-
-<h2>🌐 Everything at a Glance</h2>
-
-<div class="statgrid">
-
-<div class="stat">
-<strong id="wallMembers">0</strong>
-<span>MEMBERS</span>
-</div>
-
-<div class="stat">
-<strong id="wallActive">0</strong>
-<span>ACTIVE</span>
-</div>
-
-<div class="stat">
-<strong id="wallChat">0</strong>
-<span>CHAT</span>
-</div>
-
-<div class="stat">
-<strong id="wallReports">0</strong>
-<span>REPORTS</span>
-</div>
-
-</div>
-
-<div class="feed">
-<b>🚂 Heritage Units</b><br>
-<small>
-Real latest public reports appear here.
-</small>
-</div>
-
-<div class="feed">
-<b>🏆 Badge Locker</b><br>
-<small>
-Members can see earned rewards.
-</small>
-</div>
-
-<div class="feed">
-<b>💬 Live Society Chat</b><br>
-<small>
-Connected to the TrainsForever database.
-</small>
-</div>
-
-</section>
-
-
-<!-- CHAT -->
-
-<section
-class="card"
-style="
-left:680px;
-top:120px;
-">
-
-<div class="label">
-MEMBER CHAT
-</div>
-
-<h2>💬 Chat</h2>
-
-<div
-id="chatList"
-style="
-max-height:180px;
-overflow:auto;
-">
-
-<div class="empty">
-Loading real chat…
-</div>
-
-</div>
-
-<br>
-
-<input
-id="chatInput"
-class="input"
-maxlength="300"
-placeholder="Say something…">
-
-<br><br>
-
-<button
-class="btn"
-id="sendChat">
-Send Message
-</button>
-
-<p>
-<small id="chatStatus">
-Connecting to Society chat…
-</small>
-</p>
-
-</section>
-
-
-<!-- MEMBERS -->
-
-<section
-class="card"
-style="
-left:1160px;
-top:120px;
-">
-
-<div class="label">
-MEMBERS
-</div>
-
-<h2>👥 Society Members</h2>
-
-<div
-style="
-font-size:44px;
-color:var(--gold2);
-font-weight:900;
-"
-id="memberBig">
-0
-</div>
-
-<small>
-members
-</small>
-
-<div class="person">
-<b>
-🟢 Active now:
-<span id="activeBig">0</span>
-</b>
-</div>
-
-<div class="person">
-<b>
-🏆 Badges:
-<span id="badgesBig">0</span>
-</b>
-</div>
-
-</section>
-
-
-<!-- =======================================================
-     SECOND ROW
-======================================================= -->
-
-
-<!-- POLLS -->
-
-<section
-class="card"
-style="
-left:120px;
-top:650px;
-">
-
-<div class="label">
-MEMBER POLLS
-</div>
-
-<h2>
-🗳️ Live Society Polls
-</h2>
-
-<div id="pollList">
-
-<div class="empty">
-No live polls yet.
-</div>
-
-</div>
-
-<div class="owner-controls">
-
-<h4>
-🔒 Owner Poll Creator
-</h4>
-
-<textarea
-id="pollQuestion"
-class="textarea"
-maxlength="160"
-placeholder="Poll question…"></textarea>
-
-<br><br>
-
-<input
-id="pollOption1"
-class="input"
-maxlength="80"
-placeholder="Option 1">
-
-<br><br>
-
-<input
-id="pollOption2"
-class="input"
-maxlength="80"
-placeholder="Option 2">
-
-<br><br>
-
-<button
-class="btn"
-id="createPoll">
-＋ Create Poll
-</button>
-
-<div class="locked-note">
-Owner controls are protected by backend authorization.
-</div>
-
-</div>
-
-</section>
-
-
-<!-- HERO -->
-
-<section
-class="card"
-style="
-left:760px;
-top:620px;
-width:570px;
-min-height:400px;
-text-align:center;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-">
-
-<div class="label">
-THE LOUNGE
-</div>
-
-<div style="
-font-size:80px;
-filter:drop-shadow(0 0 28px #f3c85b66);
-">
-🚂
-</div>
-
-<div style="
-font-size:9px;
-letter-spacing:4px;
-color:#aab6bf;
-">
-THE TRAINSFOREVER SOCIETY
-</div>
-
-<h1 style="
-font-size:45px;
-letter-spacing:5px;
-color:var(--gold2);
-margin:5px;
-">
-LOUNGE
-</h1>
-
-<p>
-A living Society room for real members,
-real conversations, real reports,
-real rewards and real railroad activity.
-</p>
-
-<div style="
-margin-top:12px;
-color:#9eabb3;
-font-size:10px;
-">
-🖐 DRAG • 🤏 PINCH TO ZOOM • 💬 CHAT • 🗳️ VOTE
-</div>
-
-</section>
-
-
-<!-- HERITAGE -->
-
-<section
-class="card wide"
-style="
-left:1420px;
-top:650px;
-">
-
-<div class="label">
-HERITAGE UNITS
-</div>
-
-<h2>
-🚂 Latest Heritage Reports
-</h2>
-
-<div class="feed">
-
-<b class="gold">
-REAL PUBLIC REPORT FEED
-</b>
-
-<br>
-
-<small>
-Only imported public reports are displayed.
-The Lounge will never manufacture a sighting.
-</small>
-
-</div>
-
-<div id="heritageList">
-
-<div class="empty">
-No imported verified reports yet.
-</div>
-
-</div>
-
-<button
-class="btn"
-id="heritageButton">
-Open Official Site
-</button>
-
-<button
-class="btn green"
-id="refreshHeritage">
-Refresh Reports
-</button>
-
-</section>
-
-
-<!-- =======================================================
-     THIRD ROW
-======================================================= -->
-
-
-<!-- CONSTRUCTION -->
-
-<section
-class="card"
-style="
-left:120px;
-top:1240px;
-">
-
-<div class="label">
-CONSTRUCTION
-</div>
-
-<h2>
-🚧 Owner's Construction
-</h2>
-
-<div id="constructionList">
-
-<div class="empty">
-No construction updates yet.
-</div>
-
-</div>
-
-<div class="owner-controls">
-
-<h4>
-🔒 Owner Posting
-</h4>
-
-<textarea
-id="constructionInput"
-class="textarea"
-maxlength="1000"
-placeholder="Post a construction update…"></textarea>
-
-<br><br>
-
-<button
-class="btn"
-id="postConstruction">
-Post Update
-</button>
-
-</div>
-
-</section>
-
-
-<!-- BADGE LOCKER -->
-
-<section
-class="card wide"
-style="
-left:1420px;
-top:1240px;
-">
-
-<div class="label">
-BADGE LOCKER
-</div>
-
-<h2>
-🏆 Member Reward Lockers
-</h2>
-
-<div class="statgrid">
-
-<div class="stat">
-<strong id="userCount">0</strong>
-<span>MEMBERS</span>
-</div>
-
-<div class="stat">
-<strong id="totalRespect">0</strong>
-<span>RESPECT</span>
-</div>
-
-<div class="stat">
-<strong id="totalDisrespect">0</strong>
-<span>DISRESPECT</span>
-</div>
-
-<div class="stat">
-<strong id="totalBadges">0</strong>
-<span>BADGES</span>
-</div>
-
-</div>
-
-<div id="userDirectory">
-
-<div class="empty">
-No member profiles yet.
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =======================================================
-     EVENTS
-======================================================= -->
-
-<section
-class="card"
-style="
-left:120px;
-top:1820px;
-">
-
-<div class="label">
-SOCIETY EVENTS
-</div>
-
-<h2>
-🎟️ Events
-</h2>
-
-<div id="eventList">
-
-<div class="empty">
-No live events yet.
-</div>
-
-</div>
-
-<div class="owner-controls">
-
-<h4>
-🔒 Owner Event Creator
-</h4>
-
-<input
-id="eventName"
-class="input"
-maxlength="100"
-placeholder="Event name…">
-
-<br><br>
-
-<input
-id="eventDate"
-class="input"
-type="datetime-local">
-
-<br><br>
-
-<textarea
-id="eventDetails"
-class="textarea"
-maxlength="500"
-placeholder="Event details…"></textarea>
-
-<br><br>
-
-<button
-class="btn"
-id="createEvent">
-＋ Create Event
-</button>
-
-</div>
-
-</section>
-
-
-<!-- DESK -->
-
-<section
-class="card"
-style="
-left:680px;
-top:1840px;
-">
-
-<div class="label">
-TRAINSFOREVER DESK
-</div>
-
-<h2>
-👑 TrainsForever Desk
-</h2>
-
-<div class="feed">
-
-<b>
-📱 Contact TrainsForever
-</b>
-
-<br>
-
-<small>
-Send a private message without exposing
-the Owner's personal phone number.
-</small>
-
-</div>
-
-<textarea
-id="privateMessage"
-class="textarea"
-maxlength="1000"
-placeholder="Private message…"></textarea>
-
-<br><br>
-
-<button
-class="btn"
-id="sendPrivate">
-Send Private Message
-</button>
-
-<hr
-style="
-border:0;
-border-top:1px solid #fff2;
-margin:18px 0;
-">
-
-<div class="feed">
-
-<b>
-📋 Reports
-</b>
-
-<br>
-
-<small>
-Choose a Respect or Disrespect report.
-</small>
-
-</div>
-
-<div class="row">
-
-<button
-class="btn green"
-id="respectReport">
-Respect Report
-</button>
-
-<button
-class="btn red"
-id="disrespectReport">
-Disrespect Report
-</button>
-
-</div>
-
-<hr
-style="
-border:0;
-border-top:1px solid #fff2;
-margin:18px 0;
-">
-
-<div class="feed">
-
-<b>
-🚂 Send TrainsForever
-</b>
-
-<br>
-
-<small>
-Future emergency/attention system.
-</small>
-
-</div>
-
-<button
-class="btn"
-disabled>
-I'm Needed
-</button>
-
-</section>
-
-
-<!-- GIVEAWAY -->
-
-<section
-class="card wide"
-style="
-left:1420px;
-top:1840px;
-">
-
-<div class="label">
-GIVEAWAY CENTER
-</div>
-
-<h2>
-🎁 TrainsForever Giveaway
-</h2>
-
-<div class="feed">
-
-<b>
-Current Prize
-</b>
-
-<br>
-
-<span id="giveawayPrize">
-<small>
-No active giveaway yet.
-</small>
-</span>
-
-</div>
-
-<div class="statgrid">
-
-<div class="stat">
-<strong id="giveawayCount">0</strong>
-<span>GIVEAWAYS</span>
-</div>
-
-<div class="stat">
-<strong id="winnerCount">0</strong>
-<span>WINNERS</span>
-</div>
-
-<div class="stat">
-<strong id="givenAway">$0</strong>
-<span>GIVEN AWAY</span>
-</div>
-
-<div class="stat">
-<strong id="entryCount">0</strong>
-<span>ENTRIES</span>
-</div>
-
-</div>
-
-<div class="owner-controls">
-
-<h4>
-🔒 Owner Giveaway Controls
-</h4>
-
-<input
-id="giveawayPrizeInput"
-class="input"
-maxlength="150"
-placeholder="Prize…">
-
-<br><br>
-
-<button
-class="btn"
-id="createGiveaway">
-Create Giveaway
-</button>
-
-<br><br>
-
-<button
-class="btn green"
-id="enterGiveaway">
-Enter Giveaway
-</button>
-
-</div>
-
-</section>
-
-
-</div>
-
-
-<!-- =======================================================
-     UI
-======================================================= -->
-
-<div id="hint">
-🖐 DRAG • 🤏 PINCH TO ZOOM • 💬 CHAT • 🗳️ VOTE
-</div>
-
-<div id="position">
-ROOM VIEW • CONNECTING…
-</div>
-
-<div id="toast"></div>
-
-</div>
-
-
-<script>
-
-/* =========================================================
-   SUPABASE
-========================================================= */
-
-const SUPABASE_URL =
-  "https://hooinhbybdhizunfdyih.supabase.co";
-
-const SUPABASE_KEY =
-  "sb_publishable_q2moV3RdALePl6kunHxvNg_xoj9hjvm";
-
-const supabaseClient =
-  window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
-
-
-/* =========================================================
-   HELPERS
-========================================================= */
-
-function $(id){
-  return document.getElementById(id);
-}
-
-function escapeHTML(value){
-
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-
-}
-
-function toast(message){
-
-  const box=$("toast");
-
-  box.textContent=message;
-
-  box.classList.add("show");
-
-  clearTimeout(toast.timer);
-
-  toast.timer=setTimeout(
-    ()=>{
-      box.classList.remove("show");
-    },
-    2200
-  );
-
-}
-
-
-/* =========================================================
-   AUTH
-========================================================= */
-
-let currentUser=null;
-
-async function loadUser(){
-
-  try{
-
-    const {
-      data,
-      error
-    } =
-      await supabaseClient.auth.getUser();
-
-    if(error){
-
-      console.warn(error);
-      return null;
-
-    }
-
-    currentUser=data.user||null;
-
-    return currentUser;
-
-  }catch(error){
-
-    console.warn(error);
-    return null;
-
-  }
-
-}
-
-
-/* =========================================================
-   CHAT
-========================================================= */
-
-async function loadChat(){
-
-  const {
-    data,
-    error
-  } =
-    await supabaseClient
-      .from("lounge_chat_messages")
-      .select("*")
-      .order("created_at",{ascending:true})
-      .limit(50);
-
-  if(error){
-
-    console.error(error);
-
-    $("chatList").innerHTML=
-      `<div class="empty">
-        Unable to load Society chat.
-      </div>`;
-
-    $("chatStatus").textContent=
-      "Chat connection error.";
-
-    return;
-
-  }
-
-  renderChat(data||[]);
-
-}
-
-
-function renderChat(messages){
-
-  const box=$("chatList");
-
-  if(!messages.length){
-
-    box.innerHTML=
-      `<div class="empty">
-        No messages yet.
-      </div>`;
-
-    return;
-
-  }
-
-  box.innerHTML=
-    messages.map(
-      message=>`
-
-        <div class="feed">
-
-          <b>
-            💬 Member
-          </b>
-
-          <br>
-
-          <small>
-            ${escapeHTML(message.message)}
-          </small>
-
-        </div>
-
-      `
-    ).join("");
-
-  box.scrollTop=box.scrollHeight;
-
-}
-
-
-async function sendChat(){
-
-  const input=$("chatInput");
-
-  const message=input.value.trim();
-
-  if(!message){
-
-    toast("Type a message first.");
-    return;
-
-  }
-
-  if(!currentUser){
-
-    toast("You must be signed in to chat.");
-    return;
-
-  }
-
-  const {
-    error
-  } =
-    await supabaseClient
-      .from("lounge_chat_messages")
-      .insert({
-        user_id:currentUser.id,
-        message
-      });
-
-  if(error){
-
-    console.error(error);
-
-    toast("Message could not be sent.");
-    return;
-
-  }
-
-  input.value="";
-
-  toast("Message sent.");
-
-}
-
-
-$("sendChat").addEventListener(
-  "click",
-  sendChat
-);
-
-
-$("chatInput").addEventListener(
-  "keydown",
-  event=>{
-
-    if(
-      event.key==="Enter" &&
-      !event.shiftKey
-    ){
-
-      event.preventDefault();
-
-      sendChat();
-
-    }
-
-  }
-);
-
-
-/* =========================================================
-   REALTIME CHAT
-========================================================= */
-
-function startRealtime(){
-
-  supabaseClient
-    .channel("lounge-chat")
-    .on(
-      "postgres_changes",
-      {
-        event:"INSERT",
-        schema:"public",
-        table:"lounge_chat_messages"
-      },
-      ()=>{
-        loadChat();
-      }
-    )
-    .subscribe(
-      status=>{
-
-        if(status==="SUBSCRIBED"){
-
-          $("chatStatus").textContent=
-            "🟢 Live Society chat";
-
-        }
-
-      }
-    );
-
-}
-  /* =========================================================
-   REAL SUPABASE POLLS
-========================================================= */
-
-let localPolls=[];
-let isLoungeOwner=false;
-
-
-async function checkLoungeOwner(){
-
-  try{
-
-    const {data,error} =
-      await supabaseClient.rpc("is_lounge_owner");
-
-    if(error){
-
-      console.warn(error);
-      isLoungeOwner=false;
-
-    }else{
-
-      isLoungeOwner=Boolean(data);
-
-    }
-
-  }catch(error){
-
-    console.warn(error);
-    isLoungeOwner=false;
-
-  }
-
-  const creator=$("createPoll").closest(".owner-controls");
-
-  if(creator){
-    creator.style.display=
-      isLoungeOwner ? "" : "none";
-  }
-
-}
-
-
-async function loadPolls(){
-
-  const box=$("pollList");
-
-  box.innerHTML=
-    `<div class="empty">
-      Loading live polls…
-    </div>`;
-
-  const {
-    data,
-    error
-  } =
-    await supabaseClient
-      .from("lounge_polls")
-      .select(`
-        id,
-        question,
-        created_at,
-        is_open,
-        lounge_poll_options(
-          id,
-          option_text,
-          vote_count
-        )
-      `)
-      .eq("is_open",true)
-      .order("created_at",{ascending:false});
-
-  if(error){
-
-    console.error(error);
-
-    box.innerHTML=
-      `<div class="empty">
-        Unable to load live polls.
-      </div>`;
-
-    return;
-
-  }
-
-  let myVotes=[];
-
-  if(currentUser){
-
-    const {
-      data:votes,
-      error:voteError
-    } =
-      await supabaseClient
-        .from("lounge_poll_votes")
-        .select("poll_id,option_id")
-        .eq("user_id",currentUser.id);
-
-    if(!voteError){
-      myVotes=votes||[];
-    }
-
-  }
-
-  localPolls=(data||[]).map(
-    poll=>({
-
-      id:poll.id,
-
-      question:poll.question,
-
-      options:
-        (poll.lounge_poll_options||[])
-          .map(
-            option=>({
-
-              id:option.id,
-
-              text:option.option_text,
-
-              votes:
-                Number(
-                  option.vote_count||0
-                )
-
-            })
-          ),
-
-      myVote:
-        myVotes.find(
-          vote=>vote.poll_id===poll.id
-        )?.option_id||null
-
-    })
-  );
-
-  renderPolls();
-
-}
-
-
-function renderPolls(){
-
-  const box=$("pollList");
-
-  if(!localPolls.length){
-
-    box.innerHTML=
-      `<div class="empty">
-        No live polls yet.
-      </div>`;
-
-    return;
-
-  }
-
-  box.innerHTML=
-    localPolls.map(
-      poll=>{
-
-        const voted=
-          Boolean(poll.myVote);
-
-        return `
-
-          <div class="feed ${voted ? "poll-voted":""}">
-
-            <b>
-              🗳️
-              ${escapeHTML(poll.question)}
-            </b>
-
-            <br>
-
-            <small>
-
-              ${
-                voted
-
-                  ? "You already voted — one vote per person."
-
-                  : currentUser
-
-                    ? "Choose one answer."
-
-                    : "Sign in to vote."
-
-              }
-
-            </small>
-
-            ${
-              poll.options.map(
-                option=>`
-
-                  <div class="choice">
-
-                    <span>
-
-                      ${escapeHTML(option.text)}
-
-                      <small>
-                        (${option.votes})
-                      </small>
-
-                    </span>
-
-                    <button
-                      class="btn poll-vote-btn"
-                      ${
-                        voted||!currentUser
-                          ? "disabled"
-                          : ""
-                      }
-                      onclick="
-                        votePoll(
-                          '${poll.id}',
-                          '${option.id}'
-                        )
-                      ">
-
-                      ${
-                        poll.myVote===option.id
-                          ? "✓ Voted"
-                          : "Vote"
-                      }
-
-                    </button>
-
-                  </div>
-
-                `
-              ).join("")
-            }
-
-            ${
-              isLoungeOwner
-
-                ? `
-
-                  <button
-                    class="btn red poll-delete"
-                    onclick="
-                      deletePoll('${poll.id}')
-                    ">
-
-                    🗑️ Delete Poll
-
-                  </button>
-
-                `
-
-                : ""
-
-            }
-
-          </div>
-
-        `;
-
-      }
-    ).join("");
-
-}
-
-
-window.votePoll=async function(
-  pollId,
-  optionId
-){
-
-  if(!currentUser){
-
-    toast(
-      "You must be signed in to vote."
-    );
-
-    return;
-
-  }
-
-  const poll=
-    localPolls.find(
-      item=>item.id===pollId
-    );
-
-  if(!poll||poll.myVote){
-
-    toast(
-      "You already voted in this poll."
-    );
-
-    return;
-
-  }
-
-  const {
-    error
-  } =
-    await supabaseClient
-      .from("lounge_poll_votes")
-      .insert({
-
-        poll_id:pollId,
-
-        option_id:optionId,
-
-        user_id:currentUser.id
-
-      });
-
-  if(error){
-
-    console.error(error);
-
-    if(error.code==="23505"){
-
-      toast(
-        "You already voted in this poll."
-      );
-
-    }else{
-
-      toast(
-        "Vote could not be recorded."
-      );
-
-    }
-
-    await loadPolls();
-
-    return;
-
-  }
-
-  toast(
-    "Vote recorded."
-  );
-
-  await loadPolls();
-
-};
-
-
-window.deletePoll=async function(
-  pollId
-){
-
-  if(!isLoungeOwner){
-
-    toast(
-      "Owner access required."
-    );
-
-    return;
-
-  }
-
-  if(
-    !confirm(
-      "Delete this poll for everyone?"
-    )
-  ){
-
-    return;
-
-  }
-
-  const {
-    error
-  } =
-    await supabaseClient
-      .from("lounge_polls")
-      .delete()
-      .eq("id",pollId);
-
-  if(error){
-
-    console.error(error);
-
-    toast(
-      "Poll could not be deleted."
-    );
-
-    return;
-
-  }
-
-  toast(
-    "Poll deleted."
-  );
-
-  await loadPolls();
-
-};
-
-
-$("createPoll").addEventListener(
-  "click",
-  async ()=>{
-
-    if(!isLoungeOwner){
-
-      toast(
-        "Owner access required."
-      );
-
-      return;
-
-    }
-
-    const question=
-      $("pollQuestion")
-        .value
-        .trim();
-
-    const one=
-      $("pollOption1")
-        .value
-        .trim();
-
-    const two=
-      $("pollOption2")
-        .value
-        .trim();
-
-    if(
-      !question||
-      !one||
-      !two
-    ){
-
-      toast(
-        "Fill in the question and both options."
-      );
-
-      return;
-
-    }
-
-    if(!currentUser){
-
-      toast(
-        "You must be signed in as Owner."
-      );
-
-      return;
-
-    }
-
-    const {
-      data:poll,
-      error:pollError
-    } =
-      await supabaseClient
-        .from("lounge_polls")
-        .insert({
-
-          question,
-
-          created_by:
-            currentUser.id
-
-        })
-        .select("id")
-        .single();
-
-    if(pollError){
-
-      console.error(pollError);
-
-      toast(
-        "Poll could not be created."
-      );
-
-      return;
-
-    }
-
-    const {
-      error:optionError
-    } =
-      await supabaseClient
-        .from("lounge_poll_options")
-        .insert([
-
-          {
-            poll_id:poll.id,
-
-            option_text:one
-          },
-
-          {
-            poll_id:poll.id,
-
-            option_text:two
-          }
-
-        ]);
-
-    if(optionError){
-
-      console.error(optionError);
-
-      await supabaseClient
-        .from("lounge_polls")
-        .delete()
-        .eq(
-          "id",
-          poll.id
-        );
-
-      toast(
-        "Poll options could not be created."
-      );
-
-      return;
-
-    }
-
-    $("pollQuestion").value="";
-    $("pollOption1").value="";
-    $("pollOption2").value="";
-
-    toast(
-      "Poll created."
-    );
-
-    await loadPolls();
-
-  }
-);
-
-
-/* =========================================================
-   EVENTS
-========================================================= */
-
-let localEvents=[];
-
-
-function renderEvents(){
-
-  const box=$("eventList");
-
-  if(!localEvents.length){
-
-    box.innerHTML=
-      `<div class="empty">
-        No live events yet.
-      </div>`;
-
-    return;
-
-  }
-
-  box.innerHTML=
-    localEvents
-      .slice()
-      .reverse()
-      .map(
-        event=>`
-
-          <div class="feed">
-
-            <b>
-              🎟️
-              ${escapeHTML(event.name)}
-            </b>
-
-            <br>
-
-            <small>
-
-              ${
-                event.date
-
-                  ? escapeHTML(
-                      new Date(
-                        event.date
-                      ).toLocaleString()
-                    )
-
-                  : "Date TBD"
-
-              }
-
-            </small>
-
-            <br>
-
-            <small>
-              ${escapeHTML(event.details)}
-            </small>
-
-            <br><br>
-
-            <button
-              class="btn green"
-              onclick="
-                rsvpEvent(${event.id})
-              ">
-
-              RSVP
-
-            </button>
-
-          </div>
-
-        `
-      ).join("");
-
-}
-
-
-window.rsvpEvent=function(
-  id
-){
-
-  toast(
-    "RSVP recorded."
-  );
-
-};
-
-
-$("createEvent").addEventListener(
-  "click",
-  ()=>{
-
-    const name=
-      $("eventName")
-        .value
-        .trim();
-
-    const date=
-      $("eventDate")
-        .value;
-
-    const details=
-      $("eventDetails")
-        .value
-        .trim();
-
-    if(!name){
-
-      toast(
-        "Enter an event name."
-      );
-
-      return;
-
-    }
-
-    localEvents.push({
-
-      id:Date.now(),
-
-      name,
-
-      date,
-
-      details
-
-    });
-
-    $("eventName").value="";
-    $("eventDate").value="";
-    $("eventDetails").value="";
-
-    renderEvents();
-
-    toast(
-      "Event created."
-    );
-
-  }
-);
-
-
-/* =========================================================
-   CONSTRUCTION
-========================================================= */
-
-let construction=[];
-
-
-function renderConstruction(){
-
-  const box=
-    $("constructionList");
-
-  if(!construction.length){
-
-    box.innerHTML=
-      `<div class="empty">
-        No construction updates yet.
-      </div>`;
-
-    return;
-
-  }
-
-  box.innerHTML=
-    construction
-      .slice()
-      .reverse()
-      .map(
-        item=>`
-
-          <div class="feed">
-
-            <b>
-              🚧 Owner Update
-            </b>
-
-            <br>
-
-            <small>
-              ${escapeHTML(item)}
-            </small>
-
-          </div>
-
-        `
-      ).join("");
-
-}
-
-
-$("postConstruction").addEventListener(
-  "click",
-  ()=>{
-
-    const input=
-      $("constructionInput");
-
-    const text=
-      input.value.trim();
-
-    if(!text){
-
-      toast(
-        "Write an update first."
-      );
-
-      return;
-
-    }
-
-    construction.push(text);
-
-    input.value="";
-
-    renderConstruction();
-
-    toast(
-      "Construction update posted."
-    );
-
-  }
-);
-
-
-/* =========================================================
-   MEMBER / LOCKER DISPLAY
-========================================================= */
-
-function renderMembers(){
-
-  $("oMembers").textContent=0;
-  $("oActive").textContent=0;
-
-  $("wallMembers").textContent=0;
-  $("wallActive").textContent=0;
-
-  $("memberBig").textContent=0;
-  $("activeBig").textContent=0;
-  $("badgesBig").textContent=0;
-
-  $("userCount").textContent=0;
-  $("totalRespect").textContent=0;
-  $("totalDisrespect").textContent=0;
-  $("totalBadges").textContent=0;
-
-  $("position").textContent=
-    "ROOM VIEW • LIVE LOUNGE";
-
-}
-
-
-/* =========================================================
-   HERITAGE UNITS
-========================================================= */
-
-async function loadHeritage(){
-
-  /*
-    Important:
-
-    The browser cannot safely scrape HeritageUnits.com
-    directly because of cross-origin restrictions.
-
-    This card therefore does NOT invent reports.
-
-    Your production version should have a server-side
-    importer/API endpoint feeding the verified reports
-    into Supabase.
-  */
-
-  $("heritageList").innerHTML=`
-
-    <div class="feed">
-
-      <b class="gold">
-        No imported verified reports yet.
-      </b>
-
-      <br>
-
-      <small>
-        The official public HeritageUnits source is ready
-        to be connected through the server-side importer.
-      </small>
-
-    </div>
-
-  `;
-
-}
-
-
-$("heritageButton").addEventListener(
-  "click",
-  ()=>{
-
-    window.open(
-      "https://www.heritageunits.com/",
-      "_blank",
-      "noopener,noreferrer"
-    );
-
-  }
-);
-
-
-$("refreshHeritage").addEventListener(
-  "click",
-  async ()=>{
-
-    await loadHeritage();
-
-    toast(
-      "Heritage report feed refreshed."
-    );
-
-  }
-);
-
-
-/* =========================================================
-   GIVEAWAY
-========================================================= */
-
-let giveaway={
-  prize:"",
-  entries:0
-};
-
-
-function renderGiveaway(){
-
-  $("giveawayPrize").innerHTML=
-    giveaway.prize
-
-      ? `<b>
-          ${escapeHTML(
-            giveaway.prize
-          )}
-        </b>`
-
-      : `<small>
-          No active giveaway yet.
-        </small>`;
-
-  $("giveawayCount").textContent=
-    giveaway.prize
-      ? "1"
-      : "0";
-
-  $("entryCount").textContent=
-    giveaway.entries;
-
-}
-
-
-$("createGiveaway").addEventListener(
-  "click",
-  ()=>{
-
-    const prize=
-      $("giveawayPrizeInput")
-        .value
-        .trim();
-
-    if(!prize){
-
-      toast(
-        "Enter a prize first."
-      );
-
-      return;
-
-    }
-
-    giveaway.prize=prize;
-
-    $("giveawayPrizeInput").value="";
-
-    renderGiveaway();
-
-    toast(
-      "Giveaway created."
-    );
-
-  }
-);
-
-
-$("enterGiveaway").addEventListener(
-  "click",
-  ()=>{
-
-    if(!giveaway.prize){
-
-      toast(
-        "There is no active giveaway."
-      );
-
-      return;
-
-    }
-
-    giveaway.entries++;
-
-    renderGiveaway();
-
-    toast(
-      "Giveaway entry recorded."
-    );
-
-  }
-);
-
-
-/* =========================================================
-   DESK
-========================================================= */
-
-$("privateMessage").addEventListener(
-  "pointerdown",
-  event=>{
-    event.stopPropagation();
-  }
-);
-
-
-$("privateMessage").addEventListener(
-  "keydown",
-  event=>{
-    event.stopPropagation();
-  }
-);
-
-
-$("sendPrivate").addEventListener(
-  "click",
-  ()=>{
-
-    const message=
-      $("privateMessage")
-        .value
-        .trim();
-
-    if(!message){
-
-      toast(
-        "Write a private message first."
-      );
-
-      return;
-
-    }
-
-    $("privateMessage").value="";
-
-    toast(
-      "Private message submitted."
-    );
-
-  }
-);
-
-
-$("respectReport").addEventListener(
-  "click",
-  ()=>{
-
-    toast(
-      "Respect report opened."
-    );
-
-  }
-);
-
-
-$("disrespectReport").addEventListener(
-  "click",
-  ()=>{
-
-    toast(
-      "Disrespect report opened."
-    );
-
-  }
-);
-
-
-/* =========================================================
-   OWNER PANEL
-========================================================= */
-
-$("ownerButton").addEventListener(
-  "click",
-  event=>{
-
-    event.stopPropagation();
-
-    $("ownerPanel")
-      .classList
-      .toggle("open");
-
-  }
-);
-
-
-document.addEventListener(
-  "pointerdown",
-  event=>{
-
-    if(
-      !$("ownerPanel")
-        .contains(event.target) &&
-      event.target!==$("ownerButton")
-    ){
-
-      $("ownerPanel")
-        .classList
-        .remove("open");
-
-    }
-
-  }
-);
-  /* =========================================================
-   CAMERA
-========================================================= */
-
-const viewport=$("viewport");
-const stage=$("stage");
-const hint=$("hint");
-
-let cameraX=0;
-let cameraY=0;
-
-let dragging=false;
-let moved=false;
-
-let startPointerX=0;
-let startPointerY=0;
-
-let startCameraX=0;
-let startCameraY=0;
-
-let lastPointerX=0;
-let lastPointerY=0;
-let lastPointerTime=0;
-
-let velocityX=0;
-let velocityY=0;
-
-let animationFrame=null;
-
-
-/* =========================================================
-   ZOOM
-========================================================= */
-
-let zoom=1;
-
-const BASE_ZOOM=.92;
-const MIN_ZOOM=.70;
-const MAX_ZOOM=1.45;
-
-const pointers=new Map();
-
-let pinchActive=false;
-let pinchStartDistance=0;
-let pinchStartZoom=1;
-
-
-function cameraBounds(){
-
-  const scaledW=
-    stage.offsetWidth*
-    BASE_ZOOM*
-    zoom;
-
-  const scaledH=
-    stage.offsetHeight*
-    BASE_ZOOM*
-    zoom;
-
-  const screenW=
-    viewport.clientWidth;
-
-  const screenH=
-    viewport.clientHeight;
-
-  const minX=
-    -(scaledW-screenW)/2-40;
-
-  const maxX=
-    (scaledW-screenW)/2+40;
-
-  const minY=
-    -(scaledH-screenH)/2-40;
-
-  const maxY=
-    (scaledH-screenH)/2+40;
-
-  return{
-    minX,
-    maxX,
-    minY,
-    maxY
-  };
-
-}
-
-
-function clamp(
-  value,
-  min,
-  max
-){
-
-  return Math.max(
-    min,
-    Math.min(
-      max,
-      value
-    )
-  );
-
-}
-
-
-function renderCamera(){
-
-  const bounds=
-    cameraBounds();
-
-  cameraX=
-    clamp(
-      cameraX,
-      bounds.minX,
-      bounds.maxX
-    );
-
-  cameraY=
-    clamp(
-      cameraY,
-      bounds.minY,
-      bounds.maxY
-    );
-
-  stage.style.transform=
-    `translate3d(
-      ${cameraX}px,
-      ${cameraY}px,
-      0
-    ) scale(${BASE_ZOOM*zoom})`;
-
-  stage.style.transformOrigin=
-    "center center";
-
-}
-
-
-function stopInertia(){
-
-  if(animationFrame!==null){
-
-    cancelAnimationFrame(
-      animationFrame
-    );
-
-    animationFrame=null;
-
-  }
-
-  velocityX=0;
-  velocityY=0;
-
-}
-
-
-function startInertia(){
-
-  stopInertia();
-
-  function step(){
-
-    velocityX*=.965;
-    velocityY*=.965;
-
-    const speed=
-      Math.hypot(
-        velocityX,
-        velocityY
-      );
-
-    if(speed<.025){
-
-      animationFrame=null;
-
-      return;
-
-    }
-
-    cameraX+=velocityX;
-    cameraY+=velocityY;
-
-    renderCamera();
-
-    animationFrame=
-      requestAnimationFrame(step);
-
-  }
-
-  animationFrame=
-    requestAnimationFrame(step);
-
-}
-
-
-function interactiveElement(
-  element
-){
-
-  return element.closest(
-    "input,textarea,button,a,select,label"
-  );
-
-}
-
-
-function pointerDistance(
-  a,
-  b
-){
-
-  return Math.hypot(
-    a.clientX-b.clientX,
-    a.clientY-b.clientY
-  );
-
-}
-
-
-/* =========================================================
-   POINTER DOWN
-========================================================= */
-
-viewport.addEventListener(
-  "pointerdown",
-  event=>{
-
-    pointers.set(
-      event.pointerId,
-      event
-    );
-
-    if(pointers.size===2){
-
-      stopInertia();
-
-      dragging=false;
-
-      pinchActive=true;
-
-      const pair=
-        [...pointers.values()];
-
-      pinchStartDistance=
-        pointerDistance(
-          pair[0],
-          pair[1]
-        );
-
-      pinchStartZoom=zoom;
-
-      return;
-
-    }
-
-    if(
-      interactiveElement(
-        event.target
-      )
-    ){
-
-      return;
-
-    }
-
-    stopInertia();
-
-    dragging=true;
-    moved=false;
-
-    startPointerX=
-      event.clientX;
-
-    startPointerY=
-      event.clientY;
-
-    startCameraX=
-      cameraX;
-
-    startCameraY=
-      cameraY;
-
-    lastPointerX=
-      event.clientX;
-
-    lastPointerY=
-      event.clientY;
-
-    lastPointerTime=
-      performance.now();
-
-    viewport.classList.add(
-      "dragging"
-    );
-
-    try{
-
-      viewport.setPointerCapture(
-        event.pointerId
-      );
-
-    }catch(_){}
-
-  }
-);
-
-
-/* =========================================================
-   POINTER MOVE
-========================================================= */
-
-viewport.addEventListener(
-  "pointermove",
-  event=>{
-
-    if(
-      pointers.has(
-        event.pointerId
-      )
-    ){
-
-      pointers.set(
-        event.pointerId,
-        event
-      );
-
-    }
-
-    if(pointers.size>=2){
-
-      const pair=
-        [...pointers.values()];
-
-      const distance=
-        pointerDistance(
-          pair[0],
-          pair[1]
-        );
-
-      if(
-        pinchStartDistance>0
-      ){
-
-        zoom=
-          clamp(
-            pinchStartZoom*
-            (
-              distance/
-              pinchStartDistance
-            ),
-            MIN_ZOOM,
-            MAX_ZOOM
-          );
-
-        renderCamera();
-
-      }
-
-      return;
-
-    }
-
-    if(!dragging){
-
-      return;
-
-    }
-
-    const dx=
-      event.clientX-
-      startPointerX;
-
-    const dy=
-      event.clientY-
-      startPointerY;
-
-    if(
-      Math.abs(dx)>4||
-      Math.abs(dy)>4
-    ){
-
-      moved=true;
-
-    }
-
-    const now=
-      performance.now();
-
-    const dt=
-      Math.max(
-        8,
-        now-lastPointerTime
-      );
-
-    const instantX=
-      (
-        event.clientX-
-        lastPointerX
-      )/
-      (dt/16.67);
-
-    const instantY=
-      (
-        event.clientY-
-        lastPointerY
-      )/
-      (dt/16.67);
-
-    velocityX=
-      velocityX*.72+
-      instantX*.28;
-
-    velocityY=
-      velocityY*.72+
-      instantY*.28;
-
-    lastPointerX=
-      event.clientX;
-
-    lastPointerY=
-      event.clientY;
-
-    lastPointerTime=
-      now;
-
-    cameraX=
-      startCameraX+dx;
-
-    cameraY=
-      startCameraY+dy;
-
-    renderCamera();
-
-  }
-);
-
-
-/* =========================================================
-   POINTER UP
-========================================================= */
-
-viewport.addEventListener(
-  "pointerup",
-  event=>{
-
-    pointers.delete(
-      event.pointerId
-    );
-
-    if(pinchActive){
-
-      if(pointers.size<2){
-
-        pinchActive=false;
-
-        pinchStartDistance=0;
-
-      }
-
-      return;
-
-    }
-
-    if(!dragging){
-
-      return;
-
-    }
-
-    dragging=false;
-
-    viewport.classList.remove(
-      "dragging"
-    );
-
-    if(moved){
-
-      velocityX*=1.35;
-      velocityY*=1.35;
-
-      startInertia();
-
-    }
-
-  }
-);
-
-
-/* =========================================================
-   POINTER CANCEL
-========================================================= */
-
-viewport.addEventListener(
-  "pointercancel",
-  event=>{
-
-    pointers.delete(
-      event.pointerId
-    );
-
-    pinchActive=false;
-    pinchStartDistance=0;
-
-    dragging=false;
-
-    viewport.classList.remove(
-      "dragging"
-    );
-
-  }
-);
-
-
-/* =========================================================
-   RESIZE
-========================================================= */
-
-window.addEventListener(
-  "resize",
-  renderCamera
-);
-
-
-/* =========================================================
-   STARTUP
-========================================================= */
-
-async function startup(){
-
-  await loadUser();
-
-  $("ownerStatus").textContent=
-    currentUser
-      ? "🟢 Signed in"
-      : "⚪ Not signed in";
-
-  await checkLoungeOwner();
-
-  await loadChat();
-
-  startRealtime();
-
-  await loadPolls();
-
-  renderEvents();
-
-  renderConstruction();
-
-  renderMembers();
-
-  renderGiveaway();
-
-  loadHeritage();
-
-  renderCamera();
-
-  setTimeout(
-    ()=>{
-      hint.classList.add(
-        "hide"
-      );
-    },
-    7000
-  );
-
-}
-
-
-startup();
-/* =========================================================
-   TRAINSFOREVER LOUNGE 2.0
-   24/7 FUN DEPARTMENT + PUBLIC BADGE LOCKERS + POLL UPGRADE
-
-   PASTE THIS BEFORE THE FINAL </script> TAG
-========================================================= */
-
-(function(){
-
-const addonStyle = document.createElement("style");
-
-addonStyle.textContent = `
 .l2-card{
   position:absolute;
   width:520px;
@@ -3436,9 +501,7 @@ addonStyle.textContent = `
   border-color:#f3c85b55;
 }
 
-.l2-game b{
-  color:#ffe8a0;
-}
+.l2-game b{color:#ffe8a0}
 
 .l2-game small{
   display:block;
@@ -3456,9 +519,7 @@ addonStyle.textContent = `
   font-size:10px;
 }
 
-.l2-score-row strong{
-  color:#ffe8a0;
-}
+.l2-score-row strong{color:#ffe8a0}
 
 .l2-locker{
   max-height:430px;
@@ -3529,9 +590,7 @@ addonStyle.textContent = `
   background:#000b;
 }
 
-.l2-modal.open{
-  display:flex;
-}
+.l2-modal.open{display:flex}
 
 .l2-modal-box{
   width:min(560px,96vw);
@@ -3622,9 +681,7 @@ addonStyle.textContent = `
   color:#ff9b9b;
 }
 
-.l2-close{
-  float:right;
-}
+.l2-close{float:right}
 
 .l2-pill{
   display:inline-block;
@@ -3637,24 +694,2286 @@ addonStyle.textContent = `
 }
 
 @media(max-width:700px){
+  .card{border-radius:20px}
 
-  .l2-card{
-    width:390px;
+  #top .pill:first-child{
+    max-width:60vw;
+    overflow:hidden;
+    text-overflow:ellipsis;
   }
+
+  #hint{
+    max-width:90vw;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .l2-card{width:390px}
 
   .l2-grid,
   .l2-answer-grid{
     grid-template-columns:1fr;
   }
+}
+</style>
+</head>
+
+<body>
+
+<div id="viewport">
+
+<div id="top">
+
+  <div class="pill">
+    🚂 TRAINSFOREVER • SOCIETY LOUNGE
+  </div>
+
+  <button class="pill" id="ownerButton">
+    👑 OWNER
+  </button>
+
+</div>
+
+<aside id="ownerPanel">
+
+<h3 style="margin:0 0 10px;color:var(--gold2)">
+Owner Overview
+</h3>
+
+<div class="statgrid">
+
+<div class="stat">
+<strong id="oMembers">0</strong>
+<span>MEMBERS</span>
+</div>
+
+<div class="stat">
+<strong id="oActive">0</strong>
+<span>ACTIVE</span>
+</div>
+
+<div class="stat">
+<strong id="oChat">0</strong>
+<span>CHAT</span>
+</div>
+
+<div class="stat">
+<strong id="oReports">0</strong>
+<span>REPORTS</span>
+</div>
+
+</div>
+
+<div class="owner-controls">
+
+<h4>🔐 Owner Status</h4>
+
+<div id="ownerStatus">
+Checking account…
+</div>
+
+<small>
+Owner permissions are enforced by the backend.
+</small>
+
+</div>
+
+</aside>
+
+<div id="stage">
+
+<section class="card wide" style="left:120px;top:120px;">
+
+<div class="label">SOCIETY COMMAND WALL</div>
+
+<h2>🌐 Everything at a Glance</h2>
+
+<div class="statgrid">
+
+<div class="stat">
+<strong id="wallMembers">0</strong>
+<span>MEMBERS</span>
+</div>
+
+<div class="stat">
+<strong id="wallActive">0</strong>
+<span>ACTIVE</span>
+</div>
+
+<div class="stat">
+<strong id="wallChat">0</strong>
+<span>CHAT</span>
+</div>
+
+<div class="stat">
+<strong id="wallReports">0</strong>
+<span>REPORTS</span>
+</div>
+
+</div>
+
+<div class="feed">
+<b>🚂 Heritage Units</b><br>
+<small>Real latest public reports appear here.</small>
+</div>
+
+<div class="feed">
+<b>🏆 Badge Locker</b><br>
+<small>Members can see earned rewards.</small>
+</div>
+
+<div class="feed">
+<b>💬 Live Society Chat</b><br>
+<small>Connected to the TrainsForever database.</small>
+</div>
+
+</section>
+
+<section class="card" style="left:680px;top:120px;">
+
+<div class="label">MEMBER CHAT</div>
+
+<h2>💬 Chat</h2>
+
+<div id="chatList" style="max-height:180px;overflow:auto;">
+<div class="empty">Loading real chat…</div>
+</div>
+
+<br>
+
+<input
+id="chatInput"
+class="input"
+maxlength="300"
+placeholder="Say something…">
+
+<br><br>
+
+<button class="btn" id="sendChat">
+Send Message
+</button>
+
+<p>
+<small id="chatStatus">
+Connecting to Society chat…
+</small>
+</p>
+
+</section>
+
+<section class="card" style="left:1160px;top:120px;">
+
+<div class="label">MEMBERS</div>
+
+<h2>👥 Society Members</h2>
+
+<div
+style="font-size:44px;color:var(--gold2);font-weight:900"
+id="memberBig">
+0
+</div>
+
+<small>members</small>
+
+<div class="person">
+<b>🟢 Active now: <span id="activeBig">0</span></b>
+</div>
+
+<div class="person">
+<b>🏆 Badges: <span id="badgesBig">0</span></b>
+</div>
+
+</section>
+
+<section class="card" style="left:120px;top:650px;">
+
+<div class="label">MEMBER POLLS</div>
+
+<h2>🗳️ Live Society Polls</h2>
+
+<div id="pollList">
+<div class="empty">No live polls yet.</div>
+</div>
+
+<div class="owner-controls">
+
+<h4>🔒 Owner Poll Creator</h4>
+
+<textarea
+id="pollQuestion"
+class="textarea"
+maxlength="160"
+placeholder="Poll question…"></textarea>
+
+<br><br>
+
+<input
+id="pollOption1"
+class="input"
+maxlength="80"
+placeholder="Option 1">
+
+<br><br>
+
+<input
+id="pollOption2"
+class="input"
+maxlength="80"
+placeholder="Option 2">
+
+<br><br>
+
+<button class="btn" id="createPoll">
+＋ Create Poll
+</button>
+
+<div class="locked-note">
+Owner controls are protected by backend authorization.
+</div>
+
+</div>
+
+</section>
+
+<section
+class="card"
+style="
+left:760px;
+top:620px;
+width:570px;
+min-height:400px;
+text-align:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+">
+
+<div class="label">THE LOUNGE</div>
+
+<div style="font-size:80px;filter:drop-shadow(0 0 28px #f3c85b66)">
+🚂
+</div>
+
+<div style="font-size:9px;letter-spacing:4px;color:#aab6bf">
+THE TRAINSFOREVER SOCIETY
+</div>
+
+<h1 style="
+font-size:45px;
+letter-spacing:5px;
+color:var(--gold2);
+margin:5px;
+">
+LOUNGE
+</h1>
+
+<p>
+A living Society room for real members,
+real conversations, real reports,
+real rewards and real railroad activity.
+</p>
+
+<div style="margin-top:12px;color:#9eabb3;font-size:10px">
+🖐 DRAG • 🤏 PINCH TO ZOOM • 💬 CHAT • 🗳️ VOTE
+</div>
+
+</section>
+
+<section class="card wide" style="left:1420px;top:650px;">
+
+<div class="label">HERITAGE UNITS</div>
+
+<h2>🚂 Latest Heritage Reports</h2>
+
+<div class="feed">
+
+<b class="gold">REAL PUBLIC REPORT FEED</b>
+
+<br>
+
+<small>
+Only imported public reports are displayed.
+The Lounge will never manufacture a sighting.
+</small>
+
+</div>
+
+<div id="heritageList">
+<div class="empty">No imported verified reports yet.</div>
+</div>
+
+<button class="btn" id="heritageButton">
+Open Official Site
+</button>
+
+<button class="btn green" id="refreshHeritage">
+Refresh Reports
+</button>
+
+</section>
+
+<section class="card" style="left:120px;top:1240px;">
+
+<div class="label">CONSTRUCTION</div>
+
+<h2>🚧 Owner's Construction</h2>
+
+<div id="constructionList">
+<div class="empty">No construction updates yet.</div>
+</div>
+
+<div class="owner-controls">
+
+<h4>🔒 Owner Posting</h4>
+
+<textarea
+id="constructionInput"
+class="textarea"
+maxlength="1000"
+placeholder="Post a construction update…"></textarea>
+
+<br><br>
+
+<button class="btn" id="postConstruction">
+Post Update
+</button>
+
+</div>
+
+</section>
+
+<section class="card wide" style="left:1420px;top:1240px;">
+
+<div class="label">BADGE LOCKER</div>
+
+<h2>🏆 Member Reward Lockers</h2>
+
+<div class="statgrid">
+
+<div class="stat">
+<strong id="userCount">0</strong>
+<span>MEMBERS</span>
+</div>
+
+<div class="stat">
+<strong id="totalRespect">0</strong>
+<span>RESPECT</span>
+</div>
+
+<div class="stat">
+<strong id="totalDisrespect">0</strong>
+<span>DISRESPECT</span>
+</div>
+
+<div class="stat">
+<strong id="totalBadges">0</strong>
+<span>BADGES</span>
+</div>
+
+</div>
+
+<div id="userDirectory">
+<div class="empty">No member profiles yet.</div>
+</div>
+
+</section>
+
+<section class="card" style="left:120px;top:1820px;">
+
+<div class="label">SOCIETY EVENTS</div>
+
+<h2>🎟️ Events</h2>
+
+<div id="eventList">
+<div class="empty">No live events yet.</div>
+</div>
+
+<div class="owner-controls">
+
+<h4>🔒 Owner Event Creator</h4>
+
+<input
+id="eventName"
+class="input"
+maxlength="100"
+placeholder="Event name…">
+
+<br><br>
+
+<input
+id="eventDate"
+class="input"
+type="datetime-local">
+
+<br><br>
+
+<textarea
+id="eventDetails"
+class="textarea"
+maxlength="500"
+placeholder="Event details…"></textarea>
+
+<br><br>
+
+<button class="btn" id="createEvent">
+＋ Create Event
+</button>
+
+</div>
+
+</section>
+
+<section class="card" style="left:680px;top:1840px;">
+
+<div class="label">TRAINSFOREVER DESK</div>
+
+<h2>👑 TrainsForever Desk</h2>
+
+<div class="feed">
+
+<b>📱 Contact TrainsForever</b>
+
+<br>
+
+<small>
+Send a private message without exposing
+the Owner's personal phone number.
+</small>
+
+</div>
+
+<textarea
+id="privateMessage"
+class="textarea"
+maxlength="1000"
+placeholder="Private message…"></textarea>
+
+<br><br>
+
+<button class="btn" id="sendPrivate">
+Send Private Message
+</button>
+
+<hr style="border:0;border-top:1px solid #fff2;margin:18px 0">
+
+<div class="feed">
+
+<b>📋 Reports</b>
+
+<br>
+
+<small>
+Choose a Respect or Disrespect report.
+</small>
+
+</div>
+
+<div class="row">
+
+<button class="btn green" id="respectReport">
+Respect Report
+</button>
+
+<button class="btn red" id="disrespectReport">
+Disrespect Report
+</button>
+
+</div>
+
+<hr style="border:0;border-top:1px solid #fff2;margin:18px 0">
+
+<div class="feed">
+
+<b>🚂 Send TrainsForever</b>
+
+<br>
+
+<small>
+Future emergency/attention system.
+</small>
+
+</div>
+
+<button class="btn" disabled>
+I'm Needed
+</button>
+
+</section>
+
+<section class="card wide" style="left:1420px;top:1840px;">
+
+<div class="label">GIVEAWAY CENTER</div>
+
+<h2>🎁 TrainsForever Giveaway</h2>
+
+<div class="feed">
+
+<b>Current Prize</b>
+
+<br>
+
+<span id="giveawayPrize">
+<small>No active giveaway yet.</small>
+</span>
+
+</div>
+
+<div class="statgrid">
+
+<div class="stat">
+<strong id="giveawayCount">0</strong>
+<span>GIVEAWAYS</span>
+</div>
+
+<div class="stat">
+<strong id="winnerCount">0</strong>
+<span>WINNERS</span>
+</div>
+
+<div class="stat">
+<strong id="givenAway">$0</strong>
+<span>GIVEN AWAY</span>
+</div>
+
+<div class="stat">
+<strong id="entryCount">0</strong>
+<span>ENTRIES</span>
+</div>
+
+</div>
+
+<div class="owner-controls">
+
+<h4>🔒 Owner Giveaway Controls</h4>
+
+<input
+id="giveawayPrizeInput"
+class="input"
+maxlength="150"
+placeholder="Prize…">
+
+<br><br>
+
+<button class="btn" id="createGiveaway">
+Create Giveaway
+</button>
+
+<br><br>
+
+<button class="btn green" id="enterGiveaway">
+Enter Giveaway
+</button>
+
+</div>
+
+</section>
+
+</div>
+
+<div id="hint">
+🖐 DRAG • 🤏 PINCH TO ZOOM • 💬 CHAT • 🗳️ VOTE
+</div>
+
+<div id="position">
+ROOM VIEW • CONNECTING…
+</div>
+
+<div id="toast"></div>
+
+</div>
+
+<script>
+
+const SUPABASE_URL =
+"https://hooinhbybdhizunfdyih.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_q2moV3RdALePl6kunHxvNg_xoj9hjvm";
+
+const supabaseClient =
+window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+function $(id){
+  return document.getElementById(id);
+}
+
+function escapeHTML(value){
+  return String(value ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+function toast(message){
+
+  const box=$("toast");
+
+  box.textContent=message;
+
+  box.classList.add("show");
+
+  clearTimeout(toast.timer);
+
+  toast.timer=setTimeout(()=>{
+    box.classList.remove("show");
+  },2200);
 
 }
-`;
 
-document.head.appendChild(addonStyle);
+let currentUser=null;
+let isLoungeOwner=false;
+
+async function loadUser(){
+
+  try{
+
+    const {data,error} =
+      await supabaseClient.auth.getUser();
+
+    if(error){
+      console.warn(error);
+      return null;
+    }
+
+    currentUser=data.user||null;
+
+    return currentUser;
+
+  }catch(error){
+
+    console.warn(error);
+    return null;
+
+  }
+
+}
 
 
 /* =========================================================
-   HELPERS
+   CHAT
+========================================================= */
+
+async function loadChat(){
+
+  const {data,error} =
+    await supabaseClient
+      .from("lounge_chat_messages")
+      .select("*")
+      .order("created_at",{ascending:true})
+      .limit(50);
+
+  if(error){
+
+    console.error(error);
+
+    $("chatList").innerHTML=
+      `<div class="empty">
+        Unable to load Society chat.
+      </div>`;
+
+    $("chatStatus").textContent=
+      "Chat connection error.";
+
+    return;
+
+  }
+
+  renderChat(data||[]);
+
+}
+
+function renderChat(messages){
+
+  const box=$("chatList");
+
+  if(!messages.length){
+
+    box.innerHTML=
+      `<div class="empty">
+        No messages yet.
+      </div>`;
+
+    return;
+
+  }
+
+  box.innerHTML=
+    messages.map(message=>`
+
+      <div class="feed">
+
+        <b>💬 Member</b>
+
+        <br>
+
+        <small>
+          ${escapeHTML(message.message)}
+        </small>
+
+      </div>
+
+    `).join("");
+
+  box.scrollTop=box.scrollHeight;
+
+}
+
+async function sendChat(){
+
+  const input=$("chatInput");
+
+  const message=input.value.trim();
+
+  if(!message){
+    toast("Type a message first.");
+    return;
+  }
+
+  if(!currentUser){
+    toast("You must be signed in to chat.");
+    return;
+  }
+
+  const {error} =
+    await supabaseClient
+      .from("lounge_chat_messages")
+      .insert({
+        user_id:currentUser.id,
+        message
+      });
+
+  if(error){
+
+    console.error(error);
+
+    toast("Message could not be sent.");
+    return;
+
+  }
+
+  input.value="";
+
+  toast("Message sent.");
+
+  await loadChat();
+
+}
+
+$("sendChat").addEventListener(
+  "click",
+  sendChat
+);
+
+$("chatInput").addEventListener(
+  "keydown",
+  event=>{
+
+    if(
+      event.key==="Enter" &&
+      !event.shiftKey
+    ){
+
+      event.preventDefault();
+
+      sendChat();
+
+    }
+
+  }
+);
+
+function startRealtime(){
+
+  supabaseClient
+    .channel("lounge-chat")
+    .on(
+      "postgres_changes",
+      {
+        event:"INSERT",
+        schema:"public",
+        table:"lounge_chat_messages"
+      },
+      ()=>{
+        loadChat();
+      }
+    )
+    .subscribe(status=>{
+
+      if(status==="SUBSCRIBED"){
+
+        $("chatStatus").textContent=
+          "🟢 Live Society chat";
+
+      }
+
+    });
+
+}
+
+
+/* =========================================================
+   OWNER
+========================================================= */
+
+async function checkLoungeOwner(){
+
+  isLoungeOwner=false;
+
+  if(!currentUser){
+    updateOwnerControls();
+    return;
+  }
+
+  try{
+
+    const {data,error} =
+      await supabaseClient
+        .rpc("is_lounge_owner");
+
+    if(!error){
+      isLoungeOwner=Boolean(data);
+    }
+
+  }catch(error){
+
+    console.warn(error);
+
+  }
+
+  if(!isLoungeOwner){
+
+    try{
+
+      const {data,error} =
+        await supabaseClient
+          .from("profiles")
+          .select("is_owner")
+          .eq(
+            "user_id",
+            currentUser.id
+          )
+          .maybeSingle();
+
+      if(
+        !error &&
+        data?.is_owner
+      ){
+        isLoungeOwner=true;
+      }
+
+    }catch(error){
+
+      console.warn(error);
+
+    }
+
+  }
+
+  updateOwnerControls();
+
+}
+
+function updateOwnerControls(){
+
+  document
+    .querySelectorAll(".owner-controls")
+    .forEach(control=>{
+
+      const creatorOnly=
+        control.querySelector(
+          "#createPoll,#createEvent,#postConstruction,#createGiveaway,#giveawayPrizeInput"
+        );
+
+      if(creatorOnly){
+        control.style.display=
+          isLoungeOwner
+            ? ""
+            : "none";
+      }
+
+    });
+
+}
+
+
+/* =========================================================
+   POLLS
+========================================================= */
+
+let localPolls=[];
+
+async function loadPolls(){
+
+  const box=$("pollList");
+
+  box.innerHTML=
+    `<div class="empty">
+      Loading live polls…
+    </div>`;
+
+  const {data,error} =
+    await supabaseClient
+      .from("lounge_polls")
+      .select(`
+        id,
+        question,
+        created_at,
+        is_open,
+        lounge_poll_options(
+          id,
+          option_text,
+          vote_count
+        )
+      `)
+      .eq("is_open",true)
+      .order("created_at",{ascending:false});
+
+  if(error){
+
+    console.error(error);
+
+    box.innerHTML=
+      `<div class="empty">
+        Unable to load live polls.
+      </div>`;
+
+    return;
+
+  }
+
+  let myVotes=[];
+
+  if(currentUser){
+
+    const {data:votes,error:voteError} =
+      await supabaseClient
+        .from("lounge_poll_votes")
+        .select("poll_id,option_id")
+        .eq(
+          "user_id",
+          currentUser.id
+        );
+
+    if(!voteError){
+      myVotes=votes||[];
+    }
+
+  }
+
+  localPolls=(data||[]).map(poll=>({
+
+    id:poll.id,
+
+    question:poll.question,
+
+    options:
+      (poll.lounge_poll_options||[])
+        .map(option=>({
+
+          id:option.id,
+
+          text:option.option_text,
+
+          votes:Number(
+            option.vote_count||0
+          )
+
+        })),
+
+    myVote:
+      myVotes.find(
+        vote=>vote.poll_id===poll.id
+      )?.option_id||null
+
+  }));
+
+  renderPolls();
+
+}
+
+function renderPolls(){
+
+  const box=$("pollList");
+
+  if(!localPolls.length){
+
+    box.innerHTML=
+      `<div class="empty">
+        No live polls yet.
+      </div>`;
+
+    return;
+
+  }
+
+  box.innerHTML=
+    localPolls.map(poll=>{
+
+      const voted=Boolean(poll.myVote);
+
+      return `
+
+        <div class="feed ${voted?"poll-voted":""}">
+
+          <b>
+            🗳️
+            ${escapeHTML(poll.question)}
+          </b>
+
+          <br>
+
+          <small>
+            ${
+              voted
+                ? "You already voted — one vote per person."
+                : currentUser
+                  ? "Choose one answer."
+                  : "Sign in to vote."
+            }
+          </small>
+
+          ${
+            poll.options.map(option=>`
+
+              <div class="choice">
+
+                <span>
+                  ${escapeHTML(option.text)}
+                  <small>
+                    (${option.votes})
+                  </small>
+                </span>
+
+                <button
+                  class="btn poll-vote-btn"
+                  ${
+                    voted||!currentUser
+                      ? "disabled"
+                      : ""
+                  }
+                  data-poll="${poll.id}"
+                  data-option="${option.id}">
+
+                  ${
+                    poll.myVote===option.id
+                      ? "✓ Voted"
+                      : "Vote"
+                  }
+
+                </button>
+
+              </div>
+
+            `).join("")
+          }
+
+          ${
+            isLoungeOwner
+              ? `
+                <button
+                  class="btn red poll-delete"
+                  data-delete-poll="${poll.id}">
+                  🗑️ Delete Poll
+                </button>
+              `
+              : ""
+          }
+
+        </div>
+
+      `;
+
+    }).join("");
+
+  box
+    .querySelectorAll("[data-poll]")
+    .forEach(button=>{
+
+      button.addEventListener(
+        "click",
+        ()=>votePoll(
+          button.dataset.poll,
+          button.dataset.option
+        )
+      );
+
+    });
+
+  box
+    .querySelectorAll("[data-delete-poll]")
+    .forEach(button=>{
+
+      button.addEventListener(
+        "click",
+        ()=>deletePoll(
+          button.dataset.deletePoll
+        )
+      );
+
+    });
+
+}
+
+async function votePoll(
+  pollId,
+  optionId
+){
+
+  if(!currentUser){
+
+    toast(
+      "You must be signed in to vote."
+    );
+
+    return;
+
+  }
+
+  const poll=
+    localPolls.find(
+      item=>item.id===pollId
+    );
+
+  if(!poll||poll.myVote){
+
+    toast(
+      "You already voted in this poll."
+    );
+
+    return;
+
+  }
+
+  const {error} =
+    await supabaseClient
+      .from("lounge_poll_votes")
+      .insert({
+        poll_id:pollId,
+        option_id:optionId,
+        user_id:currentUser.id
+      });
+
+  if(error){
+
+    console.error(error);
+
+    toast(
+      error.code==="23505"
+        ? "You already voted in this poll."
+        : "Vote could not be recorded."
+    );
+
+    await loadPolls();
+
+    return;
+
+  }
+
+  toast("Vote recorded.");
+
+  await loadPolls();
+
+}
+
+async function deletePoll(pollId){
+
+  if(!isLoungeOwner){
+
+    toast("Owner access required.");
+
+    return;
+
+  }
+
+  if(
+    !confirm(
+      "Delete this poll for everyone?"
+    )
+  ){
+    return;
+  }
+
+  const {error} =
+    await supabaseClient
+      .from("lounge_polls")
+      .delete()
+      .eq("id",pollId);
+
+  if(error){
+
+    console.error(error);
+
+    toast("Poll could not be deleted.");
+
+    return;
+
+  }
+
+  toast("Poll deleted.");
+
+  await loadPolls();
+
+}
+
+$("createPoll").addEventListener(
+  "click",
+  async ()=>{
+
+    if(!isLoungeOwner){
+
+      toast("Owner access required.");
+
+      return;
+
+    }
+
+    const question=
+      $("pollQuestion")
+        .value
+        .trim();
+
+    const one=
+      $("pollOption1")
+        .value
+        .trim();
+
+    const two=
+      $("pollOption2")
+        .value
+        .trim();
+
+    if(
+      !question||
+      !one||
+      !two
+    ){
+
+      toast(
+        "Fill in the question and both options."
+      );
+
+      return;
+
+    }
+
+    if(!currentUser){
+
+      toast(
+        "You must be signed in as Owner."
+      );
+
+      return;
+
+    }
+
+    const {data:poll,error:pollError} =
+      await supabaseClient
+        .from("lounge_polls")
+        .insert({
+          question,
+          created_by:currentUser.id
+        })
+        .select("id")
+        .single();
+
+    if(pollError){
+
+      console.error(pollError);
+
+      toast("Poll could not be created.");
+
+      return;
+
+    }
+
+    const {error:optionError} =
+      await supabaseClient
+        .from("lounge_poll_options")
+        .insert([
+          {
+            poll_id:poll.id,
+            option_text:one
+          },
+          {
+            poll_id:poll.id,
+            option_text:two
+          }
+        ]);
+
+    if(optionError){
+
+      console.error(optionError);
+
+      await supabaseClient
+        .from("lounge_polls")
+        .delete()
+        .eq("id",poll.id);
+
+      toast(
+        "Poll options could not be created."
+      );
+
+      return;
+
+    }
+
+    $("pollQuestion").value="";
+    $("pollOption1").value="";
+    $("pollOption2").value="";
+
+    toast("Poll created.");
+
+    await loadPolls();
+
+  }
+);
+
+
+/* =========================================================
+   EVENTS
+========================================================= */
+
+let localEvents=[];
+
+function renderEvents(){
+
+  const box=$("eventList");
+
+  if(!localEvents.length){
+
+    box.innerHTML=
+      `<div class="empty">
+        No live events yet.
+      </div>`;
+
+    return;
+
+  }
+
+  box.innerHTML=
+    localEvents
+      .slice()
+      .reverse()
+      .map(event=>`
+
+        <div class="feed">
+
+          <b>
+            🎟️ ${escapeHTML(event.name)}
+          </b>
+
+          <br>
+
+          <small>
+            ${
+              event.date
+                ? escapeHTML(
+                    new Date(
+                      event.date
+                    ).toLocaleString()
+                  )
+                : "Date TBD"
+            }
+          </small>
+
+          <br>
+
+          <small>
+            ${escapeHTML(event.details)}
+          </small>
+
+          <br><br>
+
+          <button
+            class="btn green"
+            data-rsvp="${event.id}">
+            RSVP
+          </button>
+
+        </div>
+
+      `).join("");
+
+  box
+    .querySelectorAll("[data-rsvp]")
+    .forEach(button=>{
+
+      button.addEventListener(
+        "click",
+        ()=>{
+          toast("RSVP recorded.");
+        }
+      );
+
+    });
+
+}
+
+$("createEvent").addEventListener(
+  "click",
+  ()=>{
+
+    if(!isLoungeOwner){
+
+      toast("Owner access required.");
+
+      return;
+
+    }
+
+    const name=
+      $("eventName")
+        .value
+        .trim();
+
+    const date=
+      $("eventDate").value;
+
+    const details=
+      $("eventDetails")
+        .value
+        .trim();
+
+    if(!name){
+
+      toast("Enter an event name.");
+
+      return;
+
+    }
+
+    localEvents.push({
+      id:Date.now(),
+      name,
+      date,
+      details
+    });
+
+    $("eventName").value="";
+    $("eventDate").value="";
+    $("eventDetails").value="";
+
+    renderEvents();
+
+    toast("Event created.");
+
+  }
+);
+
+
+/* =========================================================
+   CONSTRUCTION
+========================================================= */
+
+let construction=[];
+
+function renderConstruction(){
+
+  const box=$("constructionList");
+
+  if(!construction.length){
+
+    box.innerHTML=
+      `<div class="empty">
+        No construction updates yet.
+      </div>`;
+
+    return;
+
+  }
+
+  box.innerHTML=
+    construction
+      .slice()
+      .reverse()
+      .map(item=>`
+
+        <div class="feed">
+
+          <b>🚧 Owner Update</b>
+
+          <br>
+
+          <small>
+            ${escapeHTML(item)}
+          </small>
+
+        </div>
+
+      `).join("");
+
+}
+
+$("postConstruction").addEventListener(
+  "click",
+  ()=>{
+
+    if(!isLoungeOwner){
+
+      toast("Owner access required.");
+
+      return;
+
+    }
+
+    const input=
+      $("constructionInput");
+
+    const text=
+      input.value.trim();
+
+    if(!text){
+
+      toast(
+        "Write an update first."
+      );
+
+      return;
+
+    }
+
+    construction.push(text);
+
+    input.value="";
+
+    renderConstruction();
+
+    toast(
+      "Construction update posted."
+    );
+
+  }
+);
+
+
+/* =========================================================
+   MEMBERS
+========================================================= */
+
+function renderMembers(){
+
+  $("oMembers").textContent=0;
+  $("oActive").textContent=0;
+  $("wallMembers").textContent=0;
+  $("wallActive").textContent=0;
+  $("memberBig").textContent=0;
+  $("activeBig").textContent=0;
+  $("badgesBig").textContent=0;
+  $("userCount").textContent=0;
+  $("totalRespect").textContent=0;
+  $("totalDisrespect").textContent=0;
+  $("totalBadges").textContent=0;
+
+  $("position").textContent=
+    "ROOM VIEW • LIVE LOUNGE";
+
+}
+
+
+/* =========================================================
+   HERITAGE
+========================================================= */
+
+async function loadHeritage(){
+
+  $("heritageList").innerHTML=`
+
+    <div class="feed">
+
+      <b class="gold">
+        No imported verified reports yet.
+      </b>
+
+      <br>
+
+      <small>
+        The official public HeritageUnits source is ready
+        to be connected through the server-side importer.
+      </small>
+
+    </div>
+
+  `;
+
+}
+
+$("heritageButton").addEventListener(
+  "click",
+  ()=>{
+    window.open(
+      "https://www.heritageunits.com/",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  }
+);
+
+$("refreshHeritage").addEventListener(
+  "click",
+  async ()=>{
+
+    await loadHeritage();
+
+    toast(
+      "Heritage report feed refreshed."
+    );
+
+  }
+);
+
+
+/* =========================================================
+   GIVEAWAY
+========================================================= */
+
+let giveaway={
+  prize:"",
+  entries:0
+};
+
+function renderGiveaway(){
+
+  $("giveawayPrize").innerHTML=
+    giveaway.prize
+      ? `<b>${escapeHTML(giveaway.prize)}</b>`
+      : `<small>No active giveaway yet.</small>`;
+
+  $("giveawayCount").textContent=
+    giveaway.prize ? "1" : "0";
+
+  $("entryCount").textContent=
+    giveaway.entries;
+
+}
+
+$("createGiveaway").addEventListener(
+  "click",
+  ()=>{
+
+    if(!isLoungeOwner){
+
+      toast("Owner access required.");
+
+      return;
+
+    }
+
+    const prize=
+      $("giveawayPrizeInput")
+        .value
+        .trim();
+
+    if(!prize){
+
+      toast(
+        "Enter a prize first."
+      );
+
+      return;
+
+    }
+
+    giveaway.prize=prize;
+
+    $("giveawayPrizeInput").value="";
+
+    renderGiveaway();
+
+    toast("Giveaway created.");
+
+  }
+);
+
+$("enterGiveaway").addEventListener(
+  "click",
+  ()=>{
+
+    if(!giveaway.prize){
+
+      toast(
+        "There is no active giveaway."
+      );
+
+      return;
+
+    }
+
+    giveaway.entries++;
+
+    renderGiveaway();
+
+    toast(
+      "Giveaway entry recorded."
+    );
+
+  }
+);
+
+
+/* =========================================================
+   DESK
+========================================================= */
+
+$("privateMessage").addEventListener(
+  "pointerdown",
+  event=>{
+    event.stopPropagation();
+  }
+);
+
+$("privateMessage").addEventListener(
+  "keydown",
+  event=>{
+    event.stopPropagation();
+  }
+);
+
+$("sendPrivate").addEventListener(
+  "click",
+  ()=>{
+
+    const message=
+      $("privateMessage")
+        .value
+        .trim();
+
+    if(!message){
+
+      toast(
+        "Write a private message first."
+      );
+
+      return;
+
+    }
+
+    $("privateMessage").value="";
+
+    toast(
+      "Private message submitted."
+    );
+
+  }
+);
+
+$("respectReport").addEventListener(
+  "click",
+  ()=>{
+    toast("Respect report opened.");
+  }
+);
+
+$("disrespectReport").addEventListener(
+  "click",
+  ()=>{
+    toast("Disrespect report opened.");
+  }
+);
+
+
+/* =========================================================
+   OWNER PANEL
+========================================================= */
+
+$("ownerButton").addEventListener(
+  "click",
+  event=>{
+
+    event.stopPropagation();
+
+    $("ownerPanel")
+      .classList
+      .toggle("open");
+
+  }
+);
+
+document.addEventListener(
+  "pointerdown",
+  event=>{
+
+    if(
+      !$("ownerPanel").contains(
+        event.target
+      ) &&
+      event.target!==$("ownerButton")
+    ){
+
+      $("ownerPanel")
+        .classList
+        .remove("open");
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   CAMERA
+========================================================= */
+
+const viewport=$("viewport");
+const stage=$("stage");
+const hint=$("hint");
+
+let cameraX=0;
+let cameraY=0;
+
+let dragging=false;
+let moved=false;
+
+let startPointerX=0;
+let startPointerY=0;
+
+let startCameraX=0;
+let startCameraY=0;
+
+let lastPointerX=0;
+let lastPointerY=0;
+let lastPointerTime=0;
+
+let velocityX=0;
+let velocityY=0;
+
+let animationFrame=null;
+
+let zoom=1;
+
+const BASE_ZOOM=.92;
+const MIN_ZOOM=.70;
+const MAX_ZOOM=1.45;
+
+const pointers=new Map();
+
+let pinchActive=false;
+let pinchStartDistance=0;
+let pinchStartZoom=1;
+
+function cameraBounds(){
+
+  const scaledW=
+    stage.offsetWidth*
+    BASE_ZOOM*
+    zoom;
+
+  const scaledH=
+    stage.offsetHeight*
+    BASE_ZOOM*
+    zoom;
+
+  const screenW=
+    viewport.clientWidth;
+
+  const screenH=
+    viewport.clientHeight;
+
+  const minX=
+    -(scaledW-screenW)/2-40;
+
+  const maxX=
+    (scaledW-screenW)/2+40;
+
+  const minY=
+    -(scaledH-screenH)/2-40;
+
+  const maxY=
+    (scaledH-screenH)/2+40;
+
+  return{
+    minX,
+    maxX,
+    minY,
+    maxY
+  };
+
+}
+
+function clamp(value,min,max){
+
+  return Math.max(
+    min,
+    Math.min(max,value)
+  );
+
+}
+
+function renderCamera(){
+
+  const bounds=
+    cameraBounds();
+
+  cameraX=
+    clamp(
+      cameraX,
+      bounds.minX,
+      bounds.maxX
+    );
+
+  cameraY=
+    clamp(
+      cameraY,
+      bounds.minY,
+      bounds.maxY
+    );
+
+  stage.style.transform=
+    `translate3d(
+      ${cameraX}px,
+      ${cameraY}px,
+      0
+    ) scale(${BASE_ZOOM*zoom})`;
+
+}
+
+function stopInertia(){
+
+  if(animationFrame!==null){
+
+    cancelAnimationFrame(
+      animationFrame
+    );
+
+    animationFrame=null;
+
+  }
+
+  velocityX=0;
+  velocityY=0;
+
+}
+
+function startInertia(){
+
+  stopInertia();
+
+  function step(){
+
+    velocityX*=.965;
+    velocityY*=.965;
+
+    const speed=
+      Math.hypot(
+        velocityX,
+        velocityY
+      );
+
+    if(speed<.025){
+
+      animationFrame=null;
+
+      return;
+
+    }
+
+    cameraX+=velocityX;
+    cameraY+=velocityY;
+
+    renderCamera();
+
+    animationFrame=
+      requestAnimationFrame(step);
+
+  }
+
+  animationFrame=
+    requestAnimationFrame(step);
+
+}
+
+function interactiveElement(element){
+
+  return element.closest(
+    "input,textarea,button,a,select,label"
+  );
+
+}
+
+function pointerDistance(a,b){
+
+  return Math.hypot(
+    a.clientX-b.clientX,
+    a.clientY-b.clientY
+  );
+
+}
+
+viewport.addEventListener(
+  "pointerdown",
+  event=>{
+
+    pointers.set(
+      event.pointerId,
+      event
+    );
+
+    if(pointers.size===2){
+
+      stopInertia();
+
+      dragging=false;
+      pinchActive=true;
+
+      const pair=
+        [...pointers.values()];
+
+      pinchStartDistance=
+        pointerDistance(
+          pair[0],
+          pair[1]
+        );
+
+      pinchStartZoom=zoom;
+
+      return;
+
+    }
+
+    if(
+      interactiveElement(
+        event.target
+      )
+    ){
+      return;
+    }
+
+    stopInertia();
+
+    dragging=true;
+    moved=false;
+
+    startPointerX=
+      event.clientX;
+
+    startPointerY=
+      event.clientY;
+
+    startCameraX=
+      cameraX;
+
+    startCameraY=
+      cameraY;
+
+    lastPointerX=
+      event.clientX;
+
+    lastPointerY=
+      event.clientY;
+
+    lastPointerTime=
+      performance.now();
+
+    viewport.classList.add(
+      "dragging"
+    );
+
+    try{
+
+      viewport.setPointerCapture(
+        event.pointerId
+      );
+
+    }catch(_){}
+
+  }
+);
+
+viewport.addEventListener(
+  "pointermove",
+  event=>{
+
+    if(
+      pointers.has(
+        event.pointerId
+      )
+    ){
+
+      pointers.set(
+        event.pointerId,
+        event
+      );
+
+    }
+
+    if(pointers.size>=2){
+
+      const pair=
+        [...pointers.values()];
+
+      const distance=
+        pointerDistance(
+          pair[0],
+          pair[1]
+        );
+
+      if(
+        pinchStartDistance>0
+      ){
+
+        zoom=
+          clamp(
+            pinchStartZoom*
+            (
+              distance/
+              pinchStartDistance
+            ),
+            MIN_ZOOM,
+            MAX_ZOOM
+          );
+
+        renderCamera();
+
+      }
+
+      return;
+
+    }
+
+    if(!dragging){
+      return;
+    }
+
+    const dx=
+      event.clientX-
+      startPointerX;
+
+    const dy=
+      event.clientY-
+      startPointerY;
+
+    if(
+      Math.abs(dx)>4||
+      Math.abs(dy)>4
+    ){
+      moved=true;
+    }
+
+    const now=
+      performance.now();
+
+    const dt=
+      Math.max(
+        8,
+        now-lastPointerTime
+      );
+
+    const instantX=
+      (
+        event.clientX-
+        lastPointerX
+      )/(dt/16.67);
+
+    const instantY=
+      (
+        event.clientY-
+        lastPointerY
+      )/(dt/16.67);
+
+    velocityX=
+      velocityX*.72+
+      instantX*.28;
+
+    velocityY=
+      velocityY*.72+
+      instantY*.28;
+
+    lastPointerX=
+      event.clientX;
+
+    lastPointerY=
+      event.clientY;
+
+    lastPointerTime=
+      now;
+
+    cameraX=
+      startCameraX+dx;
+
+    cameraY=
+      startCameraY+dy;
+
+    renderCamera();
+
+  }
+);
+
+viewport.addEventListener(
+  "pointerup",
+  event=>{
+
+    pointers.delete(
+      event.pointerId
+    );
+
+    if(pinchActive){
+
+      if(pointers.size<2){
+
+        pinchActive=false;
+        pinchStartDistance=0;
+
+      }
+
+      return;
+
+    }
+
+    if(!dragging){
+      return;
+    }
+
+    dragging=false;
+
+    viewport.classList.remove(
+      "dragging"
+    );
+
+    if(moved){
+
+      velocityX*=1.35;
+      velocityY*=1.35;
+
+      startInertia();
+
+    }
+
+  }
+);
+
+viewport.addEventListener(
+  "pointercancel",
+  event=>{
+
+    pointers.delete(
+      event.pointerId
+    );
+
+    pinchActive=false;
+    pinchStartDistance=0;
+
+    dragging=false;
+
+    viewport.classList.remove(
+      "dragging"
+    );
+
+  }
+);
+
+window.addEventListener(
+  "resize",
+  renderCamera
+);
+
+
+/* =========================================================
+   GAME DEPARTMENT
 ========================================================= */
 
 function l2Escape(value){
@@ -3670,11 +2989,6 @@ function l2ProfileName(profile){
   ).trim() || "Member";
 
 }
-
-
-/* =========================================================
-   LOCAL SCORE FALLBACK
-========================================================= */
 
 function l2LocalScoreStore(){
 
@@ -3694,15 +3008,7 @@ function l2LocalScoreStore(){
 
 }
 
-
-/* =========================================================
-   SAVE GAME SCORE
-========================================================= */
-
-async function l2SaveScore(
-  game,
-  score
-){
+async function l2SaveScore(game,score){
 
   if(!currentUser){
     return;
@@ -3712,26 +3018,17 @@ async function l2SaveScore(
     Math.max(
       0,
       Math.floor(
-        Number(score) || 0
+        Number(score)||0
       )
     );
 
-  const {
-    error
-  } =
+  const {error} =
     await supabaseClient
       .from("lounge_game_scores")
       .insert({
-
-        user_id:
-          currentUser.id,
-
-        game_key:
-          game,
-
-        score:
-          cleanScore
-
+        user_id:currentUser.id,
+        game_key:game,
+        score:cleanScore
       });
 
   if(error){
@@ -3745,14 +3042,12 @@ async function l2SaveScore(
       "Member";
 
     rows.push({
-
       game,
       score:cleanScore,
       user_id:currentUser.id,
       name,
       created_at:
         new Date().toISOString()
-
     });
 
     localStorage.setItem(
@@ -3762,19 +3057,9 @@ async function l2SaveScore(
       )
     );
 
-    console.warn(
-      "Shared leaderboard unavailable.",
-      error
-    );
-
   }
 
 }
-
-
-/* =========================================================
-   PERIOD START
-========================================================= */
 
 function l2PeriodStart(period){
 
@@ -3782,12 +3067,7 @@ function l2PeriodStart(period){
 
   if(period==="day"){
 
-    d.setHours(
-      0,
-      0,
-      0,
-      0
-    );
+    d.setHours(0,0,0,0);
 
     return d;
 
@@ -3795,61 +3075,36 @@ function l2PeriodStart(period){
 
   const day=d.getDay();
 
-  const diff=
-    (day+6)%7;
+  const diff=(day+6)%7;
 
   d.setDate(
     d.getDate()-diff
   );
 
-  d.setHours(
-    0,
-    0,
-    0,
-    0
-  );
+  d.setHours(0,0,0,0);
 
   return d;
 
 }
 
-
-/* =========================================================
-   TOP FIVE SCORES
-========================================================= */
-
-async function l2TopScores(
-  game,
-  period
-){
+async function l2TopScores(game,period){
 
   const start=
     l2PeriodStart(
       period
     ).toISOString();
 
-  const {
-    data,
-    error
-  } =
+  const {data,error} =
     await supabaseClient
       .from("lounge_game_scores")
       .select(
         "user_id,score,created_at"
       )
-      .eq(
-        "game_key",
-        game
-      )
-      .gte(
-        "created_at",
-        start
-      )
+      .eq("game_key",game)
+      .gte("created_at",start)
       .order(
         "score",
-        {
-          ascending:false
-        }
+        {ascending:false}
       )
       .limit(100);
 
@@ -3858,17 +3113,14 @@ async function l2TopScores(
     const localStart=
       new Date(start).getTime();
 
-    const best=
-      new Map();
+    const best=new Map();
 
     for(
       const row of
       l2LocalScoreStore()
     ){
 
-      if(
-        row.game!==game
-      ){
+      if(row.game!==game){
         continue;
       }
 
@@ -3878,7 +3130,7 @@ async function l2TopScores(
         ).getTime();
 
       if(
-        !Number.isFinite(time) ||
+        !Number.isFinite(time)||
         time<localStart
       ){
         continue;
@@ -3890,15 +3142,13 @@ async function l2TopScores(
         );
 
       if(
-        !old ||
+        !old||
         row.score>old.score
       ){
-
         best.set(
           row.user_id,
           row
         );
-
       }
 
     }
@@ -3910,15 +3160,11 @@ async function l2TopScores(
         (a,b)=>
           b.score-a.score
       )
-      .slice(
-        0,
-        5
-      );
+      .slice(0,5);
 
   }
 
-  const best=
-    new Map();
+  const best=new Map();
 
   for(
     const row of
@@ -3931,7 +3177,7 @@ async function l2TopScores(
       );
 
     if(
-      !old ||
+      !old||
       Number(row.score)>
       Number(old.score)
     ){
@@ -3952,10 +3198,7 @@ async function l2TopScores(
           Number(b.score)-
           Number(a.score)
       )
-      .slice(
-        0,
-        5
-      );
+      .slice(0,5);
 
   const ids=
     rows.map(
@@ -3966,9 +3209,7 @@ async function l2TopScores(
     return [];
   }
 
-  const {
-    data:profiles
-  } =
+  const {data:profiles} =
     await supabaseClient
       .from("profiles")
       .select(
@@ -3990,25 +3231,15 @@ async function l2TopScores(
         )
     );
 
-  return rows.map(
-    row=>({
-
-      ...row,
-
-      name:
-        names.get(
-          row.user_id
-        ) || "Member"
-
-    })
-  );
+  return rows.map(row=>({
+    ...row,
+    name:
+      names.get(
+        row.user_id
+      )||"Member"
+  }));
 
 }
-
-
-/* =========================================================
-   GAMES HUB
-========================================================= */
 
 function addGamesHub(){
 
@@ -4021,17 +3252,10 @@ function addGamesHub(){
       "section"
     );
 
-  card.id=
-    "l2GamesCard";
-
-  card.className=
-    "l2-card";
-
-  card.style.left=
-    "680px";
-
-  card.style.top=
-    "1240px";
+  card.id="l2GamesCard";
+  card.className="l2-card";
+  card.style.left="680px";
+  card.style.top="1240px";
 
   card.innerHTML=`
 
@@ -4039,9 +3263,7 @@ function addGamesHub(){
       24/7 LOUNGE GAMES
     </div>
 
-    <h2>
-      🎮 The Fun Department
-    </h2>
+    <h2>🎮 The Fun Department</h2>
 
     <p>
       You're here.
@@ -4052,66 +3274,35 @@ function addGamesHub(){
 
     <div class="l2-grid">
 
-      <div
-        class="l2-game"
-        data-game="snake">
-
-        <b>
-          🚂 Train Snake
-        </b>
-
+      <div class="l2-game" data-game="snake">
+        <b>🚂 Train Snake</b>
         <small>
           Catch cars. Grow the train.
           Don't hit yourself.
         </small>
-
       </div>
 
-
-      <div
-        class="l2-game"
-        data-game="odd">
-
-        <b>
-          🧠 Odd One Out
-        </b>
-
+      <div class="l2-game" data-game="odd">
+        <b>🧠 Odd One Out</b>
         <small>
           Find the one that doesn't belong.
         </small>
-
       </div>
 
-
-      <div
-        class="l2-game"
-        data-game="rapid">
-
-        <b>
-          ⚡ Rapid Rail
-        </b>
-
+      <div class="l2-game" data-game="rapid">
+        <b>⚡ Rapid Rail</b>
         <small>
           Five quick questions.
           Speed matters.
         </small>
-
       </div>
 
-
-      <div
-        class="l2-game"
-        data-game="leader">
-
-        <b>
-          🏆 Leaderboards
-        </b>
-
+      <div class="l2-game" data-game="leader">
+        <b>🏆 Leaderboards</b>
         <small>
           See today's and this week's
           top five.
         </small>
-
       </div>
 
     </div>
@@ -4127,61 +3318,41 @@ function addGamesHub(){
     </div>
   `;
 
-  stage.appendChild(
-    card
-  );
-
+  stage.appendChild(card);
 
   card
-    .querySelectorAll(
-      ".l2-game"
-    )
-    .forEach(
-      element=>{
+    .querySelectorAll(".l2-game")
+    .forEach(element=>{
 
-        element.addEventListener(
-          "click",
-          ()=>{
+      element.addEventListener(
+        "click",
+        ()=>{
 
-            const game=
-              element.dataset.game;
+          const game=
+            element.dataset.game;
 
-            if(
-              game==="snake"
-            ){
-              openSnake();
-            }
-
-            if(
-              game==="odd"
-            ){
-              openOddOneOut();
-            }
-
-            if(
-              game==="rapid"
-            ){
-              openRapidRail();
-            }
-
-            if(
-              game==="leader"
-            ){
-              openLeaderboards();
-            }
-
+          if(game==="snake"){
+            openSnake();
           }
-        );
 
-      }
-    );
+          if(game==="odd"){
+            openOddOneOut();
+          }
+
+          if(game==="rapid"){
+            openRapidRail();
+          }
+
+          if(game==="leader"){
+            openLeaderboards();
+          }
+
+        }
+      );
+
+    });
 
 }
-
-
-/* =========================================================
-   MODAL
-========================================================= */
 
 function ensureModal(){
 
@@ -4194,19 +3365,14 @@ function ensureModal(){
       "div"
     );
 
-  modal.id=
-    "l2Modal";
-
-  modal.className=
-    "l2-modal";
+  modal.id="l2Modal";
+  modal.className="l2-modal";
 
   modal.innerHTML=`
-
     <div
       class="l2-modal-box"
       id="l2ModalBox">
     </div>
-
   `;
 
   document.body.appendChild(
@@ -4217,12 +3383,8 @@ function ensureModal(){
     "pointerdown",
     event=>{
 
-      if(
-        event.target===modal
-      ){
-
+      if(event.target===modal){
         closeModal();
-
       }
 
     }
@@ -4230,14 +3392,11 @@ function ensureModal(){
 
 }
 
-
 function openModal(html){
 
   ensureModal();
 
-  $("l2ModalBox")
-    .innerHTML=
-      html;
+  $("l2ModalBox").innerHTML=html;
 
   $("l2Modal")
     .classList
@@ -4245,36 +3404,25 @@ function openModal(html){
 
 }
 
-
 function closeModal(){
 
-  const modal=
-    $("l2Modal");
+  const modal=$("l2Modal");
 
   if(modal){
-
-    modal.classList.remove(
-      "open"
-    );
-
+    modal.classList.remove("open");
   }
 
-  if(
-    window.__tfSnakeStop
-  ){
-
+  if(window.__tfSnakeStop){
     window.__tfSnakeStop();
-
   }
 
 }
 
-window.closeL2Modal=
-  closeModal;
+window.closeL2Modal=closeModal;
 
 
 /* =========================================================
-   TRAIN SNAKE
+   SNAKE
 ========================================================= */
 
 function openSnake(){
@@ -4284,20 +3432,15 @@ function openSnake(){
     <button
       class="btn red l2-close"
       onclick="closeL2Modal()">
-
       ✕
-
     </button>
 
-    <h2>
-      🚂 Train Snake
-    </h2>
+    <h2>🚂 Train Snake</h2>
 
     <p>
       Catch the cars.
       Grow your train.
       Try not to eat yourself.
-      That's generally frowned upon.
     </p>
 
     <div class="l2-game-wrap">
@@ -4312,9 +3455,7 @@ function openSnake(){
         class="l2-pill"
         id="snakeScore"
         style="text-align:center">
-
         Score: 0
-
       </div>
 
       <div class="l2-controls">
@@ -4346,9 +3487,7 @@ function openSnake(){
         <button
           class="btn green"
           id="snakeStart">
-
           Start / Restart
-
         </button>
 
       </div>
@@ -4357,18 +3496,11 @@ function openSnake(){
 
   `);
 
+  const canvas=$("trainSnakeCanvas");
+  const ctx=canvas.getContext("2d");
 
-  const canvas=
-    $("trainSnakeCanvas");
-
-  const ctx=
-    canvas.getContext("2d");
-
-  const size=
-    21;
-
-  const cell=
-    20;
+  const size=21;
+  const cell=20;
 
   let snake;
   let food;
@@ -4376,8 +3508,6 @@ function openSnake(){
   let nextDir;
   let score;
   let timer;
-  let playing=false;
-
 
   function reset(){
 
@@ -4387,29 +3517,18 @@ function openSnake(){
       {x:8,y:10}
     ];
 
-    food=
-      spawnFood();
+    food=spawnFood();
 
-    dir={
-      x:1,
-      y:0
-    };
-
-    nextDir=
-      dir;
-
+    dir={x:1,y:0};
+    nextDir=dir;
     score=0;
-
-    playing=false;
 
     draw();
 
-    $("snakeScore")
-      .textContent=
-        "Score: 0";
+    $("snakeScore").textContent=
+      "Score: 0";
 
   }
-
 
   function spawnFood(){
 
@@ -4418,22 +3537,19 @@ function openSnake(){
     do{
 
       f={
-        x:
-          Math.floor(
-            Math.random()*size
-          ),
-
-        y:
-          Math.floor(
-            Math.random()*size
-          )
+        x:Math.floor(
+          Math.random()*size
+        ),
+        y:Math.floor(
+          Math.random()*size
+        )
       };
 
     }while(
       snake &&
       snake.some(
         s=>
-          s.x===f.x &&
+          s.x===f.x&&
           s.y===f.y
       )
     );
@@ -4442,52 +3558,33 @@ function openSnake(){
 
   }
 
-
   function setDir(direction){
 
     const dirs={
 
-      up:{
-        x:0,
-        y:-1
-      },
-
-      down:{
-        x:0,
-        y:1
-      },
-
-      left:{
-        x:-1,
-        y:0
-      },
-
-      right:{
-        x:1,
-        y:0
-      }
+      up:{x:0,y:-1},
+      down:{x:0,y:1},
+      left:{x:-1,y:0},
+      right:{x:1,y:0}
 
     };
 
-    const next=
-      dirs[direction];
+    const next=dirs[direction];
 
     if(!next){
       return;
     }
 
     if(
-      next.x===-dir.x &&
+      next.x===-dir.x&&
       next.y===-dir.y
     ){
       return;
     }
 
-    nextDir=
-      next;
+    nextDir=next;
 
   }
-
 
   function draw(){
 
@@ -4498,8 +3595,7 @@ function openSnake(){
       canvas.height
     );
 
-    ctx.fillStyle=
-      "#101010";
+    ctx.fillStyle="#101010";
 
     ctx.fillRect(
       0,
@@ -4508,8 +3604,7 @@ function openSnake(){
       canvas.height
     );
 
-    ctx.strokeStyle=
-      "#ffffff08";
+    ctx.strokeStyle="#ffffff08";
 
     for(
       let i=0;
@@ -4547,9 +3642,7 @@ function openSnake(){
 
     }
 
-
-    ctx.fillStyle=
-      "#ff6b6b";
+    ctx.fillStyle="#ff6b6b";
 
     ctx.fillRect(
       food.x*cell+3,
@@ -4557,7 +3650,6 @@ function openSnake(){
       cell-6,
       cell-6
     );
-
 
     snake.forEach(
       (segment,index)=>{
@@ -4579,79 +3671,55 @@ function openSnake(){
 
   }
 
-
   function tick(){
 
-    dir=
-      nextDir;
+    dir=nextDir;
 
     const head={
-
-      x:
-        snake[0].x+
-        dir.x,
-
-      y:
-        snake[0].y+
-        dir.y
-
+      x:snake[0].x+dir.x,
+      y:snake[0].y+dir.y
     };
 
-
     if(
-
-      head.x<0 ||
-      head.y<0 ||
-      head.x>=size ||
-      head.y>=size ||
+      head.x<0||
+      head.y<0||
+      head.x>=size||
+      head.y>=size||
       snake.some(
         s=>
-          s.x===head.x &&
+          s.x===head.x&&
           s.y===head.y
       )
-
     ){
 
-      clearInterval(
-        timer
-      );
-
-      playing=false;
+      clearInterval(timer);
 
       l2SaveScore(
         "Train Snake",
         score
       );
 
-      $("snakeScore")
-        .textContent=
-          `Score: ${score} • 💀 Train wreck`;
+      $("snakeScore").textContent=
+        `Score: ${score} • 💀 Train wreck`;
 
       toast(
-        score>0
-          ? `Train Snake: ${score} Game Points.`
-          : "Train Snake: spectacular derailment. 😂"
+        `Train Snake: ${score} Game Points.`
       );
 
       return;
 
     }
 
-
-    snake.unshift(
-      head
-    );
-
+    snake.unshift(head);
 
     if(
-      head.x===food.x &&
+      head.x===food.x&&
       head.y===food.y
     ){
 
       score+=10;
 
-      food=
-        spawnFood();
+      food=spawnFood();
 
     }else{
 
@@ -4659,34 +3727,25 @@ function openSnake(){
 
     }
 
-
-    $("snakeScore")
-      .textContent=
-        `Score: ${score}`;
+    $("snakeScore").textContent=
+      `Score: ${score}`;
 
     draw();
 
   }
 
-
   function start(){
 
-    clearInterval(
-      timer
-    );
+    clearInterval(timer);
 
     reset();
 
-    playing=true;
-
-    timer=
-      setInterval(
-        tick,
-        115
-      );
+    timer=setInterval(
+      tick,
+      115
+    );
 
   }
-
 
   $("snakeStart")
     .addEventListener(
@@ -4694,83 +3753,65 @@ function openSnake(){
       start
     );
 
-
   document
     .querySelectorAll(
       "#l2Modal [data-dir]"
     )
-    .forEach(
-      button=>{
+    .forEach(button=>{
 
-        button.addEventListener(
-          "click",
-          ()=>{
+      button.addEventListener(
+        "click",
+        ()=>{
+          setDir(
+            button.dataset.dir
+          );
+        }
+      );
 
-            setDir(
-              button.dataset.dir
-            );
+    });
 
-          }
-        );
+  const key=event=>{
 
-      }
-    );
+    const map={
 
-
-  const key=
-    event=>{
-
-      const map={
-
-        ArrowUp:"up",
-        w:"up",
-
-        ArrowDown:"down",
-        s:"down",
-
-        ArrowLeft:"left",
-        a:"left",
-
-        ArrowRight:"right",
-        d:"right"
-
-      };
-
-      if(
-        map[event.key]
-      ){
-
-        event.preventDefault();
-
-        setDir(
-          map[event.key]
-        );
-
-      }
+      ArrowUp:"up",
+      w:"up",
+      ArrowDown:"down",
+      s:"down",
+      ArrowLeft:"left",
+      a:"left",
+      ArrowRight:"right",
+      d:"right"
 
     };
 
+    if(map[event.key]){
+
+      event.preventDefault();
+
+      setDir(
+        map[event.key]
+      );
+
+    }
+
+  };
 
   window.addEventListener(
     "keydown",
     key
   );
 
+  window.__tfSnakeStop=()=>{
 
-  window.__tfSnakeStop=
-    ()=>{
+    clearInterval(timer);
 
-      clearInterval(
-        timer
-      );
+    window.removeEventListener(
+      "keydown",
+      key
+    );
 
-      window.removeEventListener(
-        "keydown",
-        key
-      );
-
-    };
-
+  };
 
   reset();
 
@@ -4840,7 +3881,6 @@ const oddQuestions=[
 
 ];
 
-
 function openOddOneOut(){
 
   const q=
@@ -4851,25 +3891,18 @@ function openOddOneOut(){
       )
     ];
 
-
   openModal(`
 
     <button
       class="btn red l2-close"
       onclick="closeL2Modal()">
-
       ✕
-
     </button>
 
-    <h2>
-      🧠 Odd One Out
-    </h2>
+    <h2>🧠 Odd One Out</h2>
 
     <div class="l2-question">
-
       ${l2Escape(q.q)}
-
     </div>
 
     <div class="l2-answer-grid">
@@ -4877,15 +3910,13 @@ function openOddOneOut(){
       ${
         q.a.map(
           (answer,index)=>
-
-            `<button
-              class="l2-answer"
-              data-i="${index}">
-
-              ${l2Escape(answer)}
-
-            </button>`
-
+            `
+              <button
+                class="l2-answer"
+                data-i="${index}">
+                ${l2Escape(answer)}
+              </button>
+            `
         ).join("")
       }
 
@@ -4898,89 +3929,73 @@ function openOddOneOut(){
 
   `);
 
-
   $("l2Modal")
     .querySelectorAll(
       ".l2-answer"
     )
-    .forEach(
-      button=>{
+    .forEach(button=>{
 
-        button.addEventListener(
-          "click",
-          ()=>{
+      button.addEventListener(
+        "click",
+        ()=>{
 
-            const index=
-              Number(
-                button.dataset.i
-              );
-
-            const buttons=
-              [
-                ...$("l2Modal")
-                  .querySelectorAll(
-                    ".l2-answer"
-                  )
-              ];
-
-            buttons.forEach(
-              b=>
-                b.disabled=true
+          const index=
+            Number(
+              button.dataset.i
             );
 
+          const buttons=[
+            ...$("l2Modal")
+              .querySelectorAll(
+                ".l2-answer"
+              )
+          ];
 
-            if(
-              index===q.c
-            ){
+          buttons.forEach(
+            b=>b.disabled=true
+          );
 
-              button.classList.add(
-                "correct"
-              );
+          if(index===q.c){
 
-              l2SaveScore(
-                "Odd One Out",
-                25
-              );
+            button.classList.add(
+              "correct"
+            );
 
-              $("oddResult")
-                .innerHTML=
-                  `
-                    <span class="gold">
-                      🎯 Correct!
-                      +25 Game Points.
-                    </span>
-                  `;
+            l2SaveScore(
+              "Odd One Out",
+              25
+            );
 
-            }else{
+            $("oddResult").innerHTML=
+              `
+                <span class="gold">
+                  🎯 Correct! +25 Game Points.
+                </span>
+              `;
 
-              button.classList.add(
-                "wrong"
-              );
+          }else{
 
-              buttons[q.c]
-                .classList
-                .add("correct");
+            button.classList.add(
+              "wrong"
+            );
 
-              $("oddResult")
-                .innerHTML=
-                  `
-                    <span
-                      style="color:#ff9b9b">
+            buttons[q.c]
+              .classList
+              .add("correct");
 
-                      💀 Nope.
-                      The railroad gods
-                      have spoken.
-
-                    </span>
-                  `;
-
-            }
+            $("oddResult").innerHTML=
+              `
+                <span style="color:#ff9b9b">
+                  💀 Nope.
+                </span>
+              `;
 
           }
-        );
 
-      }
-    );
+        }
+      );
+
+    });
 
 }
 
@@ -5048,52 +4063,35 @@ const rapidQuestions=[
 
 ];
 
-
 function openRapidRail(){
 
   let index=0;
-
   let score=0;
-
-  let started=
-    performance.now();
-
+  let started=performance.now();
 
   function render(){
 
     const q=
       rapidQuestions[index];
 
-
     openModal(`
 
       <button
         class="btn red l2-close"
         onclick="closeL2Modal()">
-
         ✕
-
       </button>
 
-      <h2>
-        ⚡ Rapid Rail
-      </h2>
+      <h2>⚡ Rapid Rail</h2>
 
       <div class="l2-pill">
-
-        Question
-        ${index+1}
-        of
-        ${rapidQuestions.length}
-
+        Question ${index+1}
+        of ${rapidQuestions.length}
         • Game Points
-
       </div>
 
       <div class="l2-question">
-
         ${l2Escape(q.q)}
-
       </div>
 
       <div class="l2-answer-grid">
@@ -5101,15 +4099,13 @@ function openRapidRail(){
         ${
           q.a.map(
             (answer,i)=>
-
-              `<button
-                class="l2-answer"
-                data-i="${i}">
-
-                ${l2Escape(answer)}
-
-              </button>`
-
+              `
+                <button
+                  class="l2-answer"
+                  data-i="${i}">
+                  ${l2Escape(answer)}
+                </button>
+              `
           ).join("")
         }
 
@@ -5122,169 +4118,139 @@ function openRapidRail(){
 
     `);
 
-
     $("l2Modal")
       .querySelectorAll(
         ".l2-answer"
       )
-      .forEach(
-        button=>{
+      .forEach(button=>{
 
-          button.addEventListener(
-            "click",
-            ()=>{
+        button.addEventListener(
+          "click",
+          ()=>{
 
-              const i=
-                Number(
-                  button.dataset.i
-                );
-
-              const buttons=
-                [
-                  ...$("l2Modal")
-                    .querySelectorAll(
-                      ".l2-answer"
-                    )
-                ];
-
-              buttons.forEach(
-                b=>
-                  b.disabled=true
+            const i=
+              Number(
+                button.dataset.i
               );
 
+            const buttons=[
+              ...$("l2Modal")
+                .querySelectorAll(
+                  ".l2-answer"
+                )
+            ];
 
-              if(
-                i===q.c
-              ){
+            buttons.forEach(
+              b=>b.disabled=true
+            );
 
-                const speed=
-                  Math.max(
-                    1,
-                    Math.round(
-                      (
-                        performance.now()-
-                        started
-                      )/1000
-                    )
-                  );
+            if(i===q.c){
 
-                const earned=
-                  Math.max(
-                    5,
-                    30-speed
-                  );
-
-                score+=
-                  earned;
-
-                button.classList.add(
-                  "correct"
+              const speed=
+                Math.max(
+                  1,
+                  Math.round(
+                    (
+                      performance.now()-
+                      started
+                    )/1000
+                  )
                 );
 
-                $("rapidResult")
-                  .innerHTML=
-                    `
-                      <span class="gold">
-
-                        Correct!
-                        +${earned}
-                        Game Points.
-
-                      </span>
-                    `;
-
-              }else{
-
-                button.classList.add(
-                  "wrong"
+              const earned=
+                Math.max(
+                  5,
+                  30-speed
                 );
 
-                buttons[q.c]
-                  .classList
-                  .add("correct");
+              score+=earned;
 
-                $("rapidResult")
-                  .innerHTML=
-                    `
-                      <span
-                        style="color:#ff9b9b">
-
-                        💀 Incorrect.
-                        +0.
-
-                      </span>
-                    `;
-
-              }
-
-
-              setTimeout(
-                ()=>{
-
-                  index++;
-
-                  if(
-                    index>=
-                    rapidQuestions.length
-                  ){
-
-                    l2SaveScore(
-                      "Rapid Rail",
-                      score
-                    );
-
-                    openModal(`
-
-                      <button
-                        class="btn red l2-close"
-                        onclick="closeL2Modal()">
-
-                        ✕
-
-                      </button>
-
-                      <h2>
-                        🏁 Rapid Rail Complete
-                      </h2>
-
-                      <div
-                        class="l2-question"
-                        style="text-align:center">
-
-                        Final score:
-                        ${score}
-
-                      </div>
-
-                      <p
-                        style="text-align:center">
-
-                        Not bad.
-                        Or extremely bad.
-                        The leaderboard will decide. 😂
-
-                      </p>
-
-                    `);
-
-                  }else{
-
-                    started=
-                      performance.now();
-
-                    render();
-
-                  }
-
-                },
-                650
+              button.classList.add(
+                "correct"
               );
+
+              $("rapidResult").innerHTML=
+                `
+                  <span class="gold">
+                    Correct!
+                    +${earned}
+                    Game Points.
+                  </span>
+                `;
+
+            }else{
+
+              button.classList.add(
+                "wrong"
+              );
+
+              buttons[q.c]
+                .classList
+                .add("correct");
+
+              $("rapidResult").innerHTML=
+                `
+                  <span style="color:#ff9b9b">
+                    💀 Incorrect. +0.
+                  </span>
+                `;
 
             }
-          );
 
-        }
-      );
+            setTimeout(
+              ()=>{
+
+                index++;
+
+                if(
+                  index>=
+                  rapidQuestions.length
+                ){
+
+                  l2SaveScore(
+                    "Rapid Rail",
+                    score
+                  );
+
+                  openModal(`
+
+                    <button
+                      class="btn red l2-close"
+                      onclick="closeL2Modal()">
+                      ✕
+                    </button>
+
+                    <h2>
+                      🏁 Rapid Rail Complete
+                    </h2>
+
+                    <div
+                      class="l2-question"
+                      style="text-align:center">
+
+                      Final score: ${score}
+
+                    </div>
+
+                  `);
+
+                }else{
+
+                  started=
+                    performance.now();
+
+                  render();
+
+                }
+
+              },
+              650
+            );
+
+          }
+        );
+
+      });
 
   }
 
@@ -5300,27 +4266,20 @@ function openRapidRail(){
 async function openLeaderboards(){
 
   const games=[
-
     "Train Snake",
     "Odd One Out",
     "Rapid Rail"
-
   ];
-
 
   openModal(`
 
     <button
       class="btn red l2-close"
       onclick="closeL2Modal()">
-
       ✕
-
     </button>
 
-    <h2>
-      🏆 Lounge Leaderboards
-    </h2>
+    <h2>🏆 Lounge Leaderboards</h2>
 
     <p>
       Top five scores.
@@ -5329,169 +4288,94 @@ async function openLeaderboards(){
     </p>
 
     <div id="l2Boards">
-
       <div class="l2-empty">
-
         Loading the bragging rights…
-
       </div>
-
     </div>
 
   `);
 
-
-  const box=
-    $("l2Boards");
-
-
   const results=
     await Promise.all(
-
       games.map(
         async game=>({
-
           game,
-
           day:
             await l2TopScores(
               game,
               "day"
             ),
-
           week:
             await l2TopScores(
               game,
               "week"
             )
-
         })
       )
-
     );
 
-
-  if(
-    !$("l2Boards")
-  ){
-
+  if(!$("l2Boards")){
     return;
-
   }
 
-
-  box.innerHTML=
-
+  $("l2Boards").innerHTML=
     results.map(
-      ({
-        game,
-        day,
-        week
-      })=>`
+      ({game,day,week})=>`
 
         <div class="feed">
 
-          <b>
-            ${game}
-          </b>
+          <b>${game}</b>
 
-          <div
-            style="margin-top:7px">
-
-            <small>
-              TODAY
-            </small>
-
+          <div style="margin-top:7px">
+            <small>TODAY</small>
           </div>
 
           ${
             day.length
-
-              ?
-
-                day.map(
-                  (row,index)=>
-                    `
-                      <div
-                        class="l2-score-row">
-
-                        <span>
-
-                          ${index+1}.
-                          ${l2Escape(row.name)}
-
-                        </span>
-
-                        <strong>
-
-                          ${row.score}
-
-                        </strong>
-
-                      </div>
-                    `
+              ? day.map(
+                  (row,index)=>`
+                    <div class="l2-score-row">
+                      <span>
+                        ${index+1}.
+                        ${l2Escape(row.name)}
+                      </span>
+                      <strong>
+                        ${row.score}
+                      </strong>
+                    </div>
+                  `
                 ).join("")
-
-              :
-
-                `
-                  <div
-                    class="l2-empty">
-
-                    No scores yet today.
-
-                  </div>
-                `
+              : `
+                <div class="l2-empty">
+                  No scores yet today.
+                </div>
+              `
           }
 
-
-          <div
-            style="margin-top:9px">
-
-            <small>
-              THIS WEEK
-            </small>
-
+          <div style="margin-top:9px">
+            <small>THIS WEEK</small>
           </div>
 
           ${
             week.length
-
-              ?
-
-                week.map(
-                  (row,index)=>
-                    `
-                      <div
-                        class="l2-score-row">
-
-                        <span>
-
-                          ${index+1}.
-                          ${l2Escape(row.name)}
-
-                        </span>
-
-                        <strong>
-
-                          ${row.score}
-
-                        </strong>
-
-                      </div>
-                    `
+              ? week.map(
+                  (row,index)=>`
+                    <div class="l2-score-row">
+                      <span>
+                        ${index+1}.
+                        ${l2Escape(row.name)}
+                      </span>
+                      <strong>
+                        ${row.score}
+                      </strong>
+                    </div>
+                  `
                 ).join("")
-
-              :
-
-                `
-                  <div
-                    class="l2-empty">
-
-                    No scores yet this week.
-
-                  </div>
-                `
+              : `
+                <div class="l2-empty">
+                  No scores yet this week.
+                </div>
+              `
           }
 
         </div>
@@ -5508,8 +4392,7 @@ async function openLeaderboards(){
 
 async function loadPublicBadgeLocker(){
 
-  const box=
-    $("userDirectory");
+  const box=$("userDirectory");
 
   if(!box){
     return;
@@ -5522,86 +4405,70 @@ async function loadPublicBadgeLocker(){
       </div>
     `;
 
-
   const [
-
     {
       data:profiles,
       error:pErr
     },
-
     {
       data:badges,
       error:bErr
     },
-
     {
       data:awards,
       error:aErr
     }
+  ]=await Promise.all([
 
-  ] =
-    await Promise.all([
+    supabaseClient
+      .from("profiles")
+      .select(
+        "user_id,username,display_name,respect_points,disrespect_points,is_owner"
+      )
+      .order(
+        "display_name",
+        {ascending:true}
+      ),
 
-      supabaseClient
-        .from("profiles")
-        .select(
-          "user_id,username,display_name,respect_points,disrespect_points,is_owner"
-        )
-        .order(
-          "display_name",
-          {
-            ascending:true
-          }
-        ),
+    supabaseClient
+      .from("lounge_badges")
+      .select(
+        "id,slug,name,icon,description"
+      )
+      .order(
+        "created_at",
+        {ascending:true}
+      ),
 
-      supabaseClient
-        .from("lounge_badges")
-        .select(
-          "id,slug,name,icon,description"
-        )
-        .order(
-          "created_at",
-          {
-            ascending:true
-          }
-        ),
+    supabaseClient
+      .from("lounge_member_badges")
+      .select(
+        "user_id,badge_id,created_at"
+      )
 
-      supabaseClient
-        .from("lounge_member_badges")
-        .select(
-          "user_id,badge_id,created_at"
-        )
-
-    ]);
-
+  ]);
 
   if(
-    pErr ||
-    bErr ||
+    pErr||
+    bErr||
     aErr
   ){
 
     console.error(
-      pErr ||
-      bErr ||
-      aErr
+      pErr||bErr||aErr
     );
 
     box.innerHTML=
       `
         <div class="empty">
-
           Member lockers could not
           be loaded yet.
-
         </div>
       `;
 
     return;
 
   }
-
 
   const badgeMap=
     new Map(
@@ -5614,10 +4481,7 @@ async function loadPublicBadgeLocker(){
         )
     );
 
-
-  const byUser=
-    new Map();
-
+  const byUser=new Map();
 
   for(
     const award of
@@ -5648,690 +4512,203 @@ async function loadPublicBadgeLocker(){
         .get(
           award.user_id
         )
-        .push(
-          badge
-        );
+        .push(badge);
 
     }
 
   }
 
-
   const rows=
     (profiles||[])
-      .map(
-        profile=>{
+      .map(profile=>{
 
-          const name=
-            l2ProfileName(
-              profile
-            );
+        const name=
+          l2ProfileName(
+            profile
+          );
 
-          const earned=
-            [
-              ...(byUser.get(
-                profile.user_id
-              ) || [])
-            ];
+        const earned=[
+          ...(byUser.get(
+            profile.user_id
+          )||[])
+        ];
 
+        if(
+          Number(
+            profile.respect_points||0
+          )>=50&&
+          !earned.some(
+            badge=>
+              badge.slug==="respect_50"
+          )
+        ){
 
-          if(
-            Number(
-              profile.respect_points||0
-            )>=50 &&
-            !earned.some(
-              badge=>
-                badge.slug===
-                "respect_50"
-            )
-          ){
+          earned.push({
 
-            earned.push({
+            slug:"respect_50",
+            name:"50 Respect",
+            icon:"❤️",
+            description:
+              "Reached 50 Respect Points."
 
-              slug:
-                "respect_50",
-
-              name:
-                "50 Respect",
-
-              icon:
-                "❤️",
-
-              description:
-                "Reached 50 Respect Points."
-
-            });
-
-          }
-
-
-          return {
-
-            ...profile,
-
-            name,
-
-            badges:
-              earned
-
-          };
+          });
 
         }
-      )
+
+        return{
+          ...profile,
+          name,
+          badges:earned
+        };
+
+      })
       .sort(
         (a,b)=>
           a.name.localeCompare(
             b.name,
             undefined,
             {
-              sensitivity:
-                "base"
+              sensitivity:"base"
             }
           )
       );
 
-
   let totalRespect=0;
-
   let totalDisrespect=0;
-
   let totalBadges=0;
 
+  rows.forEach(row=>{
 
-  rows.forEach(
-    row=>{
+    totalRespect+=
+      Number(
+        row.respect_points||0
+      );
 
-      totalRespect+=
-        Number(
-          row.respect_points||0
-        );
+    totalDisrespect+=
+      Number(
+        row.disrespect_points||0
+      );
 
-      totalDisrespect+=
-        Number(
-          row.disrespect_points||0
-        );
+    totalBadges+=
+      row.badges.length;
 
-      totalBadges+=
-        row.badges.length;
+  });
 
-    }
-  );
+  $("userCount").textContent=
+    rows.length;
 
+  $("totalRespect").textContent=
+    totalRespect;
 
-  $("userCount")
-    .textContent=
-      rows.length;
+  $("totalDisrespect").textContent=
+    totalDisrespect;
 
-  $("totalRespect")
-    .textContent=
-      totalRespect;
+  $("totalBadges").textContent=
+    totalBadges;
 
-  $("totalDisrespect")
-    .textContent=
-      totalDisrespect;
+  $("memberBig").textContent=
+    rows.length;
 
-  $("totalBadges")
-    .textContent=
-      totalBadges;
-
-  $("memberBig")
-    .textContent=
-      rows.length;
-
-  $("badgesBig")
-    .textContent=
-      totalBadges;
-
+  $("badgesBig").textContent=
+    totalBadges;
 
   box.innerHTML=
-
     rows.length
+      ? `
+        <div style="margin-bottom:8px">
+          <small>
+            ${rows.length}
+            lockers • alphabetical order •
+            everybody can browse
+          </small>
+        </div>
 
-      ?
+        <div class="l2-locker">
 
-        `
+          ${
+            rows.map(row=>`
 
-          <div
-            style="margin-bottom:8px">
+              <div class="l2-member">
 
-            <small>
+                <div class="l2-member-head">
 
-              ${rows.length}
-              lockers • alphabetical order •
-              everybody can browse
+                  <div>
 
-            </small>
-
-          </div>
-
-
-          <div class="l2-locker">
-
-            ${
-              rows.map(
-                row=>`
-
-                  <div class="l2-member">
-
-                    <div
-                      class="l2-member-head">
-
-                      <div>
-
-                        <div
-                          class="l2-member-name">
-
-                          ${l2Escape(
-                            row.name
-                          )}
-
-                        </div>
-
-                        <div
-                          class="l2-member-meta">
-
-                          ❤️
-                          ${Number(
-                            row.respect_points||0
-                          )}
-                          Respect
-
-                          • ⚠️
-                          ${Number(
-                            row.disrespect_points||0
-                          )}
-                          Disrespect
-
-                        </div>
-
-                      </div>
-
-
-                      <div
-                        class="l2-pill">
-
-                        ${row.badges.length}
-                        badge${
-                          row.badges.length===1
-                            ? ""
-                            : "s"
-                        }
-
-                      </div>
-
+                    <div class="l2-member-name">
+                      ${l2Escape(row.name)}
                     </div>
 
+                    <div class="l2-member-meta">
 
-                    <div
-                      class="l2-member-badges">
+                      ❤️
+                      ${Number(
+                        row.respect_points||0
+                      )}
+                      Respect
 
-                      ${
-                        row.badges.length
-
-                          ?
-
-                            row.badges.map(
-                              badge=>`
-
-                                <span
-                                  class="l2-badge"
-                                  title="${l2Escape(
-                                    badge.description
-                                  )}">
-
-                                  ${l2Escape(
-                                    badge.icon
-                                  )}
-
-                                  ${l2Escape(
-                                    badge.name
-                                  )}
-
-                                </span>
-
-                              `
-                            ).join("")
-
-                          :
-
-                            `
-
-                              <span
-                                class="l2-member-meta">
-
-                                No badges yet. 😈
-
-                              </span>
-
-                            `
-
-                      }
+                      • ⚠️
+                      ${Number(
+                        row.disrespect_points||0
+                      )}
+                      Disrespect
 
                     </div>
 
                   </div>
 
-                `
-              ).join("")
-
-            }
-
-          </div>
-
-        `
-
-      :
-
-        `
-
-          <div class="empty">
-
-            No member profiles yet.
-
-          </div>
-
-        `;
-
-}
-
-
-/* =========================================================
-   BETTER POLL CREATOR
-========================================================= */
-
-function upgradePollCreator(){
-
-  const button=
-    $("createPoll");
-
-  if(!button){
-    return;
-  }
-
-  const controls=
-    button.closest(
-      ".owner-controls"
-    );
-
-  if(!controls){
-    return;
-  }
-
-
-  const oldOptions=[
-
-    $("pollOption1"),
-    $("pollOption2")
-
-  ];
-
-
-  const existing=
-    controls.querySelector(
-      "#l2PollOptions"
-    );
-
-  if(existing){
-    return;
-  }
-
-
-  const wrap=
-    document.createElement(
-      "div"
-    );
-
-  wrap.id=
-    "l2PollOptions";
-
-
-  wrap.innerHTML=`
-
-    <div
-      style="margin:7px 0 5px">
-
-      <small>
-        Choose 2–6 answers.
-      </small>
-
-    </div>
-
-    ${
-      [1,2,3,4,5,6]
-        .map(
-          i=>`
-
-            <input
-              id="l2PollOption${i}"
-              class="input"
-              maxlength="80"
-              placeholder="Option ${i}"
-              style="
-                margin:5px 0;
-                display:${
-                  i<=2
-                    ? "block"
-                    : "none"
-                }">
-
-          `
-        )
-        .join("")
-    }
-
-    <button
-      type="button"
-      class="btn"
-      id="l2AddPollOption">
-
-      ＋ Add option
-
-    </button>
-
-  `;
-
-
-  oldOptions.forEach(
-    element=>{
-
-      element.style.display=
-        "none";
-
-    }
-  );
-
-
-  controls.insertBefore(
-    wrap,
-    button
-  );
-
-
-  let count=2;
-
-
-  $("l2AddPollOption")
-    .addEventListener(
-      "click",
-      ()=>{
-
-        if(
-          count>=6
-        ){
-
-          return;
-
-        }
-
-        count++;
-
-        $("l2PollOption"+count)
-          .style
-          .display=
-            "block";
-
-
-        if(
-          count>=6
-        ){
-
-          $("l2AddPollOption")
-            .style
-            .display=
-              "none";
-
-        }
-
-      }
-    );
-
-
-  const fresh=
-    button.cloneNode(
-      true
-    );
-
-  button.replaceWith(
-    fresh
-  );
-
-
-  fresh.addEventListener(
-    "click",
-    async ()=>{
-
-      if(
-        !isLoungeOwner
-      ){
-
-        toast(
-          "Owner access required."
-        );
-
-        return;
-
-      }
-
-
-      if(!currentUser){
-
-        toast(
-          "You must be signed in as Owner."
-        );
-
-        return;
-
-      }
-
-
-      const question=
-        $("pollQuestion")
-          .value
-          .trim();
-
-
-      const options=[];
-
-
-      for(
-        let i=1;
-        i<=6;
-        i++
-      ){
-
-        const input=
-          $("l2PollOption"+i);
-
-        if(
-          input &&
-          input.style.display!=="none" &&
-          input.value.trim()
-        ){
-
-          options.push(
-            input.value.trim()
-          );
-
-        }
-
-      }
-
-
-      if(
-        !question ||
-        options.length<2
-      ){
-
-        toast(
-          "Add a question and at least 2 answers."
-        );
-
-        return;
-
-      }
-
-
-      const {
-        data:poll,
-        error:pollError
-      } =
-        await supabaseClient
-          .from("lounge_polls")
-          .insert({
-
-            question,
-
-            created_by:
-              currentUser.id
-
-          })
-          .select("id")
-          .single();
-
-
-      if(pollError){
-
-        console.error(
-          pollError
-        );
-
-        toast(
-          "Poll could not be created."
-        );
-
-        return;
-
-      }
-
-
-      const {
-        error:optionError
-      } =
-        await supabaseClient
-          .from(
-            "lounge_poll_options"
-          )
-          .insert(
-
-            options.map(
-              option_text=>({
-
-                poll_id:
-                  poll.id,
-
-                option_text
-
-              })
-            )
-
-          );
-
-
-      if(optionError){
-
-        console.error(
-          optionError
-        );
-
-
-        await supabaseClient
-          .from("lounge_polls")
-          .delete()
-          .eq(
-            "id",
-            poll.id
-          );
-
-
-        toast(
-          "Poll options could not be created."
-        );
-
-        return;
-
-      }
-
-
-      $("pollQuestion")
-        .value="";
-
-
-      for(
-        let i=1;
-        i<=6;
-        i++
-      ){
-
-        const input=
-          $("l2PollOption"+i);
-
-        if(input){
-
-          input.value="";
-
-        }
-
-      }
-
-
-      toast(
-        "Poll created. Let the arguments begin. 😂"
-      );
-
-
-      await loadPolls();
-
-    }
-  );
-
-}
-
-
-/* =========================================================
-   OWNER FALLBACK
-========================================================= */
-
-async function l2EnsureOwnerFromProfile(){
-
-  if(!currentUser){
-    return;
-  }
-
-  const {
-    data,
-    error
-  } =
-    await supabaseClient
-      .from("profiles")
-      .select("is_owner")
-      .eq(
-        "user_id",
-        currentUser.id
-      )
-      .maybeSingle();
-
-
-  if(
-    !error &&
-    data?.is_owner
-  ){
-
-    isLoungeOwner=true;
-
-    const creator=
-      $("createPoll")
-        ?.closest(
-          ".owner-controls"
-        );
-
-    if(creator){
-
-      creator.style.display=
-        "";
-
-    }
-
-  }
+                  <div class="l2-pill">
+                    ${row.badges.length}
+                    badge${
+                      row.badges.length===1
+                        ? ""
+                        : "s"
+                    }
+                  </div>
+
+                </div>
+
+                <div class="l2-member-badges">
+
+                  ${
+                    row.badges.length
+                      ? row.badges.map(
+                          badge=>`
+                            <span
+                              class="l2-badge"
+                              title="${l2Escape(
+                                badge.description
+                              )}">
+                              ${l2Escape(
+                                badge.icon
+                              )}
+                              ${l2Escape(
+                                badge.name
+                              )}
+                            </span>
+                          `
+                        ).join("")
+                      : `
+                        <span
+                          class="l2-member-meta">
+                          No badges yet. 😈
+                        </span>
+                      `
+                  }
+
+                </div>
+
+              </div>
+
+            `).join("")
+          }
+
+        </div>
+      `
+      : `
+        <div class="empty">
+          No member profiles yet.
+        </div>
+      `;
 
 }
 
@@ -6340,44 +4717,63 @@ async function l2EnsureOwnerFromProfile(){
    STARTUP
 ========================================================= */
 
-async function lounge2Start(){
+async function startup(){
+
+  await loadUser();
+
+  $("ownerStatus").textContent=
+    currentUser
+      ? "🟢 Signed in"
+      : "⚪ Not signed in";
+
+  await checkLoungeOwner();
+
+  await loadChat();
+
+  startRealtime();
+
+  await loadPolls();
+
+  renderEvents();
+
+  renderConstruction();
+
+  renderMembers();
+
+  renderGiveaway();
+
+  await loadHeritage();
 
   addGamesHub();
 
-  await l2EnsureOwnerFromProfile();
-
-  upgradePollCreator();
-
   await loadPublicBadgeLocker();
+
+  renderCamera();
+
+  setTimeout(
+    ()=>{
+      hint.classList.add("hide");
+    },
+    7000
+  );
 
 }
 
-
-setTimeout(
-  lounge2Start,
-  900
-);
-
-
-/* Refresh badge lockers whenever
-   the tab becomes visible again. */
+startup();
 
 document.addEventListener(
   "visibilitychange",
   ()=>{
 
-    if(
-      !document.hidden
-    ){
-
+    if(!document.hidden){
+      loadChat();
+      loadPolls();
       loadPublicBadgeLocker();
-
     }
 
   }
 );
 
-})();
 </script>
 
 </body>
