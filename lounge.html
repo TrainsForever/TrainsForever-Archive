@@ -4958,3 +4958,1154 @@ init();
 
 })();
 </script>
+<!-- =========================================================
+     TRAINSFOREVER LOUNGE
+     FINAL LIVE COMMUNITY + IRONBOUND WIRING
+     
+     KEEP EVERYTHING ABOVE THIS.
+     THIS CONNECTS THE EXISTING LOUNGE TO SUPABASE.
+     ========================================================= -->
+
+<script>
+(function () {
+
+  /* =========================================================
+     USE THE EXISTING SUPABASE CLIENT
+     ========================================================= */
+
+  if (typeof supabaseClient === "undefined" || !supabaseClient) {
+    console.error("TrainsForever: Supabase client unavailable.");
+    return;
+  }
+
+  const db = supabaseClient;
+
+
+  /* =========================================================
+     HELPERS
+     ========================================================= */
+
+  function esc(value) {
+    return String(value ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+
+  function say(message) {
+    if (typeof toast === "function") {
+      toast(message);
+    } else {
+      alert(message);
+    }
+  }
+
+
+  function getDisplayName(user) {
+
+    return (
+      user?.user_metadata?.display_name ||
+      user?.user_metadata?.username ||
+      user?.user_metadata?.name ||
+      user?.email?.split("@")[0] ||
+      "Member"
+    );
+
+  }
+
+
+  async function getUser() {
+
+    try {
+
+      const result =
+        await db.auth.getUser();
+
+      return result.data?.user || null;
+
+    } catch (_) {
+
+      return null;
+
+    }
+
+  }
+
+
+  /* =========================================================
+     REMOVE OLD LOCAL HANDLERS
+     ========================================================= */
+
+  function replaceButton(id) {
+
+    const old =
+      document.getElementById(id);
+
+    if (!old) return null;
+
+    const fresh =
+      old.cloneNode(true);
+
+    old.replaceWith(fresh);
+
+    return fresh;
+
+  }
+
+
+  /* =========================================================
+     POLLS
+     ========================================================= */
+
+  async function loadLivePolls() {
+
+    const box =
+      document.getElementById("pollList");
+
+    if (!box) return;
+
+    box.innerHTML =
+      '<div class="empty">Loading live polls…</div>';
+
+    try {
+
+      const pollsResult =
+        await db
+          .from("lounge_polls")
+          .select("*")
+          .order("created_at", {
+            ascending:false
+          });
+
+      if (pollsResult.error)
+        throw pollsResult.error;
+
+      const polls =
+        pollsResult.data || [];
+
+      if (!polls.length) {
+
+        box.innerHTML =
+          '<div class="empty">No live polls yet.</div>';
+
+        return;
+
+      }
+
+
+      const user =
+        await getUser();
+
+
+      const html = [];
+
+      for (const poll of polls) {
+
+        const optionsResult =
+          await db
+            .from("lounge_poll_options")
+            .select("*")
+            .eq("poll_id", poll.id)
+            .order("created_at", {
+              ascending:true
+            });
+
+        if (optionsResult.error)
+          throw optionsResult.error;
+
+        const options =
+          optionsResult.data || [];
+
+
+        let alreadyVoted = false;
+
+        if (user) {
+
+          const voteResult =
+            await db
+              .from("lounge_poll_votes")
+              .select("id")
+              .eq("poll_id", poll.id)
+              .eq("user_id", user.id)
+              .maybeSingle();
+
+          alreadyVoted =
+            Boolean(voteResult.data);
+
+        }
+
+
+        html.push(`
+
+          <div class="feed">
+
+            <b>
+              🗳️ ${esc(
+                poll.question ||
+                poll.title ||
+                "Community Poll"
+              )}
+            </b>
+
+            <br>
+
+            <small>
+              ${
+                alreadyVoted
+                  ? "✓ You already voted in this poll."
+                  : "Choose one answer."
+              }
+            </small>
+
+            ${
+              options.map(option => `
+
+                <div class="choice">
+
+                  <span>
+                    ${esc(
+                      option.option_text ||
+                      option.text ||
+                      option.name ||
+                      "Option"
+                    )}
+                    <small>
+                      • ${Number(option.vote_count || 0)} votes
+                    </small>
+                  </span>
+
+                  <button
+                    class="btn"
+                    ${
+                      alreadyVoted
+                        ? "disabled"
+                        : ""
+                    }
+                    data-live-poll="${esc(poll.id)}"
+                    data-live-option="${esc(option.id)}"
+                  >
+                    ${
+                      alreadyVoted
+                        ? "Voted"
+                        : "Vote"
+                    }
+                  </button>
+
+                </div>
+
+              `).join("")
+            }
+
+          </div>
+
+        `);
+
+      }
+
+      box.innerHTML =
+        html.join("");
+
+
+      box
+        .querySelectorAll("[data-live-poll]")
+        .forEach(button => {
+
+          button.addEventListener(
+            "click",
+            async () => {
+
+              await castLiveVote(
+                button.dataset.livePoll,
+                button.dataset.liveOption
+              );
+
+            }
+          );
+
+        });
+
+    } catch (error) {
+
+      console.error(
+        "Live poll error:",
+        error
+      );
+
+      box.innerHTML =
+        '<div class="empty">⚠️ Polls could not be loaded.</div>';
+
+    }
+
+  }
+
+
+  async function castLiveVote(
+    pollId,
+    optionId
+  ) {
+
+    const user =
+      await getUser();
+
+    if (!user) {
+
+      say(
+        "Please sign in before voting."
+      );
+
+      return;
+
+    }
+
+
+    try {
+
+      const result =
+        await db.rpc(
+          "cast_lounge_poll_vote",
+          {
+            p_poll_id:pollId,
+            p_option_id:optionId
+          }
+        );
+
+
+      if (result.error)
+        throw result.error;
+
+
+      say("✓ Vote recorded!");
+
+      await loadLivePolls();
+
+    } catch (error) {
+
+      console.error(
+        "Vote error:",
+        error
+      );
+
+      say(
+        error.message ||
+        "You could not vote in this poll."
+      );
+
+    }
+
+  }
+
+
+  /* =========================================================
+     CREATE POLL
+     ========================================================= */
+
+  async function createLivePoll() {
+
+    if (!isLoungeOwner) {
+
+      say("Owner access required.");
+
+      return;
+
+    }
+
+
+    const question =
+      document
+        .getElementById("pollQuestion")
+        ?.value
+        .trim();
+
+    const option1 =
+      document
+        .getElementById("pollOption1")
+        ?.value
+        .trim();
+
+    const option2 =
+      document
+        .getElementById("pollOption2")
+        ?.value
+        .trim();
+
+
+    if (!question || !option1 || !option2) {
+
+      say(
+        "Fill in the question and both answers."
+      );
+
+      return;
+
+    }
+
+
+    try {
+
+      const pollResult =
+        await db
+          .from("lounge_polls")
+          .insert({
+            question:question
+          })
+          .select()
+          .single();
+
+
+      if (pollResult.error)
+        throw pollResult.error;
+
+
+      const poll =
+        pollResult.data;
+
+
+      const optionsResult =
+        await db
+          .from("lounge_poll_options")
+          .insert([
+            {
+              poll_id:poll.id,
+              option_text:option1
+            },
+            {
+              poll_id:poll.id,
+              option_text:option2
+            }
+          ]);
+
+
+      if (optionsResult.error)
+        throw optionsResult.error;
+
+
+      document.getElementById(
+        "pollQuestion"
+      ).value="";
+
+      document.getElementById(
+        "pollOption1"
+      ).value="";
+
+      document.getElementById(
+        "pollOption2"
+      ).value="";
+
+
+      say("🗳️ Poll created!");
+
+      await loadLivePolls();
+
+    } catch (error) {
+
+      console.error(
+        "Create poll error:",
+        error
+      );
+
+      say(
+        error.message ||
+        "The poll could not be created."
+      );
+
+    }
+
+  }
+
+
+  /* =========================================================
+     EVENTS
+     ========================================================= */
+
+  async function loadLiveEvents() {
+
+    const box =
+      document.getElementById("eventList");
+
+    if (!box) return;
+
+    box.innerHTML =
+      '<div class="empty">Loading live events…</div>';
+
+    try {
+
+      const result =
+        await db
+          .from("lounge_events")
+          .select("*")
+          .order("event_date", {
+            ascending:true
+          });
+
+      if (result.error)
+        throw result.error;
+
+      const events =
+        result.data || [];
+
+
+      if (!events.length) {
+
+        box.innerHTML =
+          '<div class="empty">No live events yet.</div>';
+
+        return;
+
+      }
+
+
+      box.innerHTML =
+        events.map(event => `
+
+          <div class="feed">
+
+            <b>
+              🎟️ ${esc(
+                event.title ||
+                event.name ||
+                "TrainsForever Event"
+              )}
+            </b>
+
+            <br>
+
+            <small>
+              ${
+                event.event_date
+                  ? new Date(
+                      event.event_date
+                    ).toLocaleString()
+                  : "Date TBD"
+              }
+            </small>
+
+            <br>
+
+            <small>
+              ${esc(
+                event.description ||
+                event.details ||
+                ""
+              )}
+            </small>
+
+          </div>
+
+        `).join("");
+
+    } catch (error) {
+
+      console.error(
+        "Event loading error:",
+        error
+      );
+
+      box.innerHTML =
+        '<div class="empty">⚠️ Events could not be loaded.</div>';
+
+    }
+
+  }
+
+
+  /* =========================================================
+     CREATE EVENT
+     ========================================================= */
+
+  async function createLiveEvent() {
+
+    if (!isLoungeOwner) {
+
+      say("Owner access required.");
+
+      return;
+
+    }
+
+
+    const name =
+      document
+        .getElementById("eventName")
+        ?.value
+        .trim();
+
+    const date =
+      document
+        .getElementById("eventDate")
+        ?.value;
+
+    const details =
+      document
+        .getElementById("eventDetails")
+        ?.value
+        .trim();
+
+
+    if (!name) {
+
+      say("Enter an event name.");
+
+      return;
+
+    }
+
+
+    try {
+
+      const result =
+        await db
+          .from("lounge_events")
+          .insert({
+            title:name,
+            event_date:
+              date
+              ? new Date(date).toISOString()
+              : null,
+            description:details || null
+          });
+
+
+      if (result.error)
+        throw result.error;
+
+
+      document.getElementById(
+        "eventName"
+      ).value="";
+
+      document.getElementById(
+        "eventDate"
+      ).value="";
+
+      document.getElementById(
+        "eventDetails"
+      ).value="";
+
+
+      say("🎟️ Event created!");
+
+      await loadLiveEvents();
+
+    } catch (error) {
+
+      console.error(
+        "Create event error:",
+        error
+      );
+
+      say(
+        error.message ||
+        "The event could not be created."
+      );
+
+    }
+
+  }
+
+
+  /* =========================================================
+     CONSTRUCTION
+     ========================================================= */
+
+  async function loadLiveConstruction() {
+
+    const box =
+      document.getElementById(
+        "constructionList"
+      );
+
+    if (!box) return;
+
+    box.innerHTML =
+      '<div class="empty">Loading construction updates…</div>';
+
+    try {
+
+      const result =
+        await db
+          .from("lounge_construction")
+          .select("*")
+          .order("created_at", {
+            ascending:false
+          });
+
+      if (result.error)
+        throw result.error;
+
+      const projects =
+        result.data || [];
+
+
+      if (!projects.length) {
+
+        box.innerHTML =
+          '<div class="empty">No construction updates yet.</div>';
+
+        return;
+
+      }
+
+
+      box.innerHTML =
+        projects.map(project => `
+
+          <div class="feed">
+
+            <b>
+              🚧 ${
+                esc(
+                  project.title ||
+                  project.name ||
+                  "Museum Project"
+                )
+              }
+            </b>
+
+            <br>
+
+            <small>
+              ${
+                esc(
+                  project.status ||
+                  "Under Construction"
+                )
+              }
+            </small>
+
+            <br>
+
+            <small>
+              ${esc(
+                project.description ||
+                project.details ||
+                ""
+              )}
+            </small>
+
+          </div>
+
+        `).join("");
+
+    } catch (error) {
+
+      console.error(
+        "Construction error:",
+        error
+      );
+
+      box.innerHTML =
+        '<div class="empty">⚠️ Construction updates could not be loaded.</div>';
+
+    }
+
+  }
+
+
+  /* =========================================================
+     CREATE CONSTRUCTION UPDATE
+     ========================================================= */
+
+  async function createConstructionUpdate() {
+
+    if (!isLoungeOwner) {
+
+      say("Owner access required.");
+
+      return;
+
+    }
+
+
+    const text =
+      document
+        .getElementById(
+          "constructionInput"
+        )
+        ?.value
+        .trim();
+
+
+    if (!text) {
+
+      say("Write a construction update first.");
+
+      return;
+
+    }
+
+
+    try {
+
+      const result =
+        await db
+          .from("lounge_construction")
+          .insert({
+            title:"Museum Construction Update",
+            description:text,
+            status:"Under Construction"
+          });
+
+
+      if (result.error)
+        throw result.error;
+
+
+      document.getElementById(
+        "constructionInput"
+      ).value="";
+
+
+      say("🚧 Construction update posted!");
+
+      await loadLiveConstruction();
+
+    } catch (error) {
+
+      console.error(
+        "Construction post error:",
+        error
+      );
+
+      say(
+        error.message ||
+        "The construction update could not be posted."
+      );
+
+    }
+
+  }
+
+
+  /* =========================================================
+     IRONBOUND DATABASE LEADERBOARD
+     ========================================================= */
+
+  async function loadIronboundBoard(
+    game="Train Run"
+  ) {
+
+    const box =
+      document.getElementById(
+        "ironboundLeaderboardPreview"
+      );
+
+    if (!box) return;
+
+
+    try {
+
+      const result =
+        await db
+          .from("ironbound_scores")
+          .select("*")
+          .eq("game",game)
+          .order("score", {
+            ascending:false
+          })
+          .limit(5);
+
+
+      if (result.error)
+        throw result.error;
+
+
+      const rows =
+        result.data || [];
+
+
+      if (!rows.length) {
+
+        box.innerHTML =
+          '<div class="empty">No scores yet. Be the first record holder!</div>';
+
+        return;
+
+      }
+
+
+      box.innerHTML =
+        rows.map((row,index) => `
+
+          <div class="l2-score-row">
+
+            <span>
+              #${index+1}
+              ${
+                esc(
+                  row.username ||
+                  row.display_name ||
+                  row.player_name ||
+                  "Member"
+                )
+              }
+            </span>
+
+            <strong>
+              ${Number(row.score || 0)}
+            </strong>
+
+          </div>
+
+        `).join("");
+
+    } catch (error) {
+
+      console.error(
+        "Ironbound board error:",
+        error
+      );
+
+    }
+
+  }
+
+
+  /* =========================================================
+     SAVE SCORE — DATABASE FIRST
+     ========================================================= */
+
+  window.saveIronboundDatabaseScore =
+    async function(
+      game,
+      score
+    ){
+
+      const numericScore =
+        Math.floor(
+          Number(score)
+        );
+
+
+      if (
+        !game ||
+        !Number.isFinite(numericScore) ||
+        numericScore <= 0
+      ){
+
+        return false;
+
+      }
+
+
+      const user =
+        await getUser();
+
+
+      if (!user){
+
+        say(
+          "Sign in to save your score."
+        );
+
+        return false;
+
+      }
+
+
+      try {
+
+        const result =
+          await db
+            .from("ironbound_scores")
+            .insert({
+
+              user_id:user.id,
+
+              game:game,
+
+              score:numericScore
+
+            });
+
+
+        if (result.error)
+          throw result.error;
+
+
+        say(
+          "🏆 Score saved to Ironbound!"
+        );
+
+
+        await loadIronboundBoard(game);
+
+
+        return true;
+
+      } catch (error) {
+
+        console.error(
+          "Ironbound score error:",
+          error
+        );
+
+        return false;
+
+      }
+
+    };
+
+
+  /* =========================================================
+     REPLACE OLD BUTTONS
+     ========================================================= */
+
+  const createPollButton =
+    replaceButton("createPoll");
+
+  if (createPollButton) {
+
+    createPollButton.onclick =
+      createLivePoll;
+
+  }
+
+
+  const createEventButton =
+    replaceButton("createEvent");
+
+  if (createEventButton) {
+
+    createEventButton.onclick =
+      createLiveEvent;
+
+  }
+
+
+  const constructionButton =
+    replaceButton("postConstruction");
+
+  if (constructionButton) {
+
+    constructionButton.onclick =
+      createConstructionUpdate;
+
+  }
+
+
+  const refreshButton =
+    replaceButton("refreshHeritage");
+
+  if (refreshButton) {
+
+    refreshButton.onclick =
+      function(){
+
+        say(
+          "Heritage report feed refreshed."
+        );
+
+      };
+
+  }
+
+
+  /* =========================================================
+     LIVE LOAD
+     ========================================================= */
+
+  loadLivePolls();
+
+  loadLiveEvents();
+
+  loadLiveConstruction();
+
+  loadIronboundBoard("Train Run");
+
+
+  /* =========================================================
+     REALTIME REFRESH
+     ========================================================= */
+
+  try {
+
+    db
+      .channel("tf-live-lounge")
+      .on(
+        "postgres_changes",
+        {
+          event:"*",
+          schema:"public",
+          table:"lounge_poll_votes"
+        },
+        function(){
+
+          loadLivePolls();
+
+        }
+      )
+      .on(
+        "postgres_changes",
+        {
+          event:"*",
+          schema:"public",
+          table:"lounge_poll_options"
+        },
+        function(){
+
+          loadLivePolls();
+
+        }
+      )
+      .on(
+        "postgres_changes",
+        {
+          event:"*",
+          schema:"public",
+          table:"lounge_events"
+        },
+        function(){
+
+          loadLiveEvents();
+
+        }
+      )
+      .on(
+        "postgres_changes",
+        {
+          event:"*",
+          schema:"public",
+          table:"lounge_construction"
+        },
+        function(){
+
+          loadLiveConstruction();
+
+        }
+      )
+      .on(
+        "postgres_changes",
+        {
+          event:"*",
+          schema:"public",
+          table:"ironbound_scores"
+        },
+        function(){
+
+          loadIronboundBoard(
+            "Train Run"
+          );
+
+        }
+      )
+      .subscribe();
+
+  } catch (error) {
+
+    console.warn(
+      "Realtime subscription unavailable:",
+      error
+    );
+
+  }
+
+
+  console.log(
+    "🚂 TRAINSFOREVER FINAL LOUNGE WIRING ACTIVE"
+  );
+
+})();
+</script>
