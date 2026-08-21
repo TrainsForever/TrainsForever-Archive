@@ -4289,5 +4289,661 @@ if(
 <!-- =========================================================
      END SPEED MODE PART 1
      ========================================================= -->
+<!-- =========================================================
+     TRAINSFOREVER LOUNGE
+     SPEED MODE — PART 3
+     CHALLENGE INVITES + ACCEPT / DECLINE
+     ========================================================= -->
+
+<style>
+.tf-invite-card{
+  padding:12px;
+  margin:7px 0;
+  border-radius:13px;
+  background:#ffffff08;
+  border:1px solid #a878ff33;
+}
+
+.tf-invite-card h4{
+  margin:0 0 5px;
+  color:#ffe8a0;
+  font-size:11px;
+}
+
+.tf-invite-card p{
+  margin:3px 0;
+  color:#9eabb3;
+  font-size:9px;
+}
+
+.tf-invite-actions{
+  display:flex;
+  gap:7px;
+  margin-top:9px;
+}
+
+.tf-invite-actions button{
+  flex:1;
+}
+
+.tf-challenge-badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:18px;
+  height:18px;
+  padding:0 5px;
+  margin-left:5px;
+  border-radius:999px;
+  background:#ff6b6b;
+  color:#fff;
+  font-size:8px;
+  font-weight:1000;
+}
+
+.tf-my-challenges{
+  margin-top:12px;
+}
+
+.tf-challenge-status{
+  display:inline-block;
+  margin-top:6px;
+  padding:4px 7px;
+  border-radius:999px;
+  background:#ffffff08;
+  border:1px solid #ffffff12;
+  color:#a8b4bd;
+  font-size:7px;
+  font-weight:900;
+}
+</style>
+
+
+<!-- =========================================================
+     CHALLENGE INVITES CARD
+     ========================================================= -->
+
+<section
+  class="card"
+  id="tfChallengeInvitesCard"
+  style="
+    left:1160px;
+    top:650px;
+  "
+>
+
+  <div class="label">
+    CHALLENGES
+  </div>
+
+  <h2>
+    ⚔️ Challenge Center
+  </h2>
+
+  <p>
+    Challenge another member or respond to
+    challenges sent to you.
+  </p>
+
+  <div
+    id="tfIncomingChallenges">
+
+    <div class="empty">
+      Checking challenges…
+    </div>
+
+  </div>
+
+  <div class="tf-my-challenges">
+
+    <h3 style="
+      margin:0 0 8px;
+      color:#ffe8a0;
+      font-size:12px;
+    ">
+      📋 My Challenges
+    </h3>
+
+    <div id="tfMyChallenges">
+
+      <div class="empty">
+        No active challenges.
+      </div>
+
+    </div>
+
+  </div>
+
+  <button
+    type="button"
+    class="btn purple"
+    style="
+      width:100%;
+      margin-top:10px;
+    "
+    onclick="TFChallenge.open()">
+
+    ⚔️ Challenge Someone
+
+  </button>
+
+</section>
+
+
+<script>
+/* =========================================================
+   PART 3 — CHALLENGE CENTER
+   ========================================================= */
+
+(function(){
+
+"use strict";
+
+
+const incomingBox =
+  document.getElementById(
+    "tfIncomingChallenges"
+  );
+
+const myBox =
+  document.getElementById(
+    "tfMyChallenges"
+  );
+
+
+/* ---------------------------------------------------------
+   LOAD INCOMING CHALLENGES
+   --------------------------------------------------------- */
+
+async function loadIncomingChallenges(){
+
+  if(!incomingBox)
+    return;
+
+
+  if(
+    typeof supabaseClient === "undefined" ||
+    !supabaseClient
+  ){
+
+    incomingBox.innerHTML =
+      `
+      <div class="empty">
+        Challenge system unavailable.
+      </div>
+      `;
+
+    return;
+
+  }
+
+
+  incomingBox.innerHTML =
+    `
+    <div class="empty">
+      Loading challenges…
+    </div>
+    `;
+
+
+  try{
+
+    const userResult =
+      await supabaseClient.auth.getUser();
+
+    const user =
+      userResult.data?.user;
+
+
+    if(!user){
+
+      incomingBox.innerHTML =
+        `
+        <div class="empty">
+          Sign in to receive challenges.
+        </div>
+        `;
+
+      return;
+
+    }
+
+
+    const result =
+      await supabaseClient
+        .from("ironbound_challenges")
+        .select("*")
+        .eq(
+          "challenged_id",
+          user.id
+        )
+        .eq(
+          "status",
+          "pending"
+        )
+        .order(
+          "created_at",
+          {
+            ascending:false
+          }
+        );
+
+
+    if(result.error)
+      throw result.error;
+
+
+    const challenges =
+      result.data || [];
+
+
+    if(!challenges.length){
+
+      incomingBox.innerHTML =
+        `
+        <div class="empty">
+          💤 No incoming challenges.
+        </div>
+        `;
+
+      return;
+
+    }
+
+
+    incomingBox.innerHTML =
+      challenges
+        .map(challenge=>{
+
+          const game =
+            challenge.game ||
+            "Ironbound";
+
+
+          return `
+
+            <div class="tf-invite-card">
+
+              <h4>
+                ⚔️ Incoming Challenge
+              </h4>
+
+              <p>
+                Someone challenged you to
+                <b>${escapeHTML(game)}</b>.
+              </p>
+
+              <p>
+                Accept to play separately
+                from your own device.
+              </p>
+
+              <div class="tf-invite-actions">
+
+                <button
+                  type="button"
+                  class="btn green"
+                  data-accept-challenge="${escapeHTML(challenge.id)}">
+
+                  ✓ Accept
+
+                </button>
+
+                <button
+                  type="button"
+                  class="btn red"
+                  data-decline-challenge="${escapeHTML(challenge.id)}">
+
+                  ✕ Decline
+
+                </button>
+
+              </div>
+
+            </div>
+
+          `;
+
+        })
+        .join("");
+
+
+    incomingBox
+      .querySelectorAll(
+        "[data-accept-challenge]"
+      )
+      .forEach(button=>{
+
+        button.onclick =
+          ()=>acceptChallenge(
+            button.dataset.acceptChallenge
+          );
+
+      });
+
+
+    incomingBox
+      .querySelectorAll(
+        "[data-decline-challenge]"
+      )
+      .forEach(button=>{
+
+        button.onclick =
+          ()=>declineChallenge(
+            button.dataset.declineChallenge
+          );
+
+      });
+
+
+  }catch(error){
+
+    console.error(
+      "Incoming challenge error:",
+      error
+    );
+
+    incomingBox.innerHTML =
+      `
+      <div class="empty">
+        ⚠️ Challenges could not be loaded.
+      </div>
+      `;
+
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   LOAD MY CHALLENGES
+   --------------------------------------------------------- */
+
+async function loadMyChallenges(){
+
+  if(!myBox)
+    return;
+
+
+  if(
+    typeof supabaseClient === "undefined" ||
+    !supabaseClient
+  )
+    return;
+
+
+  try{
+
+    const userResult =
+      await supabaseClient.auth.getUser();
+
+    const user =
+      userResult.data?.user;
+
+
+    if(!user)
+      return;
+
+
+    const result =
+      await supabaseClient
+        .from("ironbound_challenges")
+        .select("*")
+        .or(
+          `challenger_id.eq.${user.id},challenged_id.eq.${user.id}`
+        )
+        .in(
+          "status",
+          [
+            "pending",
+            "accepted"
+          ]
+        )
+        .order(
+          "created_at",
+          {
+            ascending:false
+          }
+        );
+
+
+    if(result.error)
+      throw result.error;
+
+
+    const challenges =
+      result.data || [];
+
+
+    if(!challenges.length){
+
+      myBox.innerHTML =
+        `
+        <div class="empty">
+          No active challenges.
+        </div>
+        `;
+
+      return;
+
+    }
+
+
+    myBox.innerHTML =
+      challenges
+        .map(challenge=>{
+
+          return `
+
+            <div class="tf-match-card">
+
+              <b>
+                🎮 ${escapeHTML(
+                  challenge.game ||
+                  "Ironbound"
+                )}
+              </b>
+
+              <br>
+
+              <span class="tf-challenge-status">
+                ${escapeHTML(
+                  challenge.status
+                )}
+              </span>
+
+            </div>
+
+          `;
+
+        })
+        .join("");
+
+
+  }catch(error){
+
+    console.error(
+      "My challenges error:",
+      error
+    );
+
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   ACCEPT
+   --------------------------------------------------------- */
+
+async function acceptChallenge(
+  challengeId
+){
+
+  try{
+
+    const result =
+      await supabaseClient.rpc(
+        "accept_ironbound_challenge",
+        {
+          p_challenge_id:
+            challengeId
+        }
+      );
+
+
+    if(result.error)
+      throw result.error;
+
+
+    toast(
+      "⚔️ Challenge accepted!"
+    );
+
+
+    await loadIncomingChallenges();
+
+    await loadMyChallenges();
+
+
+  }catch(error){
+
+    console.error(
+      "Accept challenge error:",
+      error
+    );
+
+    toast(
+      "Could not accept challenge."
+    );
+
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   DECLINE
+   --------------------------------------------------------- */
+
+async function declineChallenge(
+  challengeId
+){
+
+  try{
+
+    const result =
+      await supabaseClient.rpc(
+        "decline_ironbound_challenge",
+        {
+          p_challenge_id:
+            challengeId
+        }
+      );
+
+
+    if(result.error)
+      throw result.error;
+
+
+    toast(
+      "Challenge declined."
+    );
+
+
+    await loadIncomingChallenges();
+
+    await loadMyChallenges();
+
+
+  }catch(error){
+
+    console.error(
+      "Decline challenge error:",
+      error
+    );
+
+    toast(
+      "Could not decline challenge."
+    );
+
+  }
+
+}
+
+
+/* ---------------------------------------------------------
+   EXPOSE REFRESH
+   --------------------------------------------------------- */
+
+window.TFChallengeCenter = {
+
+  refresh(){
+
+    loadIncomingChallenges();
+
+    loadMyChallenges();
+
+  }
+
+};
+
+
+/* ---------------------------------------------------------
+   INITIAL LOAD
+   --------------------------------------------------------- */
+
+function init(){
+
+  loadIncomingChallenges();
+
+  loadMyChallenges();
+
+}
+
+
+/*
+ * Supabase is already initialized by
+ * your original Lounge HTML.
+ */
+
+if(
+  document.readyState === "loading"
+){
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    init
+  );
+
+}else{
+
+  init();
+
+}
+
+
+/* ---------------------------------------------------------
+   REFRESH EVERY 15 SECONDS
+   --------------------------------------------------------- */
+
+setInterval(
+  function(){
+
+    loadIncomingChallenges();
+
+    loadMyChallenges();
+
+  },
+  15000
+);
+
+
+})();
+</script>
+
+<!-- =========================================================
+     END SPEED MODE PART 3
+     ========================================================= -->
 </body>
 </html>
