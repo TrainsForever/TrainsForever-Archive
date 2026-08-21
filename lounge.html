@@ -3414,6 +3414,880 @@ $("chatStatus").textContent=
 init();
 
 </script>
+<!-- =========================================================
+     TRAINSFOREVER LOUNGE
+     SPEED MODE — PART 1
+     CHALLENGES + WINNERS CIRCLE FOUNDATION
+     ========================================================= -->
 
+<style>
+/* ---------------------------------------------------------
+   CHALLENGE CENTER
+   --------------------------------------------------------- */
+
+.tf-challenge-center{
+  margin-top:18px;
+  padding:15px;
+  border-radius:16px;
+  background:#ffffff08;
+  border:1px solid #f3c85b22;
+}
+
+.tf-challenge-center h3{
+  margin:0 0 6px;
+  color:#ffe8a0;
+  font-size:15px;
+}
+
+.tf-challenge-center p{
+  margin:0 0 12px;
+  color:#9eabb3;
+  font-size:10px;
+  line-height:1.5;
+}
+
+.tf-challenge-button{
+  width:100%;
+  border:1px solid #a878ff66;
+  background:#a878ff12;
+  color:#d7bcff;
+  border-radius:11px;
+  padding:11px;
+  font-size:10px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.tf-challenge-button:hover{
+  background:#a878ff25;
+}
+
+/* ---------------------------------------------------------
+   CHALLENGE MODAL
+   --------------------------------------------------------- */
+
+#tfChallengeModal{
+  position:fixed;
+  inset:0;
+  z-index:500;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+  background:#000d;
+  backdrop-filter:blur(6px);
+}
+
+#tfChallengeModal.open{
+  display:flex;
+}
+
+#tfChallengeBox{
+  width:min(620px,96vw);
+  max-height:90vh;
+  overflow:auto;
+  padding:22px;
+  border-radius:22px;
+  background:#060606;
+  border:1px solid #f3c85b55;
+  box-shadow:0 35px 120px #000;
+}
+
+.tf-challenge-member{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin:7px 0;
+  padding:11px;
+  border-radius:12px;
+  background:#ffffff08;
+  border:1px solid #ffffff10;
+}
+
+.tf-challenge-member-info{
+  min-width:0;
+}
+
+.tf-challenge-member-name{
+  color:#ffe8a0;
+  font-size:11px;
+  font-weight:900;
+}
+
+.tf-challenge-member-status{
+  margin-top:3px;
+  color:#8f9ba3;
+  font-size:8px;
+}
+
+/* ---------------------------------------------------------
+   WINNERS CIRCLE
+   --------------------------------------------------------- */
+
+.tf-winners-circle{
+  margin-top:18px;
+  padding:15px;
+  border-radius:17px;
+  background:
+    radial-gradient(
+      circle at 50% 0,
+      #f3c85b12,
+      transparent 55%
+    ),
+    #ffffff07;
+  border:1px solid #f3c85b33;
+}
+
+.tf-winners-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-bottom:10px;
+}
+
+.tf-winners-header h3{
+  margin:0;
+  color:#ffe8a0;
+  font-size:16px;
+}
+
+.tf-winners-crown{
+  font-size:25px;
+}
+
+.tf-winner-row{
+  display:grid;
+  grid-template-columns:34px 1fr auto;
+  align-items:center;
+  gap:8px;
+  margin:6px 0;
+  padding:10px;
+  border-radius:12px;
+  background:#ffffff08;
+  border:1px solid #ffffff0d;
+}
+
+.tf-winner-rank{
+  color:#ffe8a0;
+  font-size:12px;
+  font-weight:1000;
+  text-align:center;
+}
+
+.tf-winner-name{
+  color:#fff;
+  font-size:10px;
+  font-weight:850;
+}
+
+.tf-winner-game{
+  display:block;
+  margin-top:3px;
+  color:#8f9ba3;
+  font-size:8px;
+}
+
+.tf-winner-score{
+  color:#9affbc;
+  font-size:12px;
+  font-weight:1000;
+}
+
+/* ---------------------------------------------------------
+   CHALLENGE STATUS
+   --------------------------------------------------------- */
+
+.tf-match-card{
+  padding:12px;
+  margin:7px 0;
+  border-radius:13px;
+  background:#ffffff08;
+  border:1px solid #ffffff10;
+}
+
+.tf-match-card b{
+  color:#ffe8a0;
+}
+
+.tf-match-status{
+  display:inline-block;
+  margin-top:5px;
+  padding:4px 7px;
+  border-radius:999px;
+  background:#f3c85b10;
+  border:1px solid #f3c85b22;
+  color:#cfc3a0;
+  font-size:7px;
+  font-weight:900;
+}
+
+/* Mobile */
+@media(max-width:600px){
+
+  #tfChallengeBox{
+    padding:17px;
+  }
+
+  .tf-winner-row{
+    grid-template-columns:30px 1fr auto;
+  }
+
+}
+</style>
+
+
+<!-- =========================================================
+     CHALLENGE MODAL
+     ========================================================= -->
+
+<div id="tfChallengeModal">
+
+  <div id="tfChallengeBox">
+
+    <button
+      type="button"
+      class="btn red"
+      style="float:right"
+      onclick="TFChallenge.close()">
+      ✕
+    </button>
+
+    <h2 style="margin:0;color:#ffe8a0">
+      ⚔️ Challenge a Member
+    </h2>
+
+    <p style="color:#9eabb3;font-size:10px;line-height:1.5">
+      Choose a Society member to challenge.
+      They will receive the challenge and can accept or decline.
+    </p>
+
+    <div
+      id="tfChallengeMembers"
+      style="margin-top:15px">
+
+      <div class="empty">
+        Loading members…
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+/* =========================================================
+   TRAINSFOREVER LOUNGE
+   SPEED MODE — PART 1 JAVASCRIPT
+   ========================================================= */
+
+(function(){
+
+"use strict";
+
+
+/* ---------------------------------------------------------
+   STATE
+   --------------------------------------------------------- */
+
+const TFChallenge = {
+
+  modal:
+    document.getElementById(
+      "tfChallengeModal"
+    ),
+
+  members:
+    document.getElementById(
+      "tfChallengeMembers"
+    ),
+
+  open(){
+
+    if(!this.modal) return;
+
+    this.modal.classList.add("open");
+
+    this.loadMembers();
+
+  },
+
+  close(){
+
+    if(!this.modal) return;
+
+    this.modal.classList.remove("open");
+
+  },
+
+  async loadMembers(){
+
+    const box=this.members;
+
+    if(!box) return;
+
+    box.innerHTML=
+      '<div class="empty">Loading members…</div>';
+
+    if(
+      typeof supabaseClient === "undefined" ||
+      !supabaseClient
+    ){
+
+      box.innerHTML=
+        '<div class="empty">Member system unavailable.</div>';
+
+      return;
+
+    }
+
+    try{
+
+      const userResult=
+        await supabaseClient.auth.getUser();
+
+      const me=
+        userResult.data?.user;
+
+      let query=
+        supabaseClient
+          .from("lounge_members")
+          .select("*")
+          .limit(50);
+
+      const result=
+        await query;
+
+      if(result.error)
+        throw result.error;
+
+      let rows=
+        result.data || [];
+
+      /*
+       * Don't allow the current member
+       * to challenge themselves.
+       */
+
+      if(me){
+
+        rows=
+          rows.filter(
+            member =>
+              member.user_id !== me.id &&
+              member.id !== me.id
+          );
+
+      }
+
+      if(!rows.length){
+
+        box.innerHTML=
+          `
+          <div class="empty">
+            No other members are available to challenge yet.
+          </div>
+          `;
+
+        return;
+
+      }
+
+
+      box.innerHTML=
+        rows.map(member=>{
+
+          const name=
+            member.display_name ||
+            member.username ||
+            member.name ||
+            "Society Member";
+
+          const id=
+            member.user_id ||
+            member.id;
+
+          return `
+
+            <div class="tf-challenge-member">
+
+              <div class="tf-challenge-member-info">
+
+                <div class="tf-challenge-member-name">
+                  👤 ${escapeHTML(name)}
+                </div>
+
+                <div class="tf-challenge-member-status">
+                  Society Member
+                </div>
+
+              </div>
+
+              <button
+                type="button"
+                class="btn purple"
+                data-challenge-member="${escapeHTML(id)}"
+                data-challenge-name="${escapeHTML(name)}">
+
+                ⚔️ Challenge
+
+              </button>
+
+            </div>
+
+          `;
+
+        }).join("");
+
+
+      box
+        .querySelectorAll(
+          "[data-challenge-member]"
+        )
+        .forEach(button=>{
+
+          button.onclick=()=>{
+
+            this.sendChallenge(
+
+              button.dataset.challengeMember,
+
+              button.dataset.challengeName
+
+            );
+
+          };
+
+        });
+
+    }catch(error){
+
+      console.error(
+        "Challenge member loading error:",
+        error
+      );
+
+      box.innerHTML=
+        `
+        <div class="empty">
+          Members could not be loaded yet.
+        </div>
+        `;
+
+    }
+
+  },
+
+
+  async sendChallenge(
+    memberId,
+    memberName
+  ){
+
+    if(!memberId)
+      return;
+
+    /*
+     * PART 1 intentionally does not fake
+     * a successful database challenge.
+     *
+     * The challenge table/function will be
+     * connected in the next SQL part.
+     */
+
+    toast(
+      "Challenge system ready for database wiring."
+    );
+
+    console.log(
+      "Challenge target:",
+      memberId,
+      memberName
+    );
+
+  }
+
+};
+
+
+window.TFChallenge=
+  TFChallenge;
+
+
+/* ---------------------------------------------------------
+   WINNERS CIRCLE FOUNDATION
+   --------------------------------------------------------- */
+
+window.TFWinnersCircle={
+
+  async load(){
+
+    const box=
+      document.getElementById(
+        "tfWinnersCircle"
+      );
+
+    if(!box)
+      return;
+
+    box.innerHTML=
+      `
+      <div class="empty">
+        Loading Winners Circle…
+      </div>
+      `;
+
+
+    if(
+      typeof supabaseClient === "undefined" ||
+      !supabaseClient
+    ){
+
+      box.innerHTML=
+        `
+        <div class="empty">
+          Winners Circle database unavailable.
+        </div>
+        `;
+
+      return;
+
+    }
+
+
+    try{
+
+      const result=
+        await supabaseClient
+          .from("ironbound_match_results")
+          .select("*")
+          .order(
+            "created_at",
+            {
+              ascending:false
+            }
+          )
+          .limit(10);
+
+
+      if(result.error)
+        throw result.error;
+
+
+      const rows=
+        result.data || [];
+
+
+      if(!rows.length){
+
+        box.innerHTML=
+          `
+          <div class="empty">
+            🏆 No matches completed yet.
+            Be the first name on the board.
+          </div>
+          `;
+
+        return;
+
+      }
+
+
+      box.innerHTML=
+        rows.map((row,index)=>{
+
+          const winner=
+            row.winner_name ||
+            row.username ||
+            "Society Champion";
+
+          const game=
+            row.game ||
+            "Ironbound";
+
+          const score=
+            row.winner_score ??
+            row.score ??
+            0;
+
+          return `
+
+            <div class="tf-winner-row">
+
+              <div class="tf-winner-rank">
+                ${index+1}
+              </div>
+
+              <div>
+
+                <div class="tf-winner-name">
+                  🏆 ${escapeHTML(winner)}
+                </div>
+
+                <span class="tf-winner-game">
+                  ${escapeHTML(game)}
+                </span>
+
+              </div>
+
+              <div class="tf-winner-score">
+                ${escapeHTML(score)}
+              </div>
+
+            </div>
+
+          `;
+
+        }).join("");
+
+
+    }catch(error){
+
+      console.error(
+        "Winners Circle error:",
+        error
+      );
+
+      box.innerHTML=
+        `
+        <div class="empty">
+          Winners Circle is waiting for its match database.
+        </div>
+        `;
+
+    }
+
+  }
+
+};
+
+
+window.TFWinnersCircle=
+  TFWinnersCircle;
+
+
+/* ---------------------------------------------------------
+   CREATE A SMALL CHALLENGE BUTTON
+   WITHOUT CHANGING EXISTING CARDS
+   --------------------------------------------------------- */
+
+function addChallengeButton(){
+
+  /*
+   * Put the button inside the Member card
+   * if that card exists.
+   */
+
+  const memberCard=
+    document.getElementById(
+      "memberBig"
+    )?.closest(".card");
+
+
+  if(!memberCard)
+    return;
+
+
+  if(
+    memberCard.querySelector(
+      "#tfOpenChallengeButton"
+    )
+  )
+    return;
+
+
+  const wrapper=
+    document.createElement("div");
+
+  wrapper.className=
+    "tf-challenge-center";
+
+
+  wrapper.innerHTML=
+    `
+
+      <h3>
+        ⚔️ Society Challenges
+      </h3>
+
+      <p>
+        Challenge another member to an
+        Ironbound skill game.
+      </p>
+
+      <button
+        type="button"
+        class="tf-challenge-button"
+        id="tfOpenChallengeButton">
+
+        ⚔️ Challenge a Member
+
+      </button>
+
+    `;
+
+
+  memberCard.appendChild(
+    wrapper
+  );
+
+
+  document
+    .getElementById(
+      "tfOpenChallengeButton"
+    )
+    .onclick=
+      ()=>TFChallenge.open();
+
+}
+
+
+/* ---------------------------------------------------------
+   ADD WINNERS CIRCLE UNDER THE EXISTING LOUNGE AREA
+   --------------------------------------------------------- */
+
+function addWinnersCircle(){
+
+  /*
+   * We intentionally create this as a new
+   * element rather than moving existing cards.
+   */
+
+  const loungeCard=
+    document.getElementById(
+      "ironboundHub"
+    )?.closest(".ironbound-card");
+
+
+  if(!loungeCard)
+    return;
+
+
+  if(
+    document.getElementById(
+      "tfWinnersCircleCard"
+    )
+  )
+    return;
+
+
+  const card=
+    document.createElement("div");
+
+  card.id=
+    "tfWinnersCircleCard";
+
+  card.className=
+    "l2-card";
+
+
+  card.style.left=
+    loungeCard.style.left;
+
+  card.style.top=
+    (
+      parseInt(
+        loungeCard.style.top || "2320"
+      )+
+      490
+    )+"px";
+
+
+  card.innerHTML=
+    `
+
+      <div class="label">
+        WINNERS CIRCLE
+      </div>
+
+      <div class="tf-winners-circle">
+
+        <div class="tf-winners-header">
+
+          <h3>
+            🏆 Winners Circle
+          </h3>
+
+          <div class="tf-winners-crown">
+            👑
+          </div>
+
+        </div>
+
+        <p style="
+          color:#9eabb3;
+          font-size:9px;
+          line-height:1.5;
+        ">
+
+          Every completed competition can
+          leave a permanent mark here.
+
+        </p>
+
+        <div id="tfWinnersCircle">
+
+          <div class="empty">
+            Loading Winners Circle…
+          </div>
+
+        </div>
+
+      </div>
+
+    `;
+
+
+  document
+    .getElementById(
+      "stage"
+    )
+    ?.appendChild(card);
+
+
+  TFWinnersCircle.load();
+
+}
+
+
+/* ---------------------------------------------------------
+   INITIALIZE
+   --------------------------------------------------------- */
+
+function init(){
+
+  addChallengeButton();
+
+  addWinnersCircle();
+
+}
+
+
+if(
+  document.readyState===
+  "loading"
+){
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    init
+  );
+
+}else{
+
+  init();
+
+}
+
+
+})();
+</script>
+
+<!-- =========================================================
+     END SPEED MODE PART 1
+     ========================================================= -->
 </body>
 </html>
