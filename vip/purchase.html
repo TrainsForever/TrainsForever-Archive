@@ -1,637 +1,1228 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
+<title>Join the Society | TrainsForever</title>
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<style>
 
-    <title>VIP Member | TrainsForever Museum</title>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <link rel="stylesheet" href="../style.css">
+html {
+    scroll-behavior: smooth;
+}
 
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% -10%, #3a321b 0%, #161616 30%, #070707 70%);
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   ATMOSPHERE
+========================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .06;
+    background:
+        repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 79px,
+            #fff 80px,
+            transparent 81px
+        );
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    width: 700px;
+    height: 700px;
+    left: 50%;
+    top: -350px;
+    transform: translateX(-50%);
+    background: radial-gradient(
+        circle,
+        rgba(212,175,55,.16),
+        transparent 68%
+    );
+    pointer-events: none;
+}
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page {
+    width: min(1200px, 100%);
+    margin: auto;
+    padding: 25px 18px 80px;
+}
+
+/* =========================================
+   TOP BAR
+========================================= */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 30px;
+}
+
+.back-link {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: .25s;
+}
+
+.back-link:hover {
+    color: #d4af37;
+}
+
+.secure-label {
+    color: #777;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    text-align: center;
+    padding: 60px 10px 70px;
+}
+
+.eyebrow {
+    display: inline-block;
+    border: 1px solid rgba(212,175,55,.5);
+    color: #d4af37;
+    padding: 9px 20px;
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(46px, 9vw, 92px);
+    line-height: .9;
+    font-weight: 900;
+    letter-spacing: -4px;
+}
+
+.hero h1 span {
+    color: #d4af37;
+    text-shadow: 0 0 35px rgba(212,175,55,.25);
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 28px auto 0;
+    color: #999;
+    line-height: 1.7;
+}
+
+/* =========================================
+   STEP INDICATOR
+========================================= */
+
+.steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 55px;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #555;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.step.active {
+    color: #d4af37;
+}
+
+.step-number {
+    width: 27px;
+    height: 27px;
+    border: 1px solid #444;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+}
+
+.step.active .step-number {
+    border-color: #d4af37;
+    background: #d4af37;
+    color: #000;
+    font-weight: 900;
+}
+
+.step-line {
+    width: 55px;
+    height: 1px;
+    background: #333;
+}
+
+/* =========================================
+   MAIN CHECKOUT
+========================================= */
+
+.checkout {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 22px;
+    align-items: start;
+}
+
+/* =========================================
+   PLAN PANEL
+========================================= */
+
+.panel {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.018)
+        );
+    border: 1px solid rgba(255,255,255,.1);
+    padding: 34px;
+    box-shadow: 0 25px 80px rgba(0,0,0,.35);
+}
+
+.panel-label {
+    color: #d4af37;
+    font-size: 10px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.panel h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.panel-subtitle {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+/* =========================================
+   PLAN SELECTORS
+========================================= */
+
+.plan-option {
+    position: relative;
+    display: block;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.plan-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.plan-box {
+    border: 1px solid #292929;
+    background: rgba(255,255,255,.025);
+    padding: 23px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .3s;
+}
+
+.plan-box:hover {
+    border-color: rgba(212,175,55,.45);
+    transform: translateY(-2px);
+}
+
+.plan-option input:checked + .plan-box {
+    border-color: #d4af37;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(212,175,55,.12),
+            rgba(255,255,255,.025)
+        );
+    box-shadow:
+        0 0 30px rgba(212,175,55,.07);
+}
+
+.plan-left {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+}
+
+.plan-icon {
+    font-size: 34px;
+}
+
+.plan-name {
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.plan-description {
+    color: #777;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.plan-price {
+    text-align: right;
+}
+
+.plan-price strong {
+    display: block;
+    font-size: 28px;
+}
+
+.plan-price span {
+    color: #777;
+    font-size: 10px;
+}
+
+.plan-tag {
+    position: absolute;
+    top: -8px;
+    right: 15px;
+    background: #d4af37;
+    color: #000;
+    padding: 5px 9px;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   EXECUTIVE EMPHASIS
+========================================= */
+
+.executive-option .plan-box {
+    border-color: rgba(212,175,55,.28);
+}
+
+.executive-option input:checked + .plan-box {
+    border-color: #d4af37;
+    box-shadow:
+        0 0 45px rgba(212,175,55,.13);
+}
+
+.executive-note {
+    margin-top: 22px;
+    padding: 18px;
+    border-left: 2px solid #d4af37;
+    background: rgba(212,175,55,.045);
+}
+
+.executive-note strong {
+    display: block;
+    color: #d4af37;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 7px;
+}
+
+.executive-note p {
+    color: #888;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   BENEFITS
+========================================= */
+
+.benefits {
+    margin-top: 30px;
+    border-top: 1px solid #242424;
+    padding-top: 25px;
+}
+
+.benefits-title {
+    color: #777;
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-bottom: 14px;
+}
+
+.benefit-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    list-style: none;
+}
+
+.benefit-list li {
+    color: #aaa;
+    font-size: 12px;
+    padding: 7px 0;
+}
+
+.benefit-list li::before {
+    content: "✓";
+    color: #d4af37;
+    margin-right: 8px;
+}
+
+/* =========================================
+   ORDER SUMMARY
+========================================= */
+
+.summary-panel {
+    position: sticky;
+    top: 20px;
+}
+
+.summary-top {
+    text-align: center;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #292929;
+}
+
+.summary-icon {
+    font-size: 52px;
+    margin-bottom: 15px;
+}
+
+.summary-top span {
+    color: #777;
+    font-size: 9px;
+    letter-spacing: 3px;
+}
+
+.summary-top h2 {
+    font-size: 27px;
+    margin-top: 8px;
+}
+
+.summary-price {
+    font-size: 55px;
+    font-weight: 900;
+    margin-top: 12px;
+}
+
+.summary-price small {
+    color: #777;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.summary-details {
+    padding: 24px 0;
+}
+
+.detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    color: #888;
+    font-size: 12px;
+}
+
+.detail strong {
+    color: #fff;
+}
+
+.total {
+    border-top: 1px solid #292929;
+    margin-top: 10px;
+    padding-top: 20px;
+}
+
+.total span {
+    color: #aaa;
+}
+
+.total strong {
+    color: #d4af37;
+    font-size: 22px;
+}
+
+/* =========================================
+   CHECKOUT BUTTON
+========================================= */
+
+.checkout-button {
+    width: 100%;
+    border: 0;
+    padding: 20px;
+    background: #d4af37;
+    color: #000;
+    font-weight: 900;
+    font-size: 13px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.checkout-button:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 12px 35px rgba(212,175,55,.25);
+}
+
+.checkout-note {
+    text-align: center;
+    color: #555;
+    font-size: 10px;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+/* =========================================
+   TRUST
+========================================= */
+
+.trust-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.trust {
+    text-align: center;
+    border: 1px solid #222;
+    padding: 12px 5px;
+    color: #666;
+    font-size: 9px;
+}
+
+.trust strong {
+    display: block;
+    color: #999;
+    margin-bottom: 4px;
+}
+
+/* =========================================
+   SOCIETY PROMISE
+========================================= */
+
+.promise {
+    max-width: 850px;
+    margin: 100px auto 0;
+    text-align: center;
+}
+
+.promise-mark {
+    color: #d4af37;
+    font-size: 25px;
+    letter-spacing: 8px;
+}
+
+.promise h2 {
+    font-size: clamp(32px, 6vw, 55px);
+    margin: 20px 0;
+}
+
+.promise h2 span {
+    color: #d4af37;
+}
+
+.promise p {
+    color: #777;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    text-align: center;
+    margin-top: 100px;
+    padding-top: 30px;
+    border-top: 1px solid #181818;
+    color: #444;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+footer strong {
+    color: #777;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 850px) {
+
+    .checkout {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-panel {
+        position: static;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .page {
+        padding: 15px 12px 60px;
+    }
+
+    .topbar {
+        padding-bottom: 15px;
+    }
+
+    .secure-label {
+        display: none;
+    }
+
+    .hero {
+        padding: 50px 5px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .steps {
+        gap: 7px;
+    }
+
+    .step span:not(.step-number) {
+        display: none;
+    }
+
+    .step-line {
+        width: 35px;
+    }
+
+    .panel {
+        padding: 23px 18px;
+    }
+
+    .plan-box {
+        padding: 18px 15px;
+    }
+
+    .plan-icon {
+        font-size: 28px;
+    }
+
+    .plan-name {
+        font-size: 16px;
+    }
+
+    .plan-price strong {
+        font-size: 23px;
+    }
+
+    .benefit-list {
+        grid-template-columns: 1fr;
+    }
+
+    .trust-row {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
 </head>
-
 
 <body>
 
+<div class="page">
 
-<main class="vip-page">
+    <div class="topbar">
 
-    <div class="vip-container">
+        <a href="index.html" class="back-link">
+            ← BACK TO MEMBERSHIP
+        </a>
 
-
-        <!-- TOP NAVIGATION -->
-
-        <div class="vip-topbar">
-
-            <a href="index.html"
-               class="vip-back">
-
-                ← VIP Society
-
-            </a>
-
+        <div class="secure-label">
+            TRAINSFOREVER SOCIETY
         </div>
-
-
-
-        <!-- WELCOME -->
-
-        <section class="vip-hero">
-
-            <div class="vip-badge">
-
-                ✦ VIP MEMBER ✦
-
-            </div>
-
-
-            <h1 class="vip-title">
-
-                WELCOME
-
-            </h1>
-
-
-            <div class="vip-subtitle">
-
-                <span>You're</span> In
-
-            </div>
-
-
-            <div class="vip-divider"></div>
-
-
-            <p class="vip-intro">
-
-                Welcome to the TrainsForever VIP Society.
-
-            </p>
-
-
-            <p class="vip-intro">
-
-                Your membership gives you a place
-                inside the TrainsForever Museum
-                to preserve your own railfan journey.
-
-            </p>
-
-
-            <!-- STATUS -->
-
-            <div class="vip-status">
-
-                <span class="vip-status-dot"></span>
-
-                VIP MEMBERSHIP ACTIVE
-
-            </div>
-
-        </section>
-
-
-
-        <!-- MEMBERSHIP -->
-
-        <section class="vip-feature">
-
-            <div class="vip-badge">
-
-                👑 YOUR MEMBERSHIP
-
-            </div>
-
-
-            <h2>
-
-                TrainsForever VIP Society
-
-            </h2>
-
-
-            <div class="vip-grid">
-
-
-                <div class="vip-card">
-
-                    <div class="vip-card-icon">
-
-                        👑
-
-                    </div>
-
-                    <h2>
-
-                        VIP Member
-
-                    </h2>
-
-                    <p>
-
-                        You are officially part of
-                        the TrainsForever VIP Society.
-
-                    </p>
-
-                </div>
-
-
-
-                <div class="vip-card">
-
-                    <div class="vip-card-icon">
-
-                        🪙
-
-                    </div>
-
-                    <h2>
-
-                        Coin 1/5
-
-                    </h2>
-
-                    <p>
-
-                        Included with your VIP package.
-
-                    </p>
-
-                </div>
-
-
-
-                </div>
-
-
-
-                <div class="vip-card">
-
-                    <div class="vip-card-icon">
-
-                        🏛️
-
-                    </div>
-
-                    <h2>
-
-                        Community Showroom
-
-                    </h2>
-
-                    <p>
-
-                        Your railfan catches can
-                        eventually become part of
-                        the community collection.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- VIP ACCESS -->
-
-        <section class="vip-feature">
-
-            <div class="vip-badge">
-
-                🔐 VIP ACCESS
-
-            </div>
-
-
-            <h2>
-
-                Your Museum Space
-
-            </h2>
-
-
-            <div class="vip-grid">
-
-
-                <!-- PHOTOS -->
-
-                <div class="vip-card">
-
-                    <div class="vip-card-icon">
-
-                        📸
-
-                    </div>
-
-
-                    <h2>
-
-                        Submit a Photo
-
-                    </h2>
-
-
-                    <p>
-
-                        Add your favorite railfan
-                        photographs to your personal
-                        TrainsForever archive.
-
-                    </p>
-
-
-                    <button type="button"
-                            class="vip-secondary-button">
-
-                        COMING SOON
-
-                    </button>
-
-                </div>
-
-
-
-                <!-- VIDEOS -->
-
-                <div class="vip-card">
-
-                    <div class="vip-card-icon">
-
-                        🎥
-
-                    </div>
-
-
-                    <h2>
-
-                        Submit a Video
-
-                    </h2>
-
-
-                    <p>
-
-                        Preserve your memorable
-                        locomotive catches and videos.
-
-                    </p>
-
-
-                    <button type="button"
-                            class="vip-secondary-button">
-
-                        COMING SOON
-
-                    </button>
-
-                </div>
-
-
-
-                <!-- STORIES -->
-
-                <div class="vip-card">
-
-                    <div class="vip-card-icon">
-
-                        📖
-
-                    </div>
-
-
-                    <h2>
-
-                        Tell Your Story
-
-                    </h2>
-
-
-                    <p>
-
-                        Add the memories and stories
-                        behind your railfan catches.
-
-                    </p>
-
-
-                    <button type="button"
-                            class="vip-secondary-button">
-
-                        COMING SOON
-
-                    </button>
-
-                </div>
-
-
-
-                <!-- ARCHIVE -->
-
-                <div class="vip-card">
-
-                    <div class="vip-card-icon">
-
-                        🗃️
-
-                    </div>
-
-
-                    <h2>
-
-                        Personal Archive
-
-                    </h2>
-
-
-                    <p>
-
-                        Your submitted catches will
-                        eventually be preserved in
-                        your personal museum archive.
-
-                    </p>
-
-
-                    <button type="button"
-                            class="vip-secondary-button">
-
-                        COMING SOON
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- SHOWROOM -->
-
-        <section class="vip-feature">
-
-            <div class="vip-badge">
-
-                🏛️ COMMUNITY SHOWROOM
-
-            </div>
-
-
-            <h2>
-
-                One Engine. One Current Showcase.
-
-            </h2>
-
-
-            <p>
-
-                Your newest submission for each
-                locomotive can appear in the
-                Community Showroom.
-
-            </p>
-
-
-            <p>
-
-                When you submit another catch of
-                the same locomotive, the previous
-                showroom entry can move into your
-                personal archive.
-
-            </p>
-
-
-            <p>
-
-                <strong>
-
-                    Nothing is automatically deleted.
-
-                </strong>
-
-            </p>
-
-
-            <p>
-
-                Your archived catches remain yours
-                unless you personally choose to
-                remove them.
-
-            </p>
-
-        </section>
-
-
-
-        <!-- COINS -->
-
-        <section class="vip-feature">
-
-            <div class="vip-badge">
-
-                🪙 YOUR COLLECTION
-
-            </div>
-
-
-            <h2>
-
-                Your Included Coin
-
-            </h2>
-
-
-            <p>
-
-                Your VIP package includes the first
-                first piece of the five-coin
-                TrainsForever collection.
-
-            </p>
-
-
-            <div class="vip-grid">
-
-
-                <div class="vip-card">
-
-                    <div class="vip-card-icon">
-
-                        🪙
-
-                    </div>
-
-
-                    <h2>
-
-                        Coin 1/5
-
-                    </h2>
-
-
-                    <p>
-
-                        TrainsForever VIP Society
-                        collectible coin.
-
-                    </p>
-
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- FUTURE COINS -->
-
-        <section class="vip-feature">
-
-            <div class="vip-badge">
-
-                🪙 COMPLETE THE COLLECTION
-
-            </div>
-
-
-            <h2>
-
-                Coins 2/5 • 3/5 • 4/5 • 5/5
-
-            </h2>
-
-
-            <p>
-
-                Additional collectible coins will
-                be available separately.
-
-            </p>
-
-
-            <div class="return-area">
-
-                <button type="button"
-                        class="vip-secondary-button">
-
-                    COMING SOON
-
-                </button>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- FINAL MESSAGE -->
-
-        <section class="vip-feature">
-
-            <div class="vip-badge">
-
-                ✦ WELCOME TO THE SOCIETY ✦
-
-            </div>
-
-
-            <h2>
-
-                This Is Your Space.
-
-            </h2>
-
-
-            <div class="vip-divider"></div>
-
-
-            <p>
-
-                The museum documents my railfan journey.
-
-            </p>
-
-
-            <p>
-
-                The VIP Society gives the community
-                a place to document theirs.
-
-            </p>
-
-
-            <p>
-
-                <strong>
-
-                    Welcome to the TrainsForever Museum.
-
-                </strong>
-
-            </p>
-
-        </section>
-
-
-
-        <!-- RETURN -->
-
-        <div class="return-area">
-
-            <a href="index.html"
-               class="return-button">
-
-                ← RETURN TO VIP SOCIETY
-
-            </a>
-
-        </div>
-
-
-
-        <!-- FOOTER -->
-
-        <footer class="vip-footer">
-
-            <div class="vip-divider"></div>
-
-            <p>
-
-                TrainsForever Museum •
-
-                <strong>VIP SOCIETY</strong>
-
-            </p>
-
-
-            <p>
-
-                Very Important Page™
-
-            </p>
-
-        </footer>
-
 
     </div>
 
-</main>
 
+    <header class="hero">
+
+        <div class="eyebrow">
+            SOCIETY MEMBERSHIP
+        </div>
+
+        <h1>
+            STEP INSIDE<br>
+            <span>THE SOCIETY.</span>
+        </h1>
+
+        <p>
+            Choose your membership level and become part
+            of the TrainsForever Society.
+        </p>
+
+    </header>
+
+
+    <div class="steps">
+
+        <div class="step active">
+            <span class="step-number">1</span>
+            <span>MEMBERSHIP</span>
+        </div>
+
+        <div class="step-line"></div>
+
+        <div class="step">
+            <span class="step-number">2</span>
+            <span>PAYMENT</span>
+        </div>
+
+        <div class="step-line"></div>
+
+        <div class="step">
+            <span class="step-number">3</span>
+            <span>WELCOME</span>
+        </div>
+
+    </div>
+
+
+    <main class="checkout">
+
+
+        <!-- PLAN SELECTION -->
+
+        <section class="panel">
+
+            <div class="panel-label">
+                SELECT YOUR LEVEL
+            </div>
+
+            <h2>
+                Choose Your Place
+            </h2>
+
+            <p class="panel-subtitle">
+                The Society has two real membership levels.
+                Visitors remain outside as Ghosts.
+            </p>
+
+
+            <!-- MEMBER -->
+
+            <label class="plan-option">
+
+                <input
+                    type="radio"
+                    name="membership"
+                    value="member"
+                    checked
+                >
+
+                <div class="plan-box">
+
+                    <div class="plan-left">
+
+                        <div class="plan-icon">
+                            🚂
+                        </div>
+
+                        <div>
+
+                            <div class="plan-name">
+                                Society Member
+                            </div>
+
+                            <div class="plan-description">
+                                Full Society membership
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="plan-price">
+
+                        <strong>
+                            $10
+                        </strong>
+
+                        <span>
+                            PER MONTH
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </label>
+
+
+            <!-- EXECUTIVE -->
+
+            <label class="plan-option executive-option">
+
+                <input
+                    type="radio"
+                    name="membership"
+                    value="executive"
+                >
+
+                <div class="plan-box">
+
+                    <div class="plan-tag">
+                        EXECUTIVE
+                    </div>
+
+                    <div class="plan-left">
+
+                        <div class="plan-icon">
+                            👑
+                        </div>
+
+                        <div>
+
+                            <div class="plan-name">
+                                Society Executive
+                            </div>
+
+                            <div class="plan-description">
+                                Everything in Member + Executive access
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="plan-price">
+
+                        <strong>
+                            $20
+                        </strong>
+
+                        <span>
+                            PER MONTH
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </label>
+
+
+            <div class="executive-note">
+
+                <strong>
+                    🎥 EXECUTIVE PRIVILEGE
+                </strong>
+
+                <p>
+                    Society Executives are the only members
+                    currently able to upload videos and contribute
+                    to the Society Video Archive.
+                </p>
+
+            </div>
+
+
+            <div class="benefits">
+
+                <div class="benefits-title">
+                    SOCIETY FEATURES
+                </div>
+
+                <ul class="benefit-list">
+
+                    <li>Member Profile</li>
+                    <li>Member Directory</li>
+
+                    <li>Badge Locker</li>
+                    <li>Respect & Disrespect</li>
+
+                    <li>Society Lounge</li>
+                    <li>Chat</li>
+
+                    <li>Challenges</li>
+                    <li>Polls</li>
+
+                    <li>Events</li>
+                    <li>Photo Sharing</li>
+
+                    <li>Achievements</li>
+                    <li>Leaderboards</li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- SUMMARY -->
+
+        <aside class="panel summary-panel">
+
+            <div class="summary-top">
+
+                <div class="summary-icon" id="summaryIcon">
+                    🚂
+                </div>
+
+                <span>
+                    YOUR SELECTION
+                </span>
+
+                <h2 id="summaryName">
+                    Society Member
+                </h2>
+
+                <div class="summary-price">
+
+                    $<span id="summaryPrice">10</span>
+
+                    <small>
+                        / month
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-details">
+
+                <div class="detail">
+
+                    <span>
+                        Membership
+                    </span>
+
+                    <strong id="summaryTier">
+                        Society Member
+                    </strong>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <span>
+                        Billing
+                    </span>
+
+                    <strong>
+                        Monthly
+                    </strong>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <span>
+                        Society Access
+                    </span>
+
+                    <strong>
+                        Included
+                    </strong>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <span>
+                        Video Uploads
+                    </span>
+
+                    <strong id="videoStatus">
+                        Not Included
+                    </strong>
+
+                </div>
+
+
+                <div class="detail total">
+
+                    <span>
+                        MONTHLY TOTAL
+                    </span>
+
+                    <strong>
+                        $<span id="totalPrice">10</span>
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!--
+                PAYMENT CONNECTION POINT
+
+                Connect this button to your actual
+                Stripe/payment checkout when ready.
+            -->
+
+            <button
+                class="checkout-button"
+                type="button"
+                id="continueButton"
+            >
+                CONTINUE TO SECURE CHECKOUT
+            </button>
+
+
+            <p class="checkout-note">
+                You will continue to the secure payment
+                step for your selected Society membership.
+            </p>
+
+
+            <div class="trust-row">
+
+                <div class="trust">
+                    <strong>🔐</strong>
+                    SECURE
+                </div>
+
+                <div class="trust">
+                    <strong>↻</strong>
+                    MONTHLY
+                </div>
+
+                <div class="trust">
+                    <strong>🚂</strong>
+                    SOCIETY
+                </div>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+
+    <!-- PROMISE -->
+
+    <section class="promise">
+
+        <div class="promise-mark">
+            ✦ ✦ ✦
+        </div>
+
+        <h2>
+            You're not buying a badge.<br>
+            <span>You're joining the Society.</span>
+        </h2>
+
+        <p>
+            Your membership gives you a place inside
+            TrainsForever where you can participate,
+            collect achievements, connect with railfans,
+            and help build the community.
+        </p>
+
+    </section>
+
+
+    <footer>
+
+        <p>
+            TRAINSFOREVER SOCIETY
+        </p>
+
+        <p>
+            Membership required for Society participation.
+        </p>
+
+        <p>
+            <strong>
+                Society Member $10/month • Society Executive $20/month
+            </strong>
+        </p>
+
+    </footer>
+
+</div>
+
+
+<script>
+
+const plans = document.querySelectorAll(
+    'input[name="membership"]'
+);
+
+const summaryIcon =
+    document.getElementById("summaryIcon");
+
+const summaryName =
+    document.getElementById("summaryName");
+
+const summaryTier =
+    document.getElementById("summaryTier");
+
+const summaryPrice =
+    document.getElementById("summaryPrice");
+
+const totalPrice =
+    document.getElementById("totalPrice");
+
+const videoStatus =
+    document.getElementById("videoStatus");
+
+const continueButton =
+    document.getElementById("continueButton");
+
+
+function updatePlan() {
+
+    const selected =
+        document.querySelector(
+            'input[name="membership"]:checked'
+        );
+
+    if (!selected) return;
+
+
+    if (selected.value === "executive") {
+
+        summaryIcon.textContent = "👑";
+
+        summaryName.textContent =
+            "Society Executive";
+
+        summaryTier.textContent =
+            "Society Executive";
+
+        summaryPrice.textContent = "20";
+
+        totalPrice.textContent = "20";
+
+        videoStatus.textContent =
+            "Included";
+
+        videoStatus.style.color =
+            "#d4af37";
+
+    } else {
+
+        summaryIcon.textContent = "🚂";
+
+        summaryName.textContent =
+            "Society Member";
+
+        summaryTier.textContent =
+            "Society Member";
+
+        summaryPrice.textContent = "10";
+
+        totalPrice.textContent = "10";
+
+        videoStatus.textContent =
+            "Not Included";
+
+        videoStatus.style.color =
+            "";
+
+    }
+
+}
+
+
+plans.forEach(function(plan) {
+
+    plan.addEventListener(
+        "change",
+        updatePlan
+    );
+
+});
+
+
+/*
+    IMPORTANT:
+
+    The current repository does not contain
+    an actual payment/Stripe checkout URL in
+    purchase.html.
+
+    This button is therefore intentionally
+    left as the connection point.
+
+    Once the real payment destination exists,
+    replace the alert below with:
+
+    window.location.href = "YOUR_PAYMENT_URL";
+*/
+
+
+continueButton.addEventListener(
+    "click",
+    function() {
+
+        const selected =
+            document.querySelector(
+                'input[name="membership"]:checked'
+            );
+
+        if (!selected) return;
+
+
+        if (selected.value === "executive") {
+
+            alert(
+                "Society Executive selected — $20/month. Connect this button to the Executive payment checkout."
+            );
+
+        } else {
+
+            alert(
+                "Society Member selected — $10/month. Connect this button to the Member payment checkout."
+            );
+
+        }
+
+    }
+);
+
+
+updatePlan();
+
+</script>
 
 </body>
-
 </html>
