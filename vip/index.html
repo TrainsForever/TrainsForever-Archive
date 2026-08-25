@@ -3,91 +3,672 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Society Membership | TrainsForever</title>
-
-    <link rel="stylesheet" href="style.css">
+    <title>TrainsForever Society | Membership</title>
+    <style>
+        /* =========================================
+           TRAINSFOREVER SOCIETY
+           SINGLE-FILE VIP PAGE
+           ========================================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 50% 0%, #292929 0%, #111111 42%, #050505 100%);
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+        button {
+            font-family: inherit;
+        }
+        /* =========================================
+           BACKGROUND ATMOSPHERE
+           ========================================= */
+        .rail-glow {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(212, 175, 55, 0.07),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 85% 65%,
+                    rgba(212, 175, 55, 0.05),
+                    transparent 32%
+                );
+            z-index: -3;
+        }
+        .rail-lines {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.055;
+            z-index: -2;
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0,
+                    transparent 79px,
+                    #ffffff 80px,
+                    transparent 81px
+                );
+        }
+        /* =========================================
+           HERO
+           ========================================= */
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+        }
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: min(80%, 900px);
+            height: 1px;
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #d4af37,
+                    transparent
+                );
+        }
+        .hero-badge {
+            color: #d4af37;
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            padding: 10px 22px;
+            letter-spacing: 4px;
+            font-size: 11px;
+            margin-bottom: 30px;
+        }
+        .hero h1 {
+            font-size: clamp(48px, 9vw, 110px);
+            line-height: 0.9;
+            letter-spacing: -4px;
+            font-weight: 900;
+        }
+        .hero h1 span {
+            color: #d4af37;
+            text-shadow:
+                0 0 25px rgba(212, 175, 55, 0.25);
+        }
+        .hero-subtitle {
+            max-width: 680px;
+            color: #aaaaaa;
+            line-height: 1.7;
+            font-size: 17px;
+            margin-top: 30px;
+        }
+        .hero-status {
+            margin-top: 35px;
+            color: #bbbbbb;
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #55d66b;
+            border-radius: 50%;
+            margin-right: 8px;
+            box-shadow: 0 0 12px #55d66b;
+        }
+        /* =========================================
+           GENERAL SECTIONS
+           ========================================= */
+        section {
+            width: min(1400px, 100%);
+            margin: auto;
+            padding: 110px 20px;
+        }
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+        .section-heading > span,
+        .monthly-header > span {
+            color: #d4af37;
+            font-size: 11px;
+            letter-spacing: 4px;
+            font-weight: bold;
+        }
+        .section-heading h2,
+        .monthly-header h2 {
+            font-size: clamp(32px, 5vw, 60px);
+            margin: 12px 0;
+        }
+        .section-heading p,
+        .monthly-header p {
+            color: #888888;
+            line-height: 1.7;
+        }
+        /* =========================================
+           LIVE SOCIETY
+           ========================================= */
+        .live-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        .live-card {
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+        .live-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+        .live-icon {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+        .live-card strong {
+            display: block;
+            font-size: 42px;
+        }
+        .live-card span {
+            display: block;
+            color: #888888;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .ghost-card {
+            border-color: rgba(160, 160, 160, 0.15);
+        }
+        .live-note {
+            text-align: center;
+            color: #666666;
+            margin-top: 25px;
+            font-size: 13px;
+        }
+        /* =========================================
+           MEMBERSHIP
+           ========================================= */
+        .membership-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            align-items: stretch;
+        }
+        .membership-card {
+            position: relative;
+            padding: 35px;
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            min-height: 720px;
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+        .membership-card:hover {
+            transform: translateY(-8px);
+        }
+        .visitor-card {
+            border-color: rgba(255, 255, 255, 0.08);
+        }
+        .member-card {
+            border-color: rgba(212, 175, 55, 0.45);
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(212, 175, 55, 0.08),
+                    rgba(255, 255, 255, 0.025)
+                );
+        }
+        .executive-card {
+            border-color: rgba(212, 175, 55, 0.75);
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(212, 175, 55, 0.14),
+                    rgba(255, 255, 255, 0.025)
+                );
+            box-shadow:
+                0 0 50px rgba(212, 175, 55, 0.08);
+        }
+        .popular-badge,
+        .executive-ribbon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 9px;
+            font-size: 10px;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+        .popular-badge {
+            background: #d4af37;
+            color: #000000;
+        }
+        .executive-ribbon {
+            background: #1d1d1d;
+            color: #d4af37;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.5);
+        }
+        .card-top {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+        .tier-icon {
+            font-size: 38px;
+        }
+        .tier-label {
+            display: block;
+            font-size: 9px;
+            color: #777777;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+        .card-top h3 {
+            font-size: 25px;
+        }
+        .price {
+            font-size: 65px;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+        .price span {
+            font-size: 25px;
+            color: #d4af37;
+            vertical-align: top;
+        }
+        .price small {
+            font-size: 12px;
+            color: #777777;
+            font-weight: normal;
+        }
+        .tier-description {
+            color: #999999;
+            line-height: 1.6;
+            min-height: 55px;
+        }
+        .feature-title {
+            margin: 25px 0 12px;
+            color: #d4af37;
+            font-size: 10px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+        .features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        .features li {
+            padding: 7px 0;
+            color: #bbbbbb;
+            font-size: 13px;
+        }
+        .features li::before {
+            content: "✓";
+            color: #d4af37;
+            margin-right: 9px;
+        }
+        .features .highlight {
+            color: #ffffff;
+            font-weight: bold;
+        }
+        .locked-features,
+        .restriction {
+            margin-top: auto;
+            padding: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #777777;
+            font-size: 12px;
+        }
+        .restriction {
+            color: #999999;
+            border-color: rgba(212, 175, 55, 0.2);
+        }
+        .executive-callout {
+            margin-top: auto;
+            padding: 18px;
+            border-left: 2px solid #d4af37;
+            background: rgba(212, 175, 55, 0.06);
+        }
+        .executive-callout strong {
+            color: #d4af37;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+        .executive-callout p {
+            color: #999999;
+            font-size: 12px;
+            line-height: 1.6;
+            margin-top: 7px;
+        }
+        /* =========================================
+           BUTTONS
+           ========================================= */
+        .tier-button,
+        .cta-buttons button {
+            border: none;
+            cursor: pointer;
+            font-weight: 900;
+            letter-spacing: 1px;
+            transition: 0.25s ease;
+        }
+        .tier-button {
+            width: 100%;
+            padding: 18px;
+            margin-top: 20px;
+            background: transparent;
+            border: 1px solid #444444;
+            color: #ffffff;
+        }
+        .tier-button span {
+            opacity: 0.65;
+        }
+        .tier-button:hover {
+            transform: translateY(-2px);
+        }
+        .member-button {
+            background: #d4af37;
+            color: #000000;
+            border-color: #d4af37;
+        }
+        .member-button:hover {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+        }
+        .executive-button {
+            background: #d4af37;
+            color: #000000;
+            border-color: #d4af37;
+            box-shadow:
+                0 0 25px rgba(212, 175, 55, 0.12);
+        }
+        .executive-button:hover {
+            box-shadow:
+                0 0 35px rgba(212, 175, 55, 0.35);
+        }
+        /* =========================================
+           MONTHLY DROP
+           ========================================= */
+        .monthly-section {
+            max-width: 1200px;
+        }
+        .monthly-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+        .drop-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        .drop-card {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .drop-card > span {
+            font-size: 30px;
+        }
+        .drop-card h3 {
+            margin: 18px 0 10px;
+        }
+        .drop-card p {
+            color: #888888;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+        .executive-drop {
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+        /* =========================================
+           WHY JOIN
+           ========================================= */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px 30px;
+        }
+        .why-grid > div {
+            text-align: center;
+        }
+        .why-grid span {
+            font-size: 30px;
+        }
+        .why-grid h3 {
+            color: #d4af37;
+            letter-spacing: 2px;
+            font-size: 13px;
+            margin: 15px 0 10px;
+        }
+        .why-grid p {
+            color: #777777;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+        /* =========================================
+           FINAL CTA
+           ========================================= */
+        .final-cta {
+            text-align: center;
+            max-width: 1000px;
+            position: relative;
+        }
+        .cta-ghost {
+            font-size: 55px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        .final-cta > span {
+            color: #777777;
+            font-size: 10px;
+            letter-spacing: 4px;
+        }
+        .final-cta h2 {
+            font-size: clamp(45px, 8vw, 90px);
+            line-height: 0.95;
+            margin: 20px 0;
+        }
+        .final-cta h2 strong {
+            color: #d4af37;
+        }
+        .final-cta p {
+            color: #888888;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 35px;
+        }
+        .cta-buttons button {
+            padding: 18px 30px;
+        }
+        .cta-member,
+        .cta-executive {
+            background: #d4af37;
+            color: #000000;
+        }
+        .cta-buttons button:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 0 30px rgba(212, 175, 55, 0.25);
+        }
+        /* =========================================
+           FOOTER
+           ========================================= */
+        footer {
+            text-align: center;
+            padding: 70px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            color: #555555;
+        }
+        .footer-logo {
+            color: #ffffff;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+        .footer-logo span {
+            color: #d4af37;
+        }
+        footer p {
+            margin: 10px 0;
+        }
+        footer small {
+            color: #444444;
+        }
+        /* =========================================
+           TABLET
+           ========================================= */
+        @media (max-width: 950px) {
+            .live-grid,
+            .drop-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .membership-grid {
+                grid-template-columns: 1fr;
+                max-width: 650px;
+                margin: auto;
+            }
+            .membership-card {
+                min-height: auto;
+            }
+            .member-card {
+                order: 1;
+            }
+            .executive-card {
+                order: 2;
+            }
+            .visitor-card {
+                order: 3;
+            }
+        }
+        /* =========================================
+           MOBILE
+           ========================================= */
+        @media (max-width: 650px) {
+            .hero {
+                min-height: 75vh;
+                padding: 60px 18px;
+            }
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+            .hero-subtitle {
+                font-size: 15px;
+            }
+            section {
+                padding: 75px 16px;
+            }
+            .live-grid,
+            .drop-grid,
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+            .membership-card {
+                padding: 28px 22px;
+            }
+            .price {
+                font-size: 55px;
+            }
+            .cta-buttons {
+                flex-direction: column;
+            }
+            .cta-buttons button {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
-
 <body>
-
-    <!-- Background atmosphere -->
+    <!-- =========================================
+         BACKGROUND
+         ========================================= -->
     <div class="rail-glow"></div>
     <div class="rail-lines"></div>
-
-    <!-- HERO -->
+    <!-- =========================================
+         HERO
+         ========================================= -->
     <header class="hero">
-
         <div class="hero-badge">
-            TRAINFOREVER SOCIETY
+            TRAINSFOREVER SOCIETY
         </div>
-
         <h1>
             BECOME PART OF<br>
             <span>THE SOCIETY</span>
         </h1>
-
         <p class="hero-subtitle">
-            A premium community built for railfans who want
-            more than simply watching from the sidelines.
+            A premium railroad community built for railfans
+            who want more than simply watching from the sidelines.
         </p>
-
         <div class="hero-status">
             <span class="status-dot"></span>
             THE SOCIETY IS ACTIVE
         </div>
-
     </header>
-
-
-    <!-- LIVE SOCIETY -->
+    <!-- =========================================
+         LIVE SOCIETY
+         ========================================= -->
     <section class="live-section">
-
         <div class="section-heading">
             <span>LIVE</span>
             <h2>The Society Right Now</h2>
-            <p>See the activity happening inside the Society.</p>
+            <p>
+                See the activity happening inside the Society.
+            </p>
         </div>
-
         <div class="live-grid">
-
             <div class="live-card">
                 <div class="live-icon">🟢</div>
                 <strong>14</strong>
                 <span>Members Online</span>
             </div>
-
             <div class="live-card ghost-card">
                 <div class="live-icon">👻</div>
                 <strong>3</strong>
                 <span>Ghost Visitors</span>
             </div>
-
             <div class="live-card">
                 <div class="live-icon">💬</div>
                 <strong>6</strong>
                 <span>Active Conversations</span>
             </div>
-
             <div class="live-card">
                 <div class="live-icon">🏆</div>
                 <strong>4</strong>
                 <span>Challenges Active</span>
             </div>
-
         </div>
-
         <p class="live-note">
             Ghost Visitors can see the Society is alive.
             Members get to actually participate.
         </p>
-
     </section>
-
-
-    <!-- MEMBERSHIP -->
+    <!-- =========================================
+         MEMBERSHIP
+         ========================================= -->
     <section class="membership-section">
-
         <div class="section-heading">
             <span>MEMBERSHIP</span>
             <h2>Choose Your Place</h2>
@@ -96,358 +677,420 @@
                 Choose the level that fits you.
             </p>
         </div>
-
-
         <div class="membership-grid">
-
-
-            <!-- VISITOR -->
+            <!-- =====================================
+                 GHOST VISITOR
+                 ===================================== -->
             <article class="membership-card visitor-card">
-
                 <div class="card-top">
-                    <div class="tier-icon">👻</div>
-
+                    <div class="tier-icon">
+                        👻
+                    </div>
                     <div>
-                        <span class="tier-label">OUTSIDE THE SOCIETY</span>
-                        <h3>Ghost Visitor</h3>
+                        <span class="tier-label">
+                            OUTSIDE THE SOCIETY
+                        </span>
+                        <h3>
+                            Ghost Visitor
+                        </h3>
                     </div>
                 </div>
-
                 <div class="price">
                     <span>$</span>0
                     <small>forever</small>
                 </div>
-
                 <p class="tier-description">
                     You're allowed to look around.
                     You're just not inside yet.
                 </p>
-
                 <div class="feature-title">
                     VISITOR ACCESS
                 </div>
-
                 <ul class="features">
-                    <li>Public Society pages</li>
-                    <li>Limited activity previews</li>
-                    <li>See when the Society is active</li>
-                    <li>View membership information</li>
+                    <li>
+                        Public Society pages
+                    </li>
+                    <li>
+                        Limited activity previews
+                    </li>
+                    <li>
+                        See when the Society is active
+                    </li>
+                    <li>
+                        View membership information
+                    </li>
                 </ul>
-
                 <div class="locked-features">
-                    <span>🔒</span>
-                    No member privileges
+                    🔒 No member privileges
                 </div>
-
-                <button class="tier-button visitor-button">
+                <button
+                    class="tier-button visitor-button"
+                    type="button"
+                >
                     I'M JUST LOOKING
                 </button>
-
             </article>
-
-
-            <!-- MEMBER -->
-            <article class="membership-card member-card featured">
-
+            <!-- =====================================
+                 SOCIETY MEMBER
+                 ===================================== -->
+            <article class="membership-card member-card">
                 <div class="popular-badge">
                     MOST POPULAR
                 </div>
-
                 <div class="card-top">
-                    <div class="tier-icon">🚂</div>
-
+                    <div class="tier-icon">
+                        🚂
+                    </div>
                     <div>
-                        <span class="tier-label">SOCIETY MEMBERSHIP</span>
-                        <h3>Society Member</h3>
+                        <span class="tier-label">
+                            SOCIETY MEMBERSHIP
+                        </span>
+                        <h3>
+                            Society Member
+                        </h3>
                     </div>
                 </div>
-
                 <div class="price">
                     <span>$</span>10
                     <small>/ month</small>
                 </div>
-
                 <p class="tier-description">
                     Become an official member of the
                     TrainsForever Society.
                 </p>
-
                 <div class="feature-title">
                     MEMBER ACCESS
                 </div>
-
                 <ul class="features">
-                    <li>Full Society access</li>
-                    <li>Member profile</li>
-                    <li>Member Directory</li>
-                    <li>Personal Badge Locker</li>
-                    <li>Respect & Disrespect system</li>
-                    <li>Society Lounge chat</li>
-                    <li>Challenges & competitions</li>
-                    <li>Member polls</li>
-                    <li>Member events</li>
-                    <li>Photo sharing</li>
-                    <li>Activity feed</li>
-                    <li>Member achievements</li>
-                    <li>Leaderboards</li>
-                    <li>Monthly member rewards</li>
-                    <li>Exclusive member badges</li>
+                    <li>
+                        Full Society access
+                    </li>
+                    <li>
+                        Member profile
+                    </li>
+                    <li>
+                        Member Directory
+                    </li>
+                    <li>
+                        Personal Badge Locker
+                    </li>
+                    <li>
+                        Respect & Disrespect system
+                    </li>
+                    <li>
+                        Society Lounge chat
+                    </li>
+                    <li>
+                        Challenges & competitions
+                    </li>
+                    <li>
+                        Member polls
+                    </li>
+                    <li>
+                        Member events
+                    </li>
+                    <li>
+                        Photo sharing
+                    </li>
+                    <li>
+                        Activity feed
+                    </li>
+                    <li>
+                        Member achievements
+                    </li>
+                    <li>
+                        Leaderboards
+                    </li>
+                    <li>
+                        Monthly member rewards
+                    </li>
+                    <li>
+                        Exclusive member badges
+                    </li>
                 </ul>
-
                 <div class="restriction">
-                    <span>🎥</span>
-                    Video uploads are reserved for Executives.
+                    🎥 Video uploads are reserved
+                    for Society Executives.
                 </div>
-
-                <button class="tier-button member-button">
+                <button
+                    class="tier-button member-button"
+                    type="button"
+                >
                     JOIN THE SOCIETY
                     <span>— $10 / MONTH</span>
                 </button>
-
             </article>
-
-
-            <!-- EXECUTIVE -->
+            <!-- =====================================
+                 SOCIETY EXECUTIVE
+                 ===================================== -->
             <article class="membership-card executive-card">
-
                 <div class="executive-ribbon">
                     EXECUTIVE LEVEL
                 </div>
-
                 <div class="card-top">
-                    <div class="tier-icon">👑</div>
-
+                    <div class="tier-icon">
+                        👑
+                    </div>
                     <div>
-                        <span class="tier-label">PREMIUM MEMBERSHIP</span>
-                        <h3>Society Executive</h3>
+                        <span class="tier-label">
+                            PREMIUM MEMBERSHIP
+                        </span>
+                        <h3>
+                            Society Executive
+                        </h3>
                     </div>
                 </div>
-
                 <div class="price">
                     <span>$</span>20
                     <small>/ month</small>
                 </div>
-
                 <p class="tier-description">
                     Lead from inside the Society.
                     Unlock the Executive level.
                 </p>
-
                 <div class="feature-title">
                     EVERYTHING IN MEMBER
                 </div>
-
                 <ul class="features">
-                    <li>Everything in Society Member</li>
-                    <li class="highlight">🎥 Video uploads</li>
-                    <li class="highlight">🎥 Video Archive contributions</li>
-                    <li>Executive-only Lounge areas</li>
-                    <li>Executive events</li>
-                    <li>Executive challenges</li>
-                    <li>Executive badges</li>
-                    <li>Executive titles</li>
-                    <li>Premium collectibles</li>
-                    <li>Enhanced monthly rewards</li>
-                    <li>Exclusive activities</li>
-                    <li>Early access to selected features</li>
-                    <li>Executive recognition</li>
-                    <li>Executive-only polls</li>
-                    <li>Monthly Executive Drop</li>
+                    <li>
+                        Everything in Society Member
+                    </li>
+                    <li class="highlight">
+                        🎥 Video uploads
+                    </li>
+                    <li class="highlight">
+                        🎥 Video Archive contributions
+                    </li>
+                    <li>
+                        Executive-only Lounge areas
+                    </li>
+                    <li>
+                        Executive events
+                    </li>
+                    <li>
+                        Executive challenges
+                    </li>
+                    <li>
+                        Executive badges
+                    </li>
+                    <li>
+                        Executive titles
+                    </li>
+                    <li>
+                        Premium collectibles
+                    </li>
+                    <li>
+                        Enhanced monthly rewards
+                    </li>
+                    <li>
+                        Exclusive activities
+                    </li>
+                    <li>
+                        Early access to selected features
+                    </li>
+                    <li>
+                        Executive recognition
+                    </li>
+                    <li>
+                        Executive-only polls
+                    </li>
+                    <li>
+                        Monthly Executive Drop
+                    </li>
                 </ul>
-
                 <div class="executive-callout">
-                    <strong>🎥 THE VIDEO ARCHIVE</strong>
+                    <strong>
+                        🎥 THE VIDEO ARCHIVE
+                    </strong>
                     <p>
                         Executives can upload and contribute
                         videos to the TrainsForever Society archive.
                     </p>
                 </div>
-
-                <button class="tier-button executive-button">
+                <button
+                    class="tier-button executive-button"
+                    type="button"
+                >
                     BECOME AN EXECUTIVE
                     <span>— $20 / MONTH</span>
                 </button>
-
             </article>
-
         </div>
-
     </section>
-
-
-    <!-- MONTHLY DROP -->
+    <!-- =========================================
+         MONTHLY DROP
+         ========================================= -->
     <section class="monthly-section">
-
         <div class="monthly-header">
             <span>THIS MONTH</span>
-            <h2>The Society Drop</h2>
+            <h2>
+                The Society Drop
+            </h2>
             <p>
                 Every month brings something new to the Society.
             </p>
         </div>
-
         <div class="drop-grid">
-
             <div class="drop-card">
                 <span>🏅</span>
-                <h3>Member Badge</h3>
+                <h3>
+                    Member Badge
+                </h3>
                 <p>
                     A limited Society badge available
                     during this month's membership cycle.
                 </p>
             </div>
-
             <div class="drop-card">
                 <span>🚂</span>
-                <h3>Railroad Challenge</h3>
+                <h3>
+                    Railroad Challenge
+                </h3>
                 <p>
                     Compete with other members
                     throughout the month.
                 </p>
             </div>
-
             <div class="drop-card">
                 <span>🎟️</span>
-                <h3>Society Event</h3>
+                <h3>
+                    Society Event
+                </h3>
                 <p>
                     Take part in a special monthly
                     Society experience.
                 </p>
             </div>
-
             <div class="drop-card executive-drop">
                 <span>👑</span>
-                <h3>Executive Drop</h3>
+                <h3>
+                    Executive Drop
+                </h3>
                 <p>
                     A special monthly reward reserved
                     for Society Executives.
                 </p>
             </div>
-
         </div>
-
     </section>
-
-
-    <!-- WHY JOIN -->
+    <!-- =========================================
+         WHY JOIN
+         ========================================= -->
     <section class="why-section">
-
         <div class="section-heading">
             <span>WHY JOIN?</span>
-            <h2>More Than A Membership</h2>
+            <h2>
+                More Than A Membership
+            </h2>
         </div>
-
         <div class="why-grid">
-
             <div>
                 <span>🏆</span>
-                <h3>COMPETE</h3>
+                <h3>
+                    COMPETE
+                </h3>
                 <p>
                     Challenges, trivia, events and
                     Society competitions.
                 </p>
             </div>
-
             <div>
                 <span>🎖️</span>
-                <h3>COLLECT</h3>
+                <h3>
+                    COLLECT
+                </h3>
                 <p>
                     Earn badges and build your
                     personal Badge Locker.
                 </p>
             </div>
-
             <div>
                 <span>💬</span>
-                <h3>CONNECT</h3>
+                <h3>
+                    CONNECT
+                </h3>
                 <p>
                     Meet other railfans inside
                     the Society.
                 </p>
             </div>
-
             <div>
                 <span>📸</span>
-                <h3>SHARE</h3>
+                <h3>
+                    SHARE
+                </h3>
                 <p>
                     Share catches, photos and,
                     for Executives, videos.
                 </p>
             </div>
-
             <div>
                 <span>⭐</span>
-                <h3>ACHIEVE</h3>
+                <h3>
+                    ACHIEVE
+                </h3>
                 <p>
                     Build Respect, earn recognition,
                     and climb the rankings.
                 </p>
             </div>
-
             <div>
                 <span>🚂</span>
-                <h3>BELONG</h3>
+                <h3>
+                    BELONG
+                </h3>
                 <p>
                     Become part of the TrainsForever
                     Society.
                 </p>
             </div>
-
         </div>
-
     </section>
-
-
-    <!-- FINAL CTA -->
+    <!-- =========================================
+         FINAL CTA
+         ========================================= -->
     <section class="final-cta">
-
         <div class="cta-ghost">
             👻
         </div>
-
-        <span>YOU'RE ONLY A GHOST UNTIL YOU JOIN.</span>
-
+        <span>
+            YOU'RE ONLY A GHOST UNTIL YOU JOIN.
+        </span>
         <h2>
             The Society<br>
             <strong>is waiting.</strong>
         </h2>
-
         <p>
             Choose your membership and step inside.
         </p>
-
         <div class="cta-buttons">
-
-            <button class="cta-member">
+            <button
+                class="cta-member"
+                type="button"
+            >
                 JOIN — $10 / MONTH
             </button>
-
-            <button class="cta-executive">
+            <button
+                class="cta-executive"
+                type="button"
+            >
                 GO EXECUTIVE — $20 / MONTH
             </button>
-
         </div>
-
     </section>
-
-
-    <!-- FOOTER -->
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
     <footer>
-
         <div class="footer-logo">
             TRAINS<span>FOREVER</span>
         </div>
-
         <p>
             The TrainsForever Society
         </p>
-
         <small>
             Membership is required for Society participation.
         </small>
-
     </footer>
-
-
 </body>
 </html>
