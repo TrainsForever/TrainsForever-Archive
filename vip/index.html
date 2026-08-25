@@ -917,13 +917,153 @@
             </article>
         </div>
     </section>
-    <section class="member-society-features">
+    <style>
+  .member-society-features {
+    width: 100%;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 28px 20px;
+    box-sizing: border-box;
+    background: #111;
+    border: 1px solid #2b2b2b;
+    border-radius: 18px;
+    color: #fff;
+  }
+
+  .member-society-features .section-header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .member-society-features .section-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #d4af37;
+  }
+
+  .member-society-features h2 {
+    margin: 0 0 10px;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #fff;
+  }
+
+  .member-society-features .section-header p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #aaa;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .member-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .member-feature-card {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    background: #181818;
+    border: 1px solid #303030;
+    border-radius: 14px;
+    box-sizing: border-box;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+
+  .member-feature-card:hover {
+    transform: translateY(-3px);
+    border-color: #d4af37;
+  }
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #222;
+    border: 1px solid #3a3a3a;
+    color: #d4af37;
+    font-size: 22px;
+  }
+
+  .feature-content {
+    flex: 1;
+  }
+
+  .feature-tag {
+    display: inline-block;
+    margin-bottom: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #d4af37;
+  }
+
+  .feature-content h3 {
+    margin: 0 0 7px;
+    font-size: 19px;
+    color: #fff;
+  }
+
+  .feature-content p {
+    margin: 0 0 14px;
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .feature-status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: #242424;
+    border: 1px solid #3a3a3a;
+    color: #ccc;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 700px) {
+    .member-society-features {
+      margin: 25px auto;
+      padding: 22px 15px;
+      border-radius: 14px;
+    }
+
+    .member-society-features h2 {
+      font-size: 25px;
+    }
+
+    .member-feature-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .member-feature-card {
+      padding: 17px;
+    }
+  }
+</style>
+
+<section class="member-society-features">
+
   <div class="section-header">
-    <span class="section-label">TRAILSFOREVER SOCIETY</span>
+    <span class="section-label">TRAINSFOREVER SOCIETY</span>
+
     <h2>Member Society Features</h2>
+
     <p>
-      Exclusive features and experiences available to members of the
-      TrainsForever Society.
+      Special features and experiences created exclusively
+      for members of the TrainsForever Society.
     </p>
   </div>
 
@@ -931,57 +1071,77 @@
 
     <article class="member-feature-card">
       <div class="feature-icon">★</div>
+
       <div class="feature-content">
         <span class="feature-tag">MEMBERS ONLY</span>
+
         <h3>Member Society Feature</h3>
+
         <p>
-          Special Society features and experiences created exclusively
-          for members.
+          Special Society features and experiences created
+          exclusively for members.
         </p>
+
         <span class="feature-status">COMING SOON</span>
       </div>
     </article>
 
+
     <article class="member-feature-card">
       <div class="feature-icon">🏆</div>
+
       <div class="feature-content">
         <span class="feature-tag">ACHIEVEMENTS</span>
+
         <h3>Member Badges</h3>
+
         <p>
-          Earn badges by participating in the Society and completing
-          special achievements.
+          Earn badges by participating in the Society and
+          completing special achievements.
         </p>
+
         <span class="feature-status">AVAILABLE</span>
       </div>
     </article>
+
 
     <article class="member-feature-card">
       <div class="feature-icon">🤝</div>
+
       <div class="feature-content">
         <span class="feature-tag">COMMUNITY</span>
+
         <h3>Member Directory</h3>
+
         <p>
-          Explore Society members, their profiles, badges, and
-          community achievements.
+          Explore Society members, their profiles, badges,
+          and community achievements.
         </p>
+
         <span class="feature-status">AVAILABLE</span>
       </div>
     </article>
 
+
     <article class="member-feature-card">
       <div class="feature-icon">🎖️</div>
+
       <div class="feature-content">
         <span class="feature-tag">RECOGNITION</span>
+
         <h3>Society Recognition</h3>
+
         <p>
-          Members can earn recognition for participation, achievements,
-          and contributions to the Society.
+          Members can earn recognition for participation,
+          achievements, and contributions to the Society.
         </p>
+
         <span class="feature-status">COMING SOON</span>
       </div>
     </article>
 
   </div>
+
 </section>
     <!-- =========================================
          WHY JOIN
