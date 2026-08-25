@@ -8,372 +8,1536 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Welcome to the VIP Society | TrainsForever Museum</title>
+    <title>Welcome to the Society | TrainsForever</title>
 
-    <link rel="stylesheet" href="../style.css">
+
+    <style>
+
+        /* =====================================================
+           TRAINSFOREVER SOCIETY
+           WELCOME PAGE
+           SINGLE-FILE HTML + CSS
+        ===================================================== */
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 50% -10%,
+                    #383019 0%,
+                    #181818 32%,
+                    #080808 72%,
+                    #030303 100%
+                );
+
+            color: #ffffff;
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            overflow-x: hidden;
+
+        }
+
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: 0.055;
+
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0,
+                    transparent 79px,
+                    #ffffff 80px,
+                    transparent 81px
+                );
+
+            z-index: -2;
+
+        }
+
+
+        body::after {
+
+            content: "";
+
+            position: fixed;
+
+            width: 700px;
+
+            height: 700px;
+
+            top: -350px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(212,175,55,.18),
+                    transparent 68%
+                );
+
+            pointer-events: none;
+
+            z-index: -1;
+
+        }
+
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
+
+        .page {
+
+            width: min(1200px, 100%);
+
+            margin: auto;
+
+            padding:
+                20px
+                18px
+                80px;
+
+        }
+
+
+        /* =====================================================
+           TOP BAR
+        ===================================================== */
+
+
+        .topbar {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding:
+                10px
+                0
+                30px;
+
+        }
+
+
+        .back-link {
+
+            color: #888;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+
+            transition: .25s;
+
+        }
+
+
+        .back-link:hover {
+
+            color: #d4af37;
+
+        }
+
+
+        .society-label {
+
+            color: #555;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+
+        .hero {
+
+            min-height: 78vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding:
+                60px
+                10px
+                80px;
+
+            position: relative;
+
+        }
+
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            bottom: 0;
+
+            width: min(850px, 85%);
+
+            height: 1px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #d4af37,
+                    transparent
+                );
+
+        }
+
+
+        .hero-symbol {
+
+            width: 105px;
+
+            height: 105px;
+
+            border:
+                1px solid
+                rgba(212,175,55,.55);
+
+            border-radius: 50%;
+
+            display: grid;
+
+            place-items: center;
+
+            font-size: 48px;
+
+            margin-bottom: 30px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(212,175,55,.13),
+                    rgba(255,255,255,.015)
+                );
+
+            box-shadow:
+                0 0 60px
+                rgba(212,175,55,.08);
+
+        }
+
+
+        .eyebrow {
+
+            color: #d4af37;
+
+            font-size: 10px;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(45px, 9vw, 100px);
+
+            line-height: .88;
+
+            letter-spacing: -4px;
+
+            font-weight: 900;
+
+        }
+
+
+        .hero h1 span {
+
+            color: #d4af37;
+
+            text-shadow:
+                0 0 35px
+                rgba(212,175,55,.22);
+
+        }
+
+
+        .hero-message {
+
+            max-width: 650px;
+
+            color: #999;
+
+            line-height: 1.75;
+
+            font-size: 16px;
+
+            margin-top: 28px;
+
+        }
+
+
+        .active-status {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            margin-top: 30px;
+
+            padding:
+                10px
+                17px;
+
+            border:
+                1px solid
+                rgba(85,214,107,.25);
+
+            background:
+                rgba(85,214,107,.035);
+
+            color: #999;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .active-dot {
+
+            width: 7px;
+
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #55d66b;
+
+            box-shadow:
+                0 0 12px
+                #55d66b;
+
+        }
+
+
+        /* =====================================================
+           MEMBERSHIP STATUS
+        ===================================================== */
+
+
+        .status-section {
+
+            padding:
+                100px
+                0
+                30px;
+
+        }
+
+
+        .section-heading {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .section-heading span {
+
+            color: #d4af37;
+
+            font-size: 10px;
+
+            letter-spacing: 4px;
+
+        }
+
+
+        .section-heading h2 {
+
+            font-size:
+                clamp(32px, 6vw, 58px);
+
+            margin-top: 10px;
+
+        }
+
+
+        .section-heading p {
+
+            color: #777;
+
+            font-size: 13px;
+
+            margin-top: 12px;
+
+        }
+
+
+        .membership-status {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 20px;
+
+        }
+
+
+        .status-card {
+
+            position: relative;
+
+            padding: 35px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.09);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.05),
+                    rgba(255,255,255,.015)
+                );
+
+            transition: .3s;
+
+        }
+
+
+        .status-card:hover {
+
+            transform:
+                translateY(-6px);
+
+            border-color:
+                rgba(212,175,55,.4);
+
+        }
+
+
+        .status-card.executive {
+
+            border-color:
+                rgba(212,175,55,.6);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(212,175,55,.11),
+                    rgba(255,255,255,.018)
+                );
+
+        }
+
+
+        .status-icon {
+
+            font-size: 42px;
+
+            margin-bottom: 22px;
+
+        }
+
+
+        .status-tier {
+
+            color: #777;
+
+            font-size: 9px;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .status-card h3 {
+
+            font-size: 28px;
+
+            margin:
+                8px
+                0
+                12px;
+
+        }
+
+
+        .status-card.executive h3 {
+
+            color: #d4af37;
+
+        }
+
+
+        .status-description {
+
+            color: #888;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .status-badge {
+
+            display: inline-block;
+
+            margin-top: 22px;
+
+            padding:
+                8px
+                13px;
+
+            background:
+                rgba(212,175,55,.08);
+
+            border:
+                1px solid
+                rgba(212,175,55,.25);
+
+            color: #d4af37;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        /* =====================================================
+           FEATURES
+        ===================================================== */
+
+
+        .features-section {
+
+            padding:
+                100px
+                0;
+
+        }
+
+
+        .feature-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .feature {
+
+            padding: 28px;
+
+            min-height: 220px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+
+            background:
+                rgba(255,255,255,.025);
+
+        }
+
+
+        .feature.executive-feature {
+
+            border-color:
+                rgba(212,175,55,.35);
+
+            background:
+                rgba(212,175,55,.045);
+
+        }
+
+
+        .feature-icon {
+
+            font-size: 30px;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .feature h3 {
+
+            font-size: 16px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .feature p {
+
+            color: #777;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .feature-tag {
+
+            display: inline-block;
+
+            margin-top: 18px;
+
+            color: #d4af37;
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        /* =====================================================
+           EXECUTIVE SPOTLIGHT
+        ===================================================== */
+
+
+        .executive-section {
+
+            margin:
+                20px
+                0
+                100px;
+
+            padding:
+                55px
+                40px;
+
+            text-align: center;
+
+            border:
+                1px solid
+                rgba(212,175,55,.5);
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(212,175,55,.12),
+                    transparent 65%
+                );
+
+            box-shadow:
+                0 0 70px
+                rgba(212,175,55,.05);
+
+        }
+
+
+        .executive-crown {
+
+            font-size: 48px;
+
+        }
+
+
+        .executive-section .eyebrow {
+
+            display: block;
+
+            margin-top: 20px;
+
+        }
+
+
+        .executive-section h2 {
+
+            font-size:
+                clamp(32px, 6vw, 65px);
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .executive-section h2 span {
+
+            color: #d4af37;
+
+        }
+
+
+        .executive-section p {
+
+            max-width: 650px;
+
+            margin:
+                auto;
+
+            color: #888;
+
+            line-height: 1.8;
+
+            font-size: 13px;
+
+        }
+
+
+        .executive-perk {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin-top: 28px;
+
+            padding:
+                15px
+                22px;
+
+            border:
+                1px solid
+                rgba(212,175,55,.35);
+
+            color: #d4af37;
+
+            font-size: 11px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        /* =====================================================
+           SOCIETY JOURNEY
+        ===================================================== */
+
+
+        .journey {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 10px;
+
+            margin:
+                70px
+                0
+                100px;
+
+        }
+
+
+        .journey-step {
+
+            text-align: center;
+
+            padding: 25px 10px;
+
+        }
+
+
+        .journey-number {
+
+            width: 42px;
+
+            height: 42px;
+
+            margin:
+                auto
+                14px;
+
+            border:
+                1px solid
+                #444;
+
+            border-radius: 50%;
+
+            display: grid;
+
+            place-items: center;
+
+            color: #d4af37;
+
+            font-weight: 900;
+
+        }
+
+
+        .journey h3 {
+
+            font-size: 12px;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .journey p {
+
+            color: #666;
+
+            font-size: 10px;
+
+            line-height: 1.5;
+
+            margin-top: 7px;
+
+        }
+
+
+        /* =====================================================
+           FINAL CTA
+        ===================================================== */
+
+
+        .final {
+
+            text-align: center;
+
+            padding:
+                100px
+                10px;
+
+        }
+
+
+        .final-symbol {
+
+            color: #d4af37;
+
+            font-size: 25px;
+
+            letter-spacing: 8px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .final h2 {
+
+            font-size:
+                clamp(40px, 8vw, 80px);
+
+            line-height: .95;
+
+        }
+
+
+        .final h2 span {
+
+            color: #d4af37;
+
+        }
+
+
+        .final p {
+
+            color: #777;
+
+            margin-top: 20px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .lounge-button {
+
+            display: inline-block;
+
+            margin-top: 32px;
+
+            padding:
+                18px
+                32px;
+
+            background: #d4af37;
+
+            color: #000;
+
+            text-decoration: none;
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            letter-spacing: 2px;
+
+            transition: .3s;
+
+        }
+
+
+        .lounge-button:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 12px 35px
+                rgba(212,175,55,.25);
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+
+        footer {
+
+            text-align: center;
+
+            padding:
+                45px
+                10px
+                20px;
+
+            border-top:
+                1px solid
+                #181818;
+
+            color: #444;
+
+            font-size: 10px;
+
+            line-height: 2;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        footer strong {
+
+            color: #777;
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+
+        @media (max-width: 850px) {
+
+            .membership-status {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .feature-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+
+            .journey {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .page {
+
+                padding:
+                    15px
+                    13px
+                    60px;
+
+            }
+
+
+            .society-label {
+
+                display: none;
+
+            }
+
+
+            .hero {
+
+                min-height: 70vh;
+
+                padding:
+                    45px
+                    5px
+                    65px;
+
+            }
+
+
+            .hero h1 {
+
+                letter-spacing: -2px;
+
+            }
+
+
+            .hero-symbol {
+
+                width: 85px;
+
+                height: 85px;
+
+                font-size: 38px;
+
+            }
+
+
+            .feature-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .journey {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+
+            .status-card {
+
+                padding: 27px;
+
+            }
+
+
+            .executive-section {
+
+                padding:
+                    45px
+                    20px;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
 
-<body class="vip-welcome-page">
+<body>
 
 
-<main class="vip-welcome-container">
+<div class="page">
 
 
-    <!-- ======================================================
-         HERO WELCOME
-    ======================================================= -->
+    <!-- =====================================================
+         TOP BAR
+    ====================================================== -->
 
-    <section class="vip-welcome-hero">
 
-        <div class="vip-crown">
-            👑
+    <div class="topbar">
+
+        <a
+            href="purchase.html"
+            class="back-link"
+        >
+            ← MEMBERSHIP
+        </a>
+
+
+        <div class="society-label">
+            TRAINSFOREVER SOCIETY
         </div>
 
-        <div class="vip-small-label">
-            TRAINSFOREVER MUSEUM
+    </div>
+
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+
+    <header class="hero">
+
+
+        <div class="hero-symbol">
+            🚂
         </div>
+
+
+        <div class="eyebrow">
+            WELCOME TO THE SOCIETY
+        </div>
+
 
         <h1>
-            Welcome to the
-            <span>VIP Society</span>
+
+            YOU'RE<br>
+
+            <span>INSIDE.</span>
+
         </h1>
 
-        <div class="vip-hero-line"></div>
 
-        <p class="vip-welcome-message">
+        <p class="hero-message">
 
-            You are officially part of something we're building
-            together.
-
-        </p>
-
-        <p class="vip-welcome-message secondary">
-
-            Thank you for supporting the museum, believing in the
-            idea, and helping us preserve railroad history.
+            Welcome to the TrainsForever Society.
+            You are officially part of the community.
 
         </p>
 
-        <div class="vip-welcome-seal">
 
-            ✦ FOUNDING VIP MEMBER ✦
+        <div class="active-status">
 
-        </div>
+            <span class="active-dot"></span>
 
-    </section>
-
-
-
-    <!-- ======================================================
-         BIG THANK YOU
-    ======================================================= -->
-
-    <section class="vip-glass-card thank-you-card">
-
-        <div class="section-icon">
-            🏛️
-        </div>
-
-        <h2>
-            You Are More Than a Member
-        </h2>
-
-        <p>
-
-            The TrainsForever Museum isn't something I want to
-            build alone.
-
-        </p>
-
-        <p>
-
-            This is <strong>our community.</strong>
-
-            Every member helps give the museum a reason to keep
-            growing, improving, and adding new things.
-
-        </p>
-
-        <p>
-
-            Your support helps make new exhibits, collectibles,
-            features, improvements, and future museum projects
-            possible.
-
-        </p>
-
-        <div class="gold-quote">
-
-            “We're not just building a museum.
-
-            We're building it together.”
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ======================================================
-         MEMBER STATUS
-    ======================================================= -->
-
-    <section class="vip-status-grid">
-
-
-        <div class="vip-status-card">
-
-            <div class="status-icon">
-                👑
-            </div>
-
-            <span class="status-label">
-                MEMBERSHIP
-            </span>
-
-            <strong>
-                ACTIVE
-            </strong>
+            MEMBERSHIP ACTIVE
 
         </div>
 
 
-        <div class="vip-status-card">
-
-            <div class="status-icon">
-                🪙
-            </div>
-
-            <span class="status-label">
-                FOUNDING COIN
-            </span>
-
-            <strong>
-                RESERVED
-            </strong>
-
-        </div>
-
-
-        <div class="vip-status-card">
-
-            <div class="status-icon">
-                🔐
-            </div>
-
-            <span class="status-label">
-                VIP ACCESS
-            </span>
-
-            <strong>
-                UNLOCKED
-            </strong>
-
-        </div>
-
-
-        <div class="vip-status-card">
-
-            <div class="status-icon">
-                🏛️
-            </div>
-
-            <span class="status-label">
-                SOCIETY
-            </span>
-
-            <strong>
-                MEMBER
-            </strong>
-
-        </div>
-
-
-    </section>
+    </header>
 
 
 
-    <!-- ======================================================
-         WHAT VIP MEMBERS GET
-    ======================================================= -->
+    <!-- =====================================================
+         MEMBERSHIP STATUS
+    ====================================================== -->
 
-    <section class="vip-glass-card">
 
-        <div class="vip-section-heading">
+    <section class="status-section">
+
+
+        <div class="section-heading">
 
             <span>
-                👑
+                YOUR MEMBERSHIP
             </span>
 
-            <div>
 
-                <div class="vip-eyebrow">
-                    YOUR MEMBERSHIP
-                </div>
+            <h2>
+                Your Place in the Society
+            </h2>
 
-                <h2>
-                    What You Get as a VIP
-                </h2>
 
-            </div>
+            <p>
+                Your membership level determines
+                the features available to you.
+            </p>
 
         </div>
 
 
-        <div class="vip-feature-grid">
+
+        <div class="membership-status">
 
 
-            <div class="vip-feature-item">
+            <!-- MEMBER -->
+
+
+            <article class="status-card">
+
+
+                <div class="status-icon">
+                    🚂
+                </div>
+
+
+                <div class="status-tier">
+                    $10 / MONTH
+                </div>
+
+
+                <h3>
+                    Society Member
+                </h3>
+
+
+                <p class="status-description">
+
+                    You're an official member of the
+                    TrainsForever Society.
+
+                    Participate, connect, collect badges,
+                    take part in challenges, and build
+                    your reputation.
+
+                </p>
+
+
+                <div class="status-badge">
+                    SOCIETY MEMBERSHIP
+                </div>
+
+
+            </article>
+
+
+
+            <!-- EXECUTIVE -->
+
+
+            <article class="status-card executive">
+
+
+                <div class="status-icon">
+                    👑
+                </div>
+
+
+                <div class="status-tier">
+                    $20 / MONTH
+                </div>
+
+
+                <h3>
+                    Society Executive
+                </h3>
+
+
+                <p class="status-description">
+
+                    Executives receive everything available
+                    to Society Members, plus access to
+                    Executive-level Society features.
+
+                </p>
+
+
+                <div class="status-badge">
+                    EXECUTIVE LEVEL
+                </div>
+
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FEATURES
+    ====================================================== -->
+
+
+    <section class="features-section">
+
+
+        <div class="section-heading">
+
+            <span>
+                YOUR ACCESS
+            </span>
+
+
+            <h2>
+                Welcome Inside
+            </h2>
+
+
+            <p>
+                The Society is built around participation.
+            </p>
+
+        </div>
+
+
+
+        <div class="feature-grid">
+
+
+            <article class="feature">
 
                 <div class="feature-icon">
                     💬
                 </div>
 
                 <h3>
-                    VIP Chat
+                    Society Lounge
                 </h3>
 
                 <p>
-
-                    A members-only chat where VIPs can talk,
-                    share ideas, ask questions, and connect
-                    with other railroad enthusiasts.
-
+                    Enter the members-only Lounge and
+                    connect with other railfans.
                 </p>
 
-                <span class="feature-status">
-                    🔓 VIP ONLY
+                <span class="feature-tag">
+                    MEMBER ACCESS
                 </span>
 
-            </div>
+            </article>
 
 
-            <div class="vip-feature-item">
+
+            <article class="feature">
 
                 <div class="feature-icon">
-                    💡
+                    🎖️
                 </div>
 
                 <h3>
-                    Shape the Museum
+                    Badge Locker
                 </h3>
 
                 <p>
-
-                    Suggest new exhibits, features, changes,
-                    improvements, and things you'd like to see
-                    added to the museum.
-
+                    Build your personal collection of
+                    Society badges and achievements.
                 </p>
 
-                <span class="feature-status">
-                    ✦ YOUR IDEAS MATTER
+                <span class="feature-tag">
+                    MEMBER ACCESS
                 </span>
 
-            </div>
+            </article>
 
 
-            <div class="vip-feature-item">
+
+            <article class="feature">
+
+                <div class="feature-icon">
+                    ⭐
+                </div>
+
+                <h3>
+                    Respect & Disrespect
+                </h3>
+
+                <p>
+                    Build your reputation through
+                    participation and interaction.
+                </p>
+
+                <span class="feature-tag">
+                    MEMBER ACCESS
+                </span>
+
+            </article>
+
+
+
+            <article class="feature">
+
+                <div class="feature-icon">
+                    🏆
+                </div>
+
+                <h3>
+                    Challenges
+                </h3>
+
+                <p>
+                    Compete in Society challenges,
+                    trivia, events, and activities.
+                </p>
+
+                <span class="feature-tag">
+                    MEMBER ACCESS
+                </span>
+
+            </article>
+
+
+
+            <article class="feature">
 
                 <div class="feature-icon">
                     📸
                 </div>
 
                 <h3>
-                    Community Showroom
+                    Photo Sharing
                 </h3>
 
                 <p>
-
-                    Share your railroad photographs, videos,
-                    stories, and memorable catches with the
-                    VIP community.
-
+                    Share your railroad photography
+                    with the Society community.
                 </p>
 
-                <span class="feature-status">
-                    🚂 COMING SOON
+                <span class="feature-tag">
+                    MEMBER ACCESS
                 </span>
 
-            </div>
+            </article>
 
 
-            <div class="vip-feature-item">
+
+            <article class="feature">
+
+                <div class="feature-icon">
+                    🗳️
+                </div>
+
+                <h3>
+                    Society Polls
+                </h3>
+
+                <p>
+                    Take part in community decisions,
+                    opinions, and discussions.
+                </p>
+
+                <span class="feature-tag">
+                    MEMBER ACCESS
+                </span>
+
+            </article>
+
+
+
+            <!-- EXECUTIVE FEATURES -->
+
+
+            <article class="feature executive-feature">
+
+                <div class="feature-icon">
+                    🎥
+                </div>
+
+                <h3>
+                    Video Uploads
+                </h3>
+
+                <p>
+                    Society Executives can upload videos
+                    and contribute them to the Society
+                    Video Archive.
+                </p>
+
+                <span class="feature-tag">
+                    EXECUTIVE ONLY
+                </span>
+
+            </article>
+
+
+
+            <article class="feature executive-feature">
 
                 <div class="feature-icon">
                     🗃️
                 </div>
 
                 <h3>
-                    Your Personal Archive
+                    Video Archive
                 </h3>
 
                 <p>
-
-                    Build your own collection of documented
-                    locomotive encounters and preserve your
-                    previous submissions.
-
+                    Help build the Society's growing
+                    collection of preserved railroad videos.
                 </p>
 
-                <span class="feature-status">
-                    🚂 COMING SOON
+                <span class="feature-tag">
+                    EXECUTIVE ONLY
                 </span>
 
-            </div>
+            </article>
 
 
-            <div class="vip-feature-item">
+
+            <article class="feature executive-feature">
 
                 <div class="feature-icon">
-                    🏗️
+                    👑
                 </div>
 
                 <h3>
-                    Behind the Build
+                    Executive Areas
                 </h3>
 
                 <p>
-
-                    See what we're working on and follow the
-                    museum as new exhibits and features are
-                    created.
-
+                    Access Society spaces and activities
+                    reserved for Executive members.
                 </p>
 
-                <span class="feature-status">
-                    🔓 VIP ACCESS
+                <span class="feature-tag">
+                    EXECUTIVE ONLY
                 </span>
 
-            </div>
-
-
-            <div class="vip-feature-item">
-
-                <div class="feature-icon">
-                    🪙
-                </div>
-
-                <h3>
-                    Founding Collectible
-                </h3>
-
-                <p>
-
-                    Your Founding VIP coin is reserved for you
-                    while the first production run is being
-                    prepared.
-
-                </p>
-
-                <span class="feature-status">
-                    🪙 RESERVED
-                </span>
-
-            </div>
-
+            </article>
 
         </div>
 
@@ -381,274 +1545,232 @@
 
 
 
-    <!-- ======================================================
-         MUSEUM CONSTRUCTION JOURNAL
-    ======================================================= -->
+    <!-- =====================================================
+         EXECUTIVE SPOTLIGHT
+    ====================================================== -->
 
-    <section class="vip-glass-card construction-card">
 
-        <div class="vip-section-heading">
+    <section class="executive-section">
 
-            <span>
-                🏗️
-            </span>
 
-            <div>
-
-                <div class="vip-eyebrow">
-                    LIVE DEVELOPMENT
-                </div>
-
-                <h2>
-                    Museum Construction Journal
-                </h2>
-
-            </div>
-
+        <div class="executive-crown">
+            👑
         </div>
 
 
-        <p>
-
-            The museum is constantly being worked on.
-
-            New exhibits, ideas, improvements, and VIP features
-            are being created all the time.
-
-        </p>
-
-
-        <div class="construction-feed">
-
-
-            <div class="construction-entry">
-
-                <div class="entry-date">
-                    AUG 13, 2026
-                </div>
-
-                <div class="entry-content">
-
-                    <strong>
-                        VIP Society is opening.
-                    </strong>
-
-                    <p>
-                        Welcome to our first Founding VIP members!
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="construction-entry">
-
-                <div class="entry-date">
-                    COMING SOON
-                </div>
-
-                <div class="entry-content">
-
-                    <strong>
-                        Community Showroom
-                    </strong>
-
-                    <p>
-                        VIP members will be able to submit
-                        photographs, videos, and stories.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="construction-entry">
-
-                <div class="entry-date">
-                    IN DEVELOPMENT
-                </div>
-
-                <div class="entry-content">
-
-                    <strong>
-                        3D VIP Showroom
-                    </strong>
-
-                    <p>
-                        A virtual museum space where community
-                        submissions can become part of the
-                        museum experience.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ======================================================
-         3D SHOWROOM TEASER
-    ======================================================= -->
-
-    <section class="vip-3d-teaser">
-
-        <div class="three-d-icon">
-            3D
-        </div>
-
-        <span class="vip-eyebrow">
-            VIP EXCLUSIVE — IN DEVELOPMENT
+        <span class="eyebrow">
+            EXECUTIVE MEMBERS
         </span>
 
+
         <h2>
-            The 3D Showroom
+
+            The Executive<br>
+
+            <span>Level.</span>
+
         </h2>
+
 
         <p>
 
-            Imagine walking into a circular virtual museum,
-            turning around, and seeing railroad photographs
-            displayed on the walls around you.
+            Society Executives are the higher membership
+            level of the TrainsForever Society.
+
+            They receive everything available to Members
+            while unlocking additional Society features,
+            including the ability to upload videos and
+            contribute to the Video Archive.
 
         </p>
 
-        <div class="coming-soon-pill">
-            🚧 FOUNDING MEMBERS WILL SEE IT FIRST
+
+        <div class="executive-perk">
+
+            🎥 VIDEO UPLOADS — EXECUTIVE ONLY
+
         </div>
 
     </section>
 
 
 
-    <!-- ======================================================
-         COMMUNITY MESSAGE
-    ======================================================= -->
+    <!-- =====================================================
+         SOCIETY JOURNEY
+    ====================================================== -->
 
-    <section class="vip-community-message">
 
-        <div class="community-stars">
+    <section>
+
+
+        <div class="section-heading">
+
+            <span>
+                YOUR JOURNEY
+            </span>
+
+
+            <h2>
+                Build Your Society Legacy
+            </h2>
+
+
+            <p>
+                Your membership grows with your participation.
+            </p>
+
+        </div>
+
+
+
+        <div class="journey">
+
+
+            <div class="journey-step">
+
+                <div class="journey-number">
+                    1
+                </div>
+
+                <h3>
+                    JOIN
+                </h3>
+
+                <p>
+                    Become an official Society member.
+                </p>
+
+            </div>
+
+
+
+            <div class="journey-step">
+
+                <div class="journey-number">
+                    2
+                </div>
+
+                <h3>
+                    PARTICIPATE
+                </h3>
+
+                <p>
+                    Chat, compete, share, and interact.
+                </p>
+
+            </div>
+
+
+
+            <div class="journey-step">
+
+                <div class="journey-number">
+                    3
+                </div>
+
+                <h3>
+                    ACHIEVE
+                </h3>
+
+                <p>
+                    Earn badges and build your reputation.
+                </p>
+
+            </div>
+
+
+
+            <div class="journey-step">
+
+                <div class="journey-number">
+                    4
+                </div>
+
+                <h3>
+                    BECOME PART OF HISTORY
+                </h3>
+
+                <p>
+                    Help grow the TrainsForever Society.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FINAL
+    ====================================================== -->
+
+
+    <section class="final">
+
+
+        <div class="final-symbol">
             ✦ ✦ ✦
         </div>
 
+
         <h2>
-            We're Just Getting Started.
+
+            The Society<br>
+
+            <span>is yours now.</span>
+
         </h2>
 
-        <p>
-
-            There is a lot more coming.
-
-        </p>
 
         <p>
 
-            New exhibits.
-
-            New collectibles.
-
-            New features.
-
-            New ways to preserve railroad history.
+            Welcome to the community.
+            Your journey starts here.
 
         </p>
 
-        <p class="big-message">
 
-            And you're here for the beginning.
+        <a
+            href="lobby.html"
+            class="lounge-button"
+        >
+            ENTER THE SOCIETY LOUNGE →
+        </a>
 
-        </p>
-
-        <div class="community-stars">
-            ✦ ✦ ✦
-        </div>
 
     </section>
 
 
 
-    <!-- ======================================================
-         SUPPORT MESSAGE
-    ======================================================= -->
-
-    <section class="vip-glass-card final-thank-you">
-
-        <h2>
-            Thank You.
-        </h2>
-
-        <p>
-
-            Seriously.
-
-        </p>
-
-        <p>
-
-            Thank you for choosing to support the
-            TrainsForever Museum.
-
-        </p>
-
-        <p>
-
-            I don't want to grow this museum by myself.
-
-        </p>
-
-        <p class="highlight-message">
-
-            I want us to grow it together.
-
-        </p>
-
-        <p>
-
-            Welcome to the VIP Society.
-
-        </p>
-
-        <div class="vip-final-seal">
-
-            👑 VIP SOCIETY
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ======================================================
+    <!-- =====================================================
          FOOTER
-    ======================================================= -->
+    ====================================================== -->
 
-    <footer class="vip-welcome-footer">
 
-        <div class="vip-footer-line"></div>
+    <footer>
 
         <p>
-            TrainsForever Museum
+            TRAINSFOREVER SOCIETY
         </p>
 
-        <strong>
-            VIP SOCIETY
-        </strong>
+        <p>
+            <strong>
+                Society Member $10/month • Society Executive $20/month
+            </strong>
+        </p>
 
         <p>
-            Preserving Railroad History —
-            One Locomotive at a Time.
+            Built for railfans. Built together.
         </p>
 
     </footer>
 
 
-</main>
+</div>
+
 
 </body>
 
