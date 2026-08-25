@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Join the Society | TrainsForever</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Join the Society | TrainsForever Museum</title>
+
 
 <style>
+
+/* =========================================================
+   TRAINSFOREVER SOCIETY — PURCHASE PAGE
+   ALL CSS INCLUDED IN THIS FILE
+========================================================= */
 
 * {
     margin: 0;
@@ -20,23 +30,40 @@ html {
 
 body {
     min-height: 100vh;
+
     background:
-        radial-gradient(circle at 50% -10%, #3a321b 0%, #161616 30%, #070707 70%);
+        radial-gradient(
+            circle at 50% -10%,
+            #403619 0%,
+            #171717 32%,
+            #080808 72%,
+            #030303 100%
+        );
+
     color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     overflow-x: hidden;
 }
 
-/* =========================================
-   ATMOSPHERE
-========================================= */
+
+/* ATMOSPHERE */
 
 body::before {
     content: "";
+
     position: fixed;
+
     inset: 0;
+
     pointer-events: none;
-    opacity: .06;
+
+    opacity: .055;
+
     background:
         repeating-linear-gradient(
             90deg,
@@ -45,50 +72,74 @@ body::before {
             #fff 80px,
             transparent 81px
         );
+
+    z-index: -2;
 }
 
 body::after {
     content: "";
+
     position: fixed;
+
     width: 700px;
     height: 700px;
+
     left: 50%;
     top: -350px;
+
     transform: translateX(-50%);
-    background: radial-gradient(
-        circle,
-        rgba(212,175,55,.16),
-        transparent 68%
-    );
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(212,175,55,.18),
+            transparent 68%
+        );
+
     pointer-events: none;
+
+    z-index: -1;
 }
 
-/* =========================================
-   PAGE
-========================================= */
+
+/* PAGE */
 
 .page {
     width: min(1200px, 100%);
+
     margin: auto;
-    padding: 25px 18px 80px;
+
+    padding:
+        20px
+        18px
+        80px;
 }
 
-/* =========================================
-   TOP BAR
-========================================= */
+
+/* TOP BAR */
 
 .topbar {
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
-    padding: 10px 0 30px;
+
+    padding:
+        10px
+        0
+        30px;
 }
 
 .back-link {
-    color: #aaa;
+    color: #888;
+
     text-decoration: none;
-    font-size: 13px;
+
+    font-size: 12px;
+
     letter-spacing: 1px;
+
     transition: .25s;
 }
 
@@ -97,67 +148,105 @@ body::after {
 }
 
 .secure-label {
-    color: #777;
-    font-size: 10px;
-    letter-spacing: 2px;
+    color: #555;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
 }
 
-/* =========================================
-   HERO
-========================================= */
+
+/* HERO */
 
 .hero {
     text-align: center;
-    padding: 60px 10px 70px;
+
+    padding:
+        55px
+        10px
+        70px;
 }
 
 .eyebrow {
     display: inline-block;
-    border: 1px solid rgba(212,175,55,.5);
+
     color: #d4af37;
-    padding: 9px 20px;
-    font-size: 10px;
+
+    border:
+        1px solid
+        rgba(212,175,55,.5);
+
+    padding:
+        9px
+        18px;
+
+    font-size: 9px;
+
     letter-spacing: 4px;
+
     margin-bottom: 25px;
 }
 
 .hero h1 {
-    font-size: clamp(46px, 9vw, 92px);
-    line-height: .9;
-    font-weight: 900;
+    font-size:
+        clamp(45px, 9vw, 95px);
+
+    line-height: .88;
+
     letter-spacing: -4px;
+
+    font-weight: 900;
 }
 
 .hero h1 span {
     color: #d4af37;
-    text-shadow: 0 0 35px rgba(212,175,55,.25);
+
+    text-shadow:
+        0 0 35px
+        rgba(212,175,55,.25);
 }
 
 .hero p {
     max-width: 650px;
-    margin: 28px auto 0;
+
+    margin:
+        28px
+        auto
+        0;
+
     color: #999;
+
+    font-size: 14px;
+
     line-height: 1.7;
 }
 
-/* =========================================
-   STEP INDICATOR
-========================================= */
+
+/* STEPS */
 
 .steps {
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
     gap: 12px;
-    margin-bottom: 55px;
+
+    margin-bottom: 50px;
 }
 
 .step {
     display: flex;
+
     align-items: center;
+
     gap: 8px;
+
     color: #555;
-    font-size: 10px;
+
+    font-size: 9px;
+
     letter-spacing: 2px;
 }
 
@@ -168,39 +257,53 @@ body::after {
 .step-number {
     width: 27px;
     height: 27px;
-    border: 1px solid #444;
+
+    border:
+        1px solid
+        #444;
+
     border-radius: 50%;
+
     display: grid;
+
     place-items: center;
 }
 
 .step.active .step-number {
-    border-color: #d4af37;
     background: #d4af37;
+
+    border-color: #d4af37;
+
     color: #000;
+
     font-weight: 900;
 }
 
 .step-line {
     width: 55px;
+
     height: 1px;
+
     background: #333;
 }
 
-/* =========================================
-   MAIN CHECKOUT
-========================================= */
+
+/* CHECKOUT */
 
 .checkout {
     display: grid;
-    grid-template-columns: 1.2fr .8fr;
+
+    grid-template-columns:
+        1.2fr
+        .8fr;
+
     gap: 22px;
+
     align-items: start;
 }
 
-/* =========================================
-   PLAN PANEL
-========================================= */
+
+/* PANELS */
 
 .panel {
     background:
@@ -209,78 +312,114 @@ body::after {
             rgba(255,255,255,.055),
             rgba(255,255,255,.018)
         );
-    border: 1px solid rgba(255,255,255,.1);
+
+    border:
+        1px solid
+        rgba(255,255,255,.1);
+
     padding: 34px;
-    box-shadow: 0 25px 80px rgba(0,0,0,.35);
+
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.35);
 }
 
 .panel-label {
     color: #d4af37;
-    font-size: 10px;
+
+    font-size: 9px;
+
     letter-spacing: 3px;
+
     font-weight: bold;
+
     margin-bottom: 12px;
 }
 
 .panel h2 {
     font-size: 32px;
+
     margin-bottom: 8px;
 }
 
 .panel-subtitle {
     color: #777;
+
     font-size: 13px;
+
     line-height: 1.6;
+
     margin-bottom: 28px;
 }
 
-/* =========================================
-   PLAN SELECTORS
-========================================= */
+
+/* PLAN */
 
 .plan-option {
     position: relative;
+
     display: block;
+
     margin-bottom: 15px;
+
     cursor: pointer;
 }
 
 .plan-option input {
     position: absolute;
+
     opacity: 0;
+
     pointer-events: none;
 }
 
 .plan-box {
-    border: 1px solid #292929;
-    background: rgba(255,255,255,.025);
+    border:
+        1px solid
+        #292929;
+
+    background:
+        rgba(255,255,255,.025);
+
     padding: 23px;
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
     transition: .3s;
 }
 
 .plan-box:hover {
-    border-color: rgba(212,175,55,.45);
-    transform: translateY(-2px);
+    border-color:
+        rgba(212,175,55,.45);
+
+    transform:
+        translateY(-2px);
 }
 
 .plan-option input:checked + .plan-box {
     border-color: #d4af37;
+
     background:
         linear-gradient(
             135deg,
             rgba(212,175,55,.12),
             rgba(255,255,255,.025)
         );
+
     box-shadow:
-        0 0 30px rgba(212,175,55,.07);
+        0 0 30px
+        rgba(212,175,55,.08);
 }
 
 .plan-left {
     display: flex;
+
     align-items: center;
+
     gap: 17px;
 }
 
@@ -290,12 +429,15 @@ body::after {
 
 .plan-name {
     font-size: 19px;
+
     font-weight: 800;
 }
 
 .plan-description {
     color: #777;
+
     font-size: 11px;
+
     margin-top: 5px;
 }
 
@@ -305,149 +447,211 @@ body::after {
 
 .plan-price strong {
     display: block;
+
     font-size: 28px;
 }
 
 .plan-price span {
     color: #777;
-    font-size: 10px;
+
+    font-size: 9px;
 }
 
-.plan-tag {
-    position: absolute;
-    top: -8px;
-    right: 15px;
-    background: #d4af37;
-    color: #000;
-    padding: 5px 9px;
-    font-size: 8px;
-    font-weight: 900;
-    letter-spacing: 1px;
-}
 
-/* =========================================
-   EXECUTIVE EMPHASIS
-========================================= */
+/* EXECUTIVE */
 
 .executive-option .plan-box {
-    border-color: rgba(212,175,55,.28);
+    border-color:
+        rgba(212,175,55,.28);
 }
 
 .executive-option input:checked + .plan-box {
     border-color: #d4af37;
+
     box-shadow:
-        0 0 45px rgba(212,175,55,.13);
+        0 0 45px
+        rgba(212,175,55,.13);
+}
+
+.plan-tag {
+    position: absolute;
+
+    top: -8px;
+
+    right: 15px;
+
+    background: #d4af37;
+
+    color: #000;
+
+    padding:
+        5px
+        9px;
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
 }
 
 .executive-note {
     margin-top: 22px;
+
     padding: 18px;
-    border-left: 2px solid #d4af37;
-    background: rgba(212,175,55,.045);
+
+    border-left:
+        2px solid
+        #d4af37;
+
+    background:
+        rgba(212,175,55,.045);
 }
 
 .executive-note strong {
     display: block;
+
     color: #d4af37;
-    font-size: 11px;
+
+    font-size: 10px;
+
     letter-spacing: 2px;
+
     margin-bottom: 7px;
 }
 
 .executive-note p {
     color: #888;
+
     font-size: 12px;
+
     line-height: 1.6;
 }
 
-/* =========================================
-   BENEFITS
-========================================= */
+
+/* FEATURES */
 
 .benefits {
     margin-top: 30px;
-    border-top: 1px solid #242424;
+
+    border-top:
+        1px solid
+        #242424;
+
     padding-top: 25px;
 }
 
 .benefits-title {
     color: #777;
+
     font-size: 9px;
+
     letter-spacing: 3px;
+
     margin-bottom: 14px;
 }
 
 .benefit-list {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
     gap: 9px;
+
     list-style: none;
 }
 
 .benefit-list li {
     color: #aaa;
+
     font-size: 12px;
+
     padding: 7px 0;
 }
 
 .benefit-list li::before {
     content: "✓";
+
     color: #d4af37;
+
     margin-right: 8px;
 }
 
-/* =========================================
-   ORDER SUMMARY
-========================================= */
+
+/* SUMMARY */
 
 .summary-panel {
     position: sticky;
+
     top: 20px;
 }
 
 .summary-top {
     text-align: center;
+
     padding-bottom: 25px;
-    border-bottom: 1px solid #292929;
+
+    border-bottom:
+        1px solid
+        #292929;
 }
 
 .summary-icon {
     font-size: 52px;
+
     margin-bottom: 15px;
 }
 
 .summary-top span {
     color: #777;
+
     font-size: 9px;
+
     letter-spacing: 3px;
 }
 
 .summary-top h2 {
     font-size: 27px;
+
     margin-top: 8px;
 }
 
 .summary-price {
     font-size: 55px;
+
     font-weight: 900;
+
     margin-top: 12px;
 }
 
 .summary-price small {
     color: #777;
+
     font-size: 11px;
+
     font-weight: normal;
 }
 
+
+/* DETAILS */
+
 .summary-details {
-    padding: 24px 0;
+    padding:
+        24px
+        0;
 }
 
 .detail {
     display: flex;
+
     justify-content: space-between;
+
     padding: 10px 0;
+
     color: #888;
+
     font-size: 12px;
 }
 
@@ -456,94 +660,135 @@ body::after {
 }
 
 .total {
-    border-top: 1px solid #292929;
-    margin-top: 10px;
-    padding-top: 20px;
-}
+    border-top:
+        1px solid
+        #292929;
 
-.total span {
-    color: #aaa;
+    margin-top: 10px;
+
+    padding-top: 20px;
 }
 
 .total strong {
     color: #d4af37;
+
     font-size: 22px;
 }
 
-/* =========================================
-   CHECKOUT BUTTON
-========================================= */
+
+/* PAYMENT BUTTON */
 
 .checkout-button {
+    display: block;
+
     width: 100%;
+
     border: 0;
+
     padding: 20px;
+
     background: #d4af37;
+
     color: #000;
+
     font-weight: 900;
-    font-size: 13px;
+
+    font-size: 12px;
+
     letter-spacing: 2px;
+
+    text-align: center;
+
+    text-decoration: none;
+
     cursor: pointer;
+
     transition: .3s;
 }
 
 .checkout-button:hover {
-    transform: translateY(-3px);
+    transform:
+        translateY(-3px);
+
     box-shadow:
-        0 12px 35px rgba(212,175,55,.25);
+        0 12px 35px
+        rgba(212,175,55,.25);
 }
 
 .checkout-note {
     text-align: center;
+
     color: #555;
+
     font-size: 10px;
+
     line-height: 1.6;
+
     margin-top: 15px;
 }
 
-/* =========================================
-   TRUST
-========================================= */
+
+/* TRUST */
 
 .trust-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 8px;
+
     margin-top: 20px;
 }
 
 .trust {
     text-align: center;
-    border: 1px solid #222;
+
+    border:
+        1px solid
+        #222;
+
     padding: 12px 5px;
+
     color: #666;
+
     font-size: 9px;
 }
 
 .trust strong {
     display: block;
+
     color: #999;
+
     margin-bottom: 4px;
 }
 
-/* =========================================
-   SOCIETY PROMISE
-========================================= */
+
+/* PROMISE */
 
 .promise {
     max-width: 850px;
-    margin: 100px auto 0;
+
+    margin:
+        100px
+        auto
+        0;
+
     text-align: center;
 }
 
 .promise-mark {
     color: #d4af37;
+
     font-size: 25px;
+
     letter-spacing: 8px;
 }
 
 .promise h2 {
-    font-size: clamp(32px, 6vw, 55px);
+    font-size:
+        clamp(32px, 6vw, 55px);
+
     margin: 20px 0;
 }
 
@@ -553,31 +798,41 @@ body::after {
 
 .promise p {
     color: #777;
+
     line-height: 1.8;
+
     font-size: 14px;
 }
 
-/* =========================================
-   FOOTER
-========================================= */
+
+/* FOOTER */
 
 footer {
     text-align: center;
+
     margin-top: 100px;
+
     padding-top: 30px;
-    border-top: 1px solid #181818;
+
+    border-top:
+        1px solid
+        #181818;
+
     color: #444;
+
     font-size: 10px;
+
     letter-spacing: 1px;
+
+    line-height: 2;
 }
 
 footer strong {
     color: #777;
 }
 
-/* =========================================
-   MOBILE
-========================================= */
+
+/* MOBILE */
 
 @media (max-width: 850px) {
 
@@ -594,11 +849,10 @@ footer strong {
 @media (max-width: 600px) {
 
     .page {
-        padding: 15px 12px 60px;
-    }
-
-    .topbar {
-        padding-bottom: 15px;
+        padding:
+            15px
+            12px
+            60px;
     }
 
     .secure-label {
@@ -606,7 +860,10 @@ footer strong {
     }
 
     .hero {
-        padding: 50px 5px;
+        padding:
+            50px
+            5px
+            65px;
     }
 
     .hero h1 {
@@ -626,11 +883,15 @@ footer strong {
     }
 
     .panel {
-        padding: 23px 18px;
+        padding:
+            23px
+            18px;
     }
 
     .plan-box {
-        padding: 18px 15px;
+        padding:
+            18px
+            15px;
     }
 
     .plan-icon {
@@ -656,17 +917,27 @@ footer strong {
 }
 
 </style>
+
 </head>
+
 
 <body>
 
+
 <div class="page">
+
+
+    <!-- TOP BAR -->
 
     <div class="topbar">
 
-        <a href="index.html" class="back-link">
+        <a
+            href="index.html"
+            class="back-link"
+        >
             ← BACK TO MEMBERSHIP
         </a>
+
 
         <div class="secure-label">
             TRAINSFOREVER SOCIETY
@@ -675,48 +946,89 @@ footer strong {
     </div>
 
 
+
+    <!-- HERO -->
+
     <header class="hero">
 
         <div class="eyebrow">
             SOCIETY MEMBERSHIP
         </div>
 
+
         <h1>
+
             STEP INSIDE<br>
+
             <span>THE SOCIETY.</span>
+
         </h1>
 
+
         <p>
-            Choose your membership level and become part
-            of the TrainsForever Society.
+
+            Choose your membership level and become
+            part of the TrainsForever Society.
+
         </p>
 
     </header>
 
 
+
+    <!-- STEPS -->
+
     <div class="steps">
 
         <div class="step active">
-            <span class="step-number">1</span>
-            <span>MEMBERSHIP</span>
+
+            <span class="step-number">
+                1
+            </span>
+
+            <span>
+                MEMBERSHIP
+            </span>
+
         </div>
+
 
         <div class="step-line"></div>
 
-        <div class="step">
-            <span class="step-number">2</span>
-            <span>PAYMENT</span>
+
+        <div class="step active">
+
+            <span class="step-number">
+                2
+            </span>
+
+            <span>
+                PAYMENT
+            </span>
+
         </div>
+
 
         <div class="step-line"></div>
 
+
         <div class="step">
-            <span class="step-number">3</span>
-            <span>WELCOME</span>
+
+            <span class="step-number">
+                3
+            </span>
+
+            <span>
+                WELCOME
+            </span>
+
         </div>
 
     </div>
 
+
+
+    <!-- CHECKOUT -->
 
     <main class="checkout">
 
@@ -729,14 +1041,20 @@ footer strong {
                 SELECT YOUR LEVEL
             </div>
 
+
             <h2>
                 Choose Your Place
             </h2>
 
+
             <p class="panel-subtitle">
-                The Society has two real membership levels.
-                Visitors remain outside as Ghosts.
+
+                Choose the Society level that's
+                right for you. Ghost Visitors remain
+                free outside the Society.
+
             </p>
+
 
 
             <!-- MEMBER -->
@@ -750,7 +1068,9 @@ footer strong {
                     checked
                 >
 
+
                 <div class="plan-box">
+
 
                     <div class="plan-left">
 
@@ -758,19 +1078,24 @@ footer strong {
                             🚂
                         </div>
 
+
                         <div>
 
                             <div class="plan-name">
                                 Society Member
                             </div>
 
+
                             <div class="plan-description">
+
                                 Full Society membership
+
                             </div>
 
                         </div>
 
                     </div>
+
 
                     <div class="plan-price">
 
@@ -789,9 +1114,12 @@ footer strong {
             </label>
 
 
+
             <!-- EXECUTIVE -->
 
-            <label class="plan-option executive-option">
+            <label
+                class="plan-option executive-option"
+            >
 
                 <input
                     type="radio"
@@ -799,11 +1127,14 @@ footer strong {
                     value="executive"
                 >
 
+
                 <div class="plan-box">
+
 
                     <div class="plan-tag">
                         EXECUTIVE
                     </div>
+
 
                     <div class="plan-left">
 
@@ -811,19 +1142,25 @@ footer strong {
                             👑
                         </div>
 
+
                         <div>
 
                             <div class="plan-name">
                                 Society Executive
                             </div>
 
+
                             <div class="plan-description">
-                                Everything in Member + Executive access
+
+                                Everything in Member +
+                                Executive access
+
                             </div>
 
                         </div>
 
                     </div>
+
 
                     <div class="plan-price">
 
@@ -842,20 +1179,29 @@ footer strong {
             </label>
 
 
+
+            <!-- EXECUTIVE NOTE -->
+
             <div class="executive-note">
 
                 <strong>
                     🎥 EXECUTIVE PRIVILEGE
                 </strong>
 
+
                 <p>
+
                     Society Executives are the only members
-                    currently able to upload videos and contribute
-                    to the Society Video Archive.
+                    currently able to upload videos and
+                    contribute to the Society Video Archive.
+
                 </p>
 
             </div>
 
+
+
+            <!-- FEATURES -->
 
             <div class="benefits">
 
@@ -863,25 +1209,56 @@ footer strong {
                     SOCIETY FEATURES
                 </div>
 
+
                 <ul class="benefit-list">
 
-                    <li>Member Profile</li>
-                    <li>Member Directory</li>
+                    <li>
+                        Member Profile
+                    </li>
 
-                    <li>Badge Locker</li>
-                    <li>Respect & Disrespect</li>
+                    <li>
+                        Member Directory
+                    </li>
 
-                    <li>Society Lounge</li>
-                    <li>Chat</li>
+                    <li>
+                        Badge Locker
+                    </li>
 
-                    <li>Challenges</li>
-                    <li>Polls</li>
+                    <li>
+                        Respect & Disrespect
+                    </li>
 
-                    <li>Events</li>
-                    <li>Photo Sharing</li>
+                    <li>
+                        Society Lounge
+                    </li>
 
-                    <li>Achievements</li>
-                    <li>Leaderboards</li>
+                    <li>
+                        Chat
+                    </li>
+
+                    <li>
+                        Challenges
+                    </li>
+
+                    <li>
+                        Polls
+                    </li>
+
+                    <li>
+                        Events
+                    </li>
+
+                    <li>
+                        Photo Sharing
+                    </li>
+
+                    <li>
+                        Achievements
+                    </li>
+
+                    <li>
+                        Leaderboards
+                    </li>
 
                 </ul>
 
@@ -890,27 +1267,37 @@ footer strong {
         </section>
 
 
+
         <!-- SUMMARY -->
 
         <aside class="panel summary-panel">
 
+
             <div class="summary-top">
 
-                <div class="summary-icon" id="summaryIcon">
+                <div
+                    class="summary-icon"
+                    id="summaryIcon"
+                >
                     🚂
                 </div>
+
 
                 <span>
                     YOUR SELECTION
                 </span>
 
+
                 <h2 id="summaryName">
                     Society Member
                 </h2>
 
+
                 <div class="summary-price">
 
-                    $<span id="summaryPrice">10</span>
+                    $<span id="summaryPrice">
+                        10
+                    </span>
 
                     <small>
                         / month
@@ -921,7 +1308,9 @@ footer strong {
             </div>
 
 
+
             <div class="summary-details">
+
 
                 <div class="detail">
 
@@ -982,7 +1371,11 @@ footer strong {
                     </span>
 
                     <strong>
-                        $<span id="totalPrice">10</span>
+
+                        $<span id="totalPrice">
+                            10
+                        </span>
+
                     </strong>
 
                 </div>
@@ -990,43 +1383,61 @@ footer strong {
             </div>
 
 
-            <!--
-                PAYMENT CONNECTION POINT
 
-                Connect this button to your actual
-                Stripe/payment checkout when ready.
-            -->
+            <!-- REAL SQUARE CHECKOUT BUTTON -->
 
-            <button
+            <a
+                href="https://square.link/u/C7YYXGpA?src=sheet"
                 class="checkout-button"
-                type="button"
-                id="continueButton"
+                id="checkoutButton"
+                target="_blank"
+                rel="noopener"
             >
-                CONTINUE TO SECURE CHECKOUT
-            </button>
+                CONTINUE TO MEMBER CHECKOUT
+            </a>
 
 
             <p class="checkout-note">
-                You will continue to the secure payment
-                step for your selected Society membership.
+
+                You'll be taken to Square's secure
+                checkout to complete your membership.
+
             </p>
+
 
 
             <div class="trust-row">
 
                 <div class="trust">
-                    <strong>🔐</strong>
+
+                    <strong>
+                        🔐
+                    </strong>
+
                     SECURE
+
                 </div>
 
+
                 <div class="trust">
-                    <strong>↻</strong>
+
+                    <strong>
+                        ↻
+                    </strong>
+
                     MONTHLY
+
                 </div>
 
+
                 <div class="trust">
-                    <strong>🚂</strong>
+
+                    <strong>
+                        🚂
+                    </strong>
+
                     SOCIETY
+
                 </div>
 
             </div>
@@ -1034,6 +1445,7 @@ footer strong {
         </aside>
 
     </main>
+
 
 
     <!-- PROMISE -->
@@ -1044,20 +1456,34 @@ footer strong {
             ✦ ✦ ✦
         </div>
 
+
         <h2>
+
             You're not buying a badge.<br>
-            <span>You're joining the Society.</span>
+
+            <span>
+                You're joining the Society.
+            </span>
+
         </h2>
 
+
         <p>
-            Your membership gives you a place inside
-            TrainsForever where you can participate,
-            collect achievements, connect with railfans,
-            and help build the community.
+
+            Your membership helps support the continued
+            development of TrainsForever and gives you
+            a voice in what we build together.
+
+            Suggest ideas, participate in polls, share
+            feedback, and help shape what comes next.
+
         </p>
 
     </section>
 
+
+
+    <!-- FOOTER -->
 
     <footer>
 
@@ -1065,47 +1491,99 @@ footer strong {
             TRAINSFOREVER SOCIETY
         </p>
 
-        <p>
-            Membership required for Society participation.
-        </p>
 
         <p>
+
+            Membership is billed monthly
+            through Square.
+
+        </p>
+
+
+        <p>
+
             <strong>
-                Society Member $10/month • Society Executive $20/month
+
+                Society Member $10/month
+                •
+                Society Executive $20/month
+
             </strong>
+
         </p>
 
     </footer>
 
+
 </div>
+
 
 
 <script>
 
-const plans = document.querySelectorAll(
-    'input[name="membership"]'
-);
+/* =========================================================
+   PLAN SELECTION
+========================================================= */
+
+
+const plans =
+    document.querySelectorAll(
+        'input[name="membership"]'
+    );
+
 
 const summaryIcon =
-    document.getElementById("summaryIcon");
+    document.getElementById(
+        "summaryIcon"
+    );
+
 
 const summaryName =
-    document.getElementById("summaryName");
+    document.getElementById(
+        "summaryName"
+    );
+
 
 const summaryTier =
-    document.getElementById("summaryTier");
+    document.getElementById(
+        "summaryTier"
+    );
+
 
 const summaryPrice =
-    document.getElementById("summaryPrice");
+    document.getElementById(
+        "summaryPrice"
+    );
+
 
 const totalPrice =
-    document.getElementById("totalPrice");
+    document.getElementById(
+        "totalPrice"
+    );
+
 
 const videoStatus =
-    document.getElementById("videoStatus");
+    document.getElementById(
+        "videoStatus"
+    );
 
-const continueButton =
-    document.getElementById("continueButton");
+
+const checkoutButton =
+    document.getElementById(
+        "checkoutButton"
+    );
+
+
+
+/* REAL SQUARE LINKS */
+
+const memberCheckout =
+    "https://square.link/u/C7YYXGpA?src=sheet";
+
+
+const executiveCheckout =
+    "https://square.link/u/79IKCPXb?src=sheet";
+
 
 
 function updatePlan() {
@@ -1115,114 +1593,121 @@ function updatePlan() {
             'input[name="membership"]:checked'
         );
 
-    if (!selected) return;
+
+    if (!selected) {
+        return;
+    }
 
 
-    if (selected.value === "executive") {
 
-        summaryIcon.textContent = "👑";
+    if (
+        selected.value ===
+        "executive"
+    ) {
+
+
+        summaryIcon.textContent =
+            "👑";
+
 
         summaryName.textContent =
             "Society Executive";
 
+
         summaryTier.textContent =
             "Society Executive";
 
-        summaryPrice.textContent = "20";
 
-        totalPrice.textContent = "20";
+        summaryPrice.textContent =
+            "20";
+
+
+        totalPrice.textContent =
+            "20";
+
 
         videoStatus.textContent =
             "Included";
 
+
         videoStatus.style.color =
             "#d4af37";
 
+
+        checkoutButton.textContent =
+            "CONTINUE TO EXECUTIVE CHECKOUT";
+
+
+        checkoutButton.href =
+            executiveCheckout;
+
+
     } else {
 
-        summaryIcon.textContent = "🚂";
+
+        summaryIcon.textContent =
+            "🚂";
+
 
         summaryName.textContent =
             "Society Member";
 
+
         summaryTier.textContent =
             "Society Member";
 
-        summaryPrice.textContent = "10";
 
-        totalPrice.textContent = "10";
+        summaryPrice.textContent =
+            "10";
+
+
+        totalPrice.textContent =
+            "10";
+
 
         videoStatus.textContent =
             "Not Included";
 
+
         videoStatus.style.color =
             "";
+
+
+        checkoutButton.textContent =
+            "CONTINUE TO MEMBER CHECKOUT";
+
+
+        checkoutButton.href =
+            memberCheckout;
 
     }
 
 }
 
 
-plans.forEach(function(plan) {
 
-    plan.addEventListener(
-        "change",
-        updatePlan
-    );
+/* LISTEN FOR PLAN CHANGES */
 
-});
+plans.forEach(
+    function(plan) {
 
-
-/*
-    IMPORTANT:
-
-    The current repository does not contain
-    an actual payment/Stripe checkout URL in
-    purchase.html.
-
-    This button is therefore intentionally
-    left as the connection point.
-
-    Once the real payment destination exists,
-    replace the alert below with:
-
-    window.location.href = "YOUR_PAYMENT_URL";
-*/
-
-
-continueButton.addEventListener(
-    "click",
-    function() {
-
-        const selected =
-            document.querySelector(
-                'input[name="membership"]:checked'
-            );
-
-        if (!selected) return;
-
-
-        if (selected.value === "executive") {
-
-            alert(
-                "Society Executive selected — $20/month. Connect this button to the Executive payment checkout."
-            );
-
-        } else {
-
-            alert(
-                "Society Member selected — $10/month. Connect this button to the Member payment checkout."
-            );
-
-        }
+        plan.addEventListener(
+            "change",
+            updatePlan
+        );
 
     }
 );
 
 
+
+/* INITIAL STATE */
+
 updatePlan();
 
 </script>
 
+
 </body>
+
 </html>
