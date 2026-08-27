@@ -1,1 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Sign In • TrainsForever Society</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.login-page{
+    max-width:520px;
+    margin:0 auto;
+    padding:70px 20px;
+}
+
+.login-card{
+    background:linear-gradient(
+        180deg,
+        #313841 0%,
+        #252b31 100%
+    );
+
+    border:1px solid #59626c;
+    border-top:5px solid #7d8792;
+    border-radius:20px;
+    padding:30px;
+
+    box-shadow:
+        0 14px 30px rgba(0,0,0,.35);
+}
+
+.login-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.login-header h1{
+    margin:10px 0;
+}
+
+.login-label{
+    display:block;
+    margin-bottom:7px;
+    color:#fff;
+    font-weight:700;
+}
+
+.login-group{
+    margin-bottom:20px;
+}
+
+.login-input{
+    width:100%;
+    padding:14px 15px;
+    border-radius:12px;
+    border:1px solid #59626c;
+    background:#15191d;
+    color:#fff;
+    font-size:1rem;
+    outline:none;
+}
+
+.login-input:focus{
+    border-color:#d4af37;
+    box-shadow:
+        0 0 0 2px rgba(212,175,55,.12);
+}
+
+.login-button{
+    width:100%;
+    padding:17px;
+    border:2px solid #f5da70;
+    border-radius:12px;
+
+    background:linear-gradient(
+        145deg,
+        #f5d66c,
+        #c79b24
+    );
+
+    color:#111;
+    font-weight:900;
+    letter-spacing:1px;
+    cursor:pointer;
+
+    box-shadow:
+        0 5px 0 #806014,
+        0 12px 25px rgba(0,0,0,.4);
+}
+
+.login-button:disabled{
+    opacity:.6;
+    cursor:wait;
+}
+
+.login-message{
+    display:none;
+    margin-bottom:20px;
+    padding:15px;
+    border-radius:12px;
+    font-weight:700;
+}
+
+.login-message.success{
+    display:block;
+    background:rgba(70,170,100,.12);
+    border:1px solid rgba(70,170,100,.45);
+    color:#b9f0c5;
+}
+
+.login-message.error{
+    display:block;
+    background:rgba(190,60,60,.12);
+    border:1px solid rgba(190,60,60,.45);
+    color:#ffb8b8;
+}
+
+.login-links{
+    margin-top:25px;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.10);
+    text-align:center;
+}
+
+.login-links a{
+    color:#f4dd87;
+    font-weight:800;
+    text-decoration:none;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main class="login-page">
+
+    <div style="margin-bottom:25px;">
+        <a href="index.html"
+           style="color:#d4af37;text-decoration:none;font-weight:700;">
+            ← Museum Lobby
+        </a>
+    </div>
+
+    <section class="login-card">
+
+        <header class="login-header">
+
+            <div class="exhibit-number">
+                TRAINSFOREVER SOCIETY
+            </div>
+
+            <h1>🔐 Sign In</h1>
+
+            <p class="museum-subtitle">
+                Welcome back to the Society.
+            </p>
+
+        </header>
+
+        <div id="loginMessage"
+             class="login-message">
+        </div>
+
+        <form id="loginForm">
+
+            <div class="login-group">
+
+                <label
+                    class="login-label"
+                    for="email">
+                    Email Address
+                </label>
+
+                <input
+                    class="login-input"
+                    type="email"
+                    id="email"
+                    required
+                    autocomplete="email"
+                    placeholder="you@example.com">
+
+            </div>
+
+            <div class="login-group">
+
+                <label
+                    class="login-label"
+                    for="password">
+                    Password
+                </label>
+
+                <input
+                    class="login-input"
+                    type="password"
+                    id="password"
+                    required
+                    autocomplete="current-password"
+                    placeholder="Your password">
+
+            </div>
+
+            <button
+                class="login-button"
+                id="loginButton"
+                type="submit">
+
+                🔐 SIGN IN TO TRAINSFOREVER
+
+            </button>
+
+        </form>
+
+        <div class="login-links">
+
+            <p>
+                Don't have an account?
+            </p>
+
+            <a href="profile.html">
+                🚂 CREATE YOUR PROFILE
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+const SUPABASE_URL =
+    "https://hooinhbybdhizunfdyih.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+   "sb_publishable_q2moV3RdALePl6kunHxvNg_xoj9hjvm"
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
+
+const loginForm =
+    document.getElementById("loginForm");
+
+const loginButton =
+    document.getElementById("loginButton");
+
+const loginMessage =
+    document.getElementById("loginMessage");
+
+
+function showMessage(text,type){
+
+    loginMessage.textContent=text;
+
+    loginMessage.className=
+        "login-message " + type;
+
+}
+
+
+loginForm.addEventListener(
+    "submit",
+    async function(event){
+
+        event.preventDefault();
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim();
+
+        const password =
+            document
+                .getElementById("password")
+                .value;
+
+
+        loginButton.disabled=true;
+
+        loginButton.textContent=
+            "SIGNING IN...";
+
+
+        try{
+
+            const {
+                data,
+                error
+            } =
+            await supabaseClient.auth.signInWithPassword({
+
+                email:email,
+
+                password:password
+
+            });
+
+
+            if(error)
+                throw error;
+
+
+            if(!data?.user)
+                throw new Error(
+                    "Sign in did not return a user."
+                );
+
+
+            showMessage(
+                "🎉 Welcome back! Opening the Society Lounge...",
+                "success"
+            );
+
+
+            setTimeout(
+                ()=>{
+                    window.location.href=
+                        "lounge.html";
+                },
+                700
+            );
+
+
+        }catch(error){
+
+            console.error(error);
+
+            showMessage(
+                error.message ||
+                "Unable to sign in.",
+                "error"
+            );
+
+        }finally{
+
+            loginButton.disabled=false;
+
+            loginButton.textContent=
+                "🔐 SIGN IN TO TRAINSFOREVER";
+
+        }
+
+    }
+
+);
+
+</script>
+
+</body>
+</html>
