@@ -6575,7 +6575,157 @@ setTimeout(
 .tf-membership-status strong{
   color:#ffe8a0;
 }
+<!-- =========================================================
+     TRAINSFOREVER SOCIETY DISPATCH
+     I'M NEEDED SYSTEM
+     ========================================================= -->
 
+<script>
+
+async function sendSocietyDispatch(){
+
+  if(!currentUser){
+
+    toast(
+      "Please sign in first."
+    );
+
+    return;
+
+  }
+
+
+  const input =
+    document.getElementById(
+      "neededReasonInput"
+    );
+
+
+  const reason =
+    input?.value.trim();
+
+
+  if(!reason){
+
+    toast(
+      "Please give a reason for being needed."
+    );
+
+    return;
+
+  }
+
+
+  const memberName =
+    currentUser.user_metadata?.display_name ||
+    currentUser.user_metadata?.username ||
+    currentUser.email?.split("@")[0] ||
+    "Society Member";
+
+
+  const now =
+    new Date();
+
+
+  const time =
+    now.toLocaleTimeString(
+      [],
+      {
+        hour:"numeric",
+        minute:"2-digit"
+      }
+    );
+
+
+  const dispatchMessage =
+`🚂 TrainsForever Society Dispatch
+
+👤 ${memberName}
+💬 ${reason}
+
+🕐 ${time}
+
+📡 I'm Needed
+— TrainsForever Society Lounge`;
+
+
+  try{
+
+    const result =
+      await supabaseClient
+        .from(
+          "needed_requests"
+        )
+        .insert({
+
+          user_id:
+            currentUser.id,
+
+          reason:
+            reason,
+
+          dispatch_message:
+            dispatchMessage
+
+        });
+
+
+    if(result.error)
+      throw result.error;
+
+
+    document
+      .getElementById(
+        "neededReasonBox"
+      )
+      ?.remove();
+
+
+    toast(
+      "🚂 Dispatch sent to TrainsForever."
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "Dispatch error:",
+      error
+    );
+
+
+    toast(
+      "Could not send dispatch."
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   CONNECT EXISTING BUTTON
+   ========================================================= */
+
+document.addEventListener(
+  "click",
+  event=>{
+
+    if(
+      event.target?.id ===
+      "submitNeeded"
+    ){
+
+      event.preventDefault();
+
+      sendSocietyDispatch();
+
+    }
+
+  }
+);
+
+</script>
 </style>
 
 
